@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Penfield Experience Map</title>
+<!--@FONTLINK@-->
+<style>
+/*@SHARED_CSS@*/
+/* ---------- experience map ---------- */
+.anat .hemi{fill:url(#stip);stroke:none}
+.anat .cbl{fill:url(#fib);stroke-width:1}
+.anat .stem{fill:var(--plate);stroke-width:1}
+.anat .strip{fill:url(#fib);stroke:none;opacity:.55}
+.sul .fis{stroke-width:1.9}
+.sul .cs{stroke-width:1.5}
+.sul .out{stroke-width:1.5}
+.sul .ctx{stroke:var(--ink);stroke-dasharray:3 3;stroke-opacity:.55;stroke-linecap:butt}
+.sul .ctxb{stroke:var(--plate);stroke-opacity:.82}
+.sul .ctxe{stroke-dasharray:3 3;stroke-opacity:.55;stroke-width:1}
+.zn{cursor:pointer;outline:none}
+.zn .zf{fill:transparent;stroke:none}
+.zn .zt{fill:none;stroke:none;pointer-events:none}
+.zn .zo{fill:none;stroke:none;pointer-events:none}
+.zn.on .zf{fill:var(--gc)}
+.zn.on .zt{fill:url(#tx-on)}
+.zn.ol.on .zo{stroke:var(--ink);stroke-width:1.2}
+.zn:hover .zo{stroke:var(--ink2);stroke-width:1;stroke-dasharray:2 2}
+.zn .ze{fill:none;stroke:var(--ink);stroke-dasharray:3 2.6;stroke-linecap:butt}
+.zn .zb{fill:none;stroke:var(--plate);stroke-linecap:butt}
+.zn .zf.ln{fill:none;stroke:transparent;stroke-linecap:butt}
+.zn .zt.ln{fill:none;stroke:none;stroke-linecap:butt}
+.zn .zh{fill:none;stroke:transparent;pointer-events:stroke}
+.zn circle.zh{fill:transparent;stroke:none;pointer-events:all}
+.zn .zc{fill:var(--plate);stroke:var(--ink);stroke-width:1.1;stroke-dasharray:3 2.6}
+.zn.on .zf.ln{stroke:var(--gc)}
+.zn.on .zt.ln{stroke:url(#tx-on)}
+.zn.on .ze,.zn.on .zc{stroke-dasharray:none}
+.zn.on2 .zf{fill:var(--gc);fill-opacity:.38}
+.zn.on2 .zf.ln{fill:none;stroke:var(--gc);stroke-opacity:.38}
+.hes{fill:var(--ink);stroke:none}
+.anat.lbl text{pointer-events:none}
+.bodylink{cursor:pointer}
+.bodylink .blk{font-size:10.5px;font-style:italic;fill:var(--link);text-decoration:underline}
+.bodylink .ptr2{stroke:var(--link);stroke-width:.7;fill:none}
+.elab{cursor:pointer;outline:none}
+.elab .lab{font-size:13.5px;fill:var(--ink);paint-order:stroke;stroke:var(--plate);stroke-width:4px;stroke-linejoin:round}
+.elab .lead{stroke:var(--ink);stroke-width:.7;fill:none}
+.elab .dot{fill:var(--ink)}
+.elab.on .lab{font-weight:700}
+.elab.on .lead{stroke-width:1.5}
+.elab:hover .lab,.elab:focus-visible .lab{text-decoration:underline}
+#fig1.fitm .labs,#fig1.fitm .anat.lbl,#fig1.fitm .bodylink{display:none}
+.chips{display:none}
+.who{font-weight:400;font-style:italic}
+.none.plain2{font-style:normal}
+.bar .bk{font-size:12px;fill:var(--ink)}
+.bar .bv,.bv{font-size:11px;fill:var(--ink);font-variant-numeric:tabular-nums lining-nums}
+dl.series{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 14px;font-size:11.5px}
+dl.series dt{color:var(--ink2)}
+dl.series dd{margin:0;text-align:right;font-variant-numeric:tabular-nums lining-nums}
+#p2 .svgwrap svg{min-width:520px}
+@media (max-width:1020px){
+  #fig1{height:36vh;height:36dvh}
+  /* on a phone the layer bar, the arrows and the row of names under the plate already do these jobs */
+  #tools,.lede .try{display:none}
+  .chips{display:flex;gap:6px;overflow-x:auto;padding:6px 8px;background:var(--bg);border-top:1px solid var(--ink);scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;border:1px solid var(--ink);background:var(--plate);padding:4px 9px;font-size:11.5px;cursor:pointer;white-space:nowrap}
+  .chip.on{background:var(--ink);color:var(--plate)}
+  .mbar .seg2 button{padding:5px 8px}
+}
+@media (max-width:1020px) and (min-width:640px) and (orientation:landscape){
+  #fig1{height:calc(100vh - 78px - var(--headh));height:calc(100dvh - 78px - var(--headh))}
+}
+</style>
+</head>
+<body>
+
+<!--@DEFS@-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <pattern id="tx-on" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#f8f5ec" stroke-opacity=".55" stroke-width="1.1"/></pattern>
+</defs></svg>
+
+<header class="top">
+  <h1>Penfield’s Map <small>of human experience</small></h1>
+  <nav class="menu" aria-label="Site">
+    <a href="@EXP@" aria-current="page">Experience<span class="mw"> map</span></a>
+    <a href="@BODY@">Body<span class="mw"> map</span></a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="@ABOUT@">About</a>
+    <a href="@METHODS@">Methods</a>
+    <a href="@REFS@">References</a>
+  </nav>
+  <span class="build" data-t="updated 2026-11-26. Work in progress, not peer reviewed"></span>
+</header>
+<p class="build2">updated 2026-11-26. Work in progress, not peer reviewed</p>
+
+<p class="lede" id="lede"><span>The surgeon Wilder Penfield operated on patients who were awake, stimulated the exposed brain with an electrode and recorded what they reported. On the temporal lobe, in 40 of 520 patients, the current brought voices, music and scenes that he read as a record of the patient’s own past. This map shows where, case by case, with what later work found. Devices are now being built to read the brain and write to it. <a href="@ABOUT@">About the map</a></span>
+<span class="try">Start with a case <a data-id="voices" data-scroll="1" href="@XPRE@voices@XSUF@">Voices</a> <a data-id="music" data-scroll="1" href="@XPRE@music@XSUF@">Music</a> <a data-id="fear" data-scroll="1" href="@XPRE@fear@XSUF@">Fear</a> <a data-id="laughter" data-scroll="1" href="@XPRE@laughter@XSUF@">Laughter</a> <a data-id="oob" data-scroll="1" href="@XPRE@leaving-the-body@XSUF@">Leaving the body</a> <a class="all" href="@RECS@">All records</a></span></p>
+<noscript><p class="crumb">The map on this page is drawn by a script. Every record is also a plain page: <a href="@RECS@">index of records</a>.</p></noscript>
+
+<div class="tools" id="tools">
+  <span class="grp g-strip">
+    <span class="lbl" id="lblg">Layer</span>
+    <span class="seg2" role="group" aria-labelledby="lblg">
+      <button type="button" id="btn-R" data-g="R" aria-pressed="true">Memory-like experiences</button>
+      <button type="button" id="btn-I" data-g="I" aria-pressed="false">The present, altered</button>
+      <button type="button" id="btn-L" data-g="L" aria-pressed="false">Later work on feeling</button>
+    </span>
+  </span>
+  <span class="grp">
+    <label class="lbl" for="pick">Go to</label>
+    <select id="pick"></select>
+  </span>
+</div>
+
+<main>
+  <div class="duo" id="duo">
+    <section class="panel" id="p1">
+      <h2><b>Fig. 1.</b> <span id="f1t"></span></h2>
+      <div class="pbody">
+        <div class="mbar" id="mbar">
+          <span class="seg2" role="group" aria-label="Layer shown">
+            <button type="button" id="m-R" data-g="R" aria-pressed="true">Memory-like</button>
+            <button type="button" id="m-I" data-g="I" aria-pressed="false">Altered</button>
+            <button type="button" id="m-L" data-g="L" aria-pressed="false">Later</button>
+          </span>
+          <span class="mnow" id="mnow"></span>
+          <span class="seg2" role="group" aria-label="Step through the records">
+            <button type="button" id="m-prev" aria-label="Previous record">←</button>
+            <button type="button" id="m-next" aria-label="Next record">→</button>
+          </span>
+        </div>
+        <div class="svgwrap" id="fig1"></div>
+        <div class="chips" id="chips"></div>
+      </div>
+    </section>
+    <aside class="record" id="record" aria-live="polite"></aside>
+  </div>
+  <section class="panel" id="p1k">
+    <h2><b>Fig. 1.</b> <span>Key and notes</span></h2>
+    <div class="pbody">
+      <div class="side" id="key"></div>
+      <p class="cap">Select a name on the plate, a region, or a line in the key. Left and right arrow keys step through the records. The plate is an original schematic of one hemisphere seen from the side and is not to scale. Shading marks the region a source names, not the points it plotted. Broken outlines are structures on the inner face of the hemisphere or deep inside it, projected onto this view. The first, second and third temporal convolutions are the superior, middle and inferior temporal gyri. The dark mark inside the fissure is the anterior transverse gyrus of Heschl, where stimulation gave crude sound and no memory-like experience. The side of the brain for each finding is given in its record. The method codes in the records are explained under <a href="@METHODS@#codes-experience">Methods</a>.</p>
+    </div>
+  </section>
+  <section class="panel" id="p2">
+    <h2><b>Fig. 2.</b> <span>Memory-like experiences by kind and by hemisphere: Table V of Penfield and Perot 1963, 138 responses in 40 patients.</span></h2>
+    <div class="pbody">
+      <div class="svgwrap" id="fig2"></div>
+      <div class="side" id="series"></div>
+      <p class="cap" id="cap2"></p>
+    </div>
+  </section>
+</main>
+
+<section class="doc about" id="about">
+  <div id="about-a"></div>
+  <div id="about-b"></div>
+</section>
+
+<section class="doc" id="methods">
+  <div>
+    <h2>Methods and limitations</h2>
+    <ol id="methlist"></ol>
+  </div>
+  <div>
+    <h2>Method codes</h2>
+    <dl>
+      <dt>STIM</dt><dd>Electrical stimulation through electrodes placed to study a patient’s epilepsy</dd>
+      <dt>DBS</dt><dd>Deep brain stimulation through an implanted stimulator</dd>
+      <dt>REC</dt><dd>Recording from implanted electrodes, with decoding</dd>
+      <dt>REV</dt><dd>Review of published cases</dd>
+      <dt>CRIT</dt><dd>Critique or reanalysis</dd>
+      <dt>HIST</dt><dd>Penfield’s own earlier papers</dd>
+    </dl>
+  </div>
+  <div class="docfull" id="refs">
+    <h2>References</h2>
+    <ul id="reflist"></ul>
+  </div>
+</section>
+
+<div id="status" role="status">Point at a name or a region for a readout.</div>
+
+<script>
+var BODYURL='@BODY@',EXPURL='@EXP@',XPRE='@XPRE@',XSUF='@XSUF@';
+/*@DATA@*/
+/*@TEXT@*/
+/*@APP@*/
+</script>
+</body>
+</html>

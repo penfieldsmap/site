@@ -1,0 +1,3964 @@
+{
+  "about": "Body map of Penfield’s Map, https://penfieldsmap.com/body/. Generated from src/ by build/export-data.js. Labels are those lettered on the two figures of Penfield and Rasmussen 1950, in order from the midline outward, and the six regions of the 2023 fMRI scheme.",
+  "licence": "CC BY 4.0. Credit: Dargentic Intelligence, Penfield’s Map, https://penfieldsmap.com",
+  "divisions": [
+    {
+      "key": "ge",
+      "name": "Genitals"
+    },
+    {
+      "key": "ll",
+      "name": "Lower limb"
+    },
+    {
+      "key": "ax",
+      "name": "Trunk and neck"
+    },
+    {
+      "key": "ul",
+      "name": "Upper limb, proximal"
+    },
+    {
+      "key": "hd",
+      "name": "Hand and digits"
+    },
+    {
+      "key": "fc",
+      "name": "Head and upper face"
+    },
+    {
+      "key": "mo",
+      "name": "Mouth"
+    },
+    {
+      "key": "vi",
+      "name": "Pharynx and viscera"
+    }
+  ],
+  "labels": [
+    {
+      "id": "sen-genitals",
+      "address": "https://penfieldsmap.com/body/sensory/genitals/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 1,
+      "label": "Gen.",
+      "long_label": "Genitals",
+      "division": "ge",
+      "reading_grade": "B",
+      "note": "Lettered “Gen.” on the plate, with a curved arrow to the lower end of the Toes line. It has no block line of its own.",
+      "block_line_mm": null,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "g-knl",
+        "g-knr"
+      ]
+    },
+    {
+      "id": "sen-toes",
+      "address": "https://penfieldsmap.com/body/sensory/toes/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 2,
+      "label": "Toes",
+      "long_label": "Toes",
+      "division": "ll",
+      "reading_grade": "A",
+      "note": "Lowest block line on the medial surface, as drawn.",
+      "block_line_mm": 6.5,
+      "kind_2023": "",
+      "coordinate_ids": []
+    },
+    {
+      "id": "sen-foot",
+      "address": "https://penfieldsmap.com/body/sensory/foot/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 3,
+      "label": "Foot",
+      "long_label": "Foot",
+      "division": "ll",
+      "reading_grade": "A",
+      "note": "On the medial surface as drawn, bending toward the upper margin at its top.",
+      "block_line_mm": 9.5,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-ft"
+      ]
+    },
+    {
+      "id": "sen-leg",
+      "address": "https://penfieldsmap.com/body/sensory/leg/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 4,
+      "label": "Leg",
+      "long_label": "Leg",
+      "division": "ll",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 3.3,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-lg",
+        "s-kn",
+        "s-th"
+      ]
+    },
+    {
+      "id": "sen-hip",
+      "address": "https://penfieldsmap.com/body/sensory/hip/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 5,
+      "label": "Hip",
+      "long_label": "Hip",
+      "division": "ll",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 3,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-hp"
+      ]
+    },
+    {
+      "id": "sen-trunk",
+      "address": "https://penfieldsmap.com/body/sensory/trunk/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 6,
+      "label": "Trunk",
+      "long_label": "Trunk",
+      "division": "ax",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.5,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-tx",
+        "s-ab"
+      ]
+    },
+    {
+      "id": "sen-neck",
+      "address": "https://penfieldsmap.com/body/sensory/neck/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 7,
+      "label": "Neck",
+      "long_label": "Neck",
+      "division": "ax",
+      "reading_grade": "A",
+      "note": "Between Trunk and Head. The motor figure puts the neck elsewhere (Fig. 2).",
+      "block_line_mm": 1.3,
+      "kind_2023": "",
+      "coordinate_ids": []
+    },
+    {
+      "id": "sen-head",
+      "address": "https://penfieldsmap.com/body/sensory/head/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 8,
+      "label": "Head",
+      "long_label": "Head",
+      "division": "fc",
+      "reading_grade": "A",
+      "note": "Between Neck and Shoulder, apart from the face labels, which follow the thumb.",
+      "block_line_mm": 1.5,
+      "kind_2023": "",
+      "coordinate_ids": []
+    },
+    {
+      "id": "sen-shoulder",
+      "address": "https://penfieldsmap.com/body/sensory/shoulder/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 9,
+      "label": "Shoulder",
+      "long_label": "Shoulder",
+      "division": "ul",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 1,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-sh"
+      ]
+    },
+    {
+      "id": "sen-arm",
+      "address": "https://penfieldsmap.com/body/sensory/arm/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 10,
+      "label": "Arm",
+      "long_label": "Arm",
+      "division": "ul",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 1.5,
+      "kind_2023": "",
+      "coordinate_ids": []
+    },
+    {
+      "id": "sen-elbow",
+      "address": "https://penfieldsmap.com/body/sensory/elbow/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 11,
+      "label": "Elbow",
+      "long_label": "Elbow",
+      "division": "ul",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-el"
+      ]
+    },
+    {
+      "id": "sen-forearm",
+      "address": "https://penfieldsmap.com/body/sensory/forearm/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 12,
+      "label": "Forearm",
+      "long_label": "Forearm",
+      "division": "ul",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 3.9,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-fo"
+      ]
+    },
+    {
+      "id": "sen-wrist",
+      "address": "https://penfieldsmap.com/body/sensory/wrist/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 13,
+      "label": "Wrist",
+      "long_label": "Wrist",
+      "division": "ul",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 1.5,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-wr"
+      ]
+    },
+    {
+      "id": "sen-hand",
+      "address": "https://penfieldsmap.com/body/sensory/hand/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 14,
+      "label": "Hand",
+      "long_label": "Hand",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 5,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-pa"
+      ]
+    },
+    {
+      "id": "sen-little",
+      "address": "https://penfieldsmap.com/body/sensory/little/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 15,
+      "label": "Little",
+      "long_label": "Little finger",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.4,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-d5"
+      ]
+    },
+    {
+      "id": "sen-ring",
+      "address": "https://penfieldsmap.com/body/sensory/ring/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 16,
+      "label": "Ring",
+      "long_label": "Ring finger",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 3,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-d4"
+      ]
+    },
+    {
+      "id": "sen-middle",
+      "address": "https://penfieldsmap.com/body/sensory/middle/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 17,
+      "label": "Middle",
+      "long_label": "Middle finger",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 3,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-d3"
+      ]
+    },
+    {
+      "id": "sen-index",
+      "address": "https://penfieldsmap.com/body/sensory/index/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 18,
+      "label": "Index",
+      "long_label": "Index finger",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.4,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-d2"
+      ]
+    },
+    {
+      "id": "sen-thumb",
+      "address": "https://penfieldsmap.com/body/sensory/thumb/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 19,
+      "label": "Thumb",
+      "long_label": "Thumb",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "Last of the hand labels. Eye follows on its lateral side.",
+      "block_line_mm": 3.9,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-d1"
+      ]
+    },
+    {
+      "id": "sen-eye",
+      "address": "https://penfieldsmap.com/body/sensory/eye/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 20,
+      "label": "Eye",
+      "long_label": "Eye",
+      "division": "fc",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 1.6,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-ey"
+      ]
+    },
+    {
+      "id": "sen-nose",
+      "address": "https://penfieldsmap.com/body/sensory/nose/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 21,
+      "label": "Nose",
+      "long_label": "Nose",
+      "division": "fc",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 1.7,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-no"
+      ]
+    },
+    {
+      "id": "sen-face",
+      "address": "https://penfieldsmap.com/body/sensory/face/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 22,
+      "label": "Face",
+      "long_label": "Face",
+      "division": "fc",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 7.4,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-eb",
+        "s-fc"
+      ]
+    },
+    {
+      "id": "sen-upper-lip",
+      "address": "https://penfieldsmap.com/body/sensory/upper-lip/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 23,
+      "label": "Upper lip",
+      "long_label": "Upper lip",
+      "division": "mo",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 1.9,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-li"
+      ]
+    },
+    {
+      "id": "sen-lips",
+      "address": "https://penfieldsmap.com/body/sensory/lips/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 24,
+      "label": "Lips",
+      "long_label": "Lips",
+      "division": "mo",
+      "reading_grade": "A",
+      "note": "The longest block line of the sensory figure.",
+      "block_line_mm": 11,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-li"
+      ]
+    },
+    {
+      "id": "sen-lower-lip",
+      "address": "https://penfieldsmap.com/body/sensory/lower-lip/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 25,
+      "label": "Lower lip",
+      "long_label": "Lower lip",
+      "division": "mo",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 1.6,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-li"
+      ]
+    },
+    {
+      "id": "sen-teeth-gums-jaw",
+      "address": "https://penfieldsmap.com/body/sensory/teeth-gums-jaw/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 26,
+      "label": "Teeth, gums, and jaw",
+      "long_label": "Teeth, gums, and jaw",
+      "division": "mo",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 1.8,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-ja",
+        "s-gu",
+        "s-te"
+      ]
+    },
+    {
+      "id": "sen-tongue",
+      "address": "https://penfieldsmap.com/body/sensory/tongue/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 27,
+      "label": "Tongue",
+      "long_label": "Tongue",
+      "division": "mo",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 8.8,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-tt",
+        "s-tm",
+        "s-tb"
+      ]
+    },
+    {
+      "id": "sen-pharynx",
+      "address": "https://penfieldsmap.com/body/sensory/pharynx/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 28,
+      "label": "Pharynx",
+      "long_label": "Pharynx",
+      "division": "vi",
+      "reading_grade": "A",
+      "note": "Lowest line on the lateral surface, as drawn.",
+      "block_line_mm": 5.2,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "s-ph",
+        "s-la"
+      ]
+    },
+    {
+      "id": "sen-intra-abdominal",
+      "address": "https://penfieldsmap.com/body/sensory/intra-abdominal/",
+      "figure": "Sensory figure of 1950 (Fig. 17), postcentral gyrus",
+      "position_in_figure": 29,
+      "label": "Intra-abdominal",
+      "long_label": "Intra-abdominal",
+      "division": "vi",
+      "reading_grade": "A",
+      "note": "Last label of the sensory figure. As drawn, its line curves inward at the mouth of the lateral sulcus.",
+      "block_line_mm": 5,
+      "kind_2023": "",
+      "coordinate_ids": []
+    },
+    {
+      "id": "mot-toes",
+      "address": "https://penfieldsmap.com/body/motor/toes/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 1,
+      "label": "Toes",
+      "long_label": "Toes",
+      "division": "ll",
+      "reading_grade": "A",
+      "note": "Lowest block line on the medial surface, as drawn.",
+      "block_line_mm": 7,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-ll"
+      ]
+    },
+    {
+      "id": "mot-ankle",
+      "address": "https://penfieldsmap.com/body/motor/ankle/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 2,
+      "label": "Ankle",
+      "long_label": "Ankle",
+      "division": "ll",
+      "reading_grade": "A",
+      "note": "On the medial surface as drawn, reaching the upper margin.",
+      "block_line_mm": 8,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-ll"
+      ]
+    },
+    {
+      "id": "mot-knee",
+      "address": "https://penfieldsmap.com/body/motor/knee/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 3,
+      "label": "Knee",
+      "long_label": "Knee",
+      "division": "ll",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 4.5,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-ll"
+      ]
+    },
+    {
+      "id": "mot-hip",
+      "address": "https://penfieldsmap.com/body/motor/hip/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 4,
+      "label": "Hip",
+      "long_label": "Hip",
+      "division": "ll",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.4,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-ll"
+      ]
+    },
+    {
+      "id": "mot-trunk",
+      "address": "https://penfieldsmap.com/body/motor/trunk/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 5,
+      "label": "Trunk",
+      "long_label": "Trunk",
+      "division": "ax",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.2,
+      "kind_2023": "",
+      "coordinate_ids": []
+    },
+    {
+      "id": "mot-shoulder",
+      "address": "https://penfieldsmap.com/body/motor/shoulder/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 6,
+      "label": "Shoulder",
+      "long_label": "Shoulder",
+      "division": "ul",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.6,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-sh"
+      ]
+    },
+    {
+      "id": "mot-elbow",
+      "address": "https://penfieldsmap.com/body/motor/elbow/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 7,
+      "label": "Elbow",
+      "long_label": "Elbow",
+      "division": "ul",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 3.6,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-el"
+      ]
+    },
+    {
+      "id": "mot-wrist",
+      "address": "https://penfieldsmap.com/body/motor/wrist/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 8,
+      "label": "Wrist",
+      "long_label": "Wrist",
+      "division": "ul",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 3.2,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-wr"
+      ]
+    },
+    {
+      "id": "mot-hand",
+      "address": "https://penfieldsmap.com/body/motor/hand/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 9,
+      "label": "Hand",
+      "long_label": "Hand",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "The longest block line of the motor figure.",
+      "block_line_mm": 14.9,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fa"
+      ]
+    },
+    {
+      "id": "mot-little",
+      "address": "https://penfieldsmap.com/body/motor/little/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 10,
+      "label": "Little",
+      "long_label": "Little finger",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.5,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fi"
+      ]
+    },
+    {
+      "id": "mot-ring",
+      "address": "https://penfieldsmap.com/body/motor/ring/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 11,
+      "label": "Ring",
+      "long_label": "Ring finger",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.5,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fi"
+      ]
+    },
+    {
+      "id": "mot-middle",
+      "address": "https://penfieldsmap.com/body/motor/middle/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 12,
+      "label": "Middle",
+      "long_label": "Middle finger",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fi"
+      ]
+    },
+    {
+      "id": "mot-index",
+      "address": "https://penfieldsmap.com/body/motor/index/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 13,
+      "label": "Index",
+      "long_label": "Index finger",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.2,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fi"
+      ]
+    },
+    {
+      "id": "mot-thumb",
+      "address": "https://penfieldsmap.com/body/motor/thumb/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 14,
+      "label": "Thumb",
+      "long_label": "Thumb",
+      "division": "hd",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.6,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fi"
+      ]
+    },
+    {
+      "id": "mot-neck",
+      "address": "https://penfieldsmap.com/body/motor/neck/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 15,
+      "label": "Neck",
+      "long_label": "Neck",
+      "division": "ax",
+      "reading_grade": "A",
+      "note": "Between Thumb and Brow. The sensory figure puts the neck between Trunk and Head.",
+      "block_line_mm": 1.7,
+      "kind_2023": "",
+      "coordinate_ids": []
+    },
+    {
+      "id": "mot-brow",
+      "address": "https://penfieldsmap.com/body/motor/brow/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 16,
+      "label": "Brow",
+      "long_label": "Brow",
+      "division": "fc",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 1.8,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fj"
+      ]
+    },
+    {
+      "id": "mot-eyelid-eyeball",
+      "address": "https://penfieldsmap.com/body/motor/eyelid-eyeball/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 17,
+      "label": "Eyelid & Eyeball",
+      "long_label": "Eyelid and eyeball",
+      "division": "fc",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 4.8,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fj"
+      ]
+    },
+    {
+      "id": "mot-face",
+      "address": "https://penfieldsmap.com/body/motor/face/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 18,
+      "label": "Face",
+      "long_label": "Face",
+      "division": "fc",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 2.7,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fj"
+      ]
+    },
+    {
+      "id": "mot-lips",
+      "address": "https://penfieldsmap.com/body/motor/lips/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 19,
+      "label": "Lips",
+      "long_label": "Lips",
+      "division": "mo",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 14.8,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-li"
+      ]
+    },
+    {
+      "id": "mot-jaw",
+      "address": "https://penfieldsmap.com/body/motor/jaw/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 20,
+      "label": "Jaw",
+      "long_label": "Jaw",
+      "division": "mo",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 5.8,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-fj"
+      ]
+    },
+    {
+      "id": "mot-tongue",
+      "address": "https://penfieldsmap.com/body/motor/tongue/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 21,
+      "label": "Tongue",
+      "long_label": "Tongue",
+      "division": "mo",
+      "reading_grade": "A",
+      "note": "",
+      "block_line_mm": 4,
+      "kind_2023": "",
+      "coordinate_ids": [
+        "m-to"
+      ]
+    },
+    {
+      "id": "mot-swallowing",
+      "address": "https://penfieldsmap.com/body/motor/swallowing/",
+      "figure": "Motor figure of 1950 (Fig. 22), precentral gyrus",
+      "position_in_figure": 22,
+      "label": "Swallowing",
+      "long_label": "Swallowing",
+      "division": "vi",
+      "reading_grade": "A",
+      "note": "Last body label of the motor figure. As drawn, its line curves inward at the mouth of the lateral sulcus.",
+      "block_line_mm": 5.8,
+      "kind_2023": "",
+      "coordinate_ids": []
+    },
+    {
+      "id": "g-foot",
+      "address": "https://penfieldsmap.com/body/2023/foot/",
+      "figure": "fMRI scheme of 2023, precentral gyrus",
+      "position_in_figure": 1,
+      "label": "Foot region",
+      "long_label": "Foot effector region",
+      "division": "ll",
+      "reading_grade": "",
+      "note": "",
+      "block_line_mm": null,
+      "kind_2023": "eff",
+      "coordinate_ids": []
+    },
+    {
+      "id": "g-ie-sup",
+      "address": "https://penfieldsmap.com/body/2023/inter-effector-superior/",
+      "figure": "fMRI scheme of 2023, precentral gyrus",
+      "position_in_figure": 2,
+      "label": "Inter-effector, superior",
+      "long_label": "Inter-effector region, superior",
+      "division": "ax",
+      "reading_grade": "",
+      "note": "",
+      "block_line_mm": null,
+      "kind_2023": "ie",
+      "coordinate_ids": [
+        "i-sl",
+        "i-sr"
+      ]
+    },
+    {
+      "id": "g-hand",
+      "address": "https://penfieldsmap.com/body/2023/hand/",
+      "figure": "fMRI scheme of 2023, precentral gyrus",
+      "position_in_figure": 3,
+      "label": "Hand region",
+      "long_label": "Hand effector region",
+      "division": "hd",
+      "reading_grade": "",
+      "note": "",
+      "block_line_mm": null,
+      "kind_2023": "eff",
+      "coordinate_ids": []
+    },
+    {
+      "id": "g-ie-mid",
+      "address": "https://penfieldsmap.com/body/2023/inter-effector-middle/",
+      "figure": "fMRI scheme of 2023, precentral gyrus",
+      "position_in_figure": 4,
+      "label": "Inter-effector, middle",
+      "long_label": "Inter-effector region, middle",
+      "division": "ax",
+      "reading_grade": "",
+      "note": "",
+      "block_line_mm": null,
+      "kind_2023": "ie",
+      "coordinate_ids": [
+        "i-ml",
+        "i-mr"
+      ]
+    },
+    {
+      "id": "g-mouth",
+      "address": "https://penfieldsmap.com/body/2023/mouth/",
+      "figure": "fMRI scheme of 2023, precentral gyrus",
+      "position_in_figure": 5,
+      "label": "Mouth region",
+      "long_label": "Mouth effector region",
+      "division": "mo",
+      "reading_grade": "",
+      "note": "",
+      "block_line_mm": null,
+      "kind_2023": "eff",
+      "coordinate_ids": []
+    },
+    {
+      "id": "g-ie-inf",
+      "address": "https://penfieldsmap.com/body/2023/inter-effector-inferior/",
+      "figure": "fMRI scheme of 2023, precentral gyrus",
+      "position_in_figure": 6,
+      "label": "Inter-effector, inferior",
+      "long_label": "Inter-effector region, inferior",
+      "division": "ax",
+      "reading_grade": "",
+      "note": "",
+      "block_line_mm": null,
+      "kind_2023": "ie",
+      "coordinate_ids": [
+        "i-il",
+        "i-ir"
+      ]
+    },
+    {
+      "id": "mot-functions",
+      "address": "https://penfieldsmap.com/body/motor/functions/",
+      "figure": "Motor figure of 1950 (Fig. 22), function words",
+      "position_in_figure": 1,
+      "label": "Vocalization, Salivation, Mastication",
+      "long_label": "Vocalization, Salivation, Mastication",
+      "division": "mo",
+      "reading_grade": "",
+      "note": "Three function words lettered along the inside of the motor strip, with arrows and end ticks. As read from reproductions of the plate, Vocalization spans Lips, Jaw and Tongue. Salivation spans Jaw, Tongue and Swallowing. Mastication runs from Tongue past Swallowing and is open at its lower end. The end points fall between labels and are approximate. They are responses, not body parts, and have no block line.",
+      "block_line_mm": null,
+      "kind_2023": "",
+      "coordinate_ids": []
+    }
+  ],
+  "reading_grades": {
+    "A": "A. Read from a reproduction of the plate and matched by an independent transcription.",
+    "B": "B. Position confirmed. Lettering read from the reproduction only."
+  },
+  "block_line_totals_mm": {
+    "sensory": 103.2,
+    "motor": 101.6
+  },
+  "sections": [
+    {
+      "key": "stim",
+      "name": "Under stimulation"
+    },
+    {
+      "key": "life",
+      "name": "Sensation and skill"
+    },
+    {
+      "key": "inj",
+      "name": "Injury, disease and surgery"
+    },
+    {
+      "key": "bci",
+      "name": "Neural interfaces"
+    },
+    {
+      "key": "rev",
+      "name": "Revisions and disputes"
+    },
+    {
+      "key": "fig",
+      "name": "The 1950 figures"
+    },
+    {
+      "key": "g",
+      "name": "Findings"
+    }
+  ],
+  "findings": [
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal",
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing",
+        "mot-functions"
+      ],
+      "applies_to": "all 1950 labels",
+      "text": "The 1937 figure rested on 126 usable operation records out of 163 operations done under local anaesthesia from 1928 to 1936. Boldrey compiled 170 summary charts, one for each movement or sensation. The 1950 figures drew on about 400 craniotomies, including a second series from 1936 to 1947.",
+      "references": [
+        "PB1937",
+        "PR1950",
+        "CAT2017"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal",
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing",
+        "mot-functions"
+      ],
+      "applies_to": "all 1950 labels",
+      "text": "Hortense Pauline Cantlie drew the homunculus. One combined figure appeared in the 1937 paper. For the 1950 book she drew two new figures, one sensory (Fig. 17) and one motor (Fig. 22). In the reproductions viewed, both drawings carry her monogram and the year 1948.",
+      "references": [
+        "PR1950",
+        "POGLIANO2012",
+        "STUART1951"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal",
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing",
+        "mot-functions"
+      ],
+      "applies_to": "all 1950 labels",
+      "text": "Penfield and Rasmussen wrote that the motor homunculus may be used as an aid to memory and called it “a cartoon of representation in which scientific accuracy is impossible” (p. 56). Of the sensory homunculus they wrote that such drawings become confusing if too much significance is attributed to shape and comparative size, and that the indication of extent under the figure corrects this (p. 214).",
+      "references": [
+        "PR1950"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal",
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing",
+        "mot-functions"
+      ],
+      "applies_to": "all 1950 labels",
+      "text": "Every body-part label on the 1950 plates except Gen. has a block line along the cortex. The three function words on the motor figure are brackets and have no line. The legend of the sensory figure says the length of these lines shows the comparative extent of each representation more accurately than the drawing. Wright (1956) measured every line, 28 on the sensory figure and 22 on the motor figure. The legend of the motor figure does not repeat the statement.",
+      "references": [
+        "PR1950",
+        "WRIGHT1956"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal",
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing",
+        "mot-functions"
+      ],
+      "applies_to": "all 1950 labels",
+      "text": "Penfield and Boldrey scaled the 1937 figure by the vertical extent of each part along the central sulcus, without statistics. A 2017 reanalysis found that the figure was not in proportion to the paper’s own measurements. Stimulus intensity, number of patients, number of stimulations per patient and overlap between parts were not taken into account. The reanalysed sensory maps overlap substantially, mostly near the central sulcus.",
+      "references": [
+        "PB1937",
+        "CAT2017"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal",
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing",
+        "mot-functions"
+      ],
+      "applies_to": "all 1950 labels",
+      "text": "The 1937 figure was a single drawing without labels, not laid on the brain. The 1950 figures are each laid on the outline of a coronal section, with named labels and block lines. The sensory figure adds the genitals and an intra-abdominal field. The motor figure adds three function brackets.",
+      "references": [
+        "PB1937",
+        "PR1950"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal"
+      ],
+      "applies_to": "all sensory labels",
+      "text": "Penfield’s patients were awake. Each response was dictated to a stenographer and tied to a numbered ticket on the cortex. In one 1937 case the record includes tingling in the little finger, numbness in the shoulder, a shock-like feeling in four fingers that spared the thumb, and a feeling that the thumb moved when it did not.",
+      "references": [
+        "PB1937"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal"
+      ],
+      "applies_to": "all sensory labels",
+      "text": "In a series of 50 patients mapped from 2008 to 2016, 258 of 647 sites on the crown of the postcentral gyrus gave a sensation (40%), at a mean threshold of 2.67 mA. Tingling was almost the only sensation. One patient reported pain, one a bad taste and one burning in the hand. No patient reported a sense of movement.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "DES",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal"
+      ],
+      "applies_to": "all sensory labels",
+      "text": "According to the 2018 authors, Penfield found 25% of sensory responses outside the postcentral gyrus. Their own series found none at 1,025 sites stimulated outside it.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "ANAT",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal"
+      ],
+      "applies_to": "all sensory labels",
+      "text": "Primary somatosensory cortex comprises four cytoarchitectonic areas. Area 3a lies in the fundus of the central sulcus and area 3b on its posterior bank. Area 1 lies on the crown of the postcentral gyrus and extends into the postcentral sulcus. Area 2 lies mainly on the anterior bank of the postcentral sulcus. The borders vary between brains.",
+      "references": [
+        "GEYER1999",
+        "GREFKES2001",
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "SEEG",
+      "labels": [
+        "sen-genitals",
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "sen-trunk",
+        "sen-neck",
+        "sen-head",
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "sen-pharynx",
+        "sen-intra-abdominal"
+      ],
+      "applies_to": "all sensory labels",
+      "text": "Surface stimulation in the 2018 series reached only area 1 on the gyral crown. Depth-electrode stimulation in 20 patients (149 positive sites of 177, most in sulcal cortex) found a gross medial-to-lateral order across all of primary somatosensory cortex that was consistent with the classical homunculus.",
+      "references": [
+        "ROUX2018",
+        "SUN2021"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing",
+        "mot-functions"
+      ],
+      "applies_to": "all motor labels",
+      "text": "Penfield wrote that when he made a conscious patient move his hand by stimulating the motor cortex and asked him about it, the reply was invariably: “I didn’t do that. You did.” (p. 76).",
+      "references": [
+        "P1975"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing"
+      ],
+      "applies_to": "all motor labels",
+      "text": "In a series of 100 patients published in 2020, the Results report 248 positive sites among 608 precentral sites stimulated. The abstract says 245 of the 248 lay in the precentral gyrus. The mean threshold was 2.1 mA. Movements were basic and stereotyped, and were fast without the profile of a natural movement. Flexions of the wrist and digits were far more frequent than extensions. No complex action, such as bringing food to the mouth, was seen.",
+      "references": [
+        "ROUX2020"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing"
+      ],
+      "applies_to": "all motor labels",
+      "text": "Responses in the 2020 series were judged from the patient’s report and the team’s observation, without EMG. 59% of precentral sites gave no response, and the part of area 4 buried in the central sulcus could not be reached.",
+      "references": [
+        "ROUX2020"
+      ]
+    },
+    {
+      "section": "inj",
+      "method": "CLIN",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing"
+      ],
+      "applies_to": "all motor labels",
+      "text": "Focal motor seizures can spread through neighbouring body parts in the order of the motor map. This is the Jacksonian march. Bravais described such seizures in 1827. Hughlings Jackson described the march between 1868 and 1870 and inferred that body parts are represented in separate parts of the brain. Penfield and Boldrey published their stimulation map in 1937. A 2024 series found that spread is not explained by adjacency alone.",
+      "references": [
+        "EADIE2010",
+        "YORK2006",
+        "YORK2011",
+        "FOTEDAR2024",
+        "PB1937"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "DES",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing"
+      ],
+      "applies_to": "all motor labels",
+      "text": "According to the 2020 authors, Penfield found about 20% of motor responses outside the precentral gyrus, particularly in the postcentral gyrus. In their own series, 3 of 1,937 sites stimulated outside the precentral gyrus produced movement.",
+      "references": [
+        "ROUX2020"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "DES",
+      "labels": [
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue"
+      ],
+      "applies_to": "motor figure: upper limb, hand, face and mouth",
+      "text": "A commentary on the 2020 data describes, for the upper limb and the head, a gradual progression with overlap between neighbouring parts, and no discrete zones of the kind drawn in 1950. The study’s authors use the term relative somatotopy for the elbow, wrist and hand region.",
+      "references": [
+        "SCH2020",
+        "ROUX2020"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "ANAT",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing"
+      ],
+      "applies_to": "all motor labels",
+      "text": "Primary motor cortex (area 4) lies mostly in the anterior bank of the central sulcus. Near the midline it widens onto the gyral surface and the paracentral lobule. Much of the exposed crown of the precentral gyrus is premotor cortex (area 6).",
+      "references": [
+        "WHITE1997",
+        "DEO2026"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing"
+      ],
+      "applies_to": "all motor labels",
+      "text": "Precision fMRI in 7 intensively scanned adults, replicated in group-averaged datasets of about 4,000, 3,928 and 812 people, divides the precentral gyrus into three effector regions (foot, hand, mouth) that alternate with three inter-effector regions. See column C of Fig. 2.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "REC",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "mot-trunk",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-neck",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-swallowing",
+        "g-foot",
+        "g-hand",
+        "g-mouth",
+        "g-ie-sup",
+        "g-ie-mid",
+        "g-ie-inf"
+      ],
+      "applies_to": "all motor labels; 2023 regions",
+      "text": "Single-neuron recordings from 20 microelectrode arrays in 8 people found the whole body represented at every sampled site on the crown of the precentral gyrus, with relative strength roughly following the homunculus.",
+      "references": [
+        "DEO2026"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip"
+      ],
+      "applies_to": "sensory figure: lower limb",
+      "text": "Lower-limb sites were rare in the 2018 series: one for the feet, two for the leg, one for the knee, three for the thigh and one for the hip, out of 258 positive sites.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "inj",
+      "method": "CLIN",
+      "labels": [
+        "sen-toes",
+        "sen-foot",
+        "sen-leg",
+        "sen-hip",
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip"
+      ],
+      "applies_to": "lower limb, both figures",
+      "text": "Infarcts in the territory of the anterior cerebral artery, which supplies the medial frontal lobe and the medial motor and sensory cortex, typically cause weakness that is greatest in the opposite leg, with the arm and face typically spared. Sensory loss is less common. In one series of 51 patients, 86% had a motor deficit of the leg and 29% a sensory deficit.",
+      "references": [
+        "LUI2026",
+        "ARBOIX2009",
+        "MSD"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip"
+      ],
+      "applies_to": "motor figure: lower limb",
+      "text": "Lower-limb movements were evoked at 10 sites in 7 patients in the 2020 series (foot 4, knee 1, hip 4, buttock 1), all in the right hemisphere. The supplementary motor area was not stimulated.",
+      "references": [
+        "ROUX2020"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-toes",
+        "mot-ankle",
+        "mot-knee",
+        "mot-hip",
+        "g-foot"
+      ],
+      "applies_to": "motor figure: lower limb",
+      "text": "In the foot effector region the toes are central, with ankle, knee and hip in zones around them (task fMRI in 2 participants). The 1950 figure draws the same parts in a line.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-trunk"
+      ],
+      "applies_to": "sensory figure: trunk",
+      "text": "The 2018 series found one abdomen site and three thorax sites, in four patients.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "mot-trunk"
+      ],
+      "applies_to": "motor figure: trunk",
+      "text": "In the 2017 reanalysis of the 1937 motor data, too few trunk stimulations were recorded for an area or a length to be measured.",
+      "references": [
+        "CAT2017"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-trunk",
+        "g-ie-sup",
+        "g-ie-mid",
+        "g-ie-inf"
+      ],
+      "applies_to": "motor figure: trunk; inter-effector regions",
+      "text": "Isometric contraction of the abdominal muscles co-activated the inter-effector regions and the cingulo-opercular network (2 participants).",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-neck"
+      ],
+      "applies_to": "motor figure: neck",
+      "text": "fMRI during isometric head rotation in 17 healthy adults found two foci in the precentral gyrus, one medial and anterior to the hand knob and one lateral and ventral to it. The authors suggest the medial focus has the larger role in head movement. That fits earlier studies which place the neck between the trunk and arm representations, as in the sensory figure. The study did not map the shoulder or the trunk. Activation was bilateral with contralateral predominance.",
+      "references": [
+        "PRUDENTE2015"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "mot-neck"
+      ],
+      "applies_to": "motor figure: neck",
+      "text": "The 2015 authors note that Penfield’s head-movement results came from only nine patients and were not consistent, against more than 200 patients for limb movements. The 1950 text says that neck movement on the strip is small, is usually head retraction, and does not match the position of neck sensation (p. 57).",
+      "references": [
+        "PRUDENTE2015",
+        "PR1950"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "SEEG",
+      "labels": [
+        "sen-head",
+        "sen-face"
+      ],
+      "applies_to": "sensory figure: head and face",
+      "text": "Depth-electrode stimulation of sulcal cortex found a forehead representation that the authors describe as previously unreported.",
+      "references": [
+        "SUN2021"
+      ]
+    },
+    {
+      "section": "life",
+      "method": "PSY",
+      "labels": [
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist"
+      ],
+      "applies_to": "sensory figure: arm labels",
+      "text": "On the hairy skin of the upper limb, spatial acuity for touch improves from the shoulder to the back of the hand. Spatial acuity for pain runs the opposite way.",
+      "references": [
+        "MANCINI2014"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "SEEG",
+      "labels": [
+        "sen-elbow",
+        "sen-wrist"
+      ],
+      "applies_to": "sensory figure: elbow and wrist",
+      "text": "Depth-electrode stimulation of sulcal cortex evoked sensations referred to the deep elbow and wrist joints, which the authors describe as previously unreported. Surface stimulation in the 2018 series had found elbow and wrist skin sites.",
+      "references": [
+        "SUN2021",
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "bci",
+      "method": "ICMS",
+      "labels": [
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist"
+      ],
+      "applies_to": "sensory figure: arm labels",
+      "text": "In a man with tetraplegia, microstimulation of left primary somatosensory cortex evoked both cutaneous and proprioceptive sensations in the right arm, mostly the upper arm and forearm.",
+      "references": [
+        "ARMENTA2018"
+      ]
+    },
+    {
+      "section": "inj",
+      "method": "CLIN",
+      "labels": [
+        "sen-shoulder",
+        "sen-arm",
+        "sen-elbow",
+        "sen-forearm",
+        "sen-wrist",
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue",
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue"
+      ],
+      "applies_to": "arm, hand, face and mouth labels, both figures",
+      "text": "Infarcts in the territory of the middle cerebral artery, which supplies most of the lateral surface, typically cause weakness that is worse in the opposite arm and face than in the leg. Sensory loss mainly affects the face and arm. Occlusion of the main stem causes weakness of the whole side.",
+      "references": [
+        "LUI2026",
+        "MSD",
+        "MARGETIS2025"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist"
+      ],
+      "applies_to": "motor figure: shoulder, elbow and wrist",
+      "text": "In the 2020 series shoulder movements lay medially and hand movements laterally. Each overlapped considerably with the elbow and wrist representations between them.",
+      "references": [
+        "ROUX2020",
+        "SCH2020"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-shoulder",
+        "mot-elbow",
+        "mot-wrist",
+        "mot-hand",
+        "g-hand"
+      ],
+      "applies_to": "motor figure: shoulder, elbow, wrist and hand",
+      "text": "Activation peaks for shoulder, elbow and wrist are arranged concentrically around the hand peak (2 participants). The 1950 figure draws them in a line. The hand task was closing the whole hand, so single digits were not tested.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb"
+      ],
+      "applies_to": "sensory figure: hand and digits",
+      "text": "Finger sites ran in order from little finger (medial) to thumb (lateral) and together spanned about 1.5 cm of the gyral crown. Mean thresholds were 2.39 mA for finger sites and 2.60 mA for tongue sites. These two did not differ significantly, and both were lower than for other body parts (mean 3.5 mA).",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "life",
+      "method": "PSY",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb"
+      ],
+      "applies_to": "sensory figure: hand and digits",
+      "text": "Across 11 body sites tested in 26 healthy volunteers in two experiments, the fingertip had the finest spatial acuity for both touch and pain. Read from the paper’s bar chart, two touches were told apart at roughly 0.3 cm on the fingertip and at roughly 2 to 3 cm on the shoulder. The paper prints no table of thresholds, so these values are approximate.",
+      "references": [
+        "MANCINI2014"
+      ]
+    },
+    {
+      "section": "life",
+      "method": "MEG",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb"
+      ],
+      "applies_to": "sensory figure: hand and digits",
+      "text": "In nine string players, magnetic responses to touch on the left thumb and little finger were stronger and shifted compared with six controls, which the authors read as a larger cortical representation of the left-hand digits. The effect was smaller for the thumb than for the little finger, absent for the right hand, and greater in those who had started playing younger. Only those two digits were tested.",
+      "references": [
+        "ELBERT1995"
+      ]
+    },
+    {
+      "section": "life",
+      "method": "MEG",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb"
+      ],
+      "applies_to": "sensory figure: hand and digits",
+      "text": "In four blind Braille teachers who read with three fingers of each hand, finger topography was disordered in at least one hemisphere in every reader, and all four tended to misjudge which finger had been touched. Blind one-finger readers did not differ from sighted controls.",
+      "references": [
+        "STERR1998"
+      ]
+    },
+    {
+      "section": "life",
+      "method": "PSY",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "sen-face"
+      ],
+      "applies_to": "sensory figure: hand, digits and face",
+      "text": "In one arm amputee, stimuli applied to the lower face, or 7 cm above the stump, evoked precisely localised sensations in individual phantom digits.",
+      "references": [
+        "RAMA1992"
+      ]
+    },
+    {
+      "section": "inj",
+      "method": "fMRI",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb",
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "sen-lips",
+        "mot-lips"
+      ],
+      "applies_to": "hand and lips, both figures",
+      "text": "Three adults were scanned twice before arm amputation and at 3 and 6 months afterwards. One was scanned again at 18 months and one at five years. Hand and lip maps in primary somatosensory cortex stayed stable, and the result was replicated in primary motor cortex. A classifier trained on finger-movement activity before surgery distinguished attempted phantom finger movements above the 50% chance level at every later scan. At each participant’s last scan its accuracy was 90%, 67% and 89%. The maps were evoked by movement, not touch.",
+      "references": [
+        "SCHONE2025"
+      ]
+    },
+    {
+      "section": "inj",
+      "method": "MEG",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb"
+      ],
+      "applies_to": "sensory figure: hand and digits",
+      "text": "An older account held that after amputation the neighbouring face map takes over the hand territory. In 13 arm amputees studied with MEG, the shift of the lip representation toward the hand area correlated with phantom pain intensity (r = 0.93).",
+      "references": [
+        "FLOR1995",
+        "MAKIN2013"
+      ]
+    },
+    {
+      "section": "inj",
+      "method": "fMRI",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb"
+      ],
+      "applies_to": "sensory figure: hand and digits",
+      "text": "A 2013 study of 18 arm amputees instead linked worse phantom pain to more activity and more grey matter in the former hand area, and to weaker resting-state connectivity between that area and the hand area of the opposite hemisphere.",
+      "references": [
+        "MAKIN2013"
+      ]
+    },
+    {
+      "section": "bci",
+      "method": "ICMS",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index"
+      ],
+      "applies_to": "sensory figure: hand and four fingers",
+      "text": "Microstimulation through electrode arrays in area 1 of the hand region evoked touch sensations that a man with long-standing spinal cord injury felt as coming from his own hand. Raising the current raised the perceived intensity. By the first author’s dissertation, the sensations lay at the bases of the index to little fingers on the palm side, with none on the thumb or on a fingertip.",
+      "references": [
+        "FLESHER2016",
+        "FLESHER2021"
+      ]
+    },
+    {
+      "section": "bci",
+      "method": "ICMS",
+      "labels": [
+        "sen-hand",
+        "sen-little",
+        "sen-ring",
+        "sen-middle",
+        "sen-index",
+        "sen-thumb"
+      ],
+      "applies_to": "sensory figure: hand and digits",
+      "text": "A man with spinal cord injury controlled a robotic arm through a brain implant. With touch feedback added by microstimulation of the hand region of his sensory cortex, his median time for a successful trial on a clinical arm-function test was 10.2 s, against 20.9 s without it.",
+      "references": [
+        "FLESHER2021"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb",
+        "mot-wrist"
+      ],
+      "applies_to": "motor figure: wrist, hand and digits",
+      "text": "Hand and wrist responses in 51 patients suggested a medial wrist cluster, a central all-fingers cluster and a lateral individual-finger cluster (mean |x| 26.2, 32.9 and 35.4 mm). Thumb flexion made up half of single-finger responses.",
+      "references": [
+        "ROUX2020"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb"
+      ],
+      "applies_to": "motor figure: hand and digits",
+      "text": "Finger flexion was evoked 63 times and finger extension 8 times in the 2020 series.",
+      "references": [
+        "ROUX2020",
+        "SCH2020"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "DES",
+      "labels": [
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb"
+      ],
+      "applies_to": "motor figure: hand and digits",
+      "text": "The little-finger-to-thumb sequence drawn in 1950 is absent from the 2020 group data. Of the three patients with separate thumb and other single-digit sites, only one showed the thumb lateral and the other digits in order medially.",
+      "references": [
+        "ROUX2020",
+        "SCH2020"
+      ]
+    },
+    {
+      "section": "inj",
+      "method": "fMRI",
+      "labels": [
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb"
+      ],
+      "applies_to": "motor figure: hand and digits",
+      "text": "The motor hand area most often lies in a knob of the precentral gyrus that looks like an omega or epsilon in axial images and like a hook in sagittal images. The knob is a reliable landmark for finding the precentral gyrus in normal and diseased brains.",
+      "references": [
+        "YOUSRY1997"
+      ]
+    },
+    {
+      "section": "bci",
+      "method": "REC",
+      "labels": [
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb"
+      ],
+      "applies_to": "motor figure: hand and digits",
+      "text": "A 96-electrode array in the arm and hand area of primary motor cortex, as the authors describe the site, let a man with tetraplegia move a cursor, open simulated e-mail and open and close a prosthetic hand, three years after spinal cord injury.",
+      "references": [
+        "HOCHBERG2006"
+      ]
+    },
+    {
+      "section": "bci",
+      "method": "REC",
+      "labels": [
+        "mot-hand",
+        "mot-little",
+        "mot-ring",
+        "mot-middle",
+        "mot-index",
+        "mot-thumb"
+      ],
+      "applies_to": "motor figure: hand and digits",
+      "text": "Two arrays in the hand knob area of the precentral gyrus, which the authors call a premotor area, decoded the attempted handwriting of a man with a paralysed hand at 90 characters per minute, with 94.1% raw accuracy.",
+      "references": [
+        "WILLETT2021"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-pharynx"
+      ],
+      "applies_to": "sensory figure: face, lips, teeth and pharynx",
+      "text": "The 2018 series ordered the face, tongue excluded, from medial to lateral: eyebrows, eyes, cheeks, both lips, teeth, gums, jaws, pharynx, larynx. The order rests on few sites, one each for eyebrows, eyes, nose, face, gums and pharynx. In the paper’s own table the teeth sites lie below the gums and jaw sites.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face"
+      ],
+      "applies_to": "face labels, both figures",
+      "text": "Penfield and Boldrey wrote in 1937 that responses were too few to fix the sequence position of the nose, the neck and taste, and that eye turning was left out of their chart. Catani (2017) reads this as an admission that the face representation may mislead.",
+      "references": [
+        "PB1937",
+        "CAT2017"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "DES",
+      "labels": [
+        "sen-eye",
+        "sen-nose",
+        "sen-face",
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-teeth-gums-jaw",
+        "sen-tongue"
+      ],
+      "applies_to": "sensory figure: face and mouth",
+      "text": "According to the 2018 authors, 13% of face and tongue sensory responses in Penfield’s work (27 of 202) were felt on both sides. Their own series recorded none.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "MEG",
+      "labels": [
+        "sen-upper-lip",
+        "sen-lips",
+        "sen-lower-lip",
+        "sen-tongue"
+      ],
+      "applies_to": "sensory figure: lips and tongue",
+      "text": "An MEG study found same-side activation of primary somatosensory cortex after touch to the upper lip in 69% of cases, to the lower lip in 85% and to the tongue in 88%.",
+      "references": [
+        "DISBROW2003"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-brow",
+        "mot-eyelid-eyeball",
+        "mot-face",
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue"
+      ],
+      "applies_to": "motor figure: face and mouth",
+      "text": "Face movements, tongue included, were evoked in 52 patients. The authors describe a medial-to-lateral sequence of forehead, eyebrows, eyes, nose, cheeks, both lips and chin. Responses above the lips were few (forehead 2, eyebrow 1, eyelid 2, nostril 1, cheek 11).",
+      "references": [
+        "ROUX2020"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-eyelid-eyeball"
+      ],
+      "applies_to": "motor figure: eyelid and eyeball",
+      "text": "In one 1937 case the patient said he could not help closing his right eye. He closed both.",
+      "references": [
+        "PB1937"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-brow",
+        "g-ie-sup",
+        "g-ie-mid",
+        "g-ie-inf"
+      ],
+      "applies_to": "motor figure: brow; inter-effector regions",
+      "text": "Raising the eyebrows co-activated the inter-effector regions and the cingulo-opercular network (2 participants).",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-eyelid-eyeball"
+      ],
+      "applies_to": "motor figure: eyelid and eyeball",
+      "text": "In the 2023 task data (2 participants), eyelid movement was the preferred movement at the centre of one inter-effector region.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-tongue"
+      ],
+      "applies_to": "sensory figure: tongue",
+      "text": "In 14 patients tongue sites ran from tip (medial) to base (lateral). The tongue spanned about 2.5 cm of the gyral crown, against about 1.5 cm for the five fingers together.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-tongue"
+      ],
+      "applies_to": "sensory figure: tongue",
+      "text": "In one 1937 case, one point gave numbness on the right side of the tongue, a neighbouring point gave tingling on the right side, more at the tip, and another point gave numbness at the midline of the back of the tongue.",
+      "references": [
+        "PB1937"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-tongue",
+        "mot-tongue"
+      ],
+      "applies_to": "tongue, both figures",
+      "text": "Catani (2017) judges the tongue exaggerated in the 1937 figure and corrected in the 1950 figures.",
+      "references": [
+        "CAT2017"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue"
+      ],
+      "applies_to": "motor figure: mouth",
+      "text": "The 2020 series counted 38 lip, 35 tongue and 12 jaw responses. In the 11 patients with both lip and tongue sites, the order from medial to lateral was upper lip, lower lip, tongue.",
+      "references": [
+        "ROUX2020"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "DES",
+      "labels": [
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-functions"
+      ],
+      "applies_to": "motor figure: mouth; function brackets",
+      "text": "According to the 2020 authors, Penfield described vocalization, salivation and mastication from the lips, jaw and tongue zone. None of the three was seen in their series. The 1950 text says that vocalization has no fixed place in the sequence and that salivation was more often a postcentral than a precentral response.",
+      "references": [
+        "ROUX2020",
+        "PR1950"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "mot-lips"
+      ],
+      "applies_to": "motor figure: lips",
+      "text": "The 1937 text reports 21 motor stimulations for mouth and lips, 18 precentral and 3 postcentral. Catani counts 64 plotted points for the same parts in the paper’s Fig. 7.",
+      "references": [
+        "PB1937",
+        "CAT2017"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-jaw",
+        "mot-tongue",
+        "g-mouth"
+      ],
+      "applies_to": "motor figure: jaw and tongue",
+      "text": "In the mouth effector region the tongue is central and the jaw more peripheral, with the larynx at the perimeter. The paper’s schematic also draws the eyes at the outer edge of this region.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "bci",
+      "method": "REC",
+      "labels": [
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-functions"
+      ],
+      "applies_to": "motor figure: mouth; function brackets",
+      "text": "Arrays in area 6v (ventral premotor cortex, on the ventral precentral gyrus) decoded the attempted speech of a woman with ALS at 62 words per minute. Two further arrays in area 44 carried almost no speech information.",
+      "references": [
+        "WILLETT2023"
+      ]
+    },
+    {
+      "section": "bci",
+      "method": "REC",
+      "labels": [
+        "mot-lips",
+        "mot-jaw",
+        "mot-tongue",
+        "mot-functions"
+      ],
+      "applies_to": "motor figure: mouth; function brackets",
+      "text": "A surface electrode grid over the sensorimotor and temporal speech cortex of a woman paralysed by a brainstem stroke decoded text at a median of 78 words per minute.",
+      "references": [
+        "METZGER2023"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-functions",
+        "mot-lips"
+      ],
+      "applies_to": "motor figure: lips; function brackets",
+      "text": "In one 1937 case the patient made a small noise during stimulation, recorded as vocalisation, and said he could not help it. Upper and lower lips moved equally on both sides.",
+      "references": [
+        "PB1937"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "mot-functions"
+      ],
+      "applies_to": "motor figure: function brackets",
+      "text": "The 2020 series recorded 14 larynx responses at the lateral end of the strip (barycentre |x| 60.2, z 14.0 mm). No vocalization was observed. The motor figure has no larynx label.",
+      "references": [
+        "ROUX2020",
+        "PR1950"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-functions",
+        "mot-swallowing"
+      ],
+      "applies_to": "motor figure: swallowing; function brackets",
+      "text": "fMRI during vocalization shows two larynx representations, a dorsal and a ventral one. The dorsal one lies in primary motor cortex. The ventral one does not, and the authors speculate that it lies in premotor cortex.",
+      "references": [
+        "EICHERT2020"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "mot-swallowing"
+      ],
+      "applies_to": "motor figure: swallowing",
+      "text": "In the 2023 task data (2 participants), swallowing was the preferred movement at the centre of one inter-effector region.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "The 1950 text says that the position of the genitalia relative to the toes is not clear and may be posterior to the toes (p. 45). The legend of the 1937 figure says that genitalia and rectum are not figured.",
+      "references": [
+        "PR1950",
+        "PB1937"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "According to Kell et al. (2005), repeated by Cazala et al. (2015), Penfield and Rasmussen obtained genital sensation in three of 400 patients, from cortex beside the central fissure 1 cm behind the upper-leg and lower-trunk representation, and none from the medial surface of the postcentral gyrus. That passage of the 1950 book was not read for this build.",
+      "references": [
+        "KELL2005",
+        "CAZALA2015"
+      ]
+    },
+    {
+      "section": "fig",
+      "method": "HIST",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "Other accounts of Penfield’s evidence differ. Di Noto et al. (2013) say the 1950 book covers 400 operations, at least 9 of them on women, and that the medial placement of the female genitals rests on one patient. Proelss et al. (2025) say that Penfield’s maps showed no genital responses in the dorsal postcentral gyrus. Penfield reported little about the women he mapped, and the figure is drawn as male.",
+      "references": [
+        "DINOTO2013",
+        "PROELSS2025"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "In 8 men, brushing of the penis activated the contralateral postcentral gyrus about 1 cm lateral to the big toe (group foci at Talairach 24, −33, 72 for the prepuce and 24, −35, 68 for the shaft). The lower abdominal wall, tested in 4 of the men, overlapped the penile focus with its centre slightly more lateral. The authors found no sign of a penile representation on the medial wall.",
+      "references": [
+        "KELL2005"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "In 13 men scanned at 7 tesla, brushing of the penile shaft activated primary somatosensory cortex dorsolateral to the foot. The authors assign a deeper midline activation to midcingulate cortex.",
+      "references": [
+        "LUIJTEN2020"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "In 20 women, an oscillating membrane on the clitoral region, contrasted with the hand, activated the dorsolateral postcentral gyrus (both hemispheres in 16, one in 4), where the authors place it beside the hip and upper leg. The peak varied considerably between individuals.",
+      "references": [
+        "KNOP2022"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "DES",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "In awake surgery on 8 tumour patients, all 3 men reported genital sensations from the dorsal postcentral gyrus, beside the upper leg and thigh, extending into the adjacent sulcus in two. None of the 5 women did. At the fMRI-defined female genital site they often reported leg sensations. Stimulation current was fixed, so a higher threshold in women is not excluded.",
+      "references": [
+        "PROELSS2025"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "DES",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "The 2018 series of 50 patients does not mention genital sensations.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "fMRI",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "Other studies point to the medial wall. In 11 women, self-stimulation of the clitoris, vagina and cervix activated the paracentral lobule (Komisaruk et al. 2011, no coordinates published). The 2015 review notes that these responses may lie in motor cortex. A 2010 perfusion study in 16 men reported both a paracentral and a lateral postcentral focus (Georgiadis et al. 2010, as tabulated in the review). Both foci are correlations of blood flow with penile circumference or its rate of change, not responses to touch alone.",
+      "references": [
+        "CAZALA2015"
+      ]
+    },
+    {
+      "section": "rev",
+      "method": "REC",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "Evoked potentials to pudendal nerve stimulation were recorded from the mesial surface, in front of the foot area, in epilepsy patients (Allison et al. 1996). The 2015 review tentatively accepts two representations, one medial and one lateral.",
+      "references": [
+        "CAZALA2015"
+      ]
+    },
+    {
+      "section": "life",
+      "method": "fMRI",
+      "labels": [
+        "sen-genitals"
+      ],
+      "applies_to": "sensory figure: genitals",
+      "text": "In the women of the 2022 study with a mapped left-hemisphere genital field (18 of 20 by the paper’s table), cortical thickness of that field correlated with self-reported intercourse frequency over the previous 12 months (partial r = 0.701). The design is cross-sectional and does not show direction of effect. A 2026 study by the same group recruited 128 women, 64 of them exposed to childhood sexual abuse. Its left-hemisphere analyses included at most 89 women. It found no association between field thickness and sexual frequency over the previous 12 months, in the whole sample or in either group.",
+      "references": [
+        "KNOP2022",
+        "KOVALCHUK2026"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-pharynx"
+      ],
+      "applies_to": "sensory figure: pharynx",
+      "text": "The 2018 series found one pharynx site and two larynx sites, at the lateral end of the sequence.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "stim",
+      "method": "DES",
+      "labels": [
+        "sen-intra-abdominal"
+      ],
+      "applies_to": "sensory figure: intra-abdominal",
+      "text": "The 2018 series does not mention intra-abdominal or visceral sensations. Abdomen appears there only as a skin site.",
+      "references": [
+        "ROUX2018"
+      ]
+    },
+    {
+      "section": "g",
+      "method": "fMRI",
+      "labels": [
+        "g-foot",
+        "g-hand",
+        "g-mouth",
+        "g-ie-sup",
+        "g-ie-mid",
+        "g-ie-inf"
+      ],
+      "applies_to": "all 2023 regions",
+      "text": "The evidence is precision resting-state fMRI in 7 adults (172 to 1,813 minutes of resting data each). A movement task battery and a planning task were run in 2 of them, a foot, hand and tongue localiser in 3, and a larynx task in 3 adults, one of whom was not among the 7. The resting-state pattern was replicated in group-averaged data from UK Biobank (about 4,000), ABCD (3,928) and the Human Connectome Project (812). The authors caution that their schematic is not a precise map.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "g",
+      "method": "fMRI",
+      "labels": [
+        "g-ie-sup",
+        "g-ie-mid",
+        "g-ie-inf"
+      ],
+      "applies_to": "inter-effector regions",
+      "text": "Inter-effector cortex is thinner than effector cortex. The three regions are strongly connected to each other and to the cingulo-opercular network, the dorsolateral putamen and the centromedian nucleus of the thalamus.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "g",
+      "method": "fMRI",
+      "labels": [
+        "g-ie-sup",
+        "g-ie-mid",
+        "g-ie-inf"
+      ],
+      "applies_to": "inter-effector regions",
+      "text": "They show weak movement specificity. In a task with separate planning and execution phases for hand and foot movements, run in 2 participants, they were more active during planning than during execution. The effector regions were not.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "g",
+      "method": "fMRI",
+      "labels": [
+        "g-ie-sup",
+        "g-ie-mid",
+        "g-ie-inf"
+      ],
+      "applies_to": "inter-effector regions",
+      "text": "In the task data, abdominal movement, eyelid movement and swallowing were the preferred movements at the centres of the three inter-effector regions. The paper lists them in that order and does not state the pairing with superior, middle and inferior in a sentence.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "g",
+      "method": "REC",
+      "labels": [
+        "g-ie-sup"
+      ],
+      "applies_to": "superior inter-effector region",
+      "text": "Lies between the foot and hand effector regions. Gordon et al. cite depth-electrode recordings (Jensen et al. 2023) as showing that this region is active during foot, hand and mouth movements. The recording study, in 13 patients, places its main shared site deep in the central sulcus at its mid-lateral part, active during hand, tongue and foot movements. Its authors say only that the superior region of Gordon et al. may overlie a secondary site, which they saw in five patients.",
+      "references": [
+        "GORDON2023",
+        "JENSEN2023"
+      ]
+    },
+    {
+      "section": "g",
+      "method": "DES",
+      "labels": [
+        "g-ie-mid"
+      ],
+      "applies_to": "middle inter-effector region",
+      "text": "Lies between the hand and mouth effector regions. The authors mapped the published movement sites from surface stimulation in 100 patients (Roux et al. 2020) onto a group surface and found none in a zone corresponding to this region. Sites that gave no movement were not part of that analysis.",
+      "references": [
+        "GORDON2023",
+        "ROUX2020"
+      ]
+    },
+    {
+      "section": "g",
+      "method": "fMRI",
+      "labels": [
+        "g-ie-inf"
+      ],
+      "applies_to": "inferior inter-effector region",
+      "text": "Last in the sequence, below the mouth effector region and just above the lateral sulcus. Its position is shown by the sixth seed in the paper’s first figure and by the positions in its Supplementary Table 1.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "g",
+      "method": "fMRI",
+      "labels": [
+        "g-foot",
+        "g-hand",
+        "g-mouth"
+      ],
+      "applies_to": "effector regions",
+      "text": "Each effector region is drawn as concentric zones, with the distal part (toes, fingers, tongue) at the centre and proximal parts (knee, shoulder, larynx) on the perimeter. The hand task was closing the whole hand. Fingers were not tested one by one.",
+      "references": [
+        "GORDON2023"
+      ]
+    },
+    {
+      "section": "g",
+      "method": "DES",
+      "labels": [
+        "g-foot",
+        "g-hand",
+        "g-mouth",
+        "g-ie-sup",
+        "g-ie-mid",
+        "g-ie-inf"
+      ],
+      "applies_to": "all 2023 regions",
+      "text": "The authors note that Penfield’s stimulation elicited movement from about half of sites, mostly of the foot, hand and mouth, and that sites giving no movement were historically not recorded.",
+      "references": [
+        "GORDON2023"
+      ]
+    }
+  ],
+  "method_codes": {
+    "DES": "Direct electrical stimulation of the cortical surface in awake surgery",
+    "SEEG": "Stimulation through depth electrodes",
+    "fMRI": "Functional magnetic resonance imaging, with structural MRI where stated",
+    "MEG": "Magnetoencephalography with source localisation (magnetic source imaging)",
+    "ICMS": "Intracortical microstimulation through implanted arrays",
+    "REC": "Recording from implanted arrays, depth electrodes or surface grids",
+    "PSY": "Psychophysics or perceptual report",
+    "ANAT": "Cytoarchitectonic or anatomical study",
+    "CLIN": "Clinical pattern, from case series and reference texts",
+    "HIST": "Historical record or reanalysis of the original data"
+  },
+  "coordinates": [
+    {
+      "id": "m-ll",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "LL",
+      "label": "Inferior limb (foot 4, knee 1, hip 4, buttock 1)",
+      "x_mm": 8.2,
+      "y_mm": -29.3,
+      "z_mm": 75.1,
+      "sd_x": 3.7,
+      "sd_y": 5.2,
+      "sd_z": 1.3,
+      "n": 10,
+      "division": "ll",
+      "note": "The source’s rows are foot, knee, hip and buttock. It names no toe or ankle site."
+    },
+    {
+      "id": "m-sh",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "Sh",
+      "label": "Shoulder",
+      "x_mm": 18.5,
+      "y_mm": -21.7,
+      "z_mm": 74.4,
+      "sd_x": 4.6,
+      "sd_y": 3.8,
+      "sd_z": 2.2,
+      "n": 7,
+      "division": "ul",
+      "note": ""
+    },
+    {
+      "id": "m-el",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "El",
+      "label": "Elbow",
+      "x_mm": 22.6,
+      "y_mm": -22.1,
+      "z_mm": 72.8,
+      "sd_x": 3.6,
+      "sd_y": 2.8,
+      "sd_z": 1.8,
+      "n": 20,
+      "division": "ul",
+      "note": ""
+    },
+    {
+      "id": "m-wr",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "Wr",
+      "label": "Wrist",
+      "x_mm": 26.2,
+      "y_mm": -22.1,
+      "z_mm": 70.4,
+      "sd_x": 4.7,
+      "sd_y": 2.7,
+      "sd_z": 2.3,
+      "n": 24,
+      "division": "ul",
+      "note": ""
+    },
+    {
+      "id": "m-fa",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "Fa",
+      "label": "All fingers",
+      "x_mm": 32.9,
+      "y_mm": -21.4,
+      "z_mm": 67,
+      "sd_x": 3.8,
+      "sd_y": 3,
+      "sd_z": 2.6,
+      "n": 49,
+      "division": "hd",
+      "note": ""
+    },
+    {
+      "id": "m-fi",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "Fi",
+      "label": "Individual fingers",
+      "x_mm": 35.4,
+      "y_mm": -17.2,
+      "z_mm": 64.7,
+      "sd_x": 4.3,
+      "sd_y": 2.9,
+      "sd_z": 3.1,
+      "n": 22,
+      "division": "hd",
+      "note": ""
+    },
+    {
+      "id": "m-fj",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "FJ",
+      "label": "Face and jaw, pooled (forehead 2, eyebrow 1, eye 2, nose 1, cheek 11, jaw 12)",
+      "x_mm": 53.5,
+      "y_mm": -2.7,
+      "z_mm": 36.9,
+      "sd_x": 6.5,
+      "sd_y": 3.8,
+      "sd_z": 13.5,
+      "n": 29,
+      "division": "fc",
+      "note": "The source labels this group Face. It pools upper-face and cheek sites with jaw sites and excludes lips."
+    },
+    {
+      "id": "m-li",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "Li",
+      "label": "Lips",
+      "x_mm": 55,
+      "y_mm": -1.4,
+      "z_mm": 37.4,
+      "sd_x": 3.7,
+      "sd_y": 3.3,
+      "sd_z": 9.3,
+      "n": 38,
+      "division": "mo",
+      "note": ""
+    },
+    {
+      "id": "m-to",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "To",
+      "label": "Tongue",
+      "x_mm": 58.3,
+      "y_mm": 0,
+      "z_mm": 26.4,
+      "sd_x": 2.4,
+      "sd_y": 1.9,
+      "sd_z": 8.2,
+      "n": 35,
+      "division": "mo",
+      "note": ""
+    },
+    {
+      "id": "m-la",
+      "strip": "motor",
+      "reference": "ROUX2020",
+      "method": "DES",
+      "code": "La",
+      "label": "Larynx",
+      "x_mm": 60.2,
+      "y_mm": 1.1,
+      "z_mm": 14,
+      "sd_x": 1.1,
+      "sd_y": 3.4,
+      "sd_z": 4.6,
+      "n": 14,
+      "division": "vi",
+      "note": ""
+    },
+    {
+      "id": "i-sl",
+      "strip": "motor",
+      "reference": "GORDON2023",
+      "method": "fMRI",
+      "code": "SL",
+      "label": "Inter-effector, superior, left (average of 7 adults)",
+      "x_mm": 19,
+      "y_mm": -34,
+      "z_mm": 59,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 7,
+      "division": "ax",
+      "note": ""
+    },
+    {
+      "id": "i-sr",
+      "strip": "motor",
+      "reference": "GORDON2023",
+      "method": "fMRI",
+      "code": "SR",
+      "label": "Inter-effector, superior, right (average of 7 adults)",
+      "x_mm": 20,
+      "y_mm": -31,
+      "z_mm": 58,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 7,
+      "division": "ax",
+      "note": ""
+    },
+    {
+      "id": "i-ml",
+      "strip": "motor",
+      "reference": "GORDON2023",
+      "method": "fMRI",
+      "code": "ML",
+      "label": "Inter-effector, middle, left (average of 7 adults)",
+      "x_mm": 38,
+      "y_mm": -18,
+      "z_mm": 44,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 7,
+      "division": "ax",
+      "note": ""
+    },
+    {
+      "id": "i-mr",
+      "strip": "motor",
+      "reference": "GORDON2023",
+      "method": "fMRI",
+      "code": "MR",
+      "label": "Inter-effector, middle, right (average of 7 adults)",
+      "x_mm": 40,
+      "y_mm": -15,
+      "z_mm": 43,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 7,
+      "division": "ax",
+      "note": ""
+    },
+    {
+      "id": "i-il",
+      "strip": "motor",
+      "reference": "GORDON2023",
+      "method": "fMRI",
+      "code": "IL",
+      "label": "Inter-effector, inferior, left (average of 7 adults)",
+      "x_mm": 54,
+      "y_mm": -3,
+      "z_mm": 14,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 7,
+      "division": "ax",
+      "note": ""
+    },
+    {
+      "id": "i-ir",
+      "strip": "motor",
+      "reference": "GORDON2023",
+      "method": "fMRI",
+      "code": "IR",
+      "label": "Inter-effector, inferior, right (average of 7 adults)",
+      "x_mm": 56,
+      "y_mm": -1,
+      "z_mm": 16,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 7,
+      "division": "ax",
+      "note": ""
+    },
+    {
+      "id": "s-ft",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Ft",
+      "label": "Feet",
+      "x_mm": 4,
+      "y_mm": -41,
+      "z_mm": 64,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "ll",
+      "note": ""
+    },
+    {
+      "id": "s-lg",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Lg",
+      "label": "Leg",
+      "x_mm": 4,
+      "y_mm": -43,
+      "z_mm": 71.5,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 2,
+      "division": "ll",
+      "note": ""
+    },
+    {
+      "id": "s-kn",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Kn",
+      "label": "Knee",
+      "x_mm": 8,
+      "y_mm": -41,
+      "z_mm": 78,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "ll",
+      "note": ""
+    },
+    {
+      "id": "s-th",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Th",
+      "label": "Thigh",
+      "x_mm": 12.3,
+      "y_mm": -40.3,
+      "z_mm": 75.3,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 3,
+      "division": "ll",
+      "note": ""
+    },
+    {
+      "id": "s-tx",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Tx",
+      "label": "Thorax",
+      "x_mm": 15,
+      "y_mm": -40.3,
+      "z_mm": 75,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 3,
+      "division": "ax",
+      "note": ""
+    },
+    {
+      "id": "s-hp",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Hp",
+      "label": "Hip",
+      "x_mm": 19,
+      "y_mm": -37,
+      "z_mm": 76,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "ll",
+      "note": ""
+    },
+    {
+      "id": "s-ab",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Ab",
+      "label": "Abdomen",
+      "x_mm": 22,
+      "y_mm": -37,
+      "z_mm": 72,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "ax",
+      "note": ""
+    },
+    {
+      "id": "s-el",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "El",
+      "label": "Elbow",
+      "x_mm": 25.7,
+      "y_mm": -33.7,
+      "z_mm": 70.7,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 4,
+      "division": "ul",
+      "note": ""
+    },
+    {
+      "id": "s-fo",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Fo",
+      "label": "Forearm",
+      "x_mm": 29.2,
+      "y_mm": -33.4,
+      "z_mm": 68.8,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 5,
+      "division": "ul",
+      "note": ""
+    },
+    {
+      "id": "s-sh",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Sh",
+      "label": "Shoulder",
+      "x_mm": 29.7,
+      "y_mm": -35.3,
+      "z_mm": 70,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 3,
+      "division": "ul",
+      "note": ""
+    },
+    {
+      "id": "s-wr",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Wr",
+      "label": "Wrist",
+      "x_mm": 30.9,
+      "y_mm": -33.7,
+      "z_mm": 69.1,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 7,
+      "division": "ul",
+      "note": ""
+    },
+    {
+      "id": "s-d5",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "D5",
+      "label": "Little finger",
+      "x_mm": 35.2,
+      "y_mm": -30.9,
+      "z_mm": 66.3,
+      "sd_x": 4.65,
+      "sd_y": 1.93,
+      "sd_z": 2.34,
+      "n": 21,
+      "division": "hd",
+      "note": ""
+    },
+    {
+      "id": "s-d4",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "D4",
+      "label": "Ring finger",
+      "x_mm": 37.5,
+      "y_mm": -29.7,
+      "z_mm": 64.8,
+      "sd_x": 4.23,
+      "sd_y": 2.47,
+      "sd_z": 2.47,
+      "n": 19,
+      "division": "hd",
+      "note": ""
+    },
+    {
+      "id": "s-d3",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "D3",
+      "label": "Middle finger",
+      "x_mm": 40.8,
+      "y_mm": -28.6,
+      "z_mm": 62,
+      "sd_x": 3.51,
+      "sd_y": 2.93,
+      "sd_z": 3.06,
+      "n": 25,
+      "division": "hd",
+      "note": "SD of y is printed as 2.93 in Table 3 and 3.14 in Table 4 of the source. The listed sites give 2.94."
+    },
+    {
+      "id": "s-pa",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Pa",
+      "label": "Palm",
+      "x_mm": 42.3,
+      "y_mm": -25.7,
+      "z_mm": 61.3,
+      "sd_x": 3.05,
+      "sd_y": 2.73,
+      "sd_z": 3.22,
+      "n": 12,
+      "division": "hd",
+      "note": ""
+    },
+    {
+      "id": "s-d2",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "D2",
+      "label": "Index finger",
+      "x_mm": 43.4,
+      "y_mm": -26.8,
+      "z_mm": 59.9,
+      "sd_x": 3.25,
+      "sd_y": 3.14,
+      "sd_z": 3.23,
+      "n": 31,
+      "division": "hd",
+      "note": ""
+    },
+    {
+      "id": "s-d1",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "D1",
+      "label": "Thumb",
+      "x_mm": 46.6,
+      "y_mm": -22.8,
+      "z_mm": 56.2,
+      "sd_x": 2.49,
+      "sd_y": 2.58,
+      "sd_z": 3.44,
+      "n": 41,
+      "division": "hd",
+      "note": ""
+    },
+    {
+      "id": "s-eb",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Eb",
+      "label": "Eyebrows",
+      "x_mm": 53,
+      "y_mm": -23,
+      "z_mm": 48,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "fc",
+      "note": ""
+    },
+    {
+      "id": "s-ey",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Ey",
+      "label": "Eyes",
+      "x_mm": 56,
+      "y_mm": -21,
+      "z_mm": 46,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "fc",
+      "note": ""
+    },
+    {
+      "id": "s-no",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "No",
+      "label": "Nose",
+      "x_mm": 56,
+      "y_mm": -19,
+      "z_mm": 45,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "fc",
+      "note": ""
+    },
+    {
+      "id": "s-fc",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Fc",
+      "label": "Face",
+      "x_mm": 55,
+      "y_mm": -15,
+      "z_mm": 44,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "fc",
+      "note": ""
+    },
+    {
+      "id": "s-li",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Li",
+      "label": "Lips",
+      "x_mm": 57.5,
+      "y_mm": -13.3,
+      "z_mm": 41.9,
+      "sd_x": 2.44,
+      "sd_y": 1.63,
+      "sd_z": 4.88,
+      "n": 14,
+      "division": "mo",
+      "note": "SD of z is printed as 4.88. The 14 listed sites give 5.14."
+    },
+    {
+      "id": "s-ja",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Ja",
+      "label": "Jaw",
+      "x_mm": 60.5,
+      "y_mm": -13,
+      "z_mm": 37.5,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 4,
+      "division": "mo",
+      "note": ""
+    },
+    {
+      "id": "s-gu",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Gu",
+      "label": "Gums",
+      "x_mm": 58,
+      "y_mm": -10,
+      "z_mm": 37,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "mo",
+      "note": ""
+    },
+    {
+      "id": "s-tt",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Tt",
+      "label": "Tongue, tip",
+      "x_mm": 59.2,
+      "y_mm": -11,
+      "z_mm": 36,
+      "sd_x": 2.04,
+      "sd_y": 1.41,
+      "sd_z": 4.73,
+      "n": 6,
+      "division": "mo",
+      "note": ""
+    },
+    {
+      "id": "s-tm",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Tm",
+      "label": "Tongue, middle",
+      "x_mm": 60.7,
+      "y_mm": -11.4,
+      "z_mm": 30,
+      "sd_x": 1.47,
+      "sd_y": 2.12,
+      "sd_z": 4.97,
+      "n": 37,
+      "division": "mo",
+      "note": "n is 37 in Tables 3 and 4 of the source. Its text gives 31 of 44 tongue sites."
+    },
+    {
+      "id": "s-te",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Te",
+      "label": "Teeth",
+      "x_mm": 61,
+      "y_mm": -9,
+      "z_mm": 24.5,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 2,
+      "division": "mo",
+      "note": ""
+    },
+    {
+      "id": "s-tb",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Tb",
+      "label": "Tongue, base",
+      "x_mm": 61.4,
+      "y_mm": -11.1,
+      "z_mm": 23.3,
+      "sd_x": 0.78,
+      "sd_y": 1.95,
+      "sd_z": 1.41,
+      "n": 7,
+      "division": "mo",
+      "note": "SD of z is printed as 1.41. The seven listed sites give 3.20."
+    },
+    {
+      "id": "s-la",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "La",
+      "label": "Larynx",
+      "x_mm": 62,
+      "y_mm": -10,
+      "z_mm": 18.5,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 2,
+      "division": "vi",
+      "note": ""
+    },
+    {
+      "id": "s-ph",
+      "strip": "sensory",
+      "reference": "ROUX2018",
+      "method": "DES",
+      "code": "Ph",
+      "label": "Pharynx",
+      "x_mm": 62,
+      "y_mm": -14,
+      "z_mm": 14,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 1,
+      "division": "vi",
+      "note": ""
+    },
+    {
+      "id": "g-knl",
+      "strip": "sensory",
+      "reference": "KNOP2022",
+      "method": "fMRI",
+      "code": "GL",
+      "label": "Clitoral region, group activation, left hemisphere",
+      "x_mm": 18,
+      "y_mm": -34,
+      "z_mm": 74,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 20,
+      "division": "ge",
+      "note": "z is printed as 74 in the text and figure legend and as 72 in Table 2 of the source."
+    },
+    {
+      "id": "g-knr",
+      "strip": "sensory",
+      "reference": "KNOP2022",
+      "method": "fMRI",
+      "code": "GR",
+      "label": "Clitoral region, group activation, right hemisphere",
+      "x_mm": 18,
+      "y_mm": -40,
+      "z_mm": 68,
+      "sd_x": null,
+      "sd_y": null,
+      "sd_z": null,
+      "n": 20,
+      "division": "ge",
+      "note": ""
+    }
+  ],
+  "coordinates_note": "MNI space, millimetres. x is given as an absolute value. sd is the standard deviation where the source gives one. n is the number of sites or subjects as the source counts them.",
+  "differences_between_the_two_1950_figures": [
+    {
+      "topic": "Neck",
+      "text": "A between Trunk and Head. B between Thumb and Brow.",
+      "record": "mot-neck"
+    },
+    {
+      "topic": "Genitals",
+      "text": "A only, lettered Gen., below Toes, without a block line.",
+      "record": "sen-genitals"
+    },
+    {
+      "topic": "Head",
+      "text": "A only, between Neck and Shoulder.",
+      "record": "sen-head"
+    },
+    {
+      "topic": "Lower limb",
+      "text": "A names Toes, Foot, Leg, Hip. B names Toes, Ankle, Knee, Hip.",
+      "record": "mot-ankle"
+    },
+    {
+      "topic": "Arm",
+      "text": "A names Shoulder, Arm, Elbow, Forearm, Wrist. B names Shoulder, Elbow, Wrist.",
+      "record": "sen-forearm"
+    },
+    {
+      "topic": "Hand",
+      "text": "The Hand line is 4.8% of the summed block lines in A and 14.7% in B.",
+      "record": "mot-hand"
+    },
+    {
+      "topic": "Upper face",
+      "text": "A names Eye, Nose, Face. B names Brow, Eyelid & Eyeball, Face.",
+      "record": "mot-brow"
+    },
+    {
+      "topic": "Mouth",
+      "text": "A names Upper lip, Lips, Lower lip, Teeth, gums, and jaw, Tongue. B names Lips, Jaw, Tongue.",
+      "record": "sen-teeth-gums-jaw"
+    },
+    {
+      "topic": "Lateral end",
+      "text": "A ends with Pharynx and Intra-abdominal. B ends with Swallowing.",
+      "record": "sen-intra-abdominal"
+    },
+    {
+      "topic": "Function brackets",
+      "text": "B only: Vocalization, Salivation, Mastication.",
+      "record": "mot-functions"
+    }
+  ],
+  "topics": [
+    {
+      "topic": "Fine touch at the fingertip",
+      "record": "sen-index"
+    },
+    {
+      "topic": "Musicians and Braille readers",
+      "record": "sen-little"
+    },
+    {
+      "topic": "Amputation and the phantom hand",
+      "record": "sen-hand"
+    },
+    {
+      "topic": "Touch feedback for a prosthetic hand",
+      "record": "sen-ring"
+    },
+    {
+      "topic": "Handwriting decoded from the precentral gyrus",
+      "record": "mot-hand"
+    },
+    {
+      "topic": "Speech prostheses",
+      "record": "mot-tongue"
+    },
+    {
+      "topic": "Stroke patterns by artery",
+      "record": "mot-toes"
+    },
+    {
+      "topic": "Seizure spread along the strip",
+      "record": "mot-thumb"
+    },
+    {
+      "topic": "Where the genitals belong",
+      "record": "sen-genitals"
+    },
+    {
+      "topic": "Where the neck belongs",
+      "record": "mot-neck"
+    },
+    {
+      "topic": "Is the motor strip primary motor cortex?",
+      "record": "mot-elbow"
+    },
+    {
+      "topic": "Inter-effector regions",
+      "record": "g-ie-mid"
+    }
+  ]
+}

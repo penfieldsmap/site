@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Penfield Somatotopy Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: toolbar on top, figure column left, sticky record column right, methods and references below.
+     Treatment: a mid-century anatomy text. Uncoated paper, black ink, one book face, framed plates, hatching. Single light theme by choice. */
+  --bg:#f3efe4;
+  --plate:#f8f5ec;
+  --ink:#1c1a16;
+  --ink2:#5a554b;
+  --rule:#b5ad9b;
+  --hair:#d6cfbe;
+  --bar:#e9e3d4;
+  --link:#1e3f73;
+  --display:"Libre Baskerville",Baskerville,"Baskerville Old Face","Hoefler Text",Georgia,"Times New Roman",serif;
+  --body:"Libre Baskerville",Baskerville,"Baskerville Old Face","Hoefler Text",Georgia,"Times New Roman",serif;
+  --toolh:38px;
+  --headh:40px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:12.5px/1.5 var(--body);font-variant-numeric:lining-nums}
+body{padding-bottom:26px}
+a{color:var(--link)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--link);outline-offset:1px}
+.caps{text-transform:uppercase;letter-spacing:.09em;font-size:.84em}
+
+header.top{position:sticky;top:0;z-index:7;background:var(--bg);display:flex;align-items:flex-end;justify-content:space-between;gap:2px 16px;padding:9px 16px 8px;border-bottom:3px double var(--ink)}
+header.top h1{font:700 21px/1.1 var(--display);margin:0;text-transform:uppercase;letter-spacing:.07em}
+header.top h1 small{display:block;font:italic 400 12px/1.3 var(--display);text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:3px}
+.build2{display:none}
+header.top nav.menu{display:flex;align-items:flex-end;gap:2px 18px;margin:0 auto 1px 30px;flex-wrap:nowrap}
+nav.menu a{font:700 10.5px/1.6 var(--display);text-transform:uppercase;letter-spacing:.09em;color:var(--ink);text-decoration:none;padding:2px 0 1px;border-bottom:2px solid transparent;white-space:nowrap}
+nav.menu a:hover{border-bottom-color:var(--rule)}
+nav.menu a[aria-current="page"]{border-bottom-color:var(--ink)}
+nav.menu .sep{width:1px;height:14px;background:var(--rule);margin:0 0 4px}
+header.top .build{margin-left:auto;font-size:11px;color:var(--ink2);font-style:italic}
+header.top .build::before{content:attr(data-t)}
+
+.tools{position:sticky;top:var(--headh);z-index:5;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding:6px 16px;background:var(--bar);border-bottom:1px solid var(--ink)}
+.tools .lbl{font-size:11.5px;color:var(--ink2);font-style:italic}
+.grp{display:inline-flex;align-items:center;gap:6px}
+.seg2{display:inline-flex}
+.seg2 button{border:1px solid var(--ink);background:var(--plate);padding:3px 10px;font-size:11.5px;cursor:pointer;margin-left:-1px}
+.seg2 button:first-child{margin-left:0}
+.seg2 button[aria-pressed="true"]{background:var(--ink);color:var(--plate)}
+.tools input[type=search]{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);width:140px;border-radius:0;background:var(--plate);color:var(--ink);-webkit-appearance:none;appearance:none}
+#found{font-size:11.5px;display:flex;flex-wrap:wrap;gap:2px 10px}
+.tools select{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);border-radius:0;background:var(--plate);color:var(--ink);max-width:230px}
+.tools .right{margin-left:auto;display:flex;gap:6px}
+.plain{border:1px solid var(--ink);background:var(--plate);padding:3px 10px;font-size:11.5px;cursor:pointer}
+.plain:disabled{color:#a39d8e;border-color:#a39d8e;cursor:default}
+.lk{border:0;background:none;padding:0;color:var(--link);cursor:pointer;text-align:left;font-size:inherit;text-decoration:underline;text-decoration-color:#93a3bd;text-underline-offset:2px}
+.lk:hover{text-decoration-color:var(--link)}
+.lk.on{color:var(--ink);font-weight:700;text-decoration:none}
+
+main{display:block}
+.duo{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);align-items:start;border-bottom:1px solid var(--ink)}
+#p1{position:sticky;top:calc(var(--headh) + var(--toolh));height:var(--p1h,calc(100vh - var(--toolh) - var(--headh) - 26px));display:flex;flex-direction:column;border-bottom:0;border-right:1px solid var(--ink);background:var(--bg)}
+#p1 .pbody{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;flex-wrap:nowrap;gap:0;padding:10px 12px 12px}
+#fig1{flex:1 1 auto;min-height:0;max-width:none;overflow:hidden}
+#fig1 svg{width:100%;height:100%;min-width:0}
+.panel{min-width:0;border-bottom:1px solid var(--ink)}
+.panel>h2{margin:0;padding:7px 16px 6px;font:400 12.5px/1.45 var(--display);border-bottom:1px solid var(--rule)}
+.panel>h2 b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
+.panel>h2 span{color:var(--ink)}
+.pbody{display:flex;flex-wrap:wrap;gap:12px 22px;padding:12px 16px 13px}
+.svgwrap{flex:3 1 540px;max-width:780px;min-width:0;overflow-x:auto}
+.svgwrap.wide{flex-basis:100%;max-width:1010px}
+.svgwrap svg{display:block;width:100%;min-width:540px;height:auto;background:var(--plate);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-4px}
+.svgwrap.wide svg{min-width:760px}
+.side{flex:1 1 230px;min-width:0;max-width:560px;font-size:11.5px}
+#key{flex:1 1 100%;max-width:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 36px}
+.side h3{font:700 10.5px/1.5 var(--display);text-transform:uppercase;letter-spacing:.09em;margin:0 0 4px;padding-bottom:2px;border-bottom:1px solid var(--ink)}
+.side h3:not(:first-child){margin-top:13px}
+.side ul,.side ol{margin:0;padding:0;list-style:none}
+.side li{padding:1.5px 0}
+.side p{margin:0 0 6px;color:var(--ink2)}
+.sw{display:inline-block;width:24px;height:12px;margin-right:7px;vertical-align:-2px}
+.cap{flex:1 1 100%;margin:0;font-size:11.5px;color:var(--ink2);max-width:92ch;font-style:italic}
+
+.tblwrap{flex:1 1 100%;overflow-x:auto}
+table.dt{border-collapse:collapse;font:11px/1.4 var(--body);min-width:700px;width:100%;font-variant-numeric:tabular-nums lining-nums}
+table.dt th,table.dt td{padding:3px 8px;border-bottom:1px solid var(--hair);text-align:left;white-space:nowrap}
+table.dt th{font:italic 400 11px var(--body);border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+table.dt tbody tr:last-child td{border-bottom:2px solid var(--ink)}
+table.dt td.num,table.dt th.num{text-align:right}
+table.dt td.site{white-space:normal}
+table.dt tr.grp td{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:10px;padding-top:9px;border-bottom:1px solid var(--ink)}
+table.dt tbody tr[data-cid]{cursor:pointer}
+table.dt tbody tr[data-cid]:hover td{background:var(--bar)}
+table.dt tbody tr.on td{background:var(--ink);color:var(--plate)}
+
+.record{min-width:0}
+.record>*{max-width:780px}
+.notes{padding:6px 14px 8px;border-bottom:1px solid var(--hair)}
+.rec-h{padding:11px 14px 10px;border-bottom:1px solid var(--ink);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
+.rec-id{font-size:10px;color:var(--ink2);text-transform:uppercase;letter-spacing:.09em}
+.rec-h h2{font:400 23px/1.15 var(--display);margin:3px 0 7px;text-wrap:balance}
+.kv{margin:0;font-size:11.5px;color:var(--ink2)}
+.kv b{color:var(--ink);font-weight:400;font-style:italic}
+.kv+.kv{margin-top:1px}
+.note{margin:7px 0 0;font-size:12px}
+.rec-act{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+.pics{display:flex;gap:6px;align-items:flex-start}
+.pics svg{display:block}
+.pics figcaption{font-size:10px;color:var(--ink2);max-width:118px;margin-top:3px;line-height:1.3;font-style:italic}
+.pics figure{margin:0}
+.sect h3{margin:0;padding:6px 14px 4px;font:700 10.5px/1.5 var(--display);text-transform:uppercase;letter-spacing:.09em;border-bottom:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px;padding:6px 14px 7px;border-bottom:1px solid var(--hair)}
+.row .m{font-size:9.5px;line-height:1.95;color:var(--ink2);letter-spacing:.05em}
+.row .r{color:var(--ink2);font-size:11px}
+.row .sc{display:block;color:var(--ink2);font-size:10.5px;margin-top:1px;font-style:italic}
+.none{padding:6px 14px 7px;color:var(--ink2);font-size:11.5px;border-bottom:1px solid var(--hair);font-style:italic}
+.srcs{margin:0;padding:6px 14px 10px 30px;font-size:11px}
+.srcs li{padding:2px 0}
+.srcs .rn{color:var(--ink2);font-style:italic}
+.rec-c{padding:0 14px 8px;overflow-x:auto}
+.rec-c table.dt{min-width:360px}
+.rec-c table.dt th{border-top:0}
+
+#status{position:fixed;left:0;right:0;bottom:0;height:26px;padding:0 16px;display:flex;align-items:center;background:var(--bar);border-top:1px solid var(--ink);font-size:11px;font-variant-numeric:tabular-nums lining-nums;color:var(--ink);white-space:nowrap;overflow:hidden;z-index:6}
+
+.doc{padding:20px 16px 30px;border-top:3px double var(--ink);display:grid;grid-template-columns:minmax(0,84ch) minmax(0,1fr);gap:10px 40px}
+.doc h2{font:700 11.5px/1.4 var(--display);text-transform:uppercase;letter-spacing:.09em;margin:0 0 8px}
+.doc ol{margin:0;padding-left:20px}
+.doc li{margin:0 0 6px}
+.doc li b{font-weight:400;font-style:italic}
+.doc dl{margin:0;display:grid;grid-template-columns:48px minmax(0,1fr);gap:2px 8px;font-size:11.5px}
+.doc dt{font-size:10px;line-height:1.85;letter-spacing:.05em}
+.doc dd{margin:0}
+#reflist{list-style:none;padding:0;margin:0;font-size:11.5px;max-width:118ch}
+#reflist li{padding:3px 0 3px 2em;text-indent:-2em}
+#reflist .rn{color:var(--ink2);font-style:italic}
+#reflist a,.srcs a{overflow-wrap:anywhere}
+.about{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 48px}
+.about h3{font:700 10.5px/1.5 var(--display);text-transform:uppercase;letter-spacing:.09em;margin:14px 0 5px;padding-bottom:2px;border-bottom:1px solid var(--ink)}
+.about h2+h3,.about div>h3:first-child{margin-top:0}
+.about p{margin:0 0 8px;max-width:70ch}
+.about .src{font-size:11px;font-style:italic;color:var(--ink2)}
+.doc dl.abl{grid-template-columns:84px minmax(0,1fr);gap:7px 12px;margin:0 0 8px;max-width:76ch;font-size:inherit}
+.doc dl.abl dt{font-size:inherit;line-height:inherit;letter-spacing:0;font-style:italic}
+.doc dl.abl dd{margin:0}
+#about,#methods,#refs{scroll-margin-top:calc(var(--headh) + var(--toolh))}
+.abl2{margin:0;padding-left:18px;max-width:70ch}
+.abl2 li{margin:0 0 5px}
+.about a{overflow-wrap:anywhere}
+.narrow{display:none}
+.docfull{grid-column:1/-1}
+
+/* figures */
+svg text{font-family:var(--body)}
+.anat path,.anat ellipse,.anat line{fill:none;stroke:var(--ink);stroke-width:1.1}
+.anat .wm{fill:var(--plate);stroke:none}
+.anat .rib0{stroke-width:27.2;stroke-linejoin:round}
+.anat .rib{stroke:url(#stip);stroke-width:26;stroke-linejoin:round}
+.anat .out{stroke-width:1.1}
+.anat .cc{fill:url(#fib);stroke:none}
+.anat .vent{fill:var(--ink);stroke:none}
+.anat .nuc{fill:url(#stip);stroke-width:.8}
+.anat .fine{stroke-width:.6}
+.anat .claus{stroke-width:2.2;stroke-opacity:.55}
+.anat .mid{stroke-dasharray:1.5 4;stroke-width:1}
+.anat .faint{stroke-dasharray:2 2.5;stroke-width:.9}
+.anat .ptr{stroke-width:.7}
+.anat text{font-size:10.5px;fill:var(--ink);font-style:italic;paint-order:stroke;stroke:var(--plate);stroke-width:3.5px;stroke-linejoin:round}
+.anat .ori{font-style:normal;font-size:9.5px;letter-spacing:.09em;stroke:none}
+.seg{cursor:pointer;outline:none}
+.seg .band,.seg .tex{fill:none;stroke-width:14.6}
+.seg .tex{pointer-events:none}
+.seg .edge{fill:none;stroke:var(--ink);stroke-width:17}
+.seg .halo{fill:none;stroke:var(--ink);stroke-width:24;display:none}
+.seg.on .halo,.seg:focus-visible .halo{display:inline}
+.seg:hover .halo{display:inline;stroke:var(--ink2)}
+.seg.on:hover .halo,.seg.on .halo{stroke:var(--ink)}
+.seg .lead{stroke:var(--ink);stroke-width:.6;fill:none}
+.seg .lab{font-size:12px;fill:var(--ink)}
+.seg.on .lab{font-weight:700}
+.seg.dim .band,.seg.dim .tex,.seg.dim .gm{opacity:.25}
+.seg.dim .edge{opacity:.35}
+.seg.dim .lab{fill:#a39d8e}
+.seg .gm{stroke:var(--ink);stroke-width:1.1}
+.seg.on .gm,.seg:focus-visible .gm{stroke-width:3}
+.alt{cursor:pointer;outline:none}
+.alt .altp{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3}
+.alt.solid .altp{stroke-dasharray:none}
+.alt .altl{fill:none;stroke:var(--ink);stroke-width:.6}
+.alt text{font-size:10.5px;fill:var(--ink);font-style:italic;paint-order:stroke;stroke:var(--plate);stroke-width:3.5px;stroke-linejoin:round}
+.alt.on .altp,.alt:focus-visible .altp{stroke-width:2.6}
+.alt.on text{font-weight:700}
+
+.cell{cursor:pointer;outline:none}
+.cell rect.c,.cell circle{stroke:var(--ink);stroke-width:.8}
+.cell rect.t{pointer-events:none}
+.cell text{font-size:11px;fill:var(--ink)}
+.cell .ld{stroke:var(--ink2);stroke-width:.6;fill:none}
+.cell:hover rect.c,.cell:focus-visible rect.c{stroke-width:1.8}
+.cell.on rect.c{stroke-width:2.6}
+.cell.on circle{stroke-width:3}
+.cell.on text{font-weight:700}
+.cell.on .ld{stroke:var(--ink);stroke-width:1.2}
+.cell.ie rect.c{stroke-dasharray:3 2}
+.lnk{fill:none;stroke:#8f8878;stroke-width:.8}
+.lnk.on{stroke:var(--ink);stroke-width:2}
+.colh{font-size:10px;font-weight:700;fill:var(--ink);letter-spacing:.09em}
+.ax{font-size:10.5px;fill:var(--ink2);font-style:italic}
+
+.grid line{stroke:#b5ad9b;stroke-width:.7;stroke-dasharray:1 3}
+.axis line{stroke:var(--ink);stroke-width:1}
+.axis text{font-size:9.5px;fill:var(--ink);font-variant-numeric:tabular-nums lining-nums}
+.axis .ttl{font-size:11px;font-style:italic}
+.ptitle{font-size:10px;font-weight:700;fill:var(--ink);letter-spacing:.09em}
+.pt{cursor:pointer;outline:none}
+.pt .sd{stroke:var(--ink2);stroke-width:.8}
+.pt .ld{stroke:#8f8878;stroke-width:.6}
+.pt .mk{stroke:var(--ink);stroke-width:.9}
+.pt text{font-size:10px;fill:var(--ink);font-style:italic;paint-order:stroke;stroke:var(--plate);stroke-width:2.5px;stroke-linejoin:round}
+.pt.on .mk,.pt:focus-visible .mk{stroke-width:2.8}
+.pt.on text{font-weight:700}
+.pt.on .sd,.pt.on .ld{stroke:var(--ink);stroke-width:1.2}
+
+.pic .p{fill:var(--plate);stroke:var(--ink);stroke-width:.9}
+.pic .o{fill:var(--plate);stroke:#a39d8e;stroke-width:.9}
+.pic .p{cursor:pointer}
+.pic .p.hi{stroke:var(--ink);stroke-width:1.4}
+.pic .dash{stroke-dasharray:2 2}
+
+.mbar{display:none}
+.zoomb{display:none}
+.grpl{font-size:18px;fill:var(--ink);font-style:italic;paint-order:stroke;stroke:var(--plate);stroke-width:4px;stroke-linejoin:round;pointer-events:none}
+.seg .hitc{fill:transparent;stroke:none}
+#fig1.fitm .seg .lab,#fig1.fitm .seg .lead,#fig1.fitm .alt,#fig1.fitm .anat text,#fig1.fitm .anat .ptr{display:none}
+#fig1.fitm .seg .hit{stroke-width:64}
+#fig1.fitm .seg .halo{stroke-width:32}
+.seg .hit{fill:none;stroke:transparent;stroke-width:30;pointer-events:stroke}
+/* long records: later sections open on request */
+details.fold>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--ink)}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary h3{flex:1 1 auto;border-bottom:0}
+details.fold>summary .fc{flex:0 0 auto;padding-right:12px;font-size:10.5px;font-style:italic;color:var(--ink2);white-space:nowrap}
+details.fold>summary .fc::after{content:"+";display:inline-block;width:1.4em;text-align:right;font:normal 700 13px/1 var(--display);color:var(--ink)}
+details.fold[open]>summary .fc::after{content:"\2212"}
+details.fold>summary:hover h3{text-decoration:underline;text-underline-offset:2px}
+/* further figures of the body map, on their own page */
+.crumb{margin:0;padding:8px 16px;font-size:11.5px;font-style:italic;color:var(--ink2);border-bottom:1px solid var(--ink)}
+.crumb a{margin-right:14px;font-style:normal;white-space:nowrap}
+.morefigs{list-style:none;margin:0;padding:0;flex:1 1 100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 36px;max-width:1010px}
+.morefigs li{font-size:11.5px;color:var(--ink2)}
+.morefigs a{display:block;font-size:12.5px;margin-bottom:2px}
+.morefigs a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
+body.figs #duo,body.figs .tools .grp:not(.g-len),body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
+body.figs main{display:flex;flex-direction:column}
+body.figs #p1k{order:3}
+body.figs #key{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
+body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
+/* opening lines of the home page */
+.lede .try{display:flex;flex-wrap:wrap;align-items:center;gap:6px 7px;max-width:none;margin-top:10px;font:italic 400 12px/1.2 var(--display);color:var(--ink2)}
+.try a{font-style:normal;font-size:12px;color:var(--ink);text-decoration:none;border:1px solid var(--ink);background:var(--bg);padding:3px 10px 4px}
+.try a:hover{background:var(--bar)}
+.try a.on{background:var(--ink);color:var(--plate)}
+.try a.all{border:0;background:none;padding:3px 2px;color:var(--link);text-decoration:underline;text-underline-offset:2px}
+/* a record that opens on a case; the address of its own page */
+.lead{margin:8px 0 2px;font:400 14.5px/1.5 var(--display);color:var(--ink);max-width:62ch}
+.lead .who{font-weight:400;font-style:italic}
+.lead .r{font-size:11px;color:var(--ink2);white-space:nowrap}
+.facts{padding:8px 14px 9px;border-bottom:1px solid var(--hair)}
+.facts .note{margin:0 0 6px}
+.perm{margin:0;padding:9px 14px 12px;font-size:11px;font-style:italic;color:var(--ink2)}
+.perm a{font-style:normal;overflow-wrap:anywhere}
+.lede{margin:0;padding:13px 16px;font:italic 400 14px/1.6 var(--display);color:var(--ink);background:var(--plate);border-bottom:1px solid var(--ink)}
+.lede span{display:block;max-width:106ch}
+.lede a{font-style:normal;font-size:12px;white-space:nowrap}
+@media (max-width:1020px){
+  .duo{display:block}
+  .morefigs{grid-template-columns:minmax(0,1fr)}
+  body.figs #key{grid-template-columns:minmax(0,1fr)}
+  body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
+  .lede{padding:10px 12px;font-size:13px;line-height:1.55}
+  details.fold>summary h3{padding-top:9px;padding-bottom:7px}
+  .g-strip{display:none}
+  header.top{padding:7px 12px 0;flex-wrap:wrap}
+  header.top nav.menu{flex:1 1 100%;margin:5px -12px 0;padding:0 12px;gap:2px 8px;justify-content:space-between;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--rule)}
+  header.top nav.menu::-webkit-scrollbar{display:none}
+  nav.menu a{font-size:9.5px;letter-spacing:.05em;line-height:2.6;padding:0}
+  nav.menu .sep{margin:0 0 8px}
+  .mw{display:none}
+  header.top h1{font-size:17px}
+  header.top h1 small{font-size:10.5px;margin-top:2px}
+  .build2{display:block;margin:0;padding:5px 12px;font-size:10.5px;font-style:italic;color:var(--ink2);border-bottom:1px solid var(--rule)}
+  #p1{top:var(--headh);height:auto;display:block;z-index:4;border-right:0;border-bottom:2px solid var(--ink)}
+  #p1>h2{display:none}
+  #p1 .pbody{display:block;padding:0}
+  .mbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 8px;background:var(--bar);border-bottom:1px solid var(--ink)}
+  .mbar .seg2 button{padding:5px 11px;font-size:12px}
+  .mnow{flex:1 1 auto;min-width:0;text-align:center;font-weight:700;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #fig1{height:44vh;height:44dvh;overflow:hidden;background:var(--plate)}
+  #fig1 svg{width:100%;height:100%;min-width:0;border:0;outline:0}
+  #fig1.panm{overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  #fig1.panm svg{width:640px;min-width:640px;height:auto}
+  #p1.canzoom .zoomb{display:block;position:absolute;right:8px;bottom:8px;z-index:2;border:1px solid var(--ink);background:var(--plate);font-size:11.5px;padding:5px 10px;cursor:pointer}
+  #key{grid-template-columns:minmax(0,1fr)}
+  .doc,.about{grid-template-columns:minmax(0,1fr)}
+  #about,#methods,#refs{scroll-margin-top:var(--headh)}
+  header.top .build{display:none}
+  .tools{position:static}
+  .tools .right{margin-left:0}
+  .narrow{display:inline}
+  #status{display:none}
+  body{padding-bottom:0}
+}
+@media (max-width:1020px) and (min-width:640px) and (orientation:landscape){
+  .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  #p1{border-bottom:0;border-right:1px solid var(--ink)}
+  #fig1{height:calc(100vh - 39px - var(--headh));height:calc(100dvh - 39px - var(--headh))}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="stip" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#f8f5ec"/><circle cx="1.5" cy="1.5" r=".55" fill="#1c1a16" fill-opacity=".3"/><circle cx="4.5" cy="4.5" r=".55" fill="#1c1a16" fill-opacity=".3"/></pattern>
+    <pattern id="fib" width="4" height="3.4" patternUnits="userSpaceOnUse"><rect width="4" height="3.4" fill="#f8f5ec"/><line x1="0" y1="1.7" x2="4" y2="1.7" stroke="#1c1a16" stroke-opacity=".6" stroke-width=".6"/></pattern>
+    <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#f8f5ec"/><line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#1c1a16" stroke-width="1.1"/></pattern>
+    <pattern id="tx-ll" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#f8f5ec" stroke-opacity=".5" stroke-width="1"/></pattern>
+    <pattern id="tx-ul" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#f8f5ec" stroke-opacity=".5" stroke-width="1"/></pattern>
+    <pattern id="tx-mo" width="5.5" height="5.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="2.75" y1="0" x2="2.75" y2="5.5" stroke="#f8f5ec" stroke-opacity=".45" stroke-width=".9"/><line x1="0" y1="2.75" x2="5.5" y2="2.75" stroke="#f8f5ec" stroke-opacity=".45" stroke-width=".9"/></pattern>
+    <pattern id="tx-vi" width="4" height="4" patternUnits="userSpaceOnUse"><line x1="2" y1="0" x2="2" y2="4" stroke="#f8f5ec" stroke-opacity=".6" stroke-width="1"/></pattern>
+    <pattern id="tx-fc" width="4" height="4" patternUnits="userSpaceOnUse"><line x1="0" y1="2" x2="4" y2="2" stroke="#1c1a16" stroke-opacity=".5" stroke-width=".8"/></pattern>
+    <pattern id="tx-hd" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="1.25" cy="1.25" r=".75" fill="#1c1a16" fill-opacity=".55"/><circle cx="3.75" cy="3.75" r=".75" fill="#1c1a16" fill-opacity=".55"/></pattern>
+  </defs>
+</svg>
+
+<header class="top">
+  <h1>Penfield’s Map <small>of the sensorimotor strip</small></h1>
+  <nav class="menu" aria-label="Site">
+    <a href="@EXP@">Experience<span class="mw"> map</span></a>
+    <a href="@BODY@" aria-current="page">Body<span class="mw"> map</span></a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="@ABOUT@">About</a>
+    <a href="@METHODS@">Methods</a>
+    <a href="@REFS@">References</a>
+  </nav>
+  <span class="build" data-t="updated 2026-11-26. Work in progress, not peer reviewed"></span>
+</header>
+<p class="build2">updated 2026-11-26. Work in progress, not peer reviewed</p>
+<noscript><p class="crumb">The map on this page is drawn by a script. Every record is also a plain page: <a href="@RECS@">index of records</a>.</p></noscript>
+
+<div class="tools" id="tools">
+  <span class="grp g-strip">
+    <span class="lbl" id="lblstrip">Figure</span>
+    <span class="seg2" role="group" aria-labelledby="lblstrip">
+      <button type="button" id="btn-sen" aria-pressed="true">Sensory</button>
+      <button type="button" id="btn-mot" aria-pressed="false">Motor</button>
+    </span>
+  </span>
+  <span class="grp g-len">
+    <span class="lbl" id="lbllen">Segment length</span>
+    <span class="seg2" role="group" aria-labelledby="lbllen">
+      <button type="button" id="btn-lw" aria-pressed="true">1950 block lines</button>
+      <button type="button" id="btn-le" aria-pressed="false">Equal</button>
+    </span>
+  </span>
+  <span class="grp">
+    <label class="lbl" for="find">Find label</label>
+    <input type="search" id="find" autocomplete="off" spellcheck="false" placeholder="thumb, tongue, neck">
+    <span id="found" aria-live="polite"></span>
+  </span>
+  <span class="grp">
+    <label class="lbl" for="topic">Topic</label>
+    <select id="topic"><option value="">Choose a topic</option></select>
+  </span>
+</div>
+
+<main>
+  <div class="duo" id="duo">
+    <section class="panel" id="p1">
+      <h2><b>Fig. 1.</b> <span id="f1t"></span></h2>
+      <div class="pbody">
+        <div class="mbar" id="mbar">
+          <span class="seg2" role="group" aria-label="Figure shown">
+            <button type="button" id="m-sen" aria-pressed="true">Sensory</button>
+            <button type="button" id="m-mot" aria-pressed="false">Motor</button>
+          </span>
+          <span class="mnow" id="mnow"></span>
+          <span class="seg2" role="group" aria-label="Step along the strip">
+            <button type="button" id="m-prev" aria-label="Medial neighbour">←</button>
+            <button type="button" id="m-next" aria-label="Lateral neighbour">→</button>
+          </span>
+        </div>
+        <div class="svgwrap" id="fig1"></div>
+        <button type="button" class="zoomb" id="m-zoom">Show labels</button>
+      </div>
+    </section>
+    <aside class="record" id="record" aria-live="polite"></aside>
+  </div>
+    <section class="panel" id="p1k">
+      <h2><b>Fig. 1.</b> <span>Key and notes</span></h2>
+      <div class="pbody">
+        <div class="side" id="key"></div>
+        <p class="cap">Select a segment or its label. Left and right arrow keys step along the strip. Lettering and order follow the 1950 plates. With the block-line setting, each segment has the relative length of its block line on the plate, as measured by Wright (1956). Arcs inside the strip show order relative to the labels and carry no distance. Dashed arcs mark positions reported by later studies. The head-rotation arc marks only the focus medial to the hand area. Its extent along the strip is not given by the source, and a second focus lateral to the hand area is not drawn. Solid arcs are the three function brackets of the motor figure.<span class="narrow"> On a phone, drag the figure to move around it.</span> The method codes in the records are explained under <a href="@METHODS@#codes-body">Methods</a>.</p>
+      </div>
+    </section>
+    <section class="panel" id="p2">
+      <h2><b>Fig. 2.</b> <span>Label sequences compared. A and B, the two 1950 figures. C, the 2023 fMRI scheme of effector and inter-effector regions on the precentral gyrus.</span></h2>
+      <div class="pbody">
+        <div class="svgwrap" id="fig2"></div>
+        <div class="side" id="diff"></div>
+        <p class="cap">Lines join labels that appear in both 1950 figures. Column C places each effector region beside 1950 labels that its source names in that region. Hatched blocks are inter-effector regions, drawn in the order the source gives: between the foot and hand regions, between the hand and mouth regions, and below the mouth region. Their boundaries against individual 1950 labels are not defined by the source, and a single column cannot show that the source draws each effector region as concentric.</p>
+      </div>
+    </section>
+    <section class="panel" id="p3">
+      <h2><b>Fig. 3.</b> <span>Measured positions in MNI space, coronal projection (y collapsed). Both axes share one scale.</span></h2>
+      <div class="pbody">
+        <div class="svgwrap wide" id="fig3"></div>
+        <div class="side" id="f3key"></div>
+        <div class="tblwrap" id="f3tbl"></div>
+        <p class="cap">Barycentres of positive sites from direct electrical stimulation in awake surgery (Roux et al. 2018, 2020), with bars of ±1 SD where the source prints one, and group fMRI positions. x is the absolute MNI x coordinate. Stimulation rows pool sites from both hemispheres. fMRI rows are given for each hemisphere. For stimulation rows n is the number of sites. For fMRI rows it is the number of participants.</p>
+      </div>
+    </section>
+</main>
+
+<section class="doc about" id="about">
+  <div>
+    <h2>About this map</h2>
+    <h3>Wilder Penfield</h3>
+    <p>Wilder Graves Penfield (1891 to 1976) was a neurosurgeon. He was born in Spokane, Washington, studied at Princeton and at Oxford, where Charles Sherrington introduced him to the study of the brain, and took his medical degree at Johns Hopkins in 1918. In 1928 he moved from New York to the Royal Victoria Hospital in Montreal with his surgical partner William Cone. In 1934 he founded the Montreal Neurological Institute. He directed it until 1960 and died in Montreal.</p>
+    <p>His subject was epilepsy. He operated under local anaesthetic, so the patient was conscious. He stimulated points on the exposed cortex with an electric current and recorded what the patient reported. The aim was to find and remove the tissue where the seizures began. This way of operating became known as the Montreal procedure. The responses on the experience map were recorded during those operations. The body map is a by-product of those operations and of some tumour operations in which he mapped the cortex in the same way.</p>
+    <p class="src">Sources: Feindel, Canadian Encyclopedia. The Neuro, McGill. McGill 200. Penfield &amp; Boldrey 1937.</p>
+    <h3>The 1937 and 1950 figures</h3>
+    <p>In 1937 Penfield and Edwin Boldrey pooled the stimulation records of 126 operations. Movements and sensations of the parts of the body came from the two gyri beside the central sulcus in a regular order, from the lower limb at the medial end to the face, tongue and throat at the lateral end. They summarised the order and the relative extent of each part in a drawing of a distorted human figure, the homunculus. For the 1950 book with Theodore Rasmussen the drawing was redone as two figures laid on a cross section of the hemisphere, one for sensation along the postcentral gyrus and one for movement along the precentral gyrus. By then the series had grown to about 400 operations.</p>
+    <p>The parts do not get equal room. <span id="ab-shares"></span></p>
+    <p>Penfield and Rasmussen called the motor figure an aid to memory and wrote that scientific accuracy in such a drawing is impossible. Later work has kept the broad order and revised the detail. A commentary on a stimulation series of 100 patients published in 2020 describes considerable overlap between neighbouring parts of the upper limb, and no discrete zones of the kind drawn in 1950. A 2023 imaging study divides the motor strip into three effector regions that alternate with three inter-effector regions. Each record on the body map lists the revisions for its label.</p>
+    <p class="src">Sources: Penfield &amp; Boldrey 1937. Penfield &amp; Rasmussen 1950. Wright 1956. Catani 2017. Roux et al. 2020. Schieber 2020. Gordon et al. 2023.</p>
+  </div>
+  <div>
+    <h3>Significance to brain-computer interfaces</h3>
+    <p>Most of the implants in the studies below sit in the hand or mouth territory of the strip, or over it. The 2026 recordings also sampled the middle of the precentral gyrus, one speech study also had arrays in area 44, and the amputation study used fMRI without an implant.</p>
+    <dl class="abl">
+      <dt>Reading movement</dt>
+      <dd>A paper published in 2006 reported that an array in the arm and hand area let a man with tetraplegia move a cursor and open and close a prosthetic hand. A paper published in 2021 reported that two arrays in the hand knob of the precentral gyrus decoded attempted handwriting at 90 characters per minute. <button type="button" class="lk" data-id="mot-hand" data-src="about">Record: Hand, motor figure</button></dd>
+      <dt>Reading speech</dt>
+      <dd>Two papers published in 2023 reported speech decoding. Arrays on the ventral precentral gyrus decoded attempted speech at 62 words per minute, and a surface grid over sensorimotor and temporal speech cortex decoded text at a median of 78 words per minute. <button type="button" class="lk" data-id="mot-tongue" data-src="about">Record: Tongue, motor figure</button></dd>
+      <dt>Writing sensation</dt>
+      <dd>Penfield’s patients felt tingling in a part of the body when the postcentral gyrus was stimulated. Microstimulation through implanted arrays in the hand region of the same gyrus evoked touch that a man with spinal cord injury felt as coming from his own hand. With that feedback his median time for a successful trial on a clinical arm-function test with a robotic arm was 10.2 s, against 20.9 s without it. <button type="button" class="lk" data-id="sen-index" data-src="about">Record: Index finger, sensory figure</button></dd>
+      <dt>After injury</dt>
+      <dd>Three adults scanned before and after arm amputation kept stable hand and lip maps for as long as they were followed, which was five years in one case. <button type="button" class="lk" data-id="sen-hand" data-src="about">Record: Hand, sensory figure</button></dd>
+      <dt>Limits of the map</dt>
+      <dd>The 1950 figure draws one body part per zone. Recordings from 20 arrays in 8 people found the whole body represented at every sampled site on the crown of the precentral gyrus, with relative strength roughly following the homunculus. The authors of the handwriting study call their hand knob site premotor, and in the 2023 speech study that used implanted arrays two further arrays in area 44 carried almost no speech information. <button type="button" class="lk" data-id="mot-hand" data-src="about">Record: Hand, motor figure</button> <button type="button" class="lk" data-id="mot-tongue" data-src="about">Record: Tongue, motor figure</button></dd>
+    </dl>
+    <p class="src">Sources: Penfield &amp; Boldrey 1937. Hochberg et al. 2006. Willett et al. 2021, 2023. Metzger et al. 2023. Flesher et al. 2016, 2021. Schone et al. 2025. Deo et al. 2026.</p>
+    <h3>The original drawings</h3>
+    <p>The 1937 and 1950 drawings are published artwork and are not reproduced on this site. They can be seen at these sources.</p>
+    <ul class="abl2">
+      <li>The 1937 figure: Penfield and Boldrey 1937, Fig. 28, p. 432. <a href="https://archive.org/details/sim_brain_1937-12_60" rel="noopener">Scan of the journal issue, Internet Archive</a></li>
+      <li>The 1950 sensory and motor figures (Figs 17 and 22), reproduced on one page in Stuart et al. 1951, p. 422, the motor figure above the sensory figure. <a href="https://archive.org/details/sim_annals-of-otology-rhinology-laryngology_1951-06_60_2" rel="noopener">Scan of the journal issue, Internet Archive</a></li>
+      <li>The 1950 book, in a 1957 printing. <a href="https://archive.org/details/cerebralcortexma0000wild" rel="noopener">Lending copy, Internet Archive</a></li>
+      <li>Catani 2017 shows the 1937 homunculus beside photographs of Penfield and Boldrey in its first figure. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5841206" rel="noopener">Free full text, PubMed Central</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="doc" id="methods">
+  <div>
+    <h2>Methods and limitations</h2>
+    <ol>
+      <li><b>Scope.</b> The body map takes the labels of the sensory and motor figures in Penfield and Rasmussen (1950, Figs 17 and 22) and attaches later human evidence to each label. It does not reproduce the 1950 artwork. The labels are those of the two figures, not of the book’s sequence charts (Figs 7 and 18), which use different wording. Supplementary motor and second sensory maps are out of scope.</li>
+      <li><b>Sequences.</b> Both sequences were read from a 1951 photographic reproduction of the two plates (Stuart et al. 1951). Every label that has a block line was matched against the list in Wright (1956). Wright groups the labels by body region, so his list confirms the labels and not their order along the strip. The motor order also matches Graziano (2016, fig. 2), Murphy et al. (2018, table 3) and the reproduction in Gordon et al. (2023, fig. 4a). The sensory order rests on the reproduction. The order Trunk, Neck, Head, Shoulder also matches the book’s sensory sequence chart (Fig. 7). Lettering follows the plates. The plates inside the 1950 book were not viewed. Label check code A means read from the reproduction and matched in Wright’s list. Code B means position confirmed, lettering read from the reproduction only.</li>
+      <li><b>Length.</b> Every body label on the 1950 plates except Gen. has a block line along the cortex. The legend of Fig. 17 says the length of these lines shows comparative extent more accurately than the drawing. Wright (1956) measured every line in millimetres on the printed figures. His values sum to 103.2 mm for the sensory figure and 101.6 mm for the motor figure. With the block-line setting, segments are drawn edge to edge in proportion to his values. On the plates the lines are separated by short gaps, which are not drawn. Wright does not describe how he measured. The two figures are separate drawings and need not share a scale. The genital label and the three function brackets have no line. The Equal setting gives every label the same length.</li>
+      <li><b>Section drawing.</b> Fig. 1 is an original schematic of a coronal section through the thalamus and is not to scale. The 1950 figures are likewise laid on a cross section of the hemisphere. The convexity that carries the strip is drawn enlarged to make room for the labels. The strip does not lie in one coronal plane. In the postcentral stimulation table of <a href="@FIGS@#p3">Fig. 3</a>, y runs from −43 mm for the leg to −9 mm for the teeth. Which labels fall on the medial surface and at the lateral sulcus follows the plates as read from the reproduction: Toes and Foot (sensory) or Toes and Ankle (motor) on the medial surface, and the last label at the mouth of the lateral sulcus.</li>
+      <li><b>Names.</b> The motor figure lies on the precentral gyrus, which is often called M1. Primary motor cortex (area 4) lies mostly in the anterior bank of the central sulcus and widens onto the gyral surface near the midline. Much of the exposed crown of the precentral gyrus is premotor cortex (area 6). The body map therefore names the figures and the gyri and does not label the motor strip M1.</li>
+      <li><b>Coordinates.</b> <a href="@FIGS@#p3">Fig. 3</a> plots every barycentre in Table 3 of Roux et al. 2018 and in Tables 3 and 4 of Roux et al. 2020. The barycentre and SD rows of each table were transcribed by at least three independent routes that agreed on every value. For 2020 the accepted manuscript was used, and its abstract matches the published one. The version of record was not reached. Inter-effector positions are averages across the seven participants in Supplementary Table 1 of Gordon et al. 2023. Of the published genital foci only the two group foci of Knop et al. 2022 are plotted. Two points shown in an earlier build were removed: Kell et al. 2005 report Talairach coordinates, and the Georgiadis et al. 2010 coordinates could be checked only in a review. The MNI foci of Luijten et al. 2020 and the barycentres of Kovalchuk et al. 2026 are not plotted.</li>
+      <li><b>Findings.</b> Most findings paraphrase a statement in the cited source. A few report what a source does not mention, or a value read from a figure or table, and say so. Each finding carries a method code and the labels it applies to. Many findings apply to a group of labels. Where a finding reports what Penfield found on the authority of a later paper, it says so.</li>
+      <li><b>Source check.</b> On 25 November 2026 every finding, coordinate, label and reference was rechecked against its source, or against the fullest version of the source that could be reached. The note after each reference says how much of the source was read. Findings were reworded, coordinate rows were added and two plotted points were removed as a result. The corrected text was then checked a second time, against the notes of the first check and, where those were silent, against the sources. The About section and the anatomy of the Fig. 1 drawing were added afterwards, written from the sources named there and checked once more. The page has not been peer reviewed.</li>
+      <li><b>Known gaps.</b> Read only as abstracts: Sun et al. 2021, Yousry et al. 1997, Ramachandran et al. 1992, Geyer et al. 1999, Grefkes et al. 2001, Disbrow et al. 2003, Eadie 2010, York and Steinberg 2011 and Pogliano 2012. Flesher et al. 2016 was read as an abstract and through the first author’s dissertation. The percentages that Roux et al. attribute to Penfield (25%, 20% and 13%) were not checked in Penfield’s books. Tactile thresholds from Mancini et al. 2014 were read from a bar chart and are approximate. Accounts of Penfield’s evidence for the genital field conflict and could not be settled from the passages of the 1950 book that were read.</li>
+      <li><b>Colour and hatching.</b> Each body division has a colour and a hatching pattern. The eight colours were checked by computation: every pair stays distinguishable under simulated red-green colour-vision deficiency. The hatching carries the same grouping without colour. Individual labels are identified by their lettering, never by colour.</li>
+      <li><b>Use.</b> Check a finding against its source before citing it.</li>
+    </ol>
+  </div>
+  <div>
+    <h2>Method codes</h2>
+    <dl>
+      <dt>DES</dt><dd>Direct electrical stimulation of the cortical surface in awake surgery</dd>
+      <dt>SEEG</dt><dd>Stimulation through depth electrodes</dd>
+      <dt>fMRI</dt><dd>Functional magnetic resonance imaging, with structural MRI where stated</dd>
+      <dt>MEG</dt><dd>Magnetoencephalography with source localisation (magnetic source imaging)</dd>
+      <dt>ICMS</dt><dd>Intracortical microstimulation through implanted arrays</dd>
+      <dt>REC</dt><dd>Recording from implanted arrays, depth electrodes or surface grids</dd>
+      <dt>PSY</dt><dd>Psychophysics or perceptual report</dd>
+      <dt>ANAT</dt><dd>Cytoarchitectonic or anatomical study</dd>
+      <dt>CLIN</dt><dd>Clinical pattern, from case series and reference texts</dd>
+      <dt>HIST</dt><dd>Historical record or reanalysis of the original data</dd>
+    </dl>
+  </div>
+  <div class="docfull" id="refs">
+    <h2>References</h2>
+    <ul id="reflist"></ul>
+  </div>
+</section>
+
+<div id="status" role="status">Point at a segment, cell or data point for a readout.</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- helpers ---------- */
+var NS='http://www.w3.org/2000/svg';
+function S(tag,attrs,kids){
+  var e=document.createElementNS(NS,tag),k;
+  if(attrs){for(k in attrs){if(attrs[k]!==null&&attrs[k]!==undefined){e.setAttribute(k,attrs[k]);}}}
+  if(kids!==undefined&&kids!==null){(Array.isArray(kids)?kids:[kids]).forEach(function(c){e.appendChild(typeof c==='string'?document.createTextNode(c):c);});}
+  return e;
+}
+function H(tag,attrs,kids){
+  var e=document.createElement(tag),k;
+  if(attrs){for(k in attrs){if(attrs[k]===null||attrs[k]===undefined){continue;}if(k==='class'){e.className=attrs[k];}else{e.setAttribute(k,attrs[k]);}}}
+  if(kids!==undefined&&kids!==null){(Array.isArray(kids)?kids:[kids]).forEach(function(c){if(c===null||c===undefined){return;}e.appendChild(typeof c==='string'?document.createTextNode(c):c);});}
+  return e;
+}
+function $(id){return document.getElementById(id);}
+/* The figures page shows Figs 2 and 3 only. A label or point chosen there opens its record on the body map. */
+var FIGS=document.body.classList.contains('figs'),BODYURL='@BODY@',FIGSURL='@FIGS@',BPRE='@BPRE@',XSUF='@XSUF@';
+/* Permanent addresses of the record pages, under /body/. They are printed elsewhere: never change the scheme. */
+var GSLUG={'foot':'foot','ie-sup':'inter-effector-superior','hand':'hand','ie-mid':'inter-effector-middle','mouth':'mouth','ie-inf':'inter-effector-inferior'};
+function recPath(id){var m=/^(sen|mot|g)-(.+)$/.exec(id);if(!m){return '';}return (m[1]==='sen'?'sensory/':m[1]==='mot'?'motor/':'2023/')+(m[1]==='g'?(GSLUG[m[2]]||m[2]):m[2]);}
+function num(v){return String(v).replace('-','−');}
+function relax(pos,gap,lo,hi){
+  var n=pos.length,it,i,d;
+  for(it=0;it<400;it++){
+    for(i=0;i<n-1;i++){d=gap-(pos[i+1]-pos[i]);if(d>0){pos[i]-=d/2;pos[i+1]+=d/2;}}
+    if(pos[0]<lo){pos[0]=lo;}
+    if(pos[n-1]>hi){pos[n-1]=hi;}
+  }
+  return pos;
+}
+
+/* ---------- body divisions ---------- */
+var DIV={
+  ll:{name:'Lower limb',c:'#285192',t:'tx-ll'},
+  ax:{name:'Trunk and neck',c:'#6dbff1',t:null},
+  ul:{name:'Upper limb, proximal',c:'#037b5f',t:'tx-ul'},
+  hd:{name:'Hand and digits',c:'#c2761b',t:'tx-hd'},
+  fc:{name:'Head and upper face',c:'#de83a7',t:'tx-fc'},
+  mo:{name:'Mouth',c:'#952c02',t:'tx-mo'},
+  vi:{name:'Pharynx and viscera',c:'#7f76c6',t:'tx-vi'},
+  ge:{name:'Genitals',c:'#c0b955',t:null}
+};
+var DIVORDER=['ge','ll','ax','ul','hd','fc','mo','vi'];
+
+/* ---------- 1950 label sequences, medial to lateral. w: block-line length in mm (Wright 1956) ---------- */
+var SEN=[
+ {k:'genitals',l:'Gen.',g:'Genitals',d:'ge',v:'B',p:['genital'],w:null,n:'Lettered “Gen.” on the plate, with a curved arrow to the lower end of the Toes line. It has no block line of its own.'},
+ {k:'toes',l:'Toes',d:'ll',v:'A',p:['toes'],w:6.5,n:'Lowest block line on the medial surface, as drawn.'},
+ {k:'foot',l:'Foot',d:'ll',v:'A',p:['foot'],w:9.5,n:'On the medial surface as drawn, bending toward the upper margin at its top.'},
+ {k:'leg',l:'Leg',d:'ll',v:'A',p:['thigh','knee','shank'],w:3.3},
+ {k:'hip',l:'Hip',d:'ll',v:'A',p:['hip'],w:3.0},
+ {k:'trunk',l:'Trunk',d:'ax',v:'A',p:['trunk'],w:2.5},
+ {k:'neck',l:'Neck',d:'ax',v:'A',p:['neck'],w:1.3,n:'Between Trunk and Head. The motor figure puts the neck elsewhere (Fig. 2).'},
+ {k:'head',l:'Head',d:'fc',v:'A',p:['head'],w:1.5,n:'Between Neck and Shoulder, apart from the face labels, which follow the thumb.'},
+ {k:'shoulder',l:'Shoulder',d:'ul',v:'A',p:['shoulder'],w:1.0},
+ {k:'arm',l:'Arm',d:'ul',v:'A',p:['uarm'],w:1.5},
+ {k:'elbow',l:'Elbow',d:'ul',v:'A',p:['elbow'],w:2.0},
+ {k:'forearm',l:'Forearm',d:'ul',v:'A',p:['farm'],w:3.9},
+ {k:'wrist',l:'Wrist',d:'ul',v:'A',p:['wrist'],w:1.5},
+ {k:'hand',l:'Hand',d:'hd',v:'A',p:['hand'],w:5.0},
+ {k:'little',l:'Little',g:'Little finger',d:'hd',v:'A',p:['hand','d5'],w:2.4},
+ {k:'ring',l:'Ring',g:'Ring finger',d:'hd',v:'A',p:['hand','d4'],w:3.0},
+ {k:'middle',l:'Middle',g:'Middle finger',d:'hd',v:'A',p:['hand','d3'],w:3.0},
+ {k:'index',l:'Index',g:'Index finger',d:'hd',v:'A',p:['hand','d2'],w:2.4},
+ {k:'thumb',l:'Thumb',d:'hd',v:'A',p:['hand','d1'],w:3.9,n:'Last of the hand labels. Eye follows on its lateral side.'},
+ {k:'eye',l:'Eye',d:'fc',v:'A',p:['head'],w:1.6},
+ {k:'nose',l:'Nose',d:'fc',v:'A',p:['head'],w:1.7},
+ {k:'face',l:'Face',d:'fc',v:'A',p:['head'],w:7.4},
+ {k:'upper-lip',l:'Upper lip',d:'mo',v:'A',p:['head'],w:1.9},
+ {k:'lips',l:'Lips',d:'mo',v:'A',p:['head'],w:11.0,n:'The longest block line of the sensory figure.'},
+ {k:'lower-lip',l:'Lower lip',d:'mo',v:'A',p:['head'],w:1.6},
+ {k:'teeth-gums-jaw',l:'Teeth, gums, and jaw',d:'mo',v:'A',p:['head'],w:1.8},
+ {k:'tongue',l:'Tongue',d:'mo',v:'A',p:['head'],w:8.8},
+ {k:'pharynx',l:'Pharynx',d:'vi',v:'A',p:['neck'],w:5.2,n:'Lowest line on the lateral surface, as drawn.'},
+ {k:'intra-abdominal',l:'Intra-abdominal',d:'vi',v:'A',p:['abdomen'],w:5.0,n:'Last label of the sensory figure. As drawn, its line curves inward at the mouth of the lateral sulcus.'}
+];
+var MOT=[
+ {k:'toes',l:'Toes',d:'ll',v:'A',p:['toes'],w:7.0,n:'Lowest block line on the medial surface, as drawn.'},
+ {k:'ankle',l:'Ankle',d:'ll',v:'A',p:['ankle'],w:8.0,n:'On the medial surface as drawn, reaching the upper margin.'},
+ {k:'knee',l:'Knee',d:'ll',v:'A',p:['knee'],w:4.5},
+ {k:'hip',l:'Hip',d:'ll',v:'A',p:['hip'],w:2.4},
+ {k:'trunk',l:'Trunk',d:'ax',v:'A',p:['trunk'],w:2.2},
+ {k:'shoulder',l:'Shoulder',d:'ul',v:'A',p:['shoulder'],w:2.6},
+ {k:'elbow',l:'Elbow',d:'ul',v:'A',p:['elbow'],w:3.6},
+ {k:'wrist',l:'Wrist',d:'ul',v:'A',p:['wrist'],w:3.2},
+ {k:'hand',l:'Hand',d:'hd',v:'A',p:['hand'],w:14.9,n:'The longest block line of the motor figure.'},
+ {k:'little',l:'Little',g:'Little finger',d:'hd',v:'A',p:['hand','d5'],w:2.5},
+ {k:'ring',l:'Ring',g:'Ring finger',d:'hd',v:'A',p:['hand','d4'],w:2.5},
+ {k:'middle',l:'Middle',g:'Middle finger',d:'hd',v:'A',p:['hand','d3'],w:2.0},
+ {k:'index',l:'Index',g:'Index finger',d:'hd',v:'A',p:['hand','d2'],w:2.2},
+ {k:'thumb',l:'Thumb',d:'hd',v:'A',p:['hand','d1'],w:2.6},
+ {k:'neck',l:'Neck',d:'ax',v:'A',p:['neck'],w:1.7,n:'Between Thumb and Brow. The sensory figure puts the neck between Trunk and Head.'},
+ {k:'brow',l:'Brow',d:'fc',v:'A',p:['head'],w:1.8},
+ {k:'eyelid-eyeball',l:'Eyelid & Eyeball',g:'Eyelid and eyeball',d:'fc',v:'A',p:['head'],w:4.8},
+ {k:'face',l:'Face',d:'fc',v:'A',p:['head'],w:2.7},
+ {k:'lips',l:'Lips',d:'mo',v:'A',p:['head'],w:14.8},
+ {k:'jaw',l:'Jaw',d:'mo',v:'A',p:['head'],w:5.8},
+ {k:'tongue',l:'Tongue',d:'mo',v:'A',p:['head'],w:4.0},
+ {k:'swallowing',l:'Swallowing',d:'vi',v:'A',p:['neck'],w:5.8,n:'Last body label of the motor figure. As drawn, its line curves inward at the mouth of the lateral sulcus.'}
+];
+var GORD=[
+ {id:'g-foot',l:'Foot region',g:'Foot effector region',d:'ll',kind:'eff',p:['thigh','knee','shank','ankle','foot','toes'],m0:0,m1:3},
+ {id:'g-ie-sup',l:'Inter-effector, superior',g:'Inter-effector region, superior',d:'ax',kind:'ie',p:[],m0:4,m1:4},
+ {id:'g-hand',l:'Hand region',g:'Hand effector region',d:'hd',kind:'eff',p:['shoulder','uarm','elbow','farm','wrist','hand'],m0:5,m1:13},
+ {id:'g-ie-mid',l:'Inter-effector, middle',g:'Inter-effector region, middle',d:'ax',kind:'ie',p:[],m0:14,m1:18},
+ {id:'g-mouth',l:'Mouth region',g:'Mouth effector region',d:'mo',kind:'eff',p:['head'],m0:19,m1:20},
+ {id:'g-ie-inf',l:'Inter-effector, inferior',g:'Inter-effector region, inferior',d:'ax',kind:'ie',p:[],m0:21,m1:21}
+];
+
+var REG={},SEQ={S:[],M:[],G:[],X:[]},LINED={S:[],M:[]},TOT={S:0,M:0};
+SEN.forEach(function(a,i){var id='sen-'+a.k;REG[id]={id:id,strip:'S',i:i,label:a.l,long:a.g||a.l,div:a.d,ver:a.v,pic:a.p,note:a.n||'',w:a.w};SEQ.S.push(id);if(a.w!==null){LINED.S.push(id);TOT.S+=a.w;}});
+MOT.forEach(function(a,i){var id='mot-'+a.k;REG[id]={id:id,strip:'M',i:i,label:a.l,long:a.g||a.l,div:a.d,ver:a.v,pic:a.p,note:a.n||'',w:a.w};SEQ.M.push(id);LINED.M.push(id);TOT.M+=a.w;});
+GORD.forEach(function(a,i){REG[a.id]={id:a.id,strip:'G',i:i,label:a.l,long:a.g,div:a.d,kind:a.kind,pic:a.p,note:'',m0:a.m0,m1:a.m1};SEQ.G.push(a.id);});
+REG['mot-functions']={id:'mot-functions',strip:'X',i:0,label:'Vocalization, Salivation, Mastication',long:'Vocalization, Salivation, Mastication',div:'mo',pic:['head'],note:'Three function words lettered along the inside of the motor strip, with arrows and end ticks. As read from reproductions of the plate, Vocalization spans Lips, Jaw and Tongue. Salivation spans Jaw, Tongue and Swallowing. Mastication runs from Tongue past Swallowing and is open at its lower end. The end points fall between labels and are approximate. They are responses, not body parts, and have no block line.'};
+SEQ.X.push('mot-functions');
+if(Math.abs(TOT.S-103.2)>0.01||Math.abs(TOT.M-101.6)>0.01){console.error('block-line totals',TOT.S,TOT.M);}
+
+function ids(strip,keys){return keys.map(function(k){return strip+'-'+k;});}
+var SLL=ids('sen',['toes','foot','leg','hip']),MLL=ids('mot',['toes','ankle','knee','hip']);
+var SUL=ids('sen',['shoulder','arm','elbow','forearm','wrist']),MUL=ids('mot',['shoulder','elbow','wrist']);
+var DG=['hand','little','ring','middle','index','thumb'];
+var SHD=ids('sen',DG),MHD=ids('mot',DG);
+var SFC=ids('sen',['eye','nose','face']),MFC=ids('mot',['brow','eyelid-eyeball','face']);
+var SMO=ids('sen',['upper-lip','lips','lower-lip','teeth-gums-jaw','tongue']),MMO=ids('mot',['lips','jaw','tongue']);
+var ALLS=SEQ.S.slice(),ALLM=SEQ.M.slice(),FN=['mot-functions'];
+var IE=['g-ie-sup','g-ie-mid','g-ie-inf'],EFF=['g-foot','g-hand','g-mouth'];
+var ALL50=ALLS.concat(ALLM,FN);
+
+/* ---------- references. n: how much of the source was read in the source check ---------- */
+var REFS={
+PB1937:{s:'Penfield & Boldrey 1937',f:'Penfield W, Boldrey E. Somatic motor and sensory representation in the cerebral cortex of man as studied by electrical stimulation. Brain. 1937;60(4):389–443.',u:'https://doi.org/10.1093/brain/60.4.389',n:'Full text read in a public scan.'},
+PR1950:{s:'Penfield & Rasmussen 1950',f:'Penfield W, Rasmussen T. The cerebral cortex of man: a clinical study of localization of function. New York: Macmillan; 1950.',u:'https://lccn.loc.gov/50008617',n:'Read as text passages from two scans (1957 printing and 1968 reprint). Figs 17 and 22 were viewed in a 1951 reproduction, not in the book.'},
+P1975:{s:'Penfield 1975',f:'Penfield W. The mystery of the mind: a critical study of consciousness and the human brain. With discussions by William Feindel, Charles Hendel and Charles Symonds. Princeton (NJ): Princeton University Press; 1975.',u:'https://lccn.loc.gov/74025626',n:'Read as text passages from two scans. Quotation on p. 76.'},
+STUART1951:{s:'Stuart et al. 1951',f:'Stuart EA, O’Brien FH, McNally WJ. Cerebral venous thrombosis. Its occurrence; its localization; its sources and sequelae. Ann Otol Rhinol Laryngol. 1951;60(2):406–438.',u:'https://doi.org/10.1177/000348945106000215',n:'Used only for its photographic reproduction of the two 1950 figures (p. 422), which was viewed.'},
+WRIGHT1956:{s:'Wright 1956',f:'Wright GH. The names of the parts of the body: a linguistic approach to the study of the body-image. Brain. 1956;79(1):188–210.',u:'https://doi.org/10.1093/brain/79.1.188',n:'Appendix II (pp. 208–209) read from page images and checked against the printed subtotals.'},
+CAT2017:{s:'Catani 2017',f:'Catani M. A little man of some importance. Brain. 2017;140(11):3055–3061.',u:'https://doi.org/10.1093/brain/awx270',n:'Full text read.'},
+POGLIANO2012:{s:'Pogliano 2012',f:'Pogliano C. Penfield’s homunculus and other grotesque creatures from the Land of If. Nuncius. 2012;27(1):141–162.',u:'https://doi.org/10.1163/182539112x637192',n:'Abstract only.'},
+GRAZIANO2016:{s:'Graziano 2016',f:'Graziano MSA. Ethological action maps: a paradigm shift for the motor cortex. Trends Cogn Sci. 2016;20(2):121–132.',u:'https://doi.org/10.1016/j.tics.2015.10.008',n:'Fig. 2 viewed, for the motor label sequence.'},
+MURPHY2018:{s:'Murphy et al. 2018',f:'Murphy AC, Muldoon SF, Baker D, Lastowka A, Bennett B, Yang M, Bassett DS. Structure, function, and control of the human musculoskeletal network. PLoS Biol. 2018;16(1):e2002811.',u:'https://doi.org/10.1371/journal.pbio.2002811',n:'Table 3 read, for the motor label sequence. It is Table S3 in the preprint, arXiv:1612.06336.'},
+ROUX2018:{s:'Roux et al. 2018',f:'Roux F-E, Djidjeli I, Durand J-B. Functional architecture of the somatosensory homunculus detected by electrostimulation. J Physiol. 2018;596(5):941–956.',u:'https://doi.org/10.1113/JP275243',n:'Full text read in two versions.'},
+ROUX2020:{s:'Roux et al. 2020',f:'Roux F-E, Niare M, Charni S, Giussani C, Durand J-B. Functional architecture of the motor homunculus detected by electrostimulation. J Physiol. 2020;598(23):5487–5504.',u:'https://doi.org/10.1113/JP280156',n:'Accepted manuscript read in full; published abstract checked. The version of record was not reached.'},
+SCH2020:{s:'Schieber 2020',f:'Schieber MH. Modern coordinates for the motor homunculus. J Physiol. 2020;598(23):5305–5306.',u:'https://doi.org/10.1113/JP280712',n:'Full text read (author manuscript). A commentary on Roux et al. 2020.'},
+GORDON2023:{s:'Gordon et al. 2023',f:'Gordon EM, Chauvin RJ, Van AN, Rajesh A, Nielsen A, Newbold DJ, et al. A somato-cognitive action network alternates with effector regions in motor cortex. Nature. 2023;617(7960):351–359.',u:'https://doi.org/10.1038/s41586-023-05964-2',n:'Full text and supplementary tables read.'},
+JENSEN2023:{s:'Jensen et al. 2023',f:'Jensen MA, Huang H, Valencia GO, Klassen BT, van den Boom MA, Kaufmann TJ, et al. A motor association area in the depths of the central sulcus. Nat Neurosci. 2023;26(7):1165–1169. Author correction: Nat Neurosci. 2024;27(7):1425.',u:'https://doi.org/10.1038/s41593-023-01346-z',n:'Full text read.'},
+DEO2026:{s:'Deo et al. 2026',f:'Deo DR, Okorokova EV, Pritchard AL, Hahn NV, Card NS, Nason-Tomaszewski SR, et al. A mosaic of whole-body representations on the human precentral gyrus. Nature. 2026;656(8128):680–687.',u:'https://doi.org/10.1038/s41586-026-10653-x',n:'Full text read.'},
+WHITE1997:{s:'White et al. 1997',f:'White LE, Andrews TJ, Hulette C, Richards A, Groelle M, Paydarfar J, Purves D. Structure of the human sensorimotor system. I: Morphology and cytoarchitecture of the central sulcus. Cereb Cortex. 1997;7(1):18–30.',u:'https://doi.org/10.1093/cercor/7.1.18',n:'Full text read.'},
+GEYER1999:{s:'Geyer et al. 1999',f:'Geyer S, Schleicher A, Zilles K. Areas 3a, 3b, and 1 of human primary somatosensory cortex. NeuroImage. 1999;10(1):63–83.',u:'https://doi.org/10.1006/nimg.1999.0440',n:'Abstract only.'},
+GREFKES2001:{s:'Grefkes et al. 2001',f:'Grefkes C, Geyer S, Schormann T, Roland P, Zilles K. Human somatosensory area 2: observer-independent cytoarchitectonic mapping, interindividual variability, and population map. NeuroImage. 2001;14(3):617–631.',u:'https://doi.org/10.1006/nimg.2001.0858',n:'Abstract only.'},
+SUN2021:{s:'Sun et al. 2021',f:'Sun F, Zhang G, Ren L, Yu T, Ren Z, Gao R, Zhang X. Functional organization of the human primary somatosensory cortex: a stereo-electroencephalography study. Clin Neurophysiol. 2021;132(2):487–497.',u:'https://doi.org/10.1016/j.clinph.2020.11.032',n:'Abstract only.'},
+DISBROW2003:{s:'Disbrow et al. 2003',f:'Disbrow EA, Hinkley LB, Roberts TP. Ipsilateral representation of oral structures in human anterior parietal somatosensory cortex and integration of inputs across the midline. J Comp Neurol. 2003;467(4):487–495.',u:'https://doi.org/10.1002/cne.10935',n:'Abstract only.'},
+KELL2005:{s:'Kell et al. 2005',f:'Kell CA, von Kriegstein K, Rösler A, Kleinschmidt A, Laufs H. The sensory cortical representation of the human penis: revisiting somatotopy in the male homunculus. J Neurosci. 2005;25(25):5984–5987.',u:'https://doi.org/10.1523/JNEUROSCI.0712-05.2005',n:'Full text read.'},
+LUIJTEN2020:{s:'Luijten et al. 2020',f:'Luijten SPR, Groenendijk IM, Holstege JC, De Zeeuw CI, van der Zwaag W, Blok BFM. Single subject and group whole-brain fMRI mapping of male genital sensation at 7 Tesla. Sci Rep. 2020;10:2487.',u:'https://doi.org/10.1038/s41598-020-58966-9',n:'Full text read.'},
+KNOP2022:{s:'Knop et al. 2022',f:'Knop AJJ, Spengler S, Bogler C, Forster C, Brecht M, Haynes J-D, Heim C. Sensory-tactile functional mapping and use-associated structural variation of the human female genital representation field. J Neurosci. 2022;42(6):1131–1140.',u:'https://doi.org/10.1523/JNEUROSCI.1081-21.2021',n:'Full text read.'},
+KOVALCHUK2026:{s:'Kovalchuk et al. 2026',f:'Kovalchuk Y, Schienbein S, Knop AJJ, Bauer M, Spengler S, Brecht M, et al. Decreased thickness of the individually-mapped genital cortex after childhood sexual abuse exposure in adult women. Commun Biol. 2026;9:375.',u:'https://doi.org/10.1038/s42003-026-09627-6',n:'Full text read.'},
+PROELSS2025:{s:'Proelss et al. 2025',f:'Proelss S, Tuncer MS, Heim C, Haynes J-D, Vajkoczy P, Brecht M, Faust K. Males but not females report genital sensations evoked by fixed-parameter stimulation of somatosensory cortex. Brain. 2025;148(11):3872–3879.',u:'https://doi.org/10.1093/brain/awaf240',n:'Full text read.'},
+CAZALA2015:{s:'Cazala et al. 2015',f:'Cazala F, Vienney N, Stoléru S. The cortical sensory representation of genitalia in women and men: a systematic review. Socioaffect Neurosci Psychol. 2015;5:26428.',u:'https://doi.org/10.3402/snp.v5.26428',n:'Full text read. Source here for Komisaruk et al. 2011, Allison et al. 1996 and Georgiadis et al. 2010. Its table labels the Kell et al. focus as MNI; the primary paper gives Talairach.'},
+DINOTO2013:{s:'Di Noto et al. 2013',f:'Di Noto PM, Newman L, Wall S, Einstein G. The hermunculus: what is known about the representation of the female body in the brain? Cereb Cortex. 2013;23(5):1005–1013.',u:'https://doi.org/10.1093/cercor/bhs005',n:'Full text read in an author-hosted copy.'},
+PRUDENTE2015:{s:'Prudente et al. 2015',f:'Prudente CN, Stilla R, Buetefisch CM, Singh S, Hess EJ, Hu X, Sathian K, Jinnah HA. Neural substrates for head movements in humans: a functional magnetic resonance imaging study. J Neurosci. 2015;35(24):9163–9172.',u:'https://doi.org/10.1523/JNEUROSCI.0851-15.2015',n:'Full text read.'},
+YOUSRY1997:{s:'Yousry et al. 1997',f:'Yousry TA, Schmid UD, Alkadhi H, Schmidt D, Peraud A, Buettner A, Winkler P. Localization of the motor hand area to a knob on the precentral gyrus. A new landmark. Brain. 1997;120(1):141–157.',u:'https://doi.org/10.1093/brain/120.1.141',n:'Abstract only.'},
+EICHERT2020:{s:'Eichert et al. 2020',f:'Eichert N, Papp D, Mars RB, Watkins KE. Mapping human laryngeal motor cortex during vocalization. Cereb Cortex. 2020;30(12):6254–6269.',u:'https://doi.org/10.1093/cercor/bhaa182',n:'Full text read.'},
+ELBERT1995:{s:'Elbert et al. 1995',f:'Elbert T, Pantev C, Wienbruch C, Rockstroh B, Taub E. Increased cortical representation of the fingers of the left hand in string players. Science. 1995;270(5234):305–307.',u:'https://doi.org/10.1126/science.270.5234.305',n:'Full text read.'},
+STERR1998:{s:'Sterr et al. 1998',f:'Sterr A, Müller MM, Elbert T, Rockstroh B, Pantev C, Taub E. Perceptual correlates of changes in cortical representation of fingers in blind multifinger Braille readers. J Neurosci. 1998;18(11):4417–4423.',u:'https://doi.org/10.1523/JNEUROSCI.18-11-04417.1998',n:'Full text read.'},
+RAMA1992:{s:'Ramachandran et al. 1992',f:'Ramachandran VS, Stewart M, Rogers-Ramachandran DC. Perceptual correlates of massive cortical reorganization. Neuroreport. 1992;3(7):583–586.',u:'https://doi.org/10.1097/00001756-199207000-00009',n:'Abstract only.'},
+FLOR1995:{s:'Flor et al. 1995',f:'Flor H, Elbert T, Knecht S, Wienbruch C, Pantev C, Birbaumer N, et al. Phantom-limb pain as a perceptual correlate of cortical reorganization following arm amputation. Nature. 1995;375(6531):482–484.',u:'https://doi.org/10.1038/375482a0',n:'Full text read.'},
+MAKIN2013:{s:'Makin et al. 2013',f:'Makin TR, Scholz J, Filippini N, Henderson Slater D, Tracey I, Johansen-Berg H. Phantom pain is associated with preserved structure and function in the former hand area. Nat Commun. 2013;4:1570.',u:'https://doi.org/10.1038/ncomms2571',n:'Full text read.'},
+SCHONE2025:{s:'Schone et al. 2025',f:'Schone HR, Maimon-Mor RO, Kollamkulam M, Szymanska MA, Gerrand C, Woollard A, Kang NV, Baker CI, Makin TR. Stable cortical body maps before and after arm amputation. Nat Neurosci. 2025;28(10):2015–2021.',u:'https://doi.org/10.1038/s41593-025-02037-7',n:'Full text read.'},
+MANCINI2014:{s:'Mancini et al. 2014',f:'Mancini F, Bauleo A, Cole J, Lui F, Porro CA, Haggard P, Iannetti GD. Whole-body mapping of spatial acuity for pain and touch. Ann Neurol. 2014;75(6):917–924.',u:'https://doi.org/10.1002/ana.24179',n:'Full text read. Thresholds appear only in figures.'},
+FLESHER2016:{s:'Flesher et al. 2016',f:'Flesher SN, Collinger JL, Foldes ST, Weiss JM, Downey JE, Tyler-Kabara EC, et al. Intracortical microstimulation of human somatosensory cortex. Sci Transl Med. 2016;8(361):361ra141.',u:'https://doi.org/10.1126/scitranslmed.aaf8083',n:'Abstract read; details checked in the first author’s dissertation and in Flesher et al. 2021.'},
+FLESHER2021:{s:'Flesher et al. 2021',f:'Flesher SN, Downey JE, Weiss JM, Hughes CL, Herrera AJ, Tyler-Kabara EC, Boninger ML, Collinger JL, Gaunt RA. A brain-computer interface that evokes tactile sensations improves robotic arm control. Science. 2021;372(6544):831–836.',u:'https://doi.org/10.1126/science.abd0380',n:'Full text read (author manuscript).'},
+ARMENTA2018:{s:'Armenta Salas et al. 2018',f:'Armenta Salas M, Bashford L, Kellis S, Jafari M, Jo H, Kramer D, et al. Proprioceptive and cutaneous sensations in humans elicited by intracortical microstimulation. eLife. 2018;7:e32904.',u:'https://doi.org/10.7554/eLife.32904',n:'Full text read.'},
+HOCHBERG2006:{s:'Hochberg et al. 2006',f:'Hochberg LR, Serruya MD, Friehs GM, Mukand JA, Saleh M, Caplan AH, et al. Neuronal ensemble control of prosthetic devices by a human with tetraplegia. Nature. 2006;442(7099):164–171.',u:'https://doi.org/10.1038/nature04970',n:'Full text read.'},
+WILLETT2021:{s:'Willett et al. 2021',f:'Willett FR, Avansino DT, Hochberg LR, Henderson JM, Shenoy KV. High-performance brain-to-text communication via handwriting. Nature. 2021;593(7858):249–254.',u:'https://doi.org/10.1038/s41586-021-03506-2',n:'Full text read (accepted manuscript).'},
+WILLETT2023:{s:'Willett et al. 2023',f:'Willett FR, Kunz EM, Fan C, Avansino DT, Wilson GH, Choi EY, et al. A high-performance speech neuroprosthesis. Nature. 2023;620(7976):1031–1036.',u:'https://doi.org/10.1038/s41586-023-06377-x',n:'Full text read.'},
+METZGER2023:{s:'Metzger et al. 2023',f:'Metzger SL, Littlejohn KT, Silva AB, Moses DA, Seaton MP, Wang R, et al. A high-performance neuroprosthesis for speech decoding and avatar control. Nature. 2023;620(7976):1037–1046. Author correction: Nature. 2024;631(8021):E13.',u:'https://doi.org/10.1038/s41586-023-06443-4',n:'Full text read (author manuscript). The correction changed the mapping of electrodes to anatomy, not the decoding results.'},
+LUI2026:{s:'Lui et al., StatPearls',f:'Lui F, Khan Suheb MZ, Patti L. Ischemic stroke. In: StatPearls. Treasure Island (FL): StatPearls Publishing; updated 17 June 2026. NBK499997.',u:'https://www.ncbi.nlm.nih.gov/books/NBK499997/',n:'Full text read.'},
+MARGETIS2025:{s:'Margetis & Sánchez-Manso, StatPearls',f:'Margetis K, Sánchez-Manso JC. Neuroanatomy, middle cerebral artery. In: StatPearls. Treasure Island (FL): StatPearls Publishing; updated 13 February 2025. NBK526002.',u:'https://www.ncbi.nlm.nih.gov/books/NBK526002/',n:'Full text read.'},
+ARBOIX2009:{s:'Arboix et al. 2009',f:'Arboix A, García-Eroles L, Sellarés N, Raga A, Oliveres M, Massons J. Infarction in the territory of the anterior cerebral artery: clinical study of 51 patients. BMC Neurol. 2009;9:30.',u:'https://doi.org/10.1186/1471-2377-9-30',n:'Full text read.'},
+MSD:{s:'MSD Manual',f:'Alexandrov AV, Krishnaiah B. Selected stroke syndromes (table). In: Overview of stroke. MSD Manual Professional Edition. Rahway (NJ): Merck & Co., Inc. Full review June 2025, last updated January 2026.',u:'https://www.msdmanuals.com/professional/multimedia/table/selected-stroke-syndromes',n:'Table read.'},
+EADIE2010:{s:'Eadie 2010',f:'Eadie M. Louis François Bravais and Jacksonian epilepsy. Epilepsia. 2010;51(1):1–6.',u:'https://doi.org/10.1111/j.1528-1167.2009.02328.x',n:'Abstract only.'},
+YORK2006:{s:'York & Steinberg 2007',f:'York GK, Steinberg DA. An introduction to the life and work of John Hughlings Jackson, with a catalogue raisonné of his writings. Med Hist Suppl. 2007;(26). Introduction, pp. 3–34. Catalogue, pp. 36–139. Copyright 2006.',u:'https://pmc.ncbi.nlm.nih.gov/articles/PMC2640105/',n:'Introduction and catalogue read in part. The link opens the introduction. The catalogue is PMC2640106. Source for the dates of Jackson’s papers.'},
+YORK2011:{s:'York & Steinberg 2011',f:'York GK, Steinberg DA. Hughlings Jackson’s neurological ideas. Brain. 2011;134(10):3106–3113.',u:'https://doi.org/10.1093/brain/awr219',n:'Abstract only.'},
+FEINDELCE:{s:'Feindel, Canadian Encyclopedia',f:'Feindel W. Wilder Penfield. The Canadian Encyclopedia. Historica Canada. Published online 3 March 2008, last edited 20 December 2022. Updated by Poulin J.',u:'https://www.thecanadianencyclopedia.ca/en/article/wilder-penfield',n:'Page read. Cited in About.'},
+NEUROBIO:{s:'The Neuro, McGill',f:'Wilder Graves Penfield. The Neuro (Montreal Neurological Institute-Hospital), McGill University. Web page, undated.',u:'https://www.mcgill.ca/neuro/about/wilder-graves-penfield',n:'Page read. Cited in About.'},
+MCGILL200:{s:'McGill 200',f:'Wilder Penfield, Professor of Neurology and Neurosurgery. McGill University bicentennial history pages. Web page, undated.',u:'https://200.mcgill.ca/history/wilder-penfield-professor-of-neurology-and-neurosurgery',n:'Page read. Cited in About.'},
+FOTEDAR2024:{s:'Fotedar et al. 2024',f:'Fotedar N, Acar A, Hakami S, Praditukrit K, Morris A, dela Vega M, et al. Semiology and neurophysiology of clonic seizures: a report of 39 patients. Neurol Clin Pract. 2024;14(2):e200252.',u:'https://doi.org/10.1212/CPJ.0000000000200252',n:'Full text read.'}
+};
+
+/* ---------- findings ---------- */
+var ANN=[
+/* the 1950 figures */
+{s:'fig',m:'HIST',to:ALL50,sl:'all 1950 labels',r:['PB1937','PR1950','CAT2017'],t:'The 1937 figure rested on 126 usable operation records out of 163 operations done under local anaesthesia from 1928 to 1936. Boldrey compiled 170 summary charts, one for each movement or sensation. The 1950 figures drew on about 400 craniotomies, including a second series from 1936 to 1947.'},
+{s:'fig',m:'HIST',to:ALL50,sl:'all 1950 labels',r:['PR1950','POGLIANO2012','STUART1951'],t:'Hortense Pauline Cantlie drew the homunculus. One combined figure appeared in the 1937 paper. For the 1950 book she drew two new figures, one sensory (Fig. 17) and one motor (Fig. 22). In the reproductions viewed, both drawings carry her monogram and the year 1948.'},
+{s:'fig',m:'HIST',to:ALL50,sl:'all 1950 labels',r:['PR1950'],t:'Penfield and Rasmussen wrote that the motor homunculus may be used as an aid to memory and called it “a cartoon of representation in which scientific accuracy is impossible” (p. 56). Of the sensory homunculus they wrote that such drawings become confusing if too much significance is attributed to shape and comparative size, and that the indication of extent under the figure corrects this (p. 214).'},
+{s:'fig',m:'HIST',to:ALL50,sl:'all 1950 labels',r:['PR1950','WRIGHT1956'],t:'Every body-part label on the 1950 plates except Gen. has a block line along the cortex. The three function words on the motor figure are brackets and have no line. The legend of the sensory figure says the length of these lines shows the comparative extent of each representation more accurately than the drawing. Wright (1956) measured every line, 28 on the sensory figure and 22 on the motor figure. The legend of the motor figure does not repeat the statement.'},
+{s:'fig',m:'HIST',to:ALL50,sl:'all 1950 labels',r:['PB1937','CAT2017'],t:'Penfield and Boldrey scaled the 1937 figure by the vertical extent of each part along the central sulcus, without statistics. A 2017 reanalysis found that the figure was not in proportion to the paper’s own measurements. Stimulus intensity, number of patients, number of stimulations per patient and overlap between parts were not taken into account. The reanalysed sensory maps overlap substantially, mostly near the central sulcus.'},
+{s:'fig',m:'HIST',to:ALL50,sl:'all 1950 labels',r:['PB1937','PR1950'],t:'The 1937 figure was a single drawing without labels, not laid on the brain. The 1950 figures are each laid on the outline of a coronal section, with named labels and block lines. The sensory figure adds the genitals and an intra-abdominal field. The motor figure adds three function brackets.'},
+
+/* sensory figure, general */
+{s:'stim',m:'DES',to:ALLS,sl:'all sensory labels',r:['PB1937'],t:'Penfield’s patients were awake. Each response was dictated to a stenographer and tied to a numbered ticket on the cortex. In one 1937 case the record includes tingling in the little finger, numbness in the shoulder, a shock-like feeling in four fingers that spared the thumb, and a feeling that the thumb moved when it did not.'},
+{s:'stim',m:'DES',to:ALLS,sl:'all sensory labels',r:['ROUX2018'],t:'In a series of 50 patients mapped from 2008 to 2016, 258 of 647 sites on the crown of the postcentral gyrus gave a sensation (40%), at a mean threshold of 2.67 mA. Tingling was almost the only sensation. One patient reported pain, one a bad taste and one burning in the hand. No patient reported a sense of movement.'},
+{s:'rev',m:'DES',to:ALLS,sl:'all sensory labels',r:['ROUX2018'],t:'According to the 2018 authors, Penfield found 25% of sensory responses outside the postcentral gyrus. Their own series found none at 1,025 sites stimulated outside it.'},
+{s:'rev',m:'ANAT',to:ALLS,sl:'all sensory labels',r:['GEYER1999','GREFKES2001','ROUX2018'],t:'Primary somatosensory cortex comprises four cytoarchitectonic areas. Area 3a lies in the fundus of the central sulcus and area 3b on its posterior bank. Area 1 lies on the crown of the postcentral gyrus and extends into the postcentral sulcus. Area 2 lies mainly on the anterior bank of the postcentral sulcus. The borders vary between brains.'},
+{s:'rev',m:'SEEG',to:ALLS,sl:'all sensory labels',r:['ROUX2018','SUN2021'],t:'Surface stimulation in the 2018 series reached only area 1 on the gyral crown. Depth-electrode stimulation in 20 patients (149 positive sites of 177, most in sulcal cortex) found a gross medial-to-lateral order across all of primary somatosensory cortex that was consistent with the classical homunculus.'},
+
+/* motor figure, general */
+{s:'stim',m:'DES',to:ALLM.concat(FN),sl:'all motor labels',r:['P1975'],t:'Penfield wrote that when he made a conscious patient move his hand by stimulating the motor cortex and asked him about it, the reply was invariably: “I didn’t do that. You did.” (p. 76).'},
+{s:'stim',m:'DES',to:ALLM,sl:'all motor labels',r:['ROUX2020'],t:'In a series of 100 patients published in 2020, the Results report 248 positive sites among 608 precentral sites stimulated. The abstract says 245 of the 248 lay in the precentral gyrus. The mean threshold was 2.1 mA. Movements were basic and stereotyped, and were fast without the profile of a natural movement. Flexions of the wrist and digits were far more frequent than extensions. No complex action, such as bringing food to the mouth, was seen.'},
+{s:'stim',m:'DES',to:ALLM,sl:'all motor labels',r:['ROUX2020'],t:'Responses in the 2020 series were judged from the patient’s report and the team’s observation, without EMG. 59% of precentral sites gave no response, and the part of area 4 buried in the central sulcus could not be reached.'},
+{s:'inj',m:'CLIN',to:ALLM,sl:'all motor labels',r:['EADIE2010','YORK2006','YORK2011','FOTEDAR2024','PB1937'],t:'Focal motor seizures can spread through neighbouring body parts in the order of the motor map. This is the Jacksonian march. Bravais described such seizures in 1827. Hughlings Jackson described the march between 1868 and 1870 and inferred that body parts are represented in separate parts of the brain. Penfield and Boldrey published their stimulation map in 1937. A 2024 series found that spread is not explained by adjacency alone.'},
+{s:'rev',m:'DES',to:ALLM,sl:'all motor labels',r:['ROUX2020'],t:'According to the 2020 authors, Penfield found about 20% of motor responses outside the precentral gyrus, particularly in the postcentral gyrus. In their own series, 3 of 1,937 sites stimulated outside the precentral gyrus produced movement.'},
+{s:'rev',m:'DES',to:MUL.concat(MHD,MFC,MMO),sl:'motor figure: upper limb, hand, face and mouth',r:['SCH2020','ROUX2020'],t:'A commentary on the 2020 data describes, for the upper limb and the head, a gradual progression with overlap between neighbouring parts, and no discrete zones of the kind drawn in 1950. The study’s authors use the term relative somatotopy for the elbow, wrist and hand region.'},
+{s:'rev',m:'ANAT',to:ALLM,sl:'all motor labels',r:['WHITE1997','DEO2026'],t:'Primary motor cortex (area 4) lies mostly in the anterior bank of the central sulcus. Near the midline it widens onto the gyral surface and the paracentral lobule. Much of the exposed crown of the precentral gyrus is premotor cortex (area 6).'},
+{s:'rev',m:'fMRI',to:ALLM,sl:'all motor labels',r:['GORDON2023'],t:'Precision fMRI in 7 intensively scanned adults, replicated in group-averaged datasets of about 4,000, 3,928 and 812 people, divides the precentral gyrus into three effector regions (foot, hand, mouth) that alternate with three inter-effector regions. See column C of Fig. 2.'},
+{s:'rev',m:'REC',to:ALLM.concat(EFF,IE),sl:'all motor labels; 2023 regions',r:['DEO2026'],t:'Single-neuron recordings from 20 microelectrode arrays in 8 people found the whole body represented at every sampled site on the crown of the precentral gyrus, with relative strength roughly following the homunculus.'},
+
+/* lower limb */
+{s:'stim',m:'DES',to:SLL,sl:'sensory figure: lower limb',r:['ROUX2018'],t:'Lower-limb sites were rare in the 2018 series: one for the feet, two for the leg, one for the knee, three for the thigh and one for the hip, out of 258 positive sites.'},
+{s:'inj',m:'CLIN',to:SLL.concat(MLL),sl:'lower limb, both figures',r:['LUI2026','ARBOIX2009','MSD'],t:'Infarcts in the territory of the anterior cerebral artery, which supplies the medial frontal lobe and the medial motor and sensory cortex, typically cause weakness that is greatest in the opposite leg, with the arm and face typically spared. Sensory loss is less common. In one series of 51 patients, 86% had a motor deficit of the leg and 29% a sensory deficit.'},
+{s:'stim',m:'DES',to:MLL,sl:'motor figure: lower limb',r:['ROUX2020'],t:'Lower-limb movements were evoked at 10 sites in 7 patients in the 2020 series (foot 4, knee 1, hip 4, buttock 1), all in the right hemisphere. The supplementary motor area was not stimulated.'},
+{s:'rev',m:'fMRI',to:MLL.concat(['g-foot']),sl:'motor figure: lower limb',r:['GORDON2023'],t:'In the foot effector region the toes are central, with ankle, knee and hip in zones around them (task fMRI in 2 participants). The 1950 figure draws the same parts in a line.'},
+
+/* trunk */
+{s:'stim',m:'DES',to:['sen-trunk'],sl:'sensory figure: trunk',r:['ROUX2018'],t:'The 2018 series found one abdomen site and three thorax sites, in four patients.'},
+{s:'fig',m:'HIST',to:['mot-trunk'],sl:'motor figure: trunk',r:['CAT2017'],t:'In the 2017 reanalysis of the 1937 motor data, too few trunk stimulations were recorded for an area or a length to be measured.'},
+{s:'rev',m:'fMRI',to:['mot-trunk'].concat(IE),sl:'motor figure: trunk; inter-effector regions',r:['GORDON2023'],t:'Isometric contraction of the abdominal muscles co-activated the inter-effector regions and the cingulo-opercular network (2 participants).'},
+
+/* neck, head */
+{s:'rev',m:'fMRI',to:['mot-neck'],sl:'motor figure: neck',r:['PRUDENTE2015'],t:'fMRI during isometric head rotation in 17 healthy adults found two foci in the precentral gyrus, one medial and anterior to the hand knob and one lateral and ventral to it. The authors suggest the medial focus has the larger role in head movement. That fits earlier studies which place the neck between the trunk and arm representations, as in the sensory figure. The study did not map the shoulder or the trunk. Activation was bilateral with contralateral predominance.'},
+{s:'fig',m:'HIST',to:['mot-neck'],sl:'motor figure: neck',r:['PRUDENTE2015','PR1950'],t:'The 2015 authors note that Penfield’s head-movement results came from only nine patients and were not consistent, against more than 200 patients for limb movements. The 1950 text says that neck movement on the strip is small, is usually head retraction, and does not match the position of neck sensation (p. 57).'},
+{s:'rev',m:'SEEG',to:['sen-head','sen-face'],sl:'sensory figure: head and face',r:['SUN2021'],t:'Depth-electrode stimulation of sulcal cortex found a forehead representation that the authors describe as previously unreported.'},
+
+/* upper limb, proximal */
+{s:'life',m:'PSY',to:SUL,sl:'sensory figure: arm labels',r:['MANCINI2014'],t:'On the hairy skin of the upper limb, spatial acuity for touch improves from the shoulder to the back of the hand. Spatial acuity for pain runs the opposite way.'},
+{s:'rev',m:'SEEG',to:['sen-elbow','sen-wrist'],sl:'sensory figure: elbow and wrist',r:['SUN2021','ROUX2018'],t:'Depth-electrode stimulation of sulcal cortex evoked sensations referred to the deep elbow and wrist joints, which the authors describe as previously unreported. Surface stimulation in the 2018 series had found elbow and wrist skin sites.'},
+{s:'bci',m:'ICMS',to:SUL,sl:'sensory figure: arm labels',r:['ARMENTA2018'],t:'In a man with tetraplegia, microstimulation of left primary somatosensory cortex evoked both cutaneous and proprioceptive sensations in the right arm, mostly the upper arm and forearm.'},
+{s:'inj',m:'CLIN',to:SUL.concat(SHD,SFC,SMO,MUL,MHD,MFC,MMO),sl:'arm, hand, face and mouth labels, both figures',r:['LUI2026','MSD','MARGETIS2025'],t:'Infarcts in the territory of the middle cerebral artery, which supplies most of the lateral surface, typically cause weakness that is worse in the opposite arm and face than in the leg. Sensory loss mainly affects the face and arm. Occlusion of the main stem causes weakness of the whole side.'},
+{s:'stim',m:'DES',to:MUL,sl:'motor figure: shoulder, elbow and wrist',r:['ROUX2020','SCH2020'],t:'In the 2020 series shoulder movements lay medially and hand movements laterally. Each overlapped considerably with the elbow and wrist representations between them.'},
+{s:'rev',m:'fMRI',to:MUL.concat(['mot-hand','g-hand']),sl:'motor figure: shoulder, elbow, wrist and hand',r:['GORDON2023'],t:'Activation peaks for shoulder, elbow and wrist are arranged concentrically around the hand peak (2 participants). The 1950 figure draws them in a line. The hand task was closing the whole hand, so single digits were not tested.'},
+
+/* hand and digits, sensory */
+{s:'stim',m:'DES',to:SHD,sl:'sensory figure: hand and digits',r:['ROUX2018'],t:'Finger sites ran in order from little finger (medial) to thumb (lateral) and together spanned about 1.5 cm of the gyral crown. Mean thresholds were 2.39 mA for finger sites and 2.60 mA for tongue sites. These two did not differ significantly, and both were lower than for other body parts (mean 3.5 mA).'},
+{s:'life',m:'PSY',to:SHD,sl:'sensory figure: hand and digits',r:['MANCINI2014'],t:'Across 11 body sites tested in 26 healthy volunteers in two experiments, the fingertip had the finest spatial acuity for both touch and pain. Read from the paper’s bar chart, two touches were told apart at roughly 0.3 cm on the fingertip and at roughly 2 to 3 cm on the shoulder. The paper prints no table of thresholds, so these values are approximate.'},
+{s:'life',m:'MEG',to:SHD,sl:'sensory figure: hand and digits',r:['ELBERT1995'],t:'In nine string players, magnetic responses to touch on the left thumb and little finger were stronger and shifted compared with six controls, which the authors read as a larger cortical representation of the left-hand digits. The effect was smaller for the thumb than for the little finger, absent for the right hand, and greater in those who had started playing younger. Only those two digits were tested.'},
+{s:'life',m:'MEG',to:SHD,sl:'sensory figure: hand and digits',r:['STERR1998'],t:'In four blind Braille teachers who read with three fingers of each hand, finger topography was disordered in at least one hemisphere in every reader, and all four tended to misjudge which finger had been touched. Blind one-finger readers did not differ from sighted controls.'},
+{s:'life',m:'PSY',to:SHD.concat(['sen-face']),sl:'sensory figure: hand, digits and face',r:['RAMA1992'],t:'In one arm amputee, stimuli applied to the lower face, or 7 cm above the stump, evoked precisely localised sensations in individual phantom digits.'},
+{s:'inj',m:'fMRI',to:SHD.concat(MHD,['sen-lips','mot-lips']),sl:'hand and lips, both figures',r:['SCHONE2025'],t:'Three adults were scanned twice before arm amputation and at 3 and 6 months afterwards. One was scanned again at 18 months and one at five years. Hand and lip maps in primary somatosensory cortex stayed stable, and the result was replicated in primary motor cortex. A classifier trained on finger-movement activity before surgery distinguished attempted phantom finger movements above the 50% chance level at every later scan. At each participant’s last scan its accuracy was 90%, 67% and 89%. The maps were evoked by movement, not touch.'},
+{s:'inj',m:'MEG',to:SHD,sl:'sensory figure: hand and digits',r:['FLOR1995','MAKIN2013'],t:'An older account held that after amputation the neighbouring face map takes over the hand territory. In 13 arm amputees studied with MEG, the shift of the lip representation toward the hand area correlated with phantom pain intensity (r = 0.93).'},
+{s:'inj',m:'fMRI',to:SHD,sl:'sensory figure: hand and digits',r:['MAKIN2013'],t:'A 2013 study of 18 arm amputees instead linked worse phantom pain to more activity and more grey matter in the former hand area, and to weaker resting-state connectivity between that area and the hand area of the opposite hemisphere.'},
+{s:'bci',m:'ICMS',to:ids('sen',['hand','little','ring','middle','index']),sl:'sensory figure: hand and four fingers',r:['FLESHER2016','FLESHER2021'],t:'Microstimulation through electrode arrays in area 1 of the hand region evoked touch sensations that a man with long-standing spinal cord injury felt as coming from his own hand. Raising the current raised the perceived intensity. By the first author’s dissertation, the sensations lay at the bases of the index to little fingers on the palm side, with none on the thumb or on a fingertip.'},
+{s:'bci',m:'ICMS',to:SHD,sl:'sensory figure: hand and digits',r:['FLESHER2021'],t:'A man with spinal cord injury controlled a robotic arm through a brain implant. With touch feedback added by microstimulation of the hand region of his sensory cortex, his median time for a successful trial on a clinical arm-function test was 10.2 s, against 20.9 s without it.'},
+
+/* hand and digits, motor */
+{s:'stim',m:'DES',to:MHD.concat(['mot-wrist']),sl:'motor figure: wrist, hand and digits',r:['ROUX2020'],t:'Hand and wrist responses in 51 patients suggested a medial wrist cluster, a central all-fingers cluster and a lateral individual-finger cluster (mean |x| 26.2, 32.9 and 35.4 mm). Thumb flexion made up half of single-finger responses.'},
+{s:'stim',m:'DES',to:MHD,sl:'motor figure: hand and digits',r:['ROUX2020','SCH2020'],t:'Finger flexion was evoked 63 times and finger extension 8 times in the 2020 series.'},
+{s:'rev',m:'DES',to:MHD,sl:'motor figure: hand and digits',r:['ROUX2020','SCH2020'],t:'The little-finger-to-thumb sequence drawn in 1950 is absent from the 2020 group data. Of the three patients with separate thumb and other single-digit sites, only one showed the thumb lateral and the other digits in order medially.'},
+{s:'inj',m:'fMRI',to:MHD,sl:'motor figure: hand and digits',r:['YOUSRY1997'],t:'The motor hand area most often lies in a knob of the precentral gyrus that looks like an omega or epsilon in axial images and like a hook in sagittal images. The knob is a reliable landmark for finding the precentral gyrus in normal and diseased brains.'},
+{s:'bci',m:'REC',to:MHD,sl:'motor figure: hand and digits',r:['HOCHBERG2006'],t:'A 96-electrode array in the arm and hand area of primary motor cortex, as the authors describe the site, let a man with tetraplegia move a cursor, open simulated e-mail and open and close a prosthetic hand, three years after spinal cord injury.'},
+{s:'bci',m:'REC',to:MHD,sl:'motor figure: hand and digits',r:['WILLETT2021'],t:'Two arrays in the hand knob area of the precentral gyrus, which the authors call a premotor area, decoded the attempted handwriting of a man with a paralysed hand at 90 characters per minute, with 94.1% raw accuracy.'},
+
+/* face */
+{s:'stim',m:'DES',to:SFC.concat(ids('sen',['upper-lip','lips','lower-lip','teeth-gums-jaw']),['sen-pharynx']),sl:'sensory figure: face, lips, teeth and pharynx',r:['ROUX2018'],t:'The 2018 series ordered the face, tongue excluded, from medial to lateral: eyebrows, eyes, cheeks, both lips, teeth, gums, jaws, pharynx, larynx. The order rests on few sites, one each for eyebrows, eyes, nose, face, gums and pharynx. In the paper’s own table the teeth sites lie below the gums and jaw sites.'},
+{s:'fig',m:'HIST',to:SFC.concat(MFC),sl:'face labels, both figures',r:['PB1937','CAT2017'],t:'Penfield and Boldrey wrote in 1937 that responses were too few to fix the sequence position of the nose, the neck and taste, and that eye turning was left out of their chart. Catani (2017) reads this as an admission that the face representation may mislead.'},
+{s:'rev',m:'DES',to:SFC.concat(SMO),sl:'sensory figure: face and mouth',r:['ROUX2018'],t:'According to the 2018 authors, 13% of face and tongue sensory responses in Penfield’s work (27 of 202) were felt on both sides. Their own series recorded none.'},
+{s:'rev',m:'MEG',to:ids('sen',['upper-lip','lips','lower-lip','tongue']),sl:'sensory figure: lips and tongue',r:['DISBROW2003'],t:'An MEG study found same-side activation of primary somatosensory cortex after touch to the upper lip in 69% of cases, to the lower lip in 85% and to the tongue in 88%.'},
+{s:'stim',m:'DES',to:MFC.concat(MMO),sl:'motor figure: face and mouth',r:['ROUX2020'],t:'Face movements, tongue included, were evoked in 52 patients. The authors describe a medial-to-lateral sequence of forehead, eyebrows, eyes, nose, cheeks, both lips and chin. Responses above the lips were few (forehead 2, eyebrow 1, eyelid 2, nostril 1, cheek 11).'},
+{s:'stim',m:'DES',to:['mot-eyelid-eyeball'],sl:'motor figure: eyelid and eyeball',r:['PB1937'],t:'In one 1937 case the patient said he could not help closing his right eye. He closed both.'},
+{s:'rev',m:'fMRI',to:['mot-brow'].concat(IE),sl:'motor figure: brow; inter-effector regions',r:['GORDON2023'],t:'Raising the eyebrows co-activated the inter-effector regions and the cingulo-opercular network (2 participants).'},
+{s:'rev',m:'fMRI',to:['mot-eyelid-eyeball'],sl:'motor figure: eyelid and eyeball',r:['GORDON2023'],t:'In the 2023 task data (2 participants), eyelid movement was the preferred movement at the centre of one inter-effector region.'},
+
+/* mouth */
+{s:'stim',m:'DES',to:['sen-tongue'],sl:'sensory figure: tongue',r:['ROUX2018'],t:'In 14 patients tongue sites ran from tip (medial) to base (lateral). The tongue spanned about 2.5 cm of the gyral crown, against about 1.5 cm for the five fingers together.'},
+{s:'stim',m:'DES',to:['sen-tongue'],sl:'sensory figure: tongue',r:['PB1937'],t:'In one 1937 case, one point gave numbness on the right side of the tongue, a neighbouring point gave tingling on the right side, more at the tip, and another point gave numbness at the midline of the back of the tongue.'},
+{s:'fig',m:'HIST',to:['sen-tongue','mot-tongue'],sl:'tongue, both figures',r:['CAT2017'],t:'Catani (2017) judges the tongue exaggerated in the 1937 figure and corrected in the 1950 figures.'},
+{s:'stim',m:'DES',to:MMO,sl:'motor figure: mouth',r:['ROUX2020'],t:'The 2020 series counted 38 lip, 35 tongue and 12 jaw responses. In the 11 patients with both lip and tongue sites, the order from medial to lateral was upper lip, lower lip, tongue.'},
+{s:'rev',m:'DES',to:MMO.concat(FN),sl:'motor figure: mouth; function brackets',r:['ROUX2020','PR1950'],t:'According to the 2020 authors, Penfield described vocalization, salivation and mastication from the lips, jaw and tongue zone. None of the three was seen in their series. The 1950 text says that vocalization has no fixed place in the sequence and that salivation was more often a postcentral than a precentral response.'},
+{s:'fig',m:'HIST',to:['mot-lips'],sl:'motor figure: lips',r:['PB1937','CAT2017'],t:'The 1937 text reports 21 motor stimulations for mouth and lips, 18 precentral and 3 postcentral. Catani counts 64 plotted points for the same parts in the paper’s Fig. 7.'},
+{s:'rev',m:'fMRI',to:['mot-jaw','mot-tongue','g-mouth'],sl:'motor figure: jaw and tongue',r:['GORDON2023'],t:'In the mouth effector region the tongue is central and the jaw more peripheral, with the larynx at the perimeter. The paper’s schematic also draws the eyes at the outer edge of this region.'},
+{s:'bci',m:'REC',to:MMO.concat(FN),sl:'motor figure: mouth; function brackets',r:['WILLETT2023'],t:'Arrays in area 6v (ventral premotor cortex, on the ventral precentral gyrus) decoded the attempted speech of a woman with ALS at 62 words per minute. Two further arrays in area 44 carried almost no speech information.'},
+{s:'bci',m:'REC',to:MMO.concat(FN),sl:'motor figure: mouth; function brackets',r:['METZGER2023'],t:'A surface electrode grid over the sensorimotor and temporal speech cortex of a woman paralysed by a brainstem stroke decoded text at a median of 78 words per minute.'},
+{s:'stim',m:'DES',to:FN.concat(['mot-lips']),sl:'motor figure: lips; function brackets',r:['PB1937'],t:'In one 1937 case the patient made a small noise during stimulation, recorded as vocalisation, and said he could not help it. Upper and lower lips moved equally on both sides.'},
+{s:'stim',m:'DES',to:FN,sl:'motor figure: function brackets',r:['ROUX2020','PR1950'],t:'The 2020 series recorded 14 larynx responses at the lateral end of the strip (barycentre |x| 60.2, z 14.0 mm). No vocalization was observed. The motor figure has no larynx label.'},
+{s:'rev',m:'fMRI',to:FN.concat(['mot-swallowing']),sl:'motor figure: swallowing; function brackets',r:['EICHERT2020'],t:'fMRI during vocalization shows two larynx representations, a dorsal and a ventral one. The dorsal one lies in primary motor cortex. The ventral one does not, and the authors speculate that it lies in premotor cortex.'},
+{s:'rev',m:'fMRI',to:['mot-swallowing'],sl:'motor figure: swallowing',r:['GORDON2023'],t:'In the 2023 task data (2 participants), swallowing was the preferred movement at the centre of one inter-effector region.'},
+
+/* genitals */
+{s:'fig',m:'HIST',to:['sen-genitals'],sl:'sensory figure: genitals',r:['PR1950','PB1937'],t:'The 1950 text says that the position of the genitalia relative to the toes is not clear and may be posterior to the toes (p. 45). The legend of the 1937 figure says that genitalia and rectum are not figured.'},
+{s:'fig',m:'HIST',to:['sen-genitals'],sl:'sensory figure: genitals',r:['KELL2005','CAZALA2015'],t:'According to Kell et al. (2005), repeated by Cazala et al. (2015), Penfield and Rasmussen obtained genital sensation in three of 400 patients, from cortex beside the central fissure 1 cm behind the upper-leg and lower-trunk representation, and none from the medial surface of the postcentral gyrus. That passage of the 1950 book was not read for this build.'},
+{s:'fig',m:'HIST',to:['sen-genitals'],sl:'sensory figure: genitals',r:['DINOTO2013','PROELSS2025'],t:'Other accounts of Penfield’s evidence differ. Di Noto et al. (2013) say the 1950 book covers 400 operations, at least 9 of them on women, and that the medial placement of the female genitals rests on one patient. Proelss et al. (2025) say that Penfield’s maps showed no genital responses in the dorsal postcentral gyrus. Penfield reported little about the women he mapped, and the figure is drawn as male.'},
+{s:'rev',m:'fMRI',to:['sen-genitals'],sl:'sensory figure: genitals',r:['KELL2005'],t:'In 8 men, brushing of the penis activated the contralateral postcentral gyrus about 1 cm lateral to the big toe (group foci at Talairach 24, −33, 72 for the prepuce and 24, −35, 68 for the shaft). The lower abdominal wall, tested in 4 of the men, overlapped the penile focus with its centre slightly more lateral. The authors found no sign of a penile representation on the medial wall.'},
+{s:'rev',m:'fMRI',to:['sen-genitals'],sl:'sensory figure: genitals',r:['LUIJTEN2020'],t:'In 13 men scanned at 7 tesla, brushing of the penile shaft activated primary somatosensory cortex dorsolateral to the foot. The authors assign a deeper midline activation to midcingulate cortex.'},
+{s:'rev',m:'fMRI',to:['sen-genitals'],sl:'sensory figure: genitals',r:['KNOP2022'],t:'In 20 women, an oscillating membrane on the clitoral region, contrasted with the hand, activated the dorsolateral postcentral gyrus (both hemispheres in 16, one in 4), where the authors place it beside the hip and upper leg. The peak varied considerably between individuals.'},
+{s:'rev',m:'DES',to:['sen-genitals'],sl:'sensory figure: genitals',r:['PROELSS2025'],t:'In awake surgery on 8 tumour patients, all 3 men reported genital sensations from the dorsal postcentral gyrus, beside the upper leg and thigh, extending into the adjacent sulcus in two. None of the 5 women did. At the fMRI-defined female genital site they often reported leg sensations. Stimulation current was fixed, so a higher threshold in women is not excluded.'},
+{s:'rev',m:'DES',to:['sen-genitals'],sl:'sensory figure: genitals',r:['ROUX2018'],t:'The 2018 series of 50 patients does not mention genital sensations.'},
+{s:'rev',m:'fMRI',to:['sen-genitals'],sl:'sensory figure: genitals',r:['CAZALA2015'],t:'Other studies point to the medial wall. In 11 women, self-stimulation of the clitoris, vagina and cervix activated the paracentral lobule (Komisaruk et al. 2011, no coordinates published). The 2015 review notes that these responses may lie in motor cortex. A 2010 perfusion study in 16 men reported both a paracentral and a lateral postcentral focus (Georgiadis et al. 2010, as tabulated in the review). Both foci are correlations of blood flow with penile circumference or its rate of change, not responses to touch alone.'},
+{s:'rev',m:'REC',to:['sen-genitals'],sl:'sensory figure: genitals',r:['CAZALA2015'],t:'Evoked potentials to pudendal nerve stimulation were recorded from the mesial surface, in front of the foot area, in epilepsy patients (Allison et al. 1996). The 2015 review tentatively accepts two representations, one medial and one lateral.'},
+{s:'life',m:'fMRI',to:['sen-genitals'],sl:'sensory figure: genitals',r:['KNOP2022','KOVALCHUK2026'],t:'In the women of the 2022 study with a mapped left-hemisphere genital field (18 of 20 by the paper’s table), cortical thickness of that field correlated with self-reported intercourse frequency over the previous 12 months (partial r = 0.701). The design is cross-sectional and does not show direction of effect. A 2026 study by the same group recruited 128 women, 64 of them exposed to childhood sexual abuse. Its left-hemisphere analyses included at most 89 women. It found no association between field thickness and sexual frequency over the previous 12 months, in the whole sample or in either group.'},
+
+/* pharynx, viscera */
+{s:'stim',m:'DES',to:['sen-pharynx'],sl:'sensory figure: pharynx',r:['ROUX2018'],t:'The 2018 series found one pharynx site and two larynx sites, at the lateral end of the sequence.'},
+{s:'stim',m:'DES',to:['sen-intra-abdominal'],sl:'sensory figure: intra-abdominal',r:['ROUX2018'],t:'The 2018 series does not mention intra-abdominal or visceral sensations. Abdomen appears there only as a skin site.'},
+
+/* 2023 regions */
+{s:'g',m:'fMRI',to:EFF.concat(IE),sl:'all 2023 regions',r:['GORDON2023'],t:'The evidence is precision resting-state fMRI in 7 adults (172 to 1,813 minutes of resting data each). A movement task battery and a planning task were run in 2 of them, a foot, hand and tongue localiser in 3, and a larynx task in 3 adults, one of whom was not among the 7. The resting-state pattern was replicated in group-averaged data from UK Biobank (about 4,000), ABCD (3,928) and the Human Connectome Project (812). The authors caution that their schematic is not a precise map.'},
+{s:'g',m:'fMRI',to:IE,sl:'inter-effector regions',r:['GORDON2023'],t:'Inter-effector cortex is thinner than effector cortex. The three regions are strongly connected to each other and to the cingulo-opercular network, the dorsolateral putamen and the centromedian nucleus of the thalamus.'},
+{s:'g',m:'fMRI',to:IE,sl:'inter-effector regions',r:['GORDON2023'],t:'They show weak movement specificity. In a task with separate planning and execution phases for hand and foot movements, run in 2 participants, they were more active during planning than during execution. The effector regions were not.'},
+{s:'g',m:'fMRI',to:IE,sl:'inter-effector regions',r:['GORDON2023'],t:'In the task data, abdominal movement, eyelid movement and swallowing were the preferred movements at the centres of the three inter-effector regions. The paper lists them in that order and does not state the pairing with superior, middle and inferior in a sentence.'},
+{s:'g',m:'REC',to:['g-ie-sup'],sl:'superior inter-effector region',r:['GORDON2023','JENSEN2023'],t:'Lies between the foot and hand effector regions. Gordon et al. cite depth-electrode recordings (Jensen et al. 2023) as showing that this region is active during foot, hand and mouth movements. The recording study, in 13 patients, places its main shared site deep in the central sulcus at its mid-lateral part, active during hand, tongue and foot movements. Its authors say only that the superior region of Gordon et al. may overlie a secondary site, which they saw in five patients.'},
+{s:'g',m:'DES',to:['g-ie-mid'],sl:'middle inter-effector region',r:['GORDON2023','ROUX2020'],t:'Lies between the hand and mouth effector regions. The authors mapped the published movement sites from surface stimulation in 100 patients (Roux et al. 2020) onto a group surface and found none in a zone corresponding to this region. Sites that gave no movement were not part of that analysis.'},
+{s:'g',m:'fMRI',to:['g-ie-inf'],sl:'inferior inter-effector region',r:['GORDON2023'],t:'Last in the sequence, below the mouth effector region and just above the lateral sulcus. Its position is shown by the sixth seed in the paper’s first figure and by the positions in its Supplementary Table 1.'},
+{s:'g',m:'fMRI',to:EFF,sl:'effector regions',r:['GORDON2023'],t:'Each effector region is drawn as concentric zones, with the distal part (toes, fingers, tongue) at the centre and proximal parts (knee, shoulder, larynx) on the perimeter. The hand task was closing the whole hand. Fingers were not tested one by one.'},
+{s:'g',m:'DES',to:EFF.concat(IE),sl:'all 2023 regions',r:['GORDON2023'],t:'The authors note that Penfield’s stimulation elicited movement from about half of sites, mostly of the foot, hand and mouth, and that sites giving no movement were historically not recorded.'}
+];
+
+/* ---------- coordinates (MNI, mm; x absolute) ---------- */
+function C(id,panel,src,m,code,label,x,y,z,sd,n,div,extra){var o={id:id,panel:panel,src:src,m:m,code:code,label:label,x:x,y:y,z:z,sx:sd?sd[0]:null,sy:sd?sd[1]:null,sz:sd?sd[2]:null,n:n,div:div};if(extra){for(var k in extra){o[k]=extra[k];}}return o;}
+var COORDS=[
+ C('m-ll','M','ROUX2020','DES','LL','Inferior limb (foot 4, knee 1, hip 4, buttock 1)',8.2,-29.3,75.1,[3.7,5.2,1.3],10,'ll',{note:'The source’s rows are foot, knee, hip and buttock. It names no toe or ankle site.'}),
+ C('m-sh','M','ROUX2020','DES','Sh','Shoulder',18.5,-21.7,74.4,[4.6,3.8,2.2],7,'ul'),
+ C('m-el','M','ROUX2020','DES','El','Elbow',22.6,-22.1,72.8,[3.6,2.8,1.8],20,'ul'),
+ C('m-wr','M','ROUX2020','DES','Wr','Wrist',26.2,-22.1,70.4,[4.7,2.7,2.3],24,'ul'),
+ C('m-fa','M','ROUX2020','DES','Fa','All fingers',32.9,-21.4,67.0,[3.8,3.0,2.6],49,'hd'),
+ C('m-fi','M','ROUX2020','DES','Fi','Individual fingers',35.4,-17.2,64.7,[4.3,2.9,3.1],22,'hd'),
+ C('m-fj','M','ROUX2020','DES','FJ','Face and jaw, pooled (forehead 2, eyebrow 1, eye 2, nose 1, cheek 11, jaw 12)',53.5,-2.7,36.9,[6.5,3.8,13.5],29,'fc',{note:'The source labels this group Face. It pools upper-face and cheek sites with jaw sites and excludes lips.'}),
+ C('m-li','M','ROUX2020','DES','Li','Lips',55.0,-1.4,37.4,[3.7,3.3,9.3],38,'mo'),
+ C('m-to','M','ROUX2020','DES','To','Tongue',58.3,0.0,26.4,[2.4,1.9,8.2],35,'mo'),
+ C('m-la','M','ROUX2020','DES','La','Larynx',60.2,1.1,14.0,[1.1,3.4,4.6],14,'vi'),
+ C('i-sl','M','GORDON2023','fMRI','SL','Inter-effector, superior, left (average of 7 adults)',19,-34,59,null,7,'ax',{inner:1,dx:-9,dy:13,an:'end'}),
+ C('i-sr','M','GORDON2023','fMRI','SR','Inter-effector, superior, right (average of 7 adults)',20,-31,58,null,7,'ax',{inner:1,dx:9,dy:13,an:'start'}),
+ C('i-ml','M','GORDON2023','fMRI','ML','Inter-effector, middle, left (average of 7 adults)',38,-18,44,null,7,'ax',{inner:1,dx:-9,dy:-6,an:'end'}),
+ C('i-mr','M','GORDON2023','fMRI','MR','Inter-effector, middle, right (average of 7 adults)',40,-15,43,null,7,'ax',{inner:1,dx:-3,dy:16,an:'middle'}),
+ C('i-il','M','GORDON2023','fMRI','IL','Inter-effector, inferior, left (average of 7 adults)',54,-3,14,null,7,'ax',{inner:1,dx:-9,dy:8,an:'end'}),
+ C('i-ir','M','GORDON2023','fMRI','IR','Inter-effector, inferior, right (average of 7 adults)',56,-1,16,null,7,'ax',{inner:1,dx:-9,dy:-3,an:'end'}),
+
+ C('s-ft','S','ROUX2018','DES','Ft','Feet',4,-41,64,null,1,'ll'),
+ C('s-lg','S','ROUX2018','DES','Lg','Leg',4,-43,71.5,null,2,'ll'),
+ C('s-kn','S','ROUX2018','DES','Kn','Knee',8,-41,78,null,1,'ll'),
+ C('s-th','S','ROUX2018','DES','Th','Thigh',12.3,-40.3,75.3,null,3,'ll'),
+ C('s-tx','S','ROUX2018','DES','Tx','Thorax',15,-40.3,75,null,3,'ax'),
+ C('s-hp','S','ROUX2018','DES','Hp','Hip',19,-37,76,null,1,'ll'),
+ C('s-ab','S','ROUX2018','DES','Ab','Abdomen',22,-37,72,null,1,'ax'),
+ C('s-el','S','ROUX2018','DES','El','Elbow',25.7,-33.7,70.7,null,4,'ul'),
+ C('s-fo','S','ROUX2018','DES','Fo','Forearm',29.2,-33.4,68.8,null,5,'ul'),
+ C('s-sh','S','ROUX2018','DES','Sh','Shoulder',29.7,-35.3,70,null,3,'ul'),
+ C('s-wr','S','ROUX2018','DES','Wr','Wrist',30.9,-33.7,69.1,null,7,'ul'),
+ C('s-d5','S','ROUX2018','DES','D5','Little finger',35.2,-30.9,66.3,[4.65,1.93,2.34],21,'hd'),
+ C('s-d4','S','ROUX2018','DES','D4','Ring finger',37.5,-29.7,64.8,[4.23,2.47,2.47],19,'hd'),
+ C('s-d3','S','ROUX2018','DES','D3','Middle finger',40.8,-28.6,62.0,[3.51,2.93,3.06],25,'hd',{note:'SD of y is printed as 2.93 in Table 3 and 3.14 in Table 4 of the source. The listed sites give 2.94.'}),
+ C('s-pa','S','ROUX2018','DES','Pa','Palm',42.3,-25.7,61.3,[3.05,2.73,3.22],12,'hd'),
+ C('s-d2','S','ROUX2018','DES','D2','Index finger',43.4,-26.8,59.9,[3.25,3.14,3.23],31,'hd'),
+ C('s-d1','S','ROUX2018','DES','D1','Thumb',46.6,-22.8,56.2,[2.49,2.58,3.44],41,'hd'),
+ C('s-eb','S','ROUX2018','DES','Eb','Eyebrows',53,-23,48,null,1,'fc'),
+ C('s-ey','S','ROUX2018','DES','Ey','Eyes',56,-21,46,null,1,'fc'),
+ C('s-no','S','ROUX2018','DES','No','Nose',56,-19,45,null,1,'fc'),
+ C('s-fc','S','ROUX2018','DES','Fc','Face',55,-15,44,null,1,'fc'),
+ C('s-li','S','ROUX2018','DES','Li','Lips',57.5,-13.3,41.9,[2.44,1.63,4.88],14,'mo',{note:'SD of z is printed as 4.88. The 14 listed sites give 5.14.'}),
+ C('s-ja','S','ROUX2018','DES','Ja','Jaw',60.5,-13,37.5,null,4,'mo'),
+ C('s-gu','S','ROUX2018','DES','Gu','Gums',58,-10,37,null,1,'mo'),
+ C('s-tt','S','ROUX2018','DES','Tt','Tongue, tip',59.2,-11.0,36.0,[2.04,1.41,4.73],6,'mo'),
+ C('s-tm','S','ROUX2018','DES','Tm','Tongue, middle',60.7,-11.4,30.0,[1.47,2.12,4.97],37,'mo',{note:'n is 37 in Tables 3 and 4 of the source. Its text gives 31 of 44 tongue sites.'}),
+ C('s-te','S','ROUX2018','DES','Te','Teeth',61,-9,24.5,null,2,'mo'),
+ C('s-tb','S','ROUX2018','DES','Tb','Tongue, base',61.4,-11.1,23.3,[0.78,1.95,1.41],7,'mo',{note:'SD of z is printed as 1.41. The seven listed sites give 3.20.'}),
+ C('s-la','S','ROUX2018','DES','La','Larynx',62,-10,18.5,null,2,'vi'),
+ C('s-ph','S','ROUX2018','DES','Ph','Pharynx',62,-14,14,null,1,'vi'),
+ C('g-knl','S','KNOP2022','fMRI','GL','Clitoral region, group activation, left hemisphere',18,-34,74,null,20,'ge',{inner:1,lp:[25,62],note:'z is printed as 74 in the text and figure legend and as 72 in Table 2 of the source.'}),
+ C('g-knr','S','KNOP2022','fMRI','GR','Clitoral region, group activation, right hemisphere',18,-40,68,null,20,'ge',{inner:1,lp:[22,57.5]})
+];
+var CMAP={};COORDS.forEach(function(c){CMAP[c.id]=c;});
+var RC={
+ 'sen-foot':['s-ft'],'sen-leg':['s-lg','s-kn','s-th'],'sen-hip':['s-hp'],'sen-trunk':['s-tx','s-ab'],
+ 'sen-shoulder':['s-sh'],'sen-elbow':['s-el'],'sen-forearm':['s-fo'],'sen-wrist':['s-wr'],'sen-hand':['s-pa'],
+ 'sen-little':['s-d5'],'sen-ring':['s-d4'],'sen-middle':['s-d3'],'sen-index':['s-d2'],'sen-thumb':['s-d1'],
+ 'sen-eye':['s-ey'],'sen-nose':['s-no'],'sen-face':['s-eb','s-fc'],
+ 'sen-upper-lip':['s-li'],'sen-lips':['s-li'],'sen-lower-lip':['s-li'],'sen-teeth-gums-jaw':['s-ja','s-gu','s-te'],
+ 'sen-tongue':['s-tt','s-tm','s-tb'],'sen-pharynx':['s-ph','s-la'],'sen-genitals':['g-knl','g-knr'],
+ 'mot-toes':['m-ll'],'mot-ankle':['m-ll'],'mot-knee':['m-ll'],'mot-hip':['m-ll'],
+ 'mot-shoulder':['m-sh'],'mot-elbow':['m-el'],'mot-wrist':['m-wr'],'mot-hand':['m-fa'],
+ 'mot-little':['m-fi'],'mot-ring':['m-fi'],'mot-middle':['m-fi'],'mot-index':['m-fi'],'mot-thumb':['m-fi'],
+ 'mot-brow':['m-fj'],'mot-eyelid-eyeball':['m-fj'],'mot-face':['m-fj'],'mot-jaw':['m-fj'],'mot-lips':['m-li'],'mot-tongue':['m-to'],
+ 'g-ie-sup':['i-sl','i-sr'],'g-ie-mid':['i-ml','i-mr'],'g-ie-inf':['i-il','i-ir']
+};
+var CR={};Object.keys(RC).forEach(function(rid){RC[rid].forEach(function(c){(CR[c]=CR[c]||[]).push(rid);});});
+
+/* arcs inside the strip in Fig. 1: from the start of label a to the end of label b */
+var ALTS=[
+ {strip:'S',a:'sen-leg',b:'sen-hip',label:'genital field in later studies',target:'sen-genitals',off:21},
+ {strip:'M',a:'mot-shoulder',b:'mot-wrist',label:'head rotation, medial focus (fMRI 2015)',target:'mot-neck',off:21,lx:238,ly:140,an:'start',lf:0.5},
+ {strip:'M',a:'mot-lips',b:'mot-tongue',label:'Vocalization',target:'mot-functions',off:21,solid:true,lx:452,ly:250,an:'end',lf:0.25},
+ {strip:'M',a:'mot-jaw',b:'mot-swallowing',label:'Salivation',target:'mot-functions',off:30,solid:true,lx:452,ly:296,an:'end',lf:0.15},
+ {strip:'M',a:'mot-tongue',b:'mot-swallowing',label:'Mastication',target:'mot-functions',off:39,solid:true,lx:452,ly:330,an:'end',lf:0.5}
+];
+
+var TOPICS=[
+ ['Fine touch at the fingertip','sen-index'],
+ ['Musicians and Braille readers','sen-little'],
+ ['Amputation and the phantom hand','sen-hand'],
+ ['Touch feedback for a prosthetic hand','sen-ring'],
+ ['Handwriting decoded from the precentral gyrus','mot-hand'],
+ ['Speech prostheses','mot-tongue'],
+ ['Stroke patterns by artery','mot-toes'],
+ ['Seizure spread along the strip','mot-thumb'],
+ ['Where the genitals belong','sen-genitals'],
+ ['Where the neck belongs','mot-neck'],
+ ['Is the motor strip primary motor cortex?','mot-elbow'],
+ ['Inter-effector regions','g-ie-mid']
+];
+var DIFFS=[
+ ['Neck','A between Trunk and Head. B between Thumb and Brow.','mot-neck'],
+ ['Genitals','A only, lettered Gen., below Toes, without a block line.','sen-genitals'],
+ ['Head','A only, between Neck and Shoulder.','sen-head'],
+ ['Lower limb','A names Toes, Foot, Leg, Hip. B names Toes, Ankle, Knee, Hip.','mot-ankle'],
+ ['Arm','A names Shoulder, Arm, Elbow, Forearm, Wrist. B names Shoulder, Elbow, Wrist.','sen-forearm'],
+ ['Hand','The Hand line is 4.8% of the summed block lines in A and 14.7% in B.','mot-hand'],
+ ['Upper face','A names Eye, Nose, Face. B names Brow, Eyelid & Eyeball, Face.','mot-brow'],
+ ['Mouth','A names Upper lip, Lips, Lower lip, Teeth, gums, and jaw, Tongue. B names Lips, Jaw, Tongue.','sen-teeth-gums-jaw'],
+ ['Lateral end','A ends with Pharynx and Intra-abdominal. B ends with Swallowing.','sen-intra-abdominal'],
+ ['Function brackets','B only: Vocalization, Salivation, Mastication.','mot-functions']
+];
+
+var SECT=[['stim','Under stimulation'],['life','Sensation and skill'],['inj','Injury, disease and surgery'],['bci','Neural interfaces'],['rev','Revisions and disputes'],['fig','The 1950 figures'],['g','Findings']];
+var VER={A:'A. Read from a reproduction of the plate and matched by an independent transcription.',B:'B. Position confirmed. Lettering read from the reproduction only.'};
+var STRIPNAME={S:'Postcentral gyrus. Sensory figure of 1950 (Fig. 17)',M:'Precentral gyrus. Motor figure of 1950 (Fig. 22)'};
+
+var state={strip:'S',sel:null,len:'w',zoom:false};
+
+/* self-check of the dataset */
+ANN.forEach(function(a,i){a.r.forEach(function(k){if(!REFS[k]){console.error('missing ref',k,i);}});a.to.forEach(function(k){if(!REG[k]){console.error('missing region',k,i);}});});
+COORDS.forEach(function(c){if(!REFS[c.src]){console.error('missing ref',c.src);}});
+Object.keys(RC).forEach(function(k){if(!REG[k]){console.error('missing region',k);}RC[k].forEach(function(c){if(!CMAP[c]){console.error('missing coord',c);}});});
+
+/* ---------- lengths ---------- */
+function spans(strip){
+  var list=LINED[strip],tot=0,acc=0,out={};
+  list.forEach(function(id){tot+=(state.len==='w'?REG[id].w:1);});
+  list.forEach(function(id){var w=(state.len==='w'?REG[id].w:1)/tot;out[id]={f0:acc,f1:acc+w};acc+=w;});
+  return out;
+}
+
+/* ---------- Fig. 1: section ---------- */
+var STRIP_D='M168 262 C166 230 165 190 166 160 C166 110 190 78 240 72 C320 62 420 78 480 130 C530 174 558 250 556 330 C555 366 548 388 524 393 L482 397';
+/* Pial outline of the rest of the hemisphere, clockwise. An original schematic of a coronal section through the thalamus. */
+var CING_D='M180 340 C174 341 168 340 165 334 C163 328 163 318 165 312 C167 308 172 306 178 305 L192 302 C197 301 197 298 192 297 L178 295 C172 294 169 290 169 284 L168 262';
+var LAT_D=' L440 400 C420 401 404 402 396 404 C388 406 384 400 384 392 L385 372 C385 364 383 358 378 356 C372 356 371 362 373 368 C377 376 377 384 373 392 C369 400 369 408 373 416 C377 424 377 432 373 440 C369 448 369 456 373 464 C376 470 376 476 374 482 C373 487 378 490 383 487 C388 483 389 470 389 458 L389 430 C389 420 394 415 404 414 L470 414 C500 413 525 413 540 416 C552 419 559 427 559 438 C559 447 555 454 548 458 C536 460 522 461 510 460 C505 462 505 466 510 467 C524 467 540 468 550 471 C558 476 561 488 560 500 C559 512 554 520 546 523 C534 524 522 524 512 522 C507 524 507 528 512 529 C524 530 536 531 545 534 C553 540 554 556 548 568 C541 580 526 588 508 590 C498 591 490 590 484 588 C481 576 479 562 478 552 C477 547 473 547 472 552 C471 564 470 578 468 590 C452 595 428 596 408 593 C404 580 401 562 399 548 C398 543 394 543 393 548 C392 562 391 578 388 590 C370 596 346 594 330 586 C318 579 312 566 312 552 C312 540 316 530 314 520 C312 512 306 508 300 506';
+var BASE_D=' C284 502 262 498 248 492 C238 488 232 496 230 508 C228 524 222 536 222 550 C222 566 232 580 232 598 L232 618 L152 618 L152 342 Z';
+function buildSection(){
+  var strip=state.strip,list=LINED[strip],sp0=spans(strip),wrap=$('fig1');
+  var small=paneSmall(),simple=small&&!state.zoom;
+  wrap.classList.toggle('fitm',simple);wrap.classList.toggle('panm',small&&state.zoom);
+  $('p1').classList.toggle('canzoom',small);$('m-zoom').textContent=state.zoom?'Whole map':'Show labels';
+  PMODE=paneMode();
+  wrap.textContent='';
+  $('f1t').textContent='Coronal section, schematic. '+(strip==='S'?'Postcentral gyrus, sensory figure of 1950, 29 labels.':'Precentral gyrus, motor figure of 1950, 22 labels and three function brackets.');
+  var svg=S('svg',{viewBox:simple?'24 14 660 628':'0 -56 760 692',role:'group','aria-label':'Schematic coronal section with the '+(strip==='S'?'sensory':'motor')+' label sequence'});
+  wrap.appendChild(svg);
+  var PIAL=CING_D+STRIP_D.replace('M168 262','')+LAT_D,HEMI=PIAL+BASE_D;
+  var df=S('defs');df.appendChild(S('clipPath',{id:'hemi'},S('path',{d:HEMI})));svg.appendChild(df);
+  var an=S('g',{class:'anat'});svg.appendChild(an);
+  an.appendChild(S('path',{class:'wm',d:HEMI}));
+  var rb=S('g',{'clip-path':'url(#hemi)'});
+  rb.appendChild(S('path',{class:'rib0',d:PIAL}));
+  rb.appendChild(S('path',{class:'rib',d:PIAL}));
+  an.appendChild(rb);
+  an.appendChild(S('path',{class:'cc',d:'M152 342 L180 340 C215 337 250 330 280 318 L292 338 C276 348 262 356 252 360 C225 355 185 356 152 359 Z'}));
+  an.appendChild(S('path',{class:'fine',d:'M180 340 C215 337 250 330 280 318'}));
+  an.appendChild(S('path',{class:'vent',d:'M155 360 C185 356 225 355 252 360 C240 369 200 377 170 377 L155 375 Z'}));
+  an.appendChild(S('path',{class:'vent',d:'M152.6 384 C157.5 398 157.5 434 152.6 448 Z'}));
+  an.appendChild(S('ellipse',{class:'nuc',cx:259,cy:365,rx:9,ry:6}));
+  an.appendChild(S('path',{class:'nuc',d:'M158 392 C160 378 182 374 208 376 C230 378 244 386 244 396 C244 412 238 430 228 442 C220 450 196 452 176 448 C164 445 158 436 158 424 Z'}));
+  an.appendChild(S('path',{class:'nuc',d:'M290 372 C304 368 322 372 330 386 C336 402 336 424 332 446 C330 454 324 458 314 457 C298 455 282 446 270 432 C276 410 282 390 290 372 Z'}));
+  an.appendChild(S('path',{class:'fine',d:'M301 371 C310 392 310 430 303 455'}));
+  an.appendChild(S('path',{class:'claus',d:'M345 378 C349 402 349 438 345 464'}));
+  an.appendChild(S('ellipse',{class:'nuc',cx:336,cy:524,rx:16,ry:9,transform:'rotate(-18 336 524)'}));
+  an.appendChild(S('path',{class:'vent',d:'M324 507 C338 500 356 503 364 514 C352 509 338 509 324 507 Z'}));
+  an.appendChild(S('path',{class:'out',d:HEMI}));
+  an.appendChild(S('line',{x1:152,y1:-44,x2:152,y2:342,class:'mid'}));
+  function lab(x,y,t,anchor,ptr){
+    if(ptr){an.appendChild(S('line',{x1:ptr[0],y1:ptr[1],x2:ptr[2],y2:ptr[3],class:'ptr'}));}
+    an.appendChild(S('text',{x:x,y:y,'text-anchor':anchor||'start','dominant-baseline':'central'},t));
+  }
+  an.appendChild(S('text',{x:122,y:-2,transform:'rotate(-90 122 -2)','text-anchor':'middle'},'longitudinal fissure'));
+  an.appendChild(S('line',{x1:128,y1:-2,x2:151,y2:-2,class:'ptr'}));
+  lab(138,322,'cingulate gyrus','end',[141,322,165,322]);
+  lab(138,350,'corpus callosum','end',[141,350,160,350]);
+  lab(138,374,'lateral ventricle','end',[141,373,172,369]);
+  lab(200,414,'thalamus','middle');
+  lab(300,480,'lentiform nucleus','middle',[300,472,302,452]);
+  lab(408,378,'insula','start',[405,378,377,377]);
+  lab(606,470,'lateral sulcus','start',[603,466,556,408]);
+  lab(440,502,'temporal lobe','middle');
+  lab(268,568,'hippocampus','middle',[290,560,326,530]);
+  lab(188,580,'brain stem','middle');
+  an.appendChild(S('text',{x:738,y:-32,class:'ori','text-anchor':'end'},'SUPERIOR ABOVE. MEDIAL TO THE LEFT.'));
+  an.appendChild(S('text',{x:738,y:622,class:'ori','text-anchor':'end'},'SCHEMATIC. NOT TO SCALE.'));
+
+  var sp=S('path',{d:STRIP_D,fill:'none',stroke:'none'});svg.appendChild(sp);
+  var L=sp.getTotalLength();
+  function frameL(l){
+    l=Math.max(0,Math.min(L,l));
+    var a=sp.getPointAtLength(Math.max(0,l-1)),b=sp.getPointAtLength(Math.min(L,l+1)),p=sp.getPointAtLength(l);
+    var tx=b.x-a.x,ty=b.y-a.y,m=Math.sqrt(tx*tx+ty*ty)||1;tx/=m;ty/=m;
+    return {x:p.x,y:p.y,nx:ty,ny:-tx};
+  }
+  function segd(f0,f1,pad){
+    var l0=f0*L+pad,l1=f1*L-pad,k=Math.max(2,Math.ceil((l1-l0)/4)),d='',i,p;
+    if(l1<l0+0.6){l0=(f0+f1)/2*L-0.3;l1=l0+0.6;}
+    for(i=0;i<=k;i++){p=sp.getPointAtLength(l0+(l1-l0)*i/k);d+=(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1);}
+    return d;
+  }
+  function offd(f0,f1,off){
+    var k=Math.max(2,Math.ceil((f1-f0)*L/5)),d='',i,fr;
+    for(i=0;i<=k;i++){fr=frameL((f0+(f1-f0)*i/k)*L);d+=(i?'L':'M')+(fr.x-fr.nx*off).toFixed(1)+' '+(fr.y-fr.ny*off).toFixed(1);}
+    return d;
+  }
+  /* label positions: free labels are spread along the strip, labels on the sulcal part go to a rail */
+  var free=[],rail=[];
+  list.forEach(function(id){var s0=sp0[id],lm=(s0.f0+s0.f1)/2*L,fr=frameL(lm);(fr.ny>0.2?rail:free).push({id:id,lm:lm,fr:fr});});
+  var railStart=L;
+  if(rail.length){railStart=rail[0].lm;}
+  var pos=relax(free.map(function(o){return o.lm;}),14.5,6,railStart-10);
+  var lastY=-1e9;
+  function drawSeg(o,lp){
+    var id=o.id,r=REG[id],s0=sp0[id],fr=o.fr;
+    var g=S('g',{class:'seg','data-id':id,'data-src':'f1',tabindex:0,role:'button','aria-label':r.long+', '+(strip==='S'?'sensory':'motor')+' figure, position '+(r.i+1)+' of '+SEQ[strip].length});
+    var d=segd(s0.f0,s0.f1,0.9),de=segd(s0.f0,s0.f1,-0.3);
+    g.appendChild(S('path',{d:de,class:'hit'}));
+    g.appendChild(S('path',{d:de,class:'halo'}));
+    g.appendChild(S('path',{d:de,class:'edge'}));
+    g.appendChild(S('path',{d:d,class:'band',stroke:DIV[r.div].c}));
+    if(DIV[r.div].t){g.appendChild(S('path',{d:d,class:'tex',stroke:'url(#'+DIV[r.div].t+')'}));}
+    var x1=fr.x+fr.nx*9,y1=fr.y+fr.ny*9,lx,ly,anchor,rot=0,pth;
+    if(lp===null){
+      ly=Math.max(fr.y+10,lastY+15);lx=593;anchor='start';lastY=ly;
+      pth='M'+x1.toFixed(1)+' '+y1.toFixed(1)+' L588 '+ly.toFixed(1);
+    }else{
+      var f2=frameL(lp),x2=f2.x+f2.nx*23,y2=f2.y+f2.ny*23,xm=fr.x+fr.nx*15,ym=fr.y+fr.ny*15;
+      lx=f2.x+f2.nx*27;ly=f2.y+f2.ny*27;
+      var a=Math.atan2(f2.ny,f2.nx)*180/Math.PI;
+      if(f2.nx<-0.05){anchor='end';rot=(a+180)%360;}else{anchor='start';rot=a;}
+      pth='M'+x1.toFixed(1)+' '+y1.toFixed(1)+' L'+xm.toFixed(1)+' '+ym.toFixed(1)+' L'+x2.toFixed(1)+' '+y2.toFixed(1);
+      lastY=ly+(f2.nx>0.5?Math.max(0,f2.ny)*40:0);
+    }
+    g.appendChild(S('path',{d:pth,class:'lead'}));
+    var t=S('text',{x:lx.toFixed(1),y:ly.toFixed(1),'text-anchor':anchor,'dominant-baseline':'central',class:'lab'},r.label);
+    if(Math.abs(rot)>0.5&&Math.abs(rot-360)>0.5){t.setAttribute('transform','rotate('+rot.toFixed(1)+' '+lx.toFixed(1)+' '+ly.toFixed(1)+')');}
+    g.appendChild(t);
+    svg.appendChild(g);
+  }
+  free.forEach(function(o,i){drawSeg(o,pos[i]);});
+  rail.forEach(function(o){drawSeg(o,null);});
+  if(strip==='S'){
+    var gr=REG['sen-genitals'],gg=S('g',{class:'seg','data-id':'sen-genitals','data-src':'f1',tabindex:0,role:'button','aria-label':'Genitals, sensory figure, position 1 of 29, no block line'});
+    
+    gg.appendChild(S('circle',{cx:168.6,cy:276,r:simple?26:11,class:'hitc'}));
+    gg.appendChild(S('circle',{cx:168.6,cy:276,r:simple?8:4.5,class:'gm',fill:DIV.ge.c}));
+    gg.appendChild(S('path',{d:'M162 276 L146 276',class:'lead'}));
+    gg.appendChild(S('text',{x:142,y:276,'text-anchor':'end','dominant-baseline':'central',class:'lab'},gr.label));
+    svg.appendChild(gg);
+  }
+  if(simple){
+    var SHORT={ll:'Lower limb',ax:'Trunk',ul:'Arm',hd:'Hand',fc:'Face',mo:'Mouth',vi:strip==='S'?'Pharynx':'Swallowing'},runs=[],run=null;
+    list.forEach(function(id){var dv=REG[id].div,q=sp0[id];if(run&&run.d===dv){run.f1=q.f1;}else{run={d:dv,f0:q.f0,f1:q.f1};runs.push(run);}});
+    runs.forEach(function(rn){
+      if(rn.f1-rn.f0<0.035){return;}
+      var fr=frameL((rn.f0+rn.f1)/2*L),x,y,an;
+      if(fr.ny>0.2){x=574;y=Math.max(fr.y,392)+12;an='start';}
+      else{x=fr.x+fr.nx*22;y=fr.y+fr.ny*22;an=fr.nx<-0.35?'end':(fr.nx>0.35?'start':'middle');if(an==='middle'){y-=4;}}
+      svg.appendChild(S('text',{x:x.toFixed(1),y:y.toFixed(1),'text-anchor':an,'dominant-baseline':'central',class:'grpl'},SHORT[rn.d]));
+    });
+  }
+  ALTS.filter(function(a){return a.strip===strip;}).forEach(function(a){
+    var f0=sp0[a.a].f0,f1=sp0[a.b].f1,fr=frameL((f0+f1)/2*L),ix=-fr.nx,iy=-fr.ny;
+    var g=S('g',{class:'alt'+(a.solid?' solid':''),'data-id':a.target,'data-src':'f1',tabindex:0,role:'button','aria-label':a.label});
+    g.appendChild(S('path',{d:offd(f0,f1,a.off),class:'altp'}));
+    var tx=fr.x+ix*(a.off+8),ty=fr.y+iy*(a.off+8),anchor=ix>0.3?'start':(ix<-0.3?'end':'middle');
+    if(anchor==='middle'){ty+=iy>0?8:-4;}
+    if(a.lx!==undefined){
+      var f2=frameL((f0+(f1-f0)*a.lf)*L),sx=f2.x-f2.nx*a.off,sy=f2.y-f2.ny*a.off;
+      tx=a.lx;ty=a.ly;anchor=a.an;
+      g.appendChild(S('path',{d:'M'+sx.toFixed(1)+' '+sy.toFixed(1)+' L'+(tx+(anchor==='end'?4:-4))+' '+ty,class:'altl'}));
+    }
+    g.appendChild(S('text',{x:tx.toFixed(1),y:ty.toFixed(1),'text-anchor':anchor,'dominant-baseline':'central'},a.label));
+    svg.appendChild(g);
+  });
+  applyFind();
+  if(state.sel){setTimeout(centre,0);}
+}
+
+/* ---------- key panel ---------- */
+function buildKey(){
+  var k=$('key');k.textContent='';
+  k.appendChild(H('h3',null,'Colour key, body division'));
+  var ul=H('ul');
+  DIVORDER.forEach(function(d){
+    var sw=S('svg',{class:'sw',viewBox:'0 0 24 12',width:24,height:12,'aria-hidden':'true'});
+    sw.appendChild(S('rect',{x:.5,y:.5,width:23,height:11,fill:DIV[d].c,stroke:'#1c1a16','stroke-width':1}));
+    if(DIV[d].t){sw.appendChild(S('rect',{x:1,y:1,width:22,height:10,fill:'url(#'+DIV[d].t+')'}));}
+    ul.appendChild(H('li',null,[sw,DIV[d].name]));
+  });
+  k.appendChild(ul);
+  k.appendChild(H('h3',null,'Encoding'));
+  k.appendChild(H('p',null,'Order and lettering: as on the 1950 plates, medial to lateral.'));
+  k.appendChild(H('p',{id:'keylen'},''));
+  k.appendChild(H('p',null,'Side: each hemisphere mainly maps the opposite half of the body. Lips, tongue and other midline structures also have some representation on the same side.'));
+  k.appendChild(H('h3',null,'Records by topic'));
+  var tl=H('ul');
+  TOPICS.forEach(function(t){tl.appendChild(H('li',null,H('button',{type:'button',class:'lk','data-id':t[1],'data-src':'side'},t[0])));});
+  k.appendChild(tl);
+  var kids=Array.prototype.slice.call(k.children),cols=[H('div'),H('div'),H('div')];
+  kids.forEach(function(el,i){cols[i<2?0:(i<6?1:2)].appendChild(el);});
+  cols.forEach(function(c){k.appendChild(c);});
+  keyLen();
+}
+function keyLen(){
+  var e=$('keylen');if(!e){return;}
+  e.textContent=state.len==='w'?'Length: block-line lengths measured on the 1950 figures by Wright (1956), drawn edge to edge. The short gaps between lines on the plates are not drawn. Gen. has no line.':'Length: equal for every label. Switch to 1950 block lines to see the published relative lengths.';
+}
+
+/* ---------- Fig. 2: sequence comparison ---------- */
+function buildCompare(){
+  var wrap=$('fig2');if(!wrap){return;}wrap.textContent='';
+  var W=720,Hh=556,y0=52,Ht=476,svg=S('svg',{viewBox:'0 0 '+W+' '+Hh,role:'group','aria-label':'Label sequences of the two 1950 figures and the 2023 scheme'});
+  wrap.appendChild(svg);
+  var ax=190,bx=336,cw=22,cx=506;
+  svg.appendChild(S('text',{x:ax+cw,y:20,'text-anchor':'end',class:'colh'},'A  POSTCENTRAL, 1950'));
+  svg.appendChild(S('text',{x:bx,y:20,class:'colh'},'B  PRECENTRAL, 1950'));
+  svg.appendChild(S('text',{x:cx,y:20,class:'colh'},'C  PRECENTRAL, 2023'));
+  svg.appendChild(S('text',{x:(ax+cw+bx)/2,y:34,'text-anchor':'middle',class:'ax'},'medial'));
+  svg.appendChild(S('text',{x:(ax+cw+bx)/2,y:y0+Ht+20,'text-anchor':'middle',class:'ax'},'lateral'));
+  var sa=spans('S'),sb=spans('M');
+  function cy(s){return y0+(s.f0+s.f1)/2*Ht;}
+  var lg=S('g');svg.appendChild(lg);
+  var bByLabel={};LINED.M.forEach(function(id){bByLabel[REG[id].long]=id;});
+  LINED.S.forEach(function(id){
+    var other=bByLabel[REG[id].long];
+    if(other){
+      var ya=cy(sa[id]),yb=cy(sb[other]),mx=(ax+cw+bx)/2;
+      lg.appendChild(S('path',{class:'lnk','data-a':id,'data-b':other,d:'M'+(ax+cw)+' '+ya.toFixed(1)+' C'+mx+' '+ya.toFixed(1)+' '+mx+' '+yb.toFixed(1)+' '+bx+' '+yb.toFixed(1)}));
+    }
+  });
+  var cg=S('g');svg.appendChild(cg);
+  var la=relax(LINED.S.map(function(id){return cy(sa[id]);}),13,y0+4,y0+Ht-4);
+  var lb=relax(LINED.M.map(function(id){return cy(sb[id]);}),13,y0+4,y0+Ht-4);
+  LINED.S.forEach(function(id,i){
+    var r=REG[id],s=sa[id],y=y0+s.f0*Ht,h=Math.max(1.2,(s.f1-s.f0)*Ht),g=S('g',{class:'cell','data-id':id,'data-src':'f2',tabindex:0,role:'button','aria-label':r.long+', sensory figure, position '+(r.i+1)});
+    g.appendChild(S('rect',{class:'c',x:ax,y:y.toFixed(1),width:cw,height:h.toFixed(1),fill:DIV[r.div].c}));
+    if(DIV[r.div].t){g.appendChild(S('rect',{class:'t',x:ax,y:y.toFixed(1),width:cw,height:h.toFixed(1),fill:'url(#'+DIV[r.div].t+')'}));}
+    g.appendChild(S('path',{class:'ld',d:'M'+(ax-1)+' '+cy(s).toFixed(1)+' L'+(ax-9)+' '+la[i].toFixed(1)}));
+    g.appendChild(S('text',{x:ax-12,y:la[i].toFixed(1),'text-anchor':'end','dominant-baseline':'central'},r.label+((id==='sen-leg'||id==='sen-hip')?' †':'')));
+    cg.appendChild(g);
+  });
+  var gg=S('g',{class:'cell','data-id':'sen-genitals','data-src':'f2',tabindex:0,role:'button','aria-label':'Genitals, sensory figure, position 1, no block line'});
+  gg.appendChild(S('circle',{cx:ax+cw/2,cy:y0-9,r:4.5,fill:DIV.ge.c}));
+  gg.appendChild(S('text',{x:ax-12,y:y0-9,'text-anchor':'end','dominant-baseline':'central'},'Gen.'));
+  cg.appendChild(gg);
+  LINED.M.forEach(function(id,i){
+    var r=REG[id],s=sb[id],y=y0+s.f0*Ht,h=Math.max(1.2,(s.f1-s.f0)*Ht),g=S('g',{class:'cell','data-id':id,'data-src':'f2',tabindex:0,role:'button','aria-label':r.long+', motor figure, position '+(r.i+1)});
+    g.appendChild(S('rect',{class:'c',x:bx,y:y.toFixed(1),width:cw,height:h.toFixed(1),fill:DIV[r.div].c}));
+    if(DIV[r.div].t){g.appendChild(S('rect',{class:'t',x:bx,y:y.toFixed(1),width:cw,height:h.toFixed(1),fill:'url(#'+DIV[r.div].t+')'}));}
+    g.appendChild(S('path',{class:'ld',d:'M'+(bx+cw+1)+' '+cy(s).toFixed(1)+' L'+(bx+cw+9)+' '+lb[i].toFixed(1)}));
+    g.appendChild(S('text',{x:bx+cw+12,y:lb[i].toFixed(1),'dominant-baseline':'central'},r.label+(id==='mot-neck'?' ‡':'')));
+    cg.appendChild(g);
+  });
+  SEQ.G.forEach(function(id){
+    var r=REG[id],ya=y0+sb[SEQ.M[r.m0]].f0*Ht,yb=y0+sb[SEQ.M[r.m1]].f1*Ht,g,h;
+    if(r.kind==='eff'){
+      g=S('g',{class:'cell','data-id':id,'data-src':'f2',tabindex:0,role:'button','aria-label':r.long});
+      g.appendChild(S('rect',{class:'c',x:cx,y:ya.toFixed(1),width:cw,height:(yb-ya).toFixed(1),fill:DIV[r.div].c}));
+      if(DIV[r.div].t){g.appendChild(S('rect',{class:'t',x:cx,y:ya.toFixed(1),width:cw,height:(yb-ya).toFixed(1),fill:'url(#'+DIV[r.div].t+')'}));}
+      g.appendChild(S('text',{x:cx+cw+8,y:((ya+yb)/2).toFixed(1),'dominant-baseline':'central'},r.label));
+    }else{
+      h=Math.max(8,Math.min(yb-ya-6,44));
+      g=S('g',{class:'cell ie','data-id':id,'data-src':'f2',tabindex:0,role:'button','aria-label':r.long});
+      g.appendChild(S('rect',{class:'c',x:cx,y:((ya+yb)/2-h/2).toFixed(1),width:cw,height:h.toFixed(1),fill:'url(#hatch)'}));
+      g.appendChild(S('text',{x:cx+cw+8,y:((ya+yb)/2).toFixed(1),'dominant-baseline':'central'},r.label));
+    }
+    cg.appendChild(g);
+  });
+  var d=$('diff');d.textContent='';
+  d.appendChild(H('h3',null,'Where A and B differ'));
+  var ol=H('ul');
+  DIFFS.forEach(function(x){ol.appendChild(H('li',null,[H('button',{type:'button',class:'lk','data-id':x[2],'data-src':'side'},x[0]),'. '+x[1]]));});
+  d.appendChild(ol);
+  d.appendChild(H('h3',null,'Marks'));
+  d.appendChild(H('p',null,'† Later studies place the genital field on the convexity lateral to the foot (Kell et al. 2005; Luijten et al. 2020), beside the hip and upper leg (Knop et al. 2022; Proelss et al. 2025, in men only).'));
+  d.appendChild(H('p',null,'‡ fMRI during head rotation found one focus medial to the hand area and one lateral to it (Prudente et al. 2015).'));
+  d.appendChild(H('h3',null,'Column C'));
+  d.appendChild(H('p',null,'The source’s schematic names hip, knee, ankle and toes in the foot region, shoulder, elbow, wrist, hand and fingers in the hand region, and eyes, larynx, jaw and tongue in the mouth region.'));
+  d.appendChild(H('p',null,'It does not assign the neck, face or lips labels to any region. Its treatment of the eyes is not consistent: the schematic draws them in the mouth region, while in the task data eyelid movement was preferred at the centre of an inter-effector region.'));
+}
+
+/* ---------- Fig. 3: coordinates ---------- */
+function buildCoords(){
+  var wrap=$('fig3');if(!wrap){return;}wrap.textContent='';
+  var K=5.2,XM=80,ZM=90,PW=XM*K,PH=ZM*K,top=58,svg=S('svg',{viewBox:'0 0 1000 578',role:'group','aria-label':'Measured positions in MNI space'});
+  wrap.appendChild(svg);
+  function panel(ox,title,sub,pid){
+    var g=S('g');svg.appendChild(g);
+    g.appendChild(S('text',{x:ox,y:24,class:'ptitle'},title.toUpperCase()));
+    g.appendChild(S('text',{x:ox,y:40,class:'ax'},sub));
+    var gr=S('g',{class:'grid'}),axg=S('g',{class:'axis'}),v,X,Y;
+    for(v=0;v<=XM;v+=10){X=ox+v*K;gr.appendChild(S('line',{x1:X,y1:top,x2:X,y2:top+PH}));axg.appendChild(S('line',{x1:X,y1:top+PH,x2:X,y2:top+PH+4}));axg.appendChild(S('text',{x:X,y:top+PH+15,'text-anchor':'middle'},String(v)));}
+    for(v=0;v<=ZM;v+=10){Y=top+PH-v*K;gr.appendChild(S('line',{x1:ox,y1:Y,x2:ox+PW,y2:Y}));axg.appendChild(S('line',{x1:ox-4,y1:Y,x2:ox,y2:Y}));axg.appendChild(S('text',{x:ox-7,y:Y+3,'text-anchor':'end'},String(v)));}
+    g.appendChild(gr);
+    axg.appendChild(S('line',{x1:ox,y1:top,x2:ox,y2:top+PH}));
+    axg.appendChild(S('line',{x1:ox,y1:top+PH,x2:ox+PW,y2:top+PH}));
+    axg.appendChild(S('line',{x1:ox,y1:top,x2:ox+PW,y2:top}));
+    axg.appendChild(S('line',{x1:ox+PW,y1:top,x2:ox+PW,y2:top+PH}));
+    axg.appendChild(S('text',{x:ox+PW/2,y:top+PH+32,'text-anchor':'middle',class:'ttl'},'|x|, mm'));
+    axg.appendChild(S('text',{x:ox-34,y:top+PH/2,'text-anchor':'middle',class:'ttl',transform:'rotate(-90 '+(ox-34)+' '+(top+PH/2)+')'},'z, mm'));
+    g.appendChild(axg);
+    var rows=COORDS.filter(function(c){return c.panel===pid;});
+    var outer=rows.filter(function(c){return !c.inner;});
+    outer.sort(function(a,b){return Math.atan2(b.z-5,b.x)-Math.atan2(a.z-5,a.x);});
+    var R=81,gap=15/(R*K);
+    var th=relax(outer.map(function(c){return -Math.atan2(c.z-5,c.x);}),gap,-1.553,-0.05).map(function(t){return -t;});
+    var lab={};
+    outer.forEach(function(c,i){lab[c.id]={x:ox+R*Math.cos(th[i])*K,y:top+PH-(5+R*Math.sin(th[i]))*K,t:th[i]};});
+    rows.forEach(function(c){
+      var px=ox+c.x*K,py=top+PH-c.z*K,pg=S('g',{class:'pt','data-cid':c.id,tabindex:0,role:'button','aria-label':c.label+', x '+c.x+', y '+c.y+', z '+c.z});
+      if(c.sx!==null){pg.appendChild(S('line',{class:'sd',x1:(px-c.sx*K).toFixed(1),y1:py.toFixed(1),x2:(px+c.sx*K).toFixed(1),y2:py.toFixed(1)}));pg.appendChild(S('line',{class:'sd',x1:px.toFixed(1),y1:(py-c.sz*K).toFixed(1),x2:px.toFixed(1),y2:(py+c.sz*K).toFixed(1)}));}
+      var L0=lab[c.id];
+      if(L0){pg.appendChild(S('line',{class:'ld',x1:px.toFixed(1),y1:py.toFixed(1),x2:L0.x.toFixed(1),y2:L0.y.toFixed(1)}));}
+      var fill=(c.m==='fMRI'||c.n===1)?'#f8f5ec':DIV[c.div].c;
+      if(c.m==='fMRI'){pg.appendChild(S('path',{class:'mk',fill:fill,d:'M'+px.toFixed(1)+' '+(py-5).toFixed(1)+' l5 5 l-5 5 l-5 -5 Z'}));}
+      else if(pid==='M'){pg.appendChild(S('circle',{class:'mk',cx:px.toFixed(1),cy:py.toFixed(1),r:3.8,fill:fill}));}
+      else{pg.appendChild(S('rect',{class:'mk',x:(px-3.4).toFixed(1),y:(py-3.4).toFixed(1),width:6.8,height:6.8,fill:fill}));}
+      if(L0){
+        var top0=L0.t>1.05;
+        pg.appendChild(S('text',{x:(L0.x+(top0?0:3)).toFixed(1),y:(L0.y+(top0?-3:3.5)).toFixed(1),'text-anchor':top0?'middle':'start'},c.code));
+      }else if(c.lp){
+        var qx=ox+c.lp[0]*K,qy=top+PH-c.lp[1]*K;
+        pg.insertBefore(S('line',{class:'ld',x1:px.toFixed(1),y1:py.toFixed(1),x2:(qx-2).toFixed(1),y2:(qy-3).toFixed(1)}),pg.firstChild);
+        pg.appendChild(S('text',{x:qx.toFixed(1),y:qy.toFixed(1),'text-anchor':'start'},c.code));
+      }else{
+        pg.appendChild(S('text',{x:(px+c.dx).toFixed(1),y:(py+c.dy).toFixed(1),'text-anchor':c.an},c.code));
+      }
+      g.appendChild(pg);
+    });
+  }
+  panel(58,'A  Precentral gyrus','Movement sites and inter-effector positions','M');
+  panel(552,'B  Postcentral gyrus','Sensation sites and genital field','S');
+  var kx=$('f3key');kx.textContent='';
+  kx.appendChild(H('h3',null,'Marks'));
+  var ks=S('svg',{viewBox:'0 0 330 82',width:330,height:82,style:'max-width:100%'});
+  ks.appendChild(S('circle',{cx:8,cy:10,r:3.8,fill:'#8f8878',stroke:'#1c1a16','stroke-width':.9}));
+  ks.appendChild(S('text',{x:20,y:14,'font-size':11.5,fill:'#1c1a16'},'movement sites, barycentre (DES)'));
+  ks.appendChild(S('rect',{x:4.6,y:26.6,width:6.8,height:6.8,fill:'#8f8878',stroke:'#1c1a16','stroke-width':.9}));
+  ks.appendChild(S('text',{x:20,y:34,'font-size':11.5,fill:'#1c1a16'},'sensation sites, barycentre of 2 or more (DES)'));
+  ks.appendChild(S('rect',{x:4.6,y:46.6,width:6.8,height:6.8,fill:'#f8f5ec',stroke:'#1c1a16','stroke-width':.9}));
+  ks.appendChild(S('text',{x:20,y:54,'font-size':11.5,fill:'#1c1a16'},'sensation, a single site (DES)'));
+  ks.appendChild(S('path',{d:'M8 65 l5 5 l-5 5 l-5 -5 Z',fill:'#f8f5ec',stroke:'#1c1a16','stroke-width':.9}));
+  ks.appendChild(S('text',{x:20,y:74,'font-size':11.5,fill:'#1c1a16'},'group fMRI position'));
+  kx.appendChild(ks);
+  kx.appendChild(H('p',null,'Fill colour is body division, as in Fig. 1. Bars are ±1 SD in x and z. Thin lines join each code to its point.'));
+  kx.appendChild(H('p',null,'Lower-limb sites are high and near the midline, hand sites lie on the dorsal convexity, and face, tongue and larynx sites are low on the lateral surface. The stimulation sites lie on the gyral crown. The inter-effector positions are centroids of regions and plot inside the line of stimulation sites, by about 15 mm for the superior and middle regions. Neither source compares the two.'));
+  kx.appendChild(H('p',null,'The order by these coordinates is not strictly that of the 1950 figure. In the sensory series the thorax sites are medial to the hip site, the elbow and forearm are medial to the shoulder, the palm lies between the middle and index fingers, and the teeth sites lie below the tip and middle of the tongue. Within single 1950 labels, the abdomen site is lateral to the thorax sites and the teeth sites lie below the gums and jaw sites. Ten sensory rows rest on one site each.'));
+
+  var tw=$('f3tbl');tw.textContent='';
+  var tb=H('table',{class:'dt'});
+  var hr=H('tr');
+  [['Code',''],['Site',''],['Method',''],['n','num'],['|x|','num'],['y','num'],['z','num'],['SD x, y, z',''],['Source','']].forEach(function(h){hr.appendChild(H('th',{class:h[1]||null,scope:'col'},h[0]));});
+  tb.appendChild(H('thead',null,hr));
+  var body=H('tbody'),notes=[];
+  [['M','Precentral gyrus'],['S','Postcentral gyrus']].forEach(function(grp){
+    body.appendChild(H('tr',{class:'grp'},H('td',{colspan:9},grp[1])));
+    COORDS.filter(function(c){return c.panel===grp[0];}).forEach(function(c){
+      var tr=H('tr',{'data-cid':c.id,tabindex:0});
+      tr.appendChild(H('td',null,c.code));
+      tr.appendChild(H('td',{class:'site'},c.label+(c.note?' *':'')));
+      tr.appendChild(H('td',null,c.m));
+      tr.appendChild(H('td',{class:'num'},String(c.n)));
+      tr.appendChild(H('td',{class:'num'},c.x.toFixed(1)));
+      tr.appendChild(H('td',{class:'num'},num(c.y.toFixed(1))));
+      tr.appendChild(H('td',{class:'num'},c.z.toFixed(1)));
+      tr.appendChild(H('td',null,c.sx!==null?(c.sx+', '+c.sy+', '+c.sz):'·'));
+      tr.appendChild(H('td',{class:'site'},REFS[c.src].s));
+      if(c.note){tr.setAttribute('title',c.note);notes.push(c.code+' ('+(grp[0]==='M'?'precentral':'postcentral')+'): '+c.note);}
+      body.appendChild(tr);
+    });
+  });
+  tb.appendChild(body);tw.appendChild(tb);
+  tw.appendChild(H('p',{class:'cap',style:'margin-top:6px'},'* '+notes.join(' ')));
+}
+
+/* ---------- body pictogram ---------- */
+function pictogram(r){
+  var hi={},c=DIV[r.div].c;(r.pic||[]).forEach(function(p){hi[p]=1;});
+  var box=H('div',{class:'pics'});
+  var svg=S('svg',{viewBox:'0 0 120 250',width:84,height:175,class:'pic',role:'img','aria-label':'Body part for this record'});
+  function add(tag,attrs,part,side){
+    var cls=side?'o':'p';
+    if(!side&&hi[part]){cls+=' hi';attrs.style='fill:'+c;}
+    attrs['class']=cls+(attrs.dash?' dash':'');delete attrs.dash;
+    if(!side){attrs['data-part']=part;}
+    svg.appendChild(S(tag,attrs));
+  }
+  add('circle',{cx:84,cy:49,r:6.5},'',1);add('rect',{x:80.5,y:56,width:9,height:30},'',1);add('circle',{cx:85,cy:90,r:5},'',1);
+  add('rect',{x:81,y:95,width:8,height:30},'',1);add('rect',{x:81.5,y:125,width:7,height:5},'',1);add('rect',{x:79.5,y:131,width:11,height:15},'',1);
+  add('rect',{x:63,y:126,width:14,height:46},'',1);add('circle',{cx:70,cy:176,r:6},'',1);add('rect',{x:65,y:182,width:10,height:44},'',1);
+  add('rect',{x:65.5,y:226,width:9,height:5},'',1);add('rect',{x:64,y:232,width:13,height:8},'',1);add('rect',{x:64,y:240.5,width:13,height:4},'',1);
+  add('ellipse',{cx:60,cy:20,rx:12,ry:15},'head');
+  add('rect',{x:55,y:35,width:10,height:8},'neck');
+  add('path',{d:'M41 44 H79 L76 104 H44 Z'},'trunk');
+  add('ellipse',{cx:60,cy:88,rx:9,ry:8,dash:1},'abdomen');
+  add('path',{d:'M44 104 H76 L79 124 H41 Z'},'hip');
+  add('rect',{x:43,y:126,width:14,height:46},'thigh');
+  add('circle',{cx:50,cy:176,r:6},'knee');
+  add('rect',{x:45,y:182,width:10,height:44},'shank');
+  add('rect',{x:45.5,y:226,width:9,height:5},'ankle');
+  add('rect',{x:43,y:232,width:13,height:8},'foot');
+  add('rect',{x:43,y:240.5,width:13,height:4},'toes');
+  add('circle',{cx:60,cy:126,r:3.2},'genital');
+  add('circle',{cx:36,cy:49,r:6.5},'shoulder');
+  add('rect',{x:30.5,y:56,width:9,height:30},'uarm');
+  add('circle',{cx:35,cy:90,r:5},'elbow');
+  add('rect',{x:31,y:95,width:8,height:30},'farm');
+  add('rect',{x:31.5,y:125,width:7,height:5},'wrist');
+  add('rect',{x:29.5,y:131,width:11,height:15},'hand');
+  box.appendChild(H('figure',null,[svg,H('figcaption',null,'One side shown filled: the side opposite the hemisphere.')]));
+  if(r.div==='hd'){
+    var hs=S('svg',{viewBox:'0 0 64 78',width:52,height:63,class:'pic',role:'img','aria-label':'Digit for this record'});
+    var whole=!(hi.d1||hi.d2||hi.d3||hi.d4||hi.d5);
+    var parts=[['rect',{x:16,y:38,width:30,height:28},'palm'],['rect',{x:17,y:10,width:6.5,height:27},'d2'],['rect',{x:25,y:6,width:6.5,height:31},'d3'],['rect',{x:33,y:9,width:6.5,height:28},'d4'],['rect',{x:41,y:16,width:5.5,height:21},'d5'],['polygon',{points:'16,61 16,48 8,32 3,36'},'d1']];
+    parts.forEach(function(p){
+      var on=whole||hi[p[2]];p[1]['class']='o'+(on?' hi':'');if(on){p[1].style='fill:'+c+';stroke:#000';}
+      hs.appendChild(S(p[0],p[1]));
+    });
+    box.appendChild(H('figure',null,[hs,H('figcaption',null,'Hand')]));
+  }
+  return box;
+}
+
+/* ---------- record ---------- */
+function rowsFor(id,sec){return ANN.filter(function(a){return a.s===sec&&a.to.indexOf(id)>=0;});}
+function code(r){
+  if(r.strip==='S'){return 'F17-'+(r.i+1);}
+  if(r.strip==='M'){return 'F22-'+(r.i+1);}
+  if(r.strip==='G'){return 'G23-'+(r.i+1);}
+  return 'F22-B';
+}
+function kv(label,kids){var p=H('p',{class:'kv'});p.appendChild(H('b',null,label+' '));(Array.isArray(kids)?kids:[kids]).forEach(function(k){p.appendChild(typeof k==='string'?document.createTextNode(k):k);});return p;}
+function nb(id){return H('button',{type:'button',class:'lk','data-id':id,'data-src':'rec'},REG[id].label);}
+function renderRecord(id){
+  var r=REG[id],box=$('record');box.textContent='';box.scrollTop=0;
+  var seq=SEQ[r.strip],left=H('div');
+  left.appendChild(H('div',{class:'rec-id'},'Record '+code(r)));
+  left.appendChild(H('h2',null,r.long));
+  if(r.strip==='S'||r.strip==='M'){
+    left.appendChild(kv('Figure',STRIPNAME[r.strip]));
+    left.appendChild(kv('Position',(r.i+1)+' of '+seq.length+' from the medial end'));
+    left.appendChild(kv('Block line',r.w===null?'none':(r.w.toFixed(1)+' mm of '+TOT[r.strip].toFixed(1)+' mm ('+(100*r.w/TOT[r.strip]).toFixed(1)+'%)')));
+    var nbk=[];
+    if(r.i>0){nbk.push(nb(seq[r.i-1]));nbk.push(' (medial)');}
+    if(r.i>0&&r.i<seq.length-1){nbk.push(', ');}
+    if(r.i<seq.length-1){nbk.push(nb(seq[r.i+1]));nbk.push(' (lateral)');}
+    left.appendChild(kv('Neighbours',nbk));
+    left.appendChild(kv('Division',DIV[r.div].name));
+  }else if(r.strip==='G'){
+    left.appendChild(kv('Figure',['Precentral gyrus. fMRI scheme of 2023 (Gordon et al.), column C of ',H('a',{href:FIGSURL+'#p2'},'Fig. 2')]));
+    left.appendChild(kv('Position',(r.i+1)+' of 6 from the medial end'));
+    left.appendChild(kv('Type',r.kind==='eff'?'Effector region':'Inter-effector region, part of the somato-cognitive action network'));
+    var mem=[],j;for(j=r.m0;j<=r.m1;j++){if(mem.length){mem.push(', ');}mem.push(nb(SEQ.M[j]));}
+    left.appendChild(kv('1950 labels beside it in Fig. 2',mem));
+  }else{
+    left.appendChild(kv('Figure',STRIPNAME.M));
+    left.appendChild(kv('Lettered beside',[nb('mot-lips'),', ',nb('mot-jaw'),', ',nb('mot-tongue'),', ',nb('mot-swallowing')]));
+    left.appendChild(kv('Block line','none'));
+  }
+  if(r.note){left.appendChild(H('p',{class:'note'},r.note));}
+  var act=H('div',{class:'rec-act'});
+  if(seq.length>1){
+    var pb=H('button',{type:'button',class:'plain',id:'prev'},'← Medial'),nx=H('button',{type:'button',class:'plain',id:'next'},'Lateral →');
+    if(r.i===0){pb.disabled=true;}if(r.i===seq.length-1){nx.disabled=true;}
+    act.appendChild(pb);act.appendChild(nx);
+  }
+  act.appendChild(H('button',{type:'button',class:'plain',id:'copyrec'},'Copy record as text'));
+  left.appendChild(act);
+  box.appendChild(H('div',{class:'rec-h'},[left,pictogram(r)]));
+
+  var used=[],plain=[code(r)+'  '+r.long];
+  if(r.note){plain.push(r.note);}
+  SECT.forEach(function(s){
+    var rows=rowsFor(id,s[0]);
+    var always=(r.strip==='S'||r.strip==='M')&&s[0]!=='g';
+    if(!rows.length&&!always){return;}
+    var sec=H('div',{class:'sect'});sec.appendChild(H('h3',null,s[1]));
+    plain.push('');plain.push(s[1].toUpperCase());
+    if(!rows.length){sec.appendChild(H('div',{class:'none'},'No entry.'));plain.push('No entry.');}
+    rows.forEach(function(a){
+      var refs=a.r.map(function(k){if(used.indexOf(k)<0){used.push(k);}return REFS[k].s;}).join('; ');
+      var body=H('div',null,[a.t+' ',H('span',{class:'r'},'['+refs+']'),' ',H('span',{class:'sc'},'Applies to: '+a.sl)]);
+      sec.appendChild(H('div',{class:'row'},[H('div',{class:'m'},a.m),body]));
+      plain.push('- ('+a.m+') '+a.t+' ['+refs+'] Applies to: '+a.sl+'.');
+    });
+    box.appendChild(sec);
+  });
+  var cs=RC[id]||[];
+  if(cs.length){
+    var csec=H('div',{class:'sect'});csec.appendChild(H('h3',null,'Measured position, MNI (mm)'));
+    var t=H('table',{class:'dt'}),hr=H('tr');
+    ['Code','Site','n','|x|','y','z','Source'].forEach(function(h,i){hr.appendChild(H('th',{class:(i>=2&&i<=5)?'num':null,scope:'col'},h));});
+    t.appendChild(H('thead',null,hr));var tb=H('tbody');
+    plain.push('');plain.push('MEASURED POSITION, MNI (MM)');
+    cs.forEach(function(cid){
+      var c=CMAP[cid],tr=H('tr',{'data-cid':cid,tabindex:0});
+      if(used.indexOf(c.src)<0){used.push(c.src);}
+      tr.appendChild(H('td',null,c.code));tr.appendChild(H('td',{class:'site'},c.label));tr.appendChild(H('td',{class:'num'},String(c.n)));
+      tr.appendChild(H('td',{class:'num'},c.x.toFixed(1)));tr.appendChild(H('td',{class:'num'},num(c.y.toFixed(1))));tr.appendChild(H('td',{class:'num'},c.z.toFixed(1)));
+      tr.appendChild(H('td',{class:'site'},REFS[c.src].s));tb.appendChild(tr);
+      plain.push('- '+c.code+' '+c.label+': n '+c.n+', |x| '+c.x.toFixed(1)+', y '+c.y.toFixed(1)+', z '+c.z.toFixed(1)+' ['+REFS[c.src].s+']');
+    });
+    t.appendChild(tb);csec.appendChild(H('div',{class:'rec-c'},t));box.appendChild(csec);
+  }
+  if(r.strip==='S'||r.strip==='M'||r.strip==='X'){['PR1950','STUART1951','WRIGHT1956'].forEach(function(k){if(used.indexOf(k)<0){used.push(k);}});}
+  if(r.strip==='S'||r.strip==='M'){
+    var nsec=H('div',{class:'sect'}),nl=H('div',{class:'notes'});
+    nsec.appendChild(H('h3',null,'Notes on this label'));
+    nl.appendChild(kv('Plate lettering',r.label));
+    nl.appendChild(kv('Label check',VER[r.ver]));
+    plain.push('');plain.push('NOTES ON THIS LABEL');plain.push('- Plate lettering: '+r.label);plain.push('- Label check: '+VER[r.ver]);
+    if(r.w!==null){nl.appendChild(kv('Block line','length as measured on the printed 1950 figure by Wright (1956)'));plain.push('- Block line: length as measured on the printed 1950 figure by Wright (1956)');}
+    nsec.appendChild(nl);box.appendChild(nsec);
+  }
+  var ssec=H('div',{class:'sect'});ssec.appendChild(H('h3',null,'Sources cited in this record'));
+  var ol=H('ol',{class:'srcs'});plain.push('');plain.push('SOURCES');
+  used.sort(function(a,b){return REFS[a].f<REFS[b].f?-1:1;}).forEach(function(k){
+    var R=REFS[k],li=H('li',null,R.f+' ');
+    if(R.u){li.appendChild(H('a',{href:R.u,rel:'noopener'},'Link'));li.appendChild(document.createTextNode(' '));}
+    if(R.n){li.appendChild(H('span',{class:'rn'},R.n));}
+    ol.appendChild(li);plain.push('- '+R.f+(R.u?' '+R.u:'')+(R.n?' Note: '+R.n:''));
+  });
+  ssec.appendChild(ol);box.appendChild(ssec);
+  foldRecord(box);
+  box.appendChild(H('p',{class:'perm'},['This record has its own page: ',H('a',{href:BPRE+recPath(r.id)+XSUF},'penfieldsmap.com/body/'+recPath(r.id)+'/')]));
+  box._plain=plain.join('\n');
+}
+/* Long records: the later sections open on request. A section opened in one record stays open in the next. */
+var FOLD={'Revisions and disputes':'finding','The 1950 figures':'finding','Measured position, MNI (mm)':'position','Notes on this label':'','Sources cited in this record':'source'},OPENED={};
+function foldRecord(box){
+  Array.prototype.slice.call(box.querySelectorAll('.sect')).forEach(function(sec){
+    var h=sec.querySelector('h3'),k=h?h.textContent:'';if(!FOLD.hasOwnProperty(k)){return;}
+    var n=sec.querySelectorAll('.row,.srcs>li,tbody tr').length,unit=FOLD[k];
+    var d=H('details',{class:'sect fold'}),sm=H('summary');
+    sm.appendChild(h);sm.appendChild(H('span',{class:'fc'},unit?(n?(n+' '+unit+(n===1?'':'s')):'no entry'):''));
+    d.appendChild(sm);while(sec.firstChild){d.appendChild(sec.firstChild);}
+    if(OPENED[k]){d.setAttribute('open','');}
+    d.addEventListener('toggle',function(){OPENED[k]=d.open;});
+    sec.parentNode.replaceChild(d,sec);
+  });
+}
+window.addEventListener('beforeprint',function(){Array.prototype.forEach.call(document.querySelectorAll('details.fold'),function(d){d.setAttribute('open','');});});
+
+/* ---------- selection ---------- */
+function syncButtons(){
+  $('btn-sen').setAttribute('aria-pressed',state.strip==='S'?'true':'false');
+  $('btn-mot').setAttribute('aria-pressed',state.strip==='M'?'true':'false');
+  $('btn-lw').setAttribute('aria-pressed',state.len==='w'?'true':'false');
+  $('btn-le').setAttribute('aria-pressed',state.len==='e'?'true':'false');
+  $('m-sen').setAttribute('aria-pressed',state.strip==='S'?'true':'false');
+  $('m-mot').setAttribute('aria-pressed',state.strip==='M'?'true':'false');
+  $('mnow').textContent=REG[state.sel]?REG[state.sel].long:'';
+}
+
+/* ---------- narrow screens: the section stays pinned and the record scrolls beside or under it ---------- */
+var MQ=window.matchMedia?window.matchMedia('(max-width:1020px)'):null;
+function isNarrow(){return !!(MQ&&MQ.matches);}
+var PMODE='';
+function paneSmall(){return isNarrow()&&$('fig1').clientWidth<560;}
+function paneMode(){return (isNarrow()?'n':'w')+(paneSmall()?'s':'l')+(state.zoom?'z':'f');}
+function centre(){
+  if(!isNarrow()){return;}
+  var w=$('fig1'),e=w.querySelector('.seg.on .band, .seg.on .gm, .alt.on .altp');
+  if(!e){return;}
+  var a=e.getBoundingClientRect(),b=w.getBoundingClientRect();
+  w.scrollLeft+=a.left+a.width/2-(b.left+b.width/2);
+  w.scrollTop+=a.top+a.height/2-(b.top+b.height/2);
+}
+
+function mark(){
+  var sel=state.sel,cs=RC[sel]||[];
+  Array.prototype.forEach.call(document.querySelectorAll('[data-id]'),function(e){e.classList.toggle('on',e.getAttribute('data-id')===sel);});
+  Array.prototype.forEach.call(document.querySelectorAll('.lnk'),function(e){e.classList.toggle('on',e.getAttribute('data-a')===sel||e.getAttribute('data-b')===sel);});
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cid]'),function(e){e.classList.toggle('on',cs.indexOf(e.getAttribute('data-cid'))>=0);});
+  Array.prototype.forEach.call(document.querySelectorAll('.cell.on,.pt.on'),function(e){e.parentNode.appendChild(e);});
+}
+function select(id,opt){
+  opt=opt||{};var r=REG[id];if(!r){return;}
+  state.sel=id;
+  var want=(r.strip==='S')?'S':((r.strip==='M'||r.strip==='X'||r.strip==='G')?'M':state.strip);
+  if(want!==state.strip){state.strip=want;buildSection();syncButtons();}
+  renderRecord(id);mark();$('mnow').textContent=r.long;
+  if(!opt.nohash){try{if(location.hash.slice(1)!==id){location.hash=id;}}catch(e){}}
+  var d=$('duo'),y=d.getBoundingClientRect().top+window.pageYOffset-document.querySelector('header.top').offsetHeight-(isNarrow()?0:$('tools').offsetHeight);
+  if(opt.scroll||window.pageYOffset>y){window.scrollTo(0,y);}
+  centre();
+}
+function step(d){
+  var r=REG[state.sel];if(!r){return;}var seq=SEQ[r.strip],j=r.i+d;
+  if(j>=0&&j<seq.length){select(seq[j]);}
+}
+
+/* ---------- find ---------- */
+function applyFind(){
+  var q=$('find').value.trim().toLowerCase(),out=$('found');out.textContent='';
+  var hits=[];
+  if(q){Object.keys(REG).forEach(function(id){var r=REG[id];if(r.long.toLowerCase().indexOf(q)>=0||r.label.toLowerCase().indexOf(q)>=0){hits.push(id);}});}
+  Array.prototype.forEach.call(document.querySelectorAll('#fig1 .seg'),function(e){e.classList.toggle('dim',!!q&&hits.indexOf(e.getAttribute('data-id'))<0);});
+  if(q&&!hits.length){out.textContent='No label matches.';}
+  hits.slice(0,8).forEach(function(id){var r=REG[id];out.appendChild(H('button',{type:'button',class:'lk','data-id':id,'data-src':'find'},r.long+' ('+(r.strip==='G'?'2023':(r.strip==='S'?'sensory':'motor'))+')'));});
+  return hits;
+}
+
+/* ---------- status ---------- */
+function statusFor(el){
+  var id=el.getAttribute('data-id'),cid=el.getAttribute('data-cid'),r,c;
+  if(cid){c=CMAP[cid];return c.code+'  '+c.label+'  |  '+c.m+'  |  |x| '+c.x.toFixed(1)+'  y '+num(c.y.toFixed(1))+'  z '+c.z.toFixed(1)+' mm'+(c.sx!==null?'  |  SD '+c.sx+', '+c.sy+', '+c.sz:'')+'  |  n '+c.n+'  |  '+REFS[c.src].s;}
+  r=REG[id];if(!r){return '';}
+  if(r.strip==='S'||r.strip==='M'){return code(r)+'  '+r.long+'  |  '+(r.strip==='S'?'sensory figure, postcentral':'motor figure, precentral')+' gyrus  |  position '+(r.i+1)+' of '+SEQ[r.strip].length+' from medial  |  block line '+(r.w===null?'none':r.w.toFixed(1)+' mm')+'  |  '+DIV[r.div].name.toLowerCase();}
+  if(r.strip==='G'){return code(r)+'  '+r.long+'  |  precentral gyrus, 2023 fMRI scheme  |  position '+(r.i+1)+' of 6 from medial';}
+  return code(r)+'  '+r.long+'  |  function brackets, 1950 motor figure';
+}
+
+/* ---------- events ---------- */
+function pickCoord(cid){
+  var targets=CR[cid]||[];
+  $('status').textContent=statusFor({getAttribute:function(k){return k==='data-cid'?cid:null;}});
+  if(targets.length&&targets.indexOf(state.sel)<0){select(targets[0],{scroll:true});}
+}
+document.addEventListener('click',function(ev){
+  var t=ev.target,e;
+  if(!t.closest){return;}
+  if(FIGS){
+    e=t.closest('[data-cid]');if(e){var tg=CR[e.getAttribute('data-cid')]||[];$('status').textContent=statusFor(e);if(tg.length){location.href=BODYURL+'#'+tg[0];}return;}
+    e=t.closest('[data-id]');if(e){location.href=BODYURL+'#'+e.getAttribute('data-id');return;}
+  }
+  e=t.closest('[data-cid]');if(e){pickCoord(e.getAttribute('data-cid'));return;}
+  e=t.closest('[data-id]');if(e){select(e.getAttribute('data-id'),{scroll:e.getAttribute('data-src')!=='f1'&&e.getAttribute('data-src')!=='rec'});return;}
+  e=t.closest('[data-part]');
+  if(e){
+    var part=e.getAttribute('data-part'),strip=(REG[state.sel]&&(REG[state.sel].strip==='S'||REG[state.sel].strip==='M'))?REG[state.sel].strip:state.strip,hit=null;
+    SEQ[strip].some(function(id){if(REG[id].pic.indexOf(part)>=0){hit=id;return true;}return false;});
+    if(!hit){SEQ[strip==='S'?'M':'S'].some(function(id){if(REG[id].pic.indexOf(part)>=0){hit=id;return true;}return false;});}
+    if(hit){select(hit);}
+    return;
+  }
+  if(t.id==='m-sen'||t.id==='m-mot'){$(t.id==='m-sen'?'btn-sen':'btn-mot').click();return;}
+  if(t.id==='m-zoom'){state.zoom=!state.zoom;buildSection();mark();centre();return;}
+  if(t.id==='m-prev'){step(-1);return;}
+  if(t.id==='m-next'){step(1);return;}
+  if(t.id==='prev'){step(-1);return;}
+  if(t.id==='next'){step(1);return;}
+  if(t.id==='copyrec'){
+    var txt=$('record')._plain||'',btn=t;
+    var done=function(ok){btn.textContent=ok?'Copied':'Copy failed';setTimeout(function(){btn.textContent='Copy record as text';},1600);};
+    try{navigator.clipboard.writeText(txt).then(function(){done(true);},function(){done(false);});}catch(err){done(false);}
+    return;
+  }
+  if(t.id==='btn-sen'||t.id==='btn-mot'){
+    var s=t.id==='btn-sen'?'S':'M';
+    if(s!==state.strip){
+      var cur=REG[state.sel],other=null;
+      if(cur&&(cur.strip==='S'||cur.strip==='M')){SEQ[s].some(function(id){if(REG[id].long===cur.long){other=id;return true;}return false;});}
+      if(!other&&cur){SEQ[s].some(function(id){if(REG[id].div===cur.div){other=id;return true;}return false;});}
+      select(other||SEQ[s][0]);
+    }
+    return;
+  }
+  if(t.id==='btn-lw'||t.id==='btn-le'){
+    var m=t.id==='btn-lw'?'w':'e';
+    if(m!==state.len){state.len=m;buildSection();buildCompare();keyLen();syncButtons();mark();}
+    return;
+  }
+});
+document.addEventListener('keydown',function(ev){
+  var t=ev.target,tag=t&&t.tagName?t.tagName.toLowerCase():'';
+  if(tag==='input'){
+    if(ev.key==='Enter'){var h=applyFind();if(h.length){select(h[0],{scroll:true});}}
+    return;
+  }
+  if((ev.key==='Enter'||ev.key===' ')&&t.getAttribute&&(t.getAttribute('data-id')||t.getAttribute('data-cid'))&&tag!=='button'){
+    ev.preventDefault();
+    if(FIGS){t.dispatchEvent(new MouseEvent('click',{bubbles:true}));return;}
+    if(t.getAttribute('data-cid')){pickCoord(t.getAttribute('data-cid'));}else{select(t.getAttribute('data-id'));}
+    return;
+  }
+  if(FIGS){return;}
+  if(ev.key==='ArrowRight'&&!ev.metaKey&&!ev.ctrlKey&&!ev.altKey){step(1);ev.preventDefault();}
+  if(ev.key==='ArrowLeft'&&!ev.metaKey&&!ev.ctrlKey&&!ev.altKey){step(-1);ev.preventDefault();}
+});
+document.addEventListener('mouseover',function(ev){
+  var t=ev.target;if(!t.closest){return;}
+  var e=t.closest('[data-cid],[data-id]');
+  if(e){$('status').textContent=statusFor(e);}
+});
+$('find').addEventListener('input',applyFind);
+window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if(!FIGS&&REG[h]&&h!==state.sel){select(h,{nohash:true});}});
+function toolh(){var st=document.documentElement.style;st.setProperty('--toolh',$('tools').offsetHeight+'px');st.setProperty('--headh',document.querySelector('header.top').offsetHeight+'px');}
+window.addEventListener('resize',toolh);
+document.querySelector('nav.menu').addEventListener('click',function(ev){var a=ev.target.closest?ev.target.closest('a'):null;if(!a){return;}var h=a.getAttribute('href')||'';if(h.charAt(0)==='#'&&h.length>1){ev.preventDefault();var el=$(h.slice(1));if(el){el.scrollIntoView({block:'start'});}}});
+function relayout(){toolh();if(paneMode()!==PMODE){buildSection();mark();}centre();}
+window.addEventListener('resize',relayout);
+if(MQ){if(MQ.addEventListener){MQ.addEventListener('change',relayout);}else if(MQ.addListener){MQ.addListener(relayout);}}
+
+/* ---------- reference list ---------- */
+(function(){
+  var ul=$('reflist');if(!ul){return;}
+  Object.keys(REFS).sort(function(a,b){return REFS[a].f<REFS[b].f?-1:1;}).forEach(function(k){
+    var R=REFS[k],li=H('li',null,R.f+' ');
+    if(R.u){li.appendChild(H('a',{href:R.u,rel:'noopener'},R.u.replace('https://','')));li.appendChild(document.createTextNode(' '));}
+    if(R.n){li.appendChild(H('span',{class:'rn'},R.n));}
+    ul.appendChild(li);
+  });
+})();
+
+/* ---------- about: shares of the block lines ---------- */
+(function(){
+  function share(strip,keys){var t=0;keys.forEach(function(k){t+=REG[strip+'-'+k].w;});return (100*t/TOT[strip==='sen'?'S':'M']).toFixed(0)+'%';}
+  var e=$('ab-shares');if(!e){return;}
+  e.textContent='By the block lines of the 1950 sensory figure, as measured by Wright, the hand and its five digits take '+share('sen',DG)+' of the total line length, the three lip labels '+share('sen',['upper-lip','lips','lower-lip'])+' and the tongue '+share('sen',['tongue'])+', against '+share('sen',['trunk'])+' for the trunk. On the motor figure the hand and digits take '+share('mot',DG)+', the lips '+share('mot',['lips'])+' and the trunk '+share('mot',['trunk'])+'.';
+})();
+
+/* ---------- topic chooser ---------- */
+(function(){
+  var sel=$('topic');
+  TOPICS.forEach(function(t){sel.appendChild(H('option',{value:t[1]},t[0]));});
+  sel.addEventListener('change',function(){var v=sel.value;sel.value='';if(REG[v]){select(v,{scroll:true});}});
+})();
+
+/* ---------- start ---------- */
+window.__D={ANN:ANN,REFS:REFS,COORDS:COORDS,REG:REG,SEQ:SEQ,RC:RC,TOT:TOT,recPath:recPath};
+buildKey();buildSection();buildCompare();buildCoords();toolh();
+var h0='';try{h0=location.hash.slice(1);}catch(e){}
+if(FIGS){syncButtons();$('status').textContent='Point at a cell or data point for a readout. Select one to open its record on the body map.';}
+else{select(REG[h0]?h0:'sen-thumb',{nohash:true});syncButtons();centre();}
+})();
+</script>
+</body>
+</html>

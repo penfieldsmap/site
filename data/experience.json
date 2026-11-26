@@ -1,0 +1,1187 @@
+{
+  "about": "Experience map of Penfield’s Map, https://penfieldsmap.com/. Generated from src/ by build/export-data.js. Case reports are paraphrases of the case reports in Penfield and Perot 1963 and carry that paper’s case numbers and page numbers.",
+  "licence": "CC BY 4.0. Credit: Dargentic Intelligence, Penfield’s Map, https://penfieldsmap.com",
+  "layers": [
+    {
+      "key": "R",
+      "name": "Memory-like experiences",
+      "short_name": "Memory-like",
+      "description": "Penfield and Perot called these experiential responses: things the patient had seen, heard or lived through before, returning while the electrode was on the cortex. They came in 40 of the 520 patients whose temporal lobes were explored and stimulated, and in none of the 612 patients explored elsewhere."
+    },
+    {
+      "key": "I",
+      "name": "The present, altered",
+      "short_name": "Altered",
+      "description": "A second kind of response changed how the present moment seemed, without bringing anything back. The 1963 paper calls these interpretive illusions and lists four groups: of sound, of sight, of recognition and of emotion."
+    },
+    {
+      "key": "L",
+      "name": "Later work on feeling",
+      "short_name": "Later",
+      "description": "Feelings that are not in Penfield’s tables, reported since by other groups, mostly from stimulation outside the temporal cortex he mapped. Most rest on a handful of patients."
+    }
+  ],
+  "records": [
+    {
+      "id": "voices",
+      "address": "https://penfieldsmap.com/experience/voices/",
+      "layer": "R",
+      "title": "Voices",
+      "plate_label": "Voices",
+      "term_in_1963_paper": "Experiential response, auditory: voice",
+      "note": "",
+      "count": "46 of the 138 responses. Auditory responses of all kinds came from 66 points in 24 patients.",
+      "site": "The side and the upper surface of the first temporal convolution. None lay in the anterior transverse gyrus of Heschl, where stimulation gave only crude sound such as buzzing. On the right the points ran further back along the convolution than on the left. Points for voices, music and other sounds were not separated from one another.",
+      "side": "Auditory responses: 42 from the non-dominant hemisphere in 15 patients, 24 from the dominant hemisphere in 9.",
+      "plate_zones": [
+        {
+          "id": "t1",
+          "name": "first temporal convolution, side"
+        },
+        {
+          "id": "sup",
+          "name": "upper surface of the first temporal convolution, inside the fissure"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": [
+        {
+          "case": 3,
+          "initials": "R.W.",
+          "patient": "boy of 12",
+          "side_operated": "right",
+          "pages": "615–617",
+          "report": "When the surgeon probed his temporal lobe, he heard his mother telling an aunt to come up that night. A probe at the next point gave the same conversation, and he said it was over the telephone. Another point gave her voice telling his brother that his coat was on backwards.",
+          "opens_the_record": true
+        },
+        {
+          "case": 8,
+          "initials": "R.L.",
+          "patient": "woman of 26",
+          "side_operated": "right",
+          "pages": "623",
+          "report": "When her temporal lobe was probed, she heard a faint voice far away, then a name called three times. She said it was her husband’s name. Seven minutes later the same point was probed four more times and gave nothing.",
+          "opens_the_record": false
+        },
+        {
+          "case": 15,
+          "initials": "J.V.",
+          "patient": "girl of 14",
+          "side_operated": "right",
+          "pages": "629–630",
+          "report": "Under the probe she heard many people shouting at her. When the point was probed again she said they were her mother and brothers, and she asked for it to stop.",
+          "opens_the_record": false
+        },
+        {
+          "case": 13,
+          "initials": "A.P.",
+          "patient": "man of 19",
+          "side_operated": "left",
+          "pages": "626–628",
+          "report": "When the surgeon probed his temporal lobe, he heard a man’s voice in a pool room telling him to get out. He later confirmed that this had happened.",
+          "opens_the_record": false
+        },
+        {
+          "case": 28,
+          "initials": "E.B.",
+          "patient": "girl of 12",
+          "side_operated": "right",
+          "pages": "639",
+          "report": "A probe on the first temporal convolution made her hear someone speaking on the telephone.",
+          "opens_the_record": false
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "address": "https://penfieldsmap.com/experience/music/",
+      "layer": "R",
+      "title": "Music",
+      "plate_label": "Music",
+      "term_in_1963_paper": "Experiential response, auditory: music",
+      "note": "The authors remark that music came surprisingly often and that it was sometimes the theme song of a radio programme.",
+      "count": "17 points in 11 patients. The legend of Fig. 9 of the paper marks 13 of the 17 as familiar to the patient.",
+      "site": "The first temporal convolution, on its side or on its upper surface.",
+      "side": "The paper gives no count by side for music. Counted for this page from the legend of its Fig. 9 and the case reports, 13 of the 17 points were in right hemispheres and 4 in left.",
+      "plate_zones": [
+        {
+          "id": "t1",
+          "name": "first temporal convolution, side"
+        },
+        {
+          "id": "sup",
+          "name": "upper surface of the first temporal convolution, inside the fissure"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": [
+        {
+          "case": 5,
+          "initials": "D.F.",
+          "patient": "woman of 26",
+          "side_operated": "right",
+          "pages": "619–620",
+          "report": "Repeated probes at one point made her hear music that sounded as if it came from a radio. She could not name it but said it was familiar. She hummed it, and the operating-room nurse recognised the tune as “Rolling Along Together”. Probes at three points close by gave the same tune. The first point was on the upper, inner face of the first temporal convolution, on the cut surface against the insula.",
+          "opens_the_record": true
+        },
+        {
+          "case": 4,
+          "initials": "A.Bra.",
+          "patient": "woman of 32",
+          "side_operated": "right",
+          "pages": "617–619",
+          "report": "Under the probe she heard singing, which she named as “White Christmas”, sung by a choir. When another point was probed she hummed a tune she knew and could not name.",
+          "opens_the_record": false
+        },
+        {
+          "case": 31,
+          "initials": "N.C.",
+          "patient": "woman of 23",
+          "side_operated": "left",
+          "pages": "642–644",
+          "report": "When her temporal lobe was probed, she hummed a march, which was identified as the “War March of the Priests”. She said she had it on a record at home.",
+          "opens_the_record": false
+        },
+        {
+          "case": 10,
+          "initials": "R.McA.",
+          "patient": "man of 18",
+          "side_operated": "right",
+          "pages": "624–625",
+          "report": "A probe made him hear a popular song from the radio, played by instruments. When the point was probed again he said the song had come back. His speech was in the right hemisphere.",
+          "opens_the_record": false
+        },
+        {
+          "case": 30,
+          "initials": "A.Br.",
+          "patient": "woman of 28",
+          "side_operated": "right",
+          "pages": "641–642",
+          "report": "A probe at one point made her hear singing, and at another a song that sounded familiar, as if on the radio. The legend of Fig. 9 lists four music points in this patient.",
+          "opens_the_record": false
+        },
+        {
+          "case": 9,
+          "initials": "E.Le.",
+          "patient": "woman of 44",
+          "side_operated": "right",
+          "pages": "623–624",
+          "report": "A probe 1 cm deep in the first temporal convolution made her hear a distant sound like singing, a group in the background, probably hymns.",
+          "opens_the_record": false
+        },
+        {
+          "case": 11,
+          "initials": "M.N.",
+          "patient": "woman of 45",
+          "side_operated": "left",
+          "pages": "625–626",
+          "report": "When her temporal lobe was probed, she heard music in the background, like an orchestra or an organ.",
+          "opens_the_record": false
+        }
+      ]
+    },
+    {
+      "id": "scenes",
+      "address": "https://penfieldsmap.com/experience/people-and-scenes/",
+      "layer": "R",
+      "title": "People and scenes",
+      "plate_label": "People and scenes",
+      "term_in_1963_paper": "Experiential response, visual",
+      "note": "",
+      "count": "38 points in 19 patients: a person or people in 23, a scene in 10, an object in 5. In 14 the patient recognised what was seen as part of the past.",
+      "site": "On the right, scattered through the temporal lobe and back to where it meets the occipital lobe. On the left, three points on the side of the first and second convolutions and the rest on the upper surface of the first. Stimulation of the visual cortex itself gave no such response.",
+      "side": "28 from the non-dominant hemisphere in 12 patients, 10 from the dominant hemisphere in 7.",
+      "plate_zones": [
+        {
+          "id": "t1",
+          "name": "first temporal convolution, side"
+        },
+        {
+          "id": "t2",
+          "name": "second temporal convolution"
+        },
+        {
+          "id": "tpo",
+          "name": "back of the temporal lobe, toward the occipital lobe"
+        },
+        {
+          "id": "sup",
+          "name": "upper surface of the first temporal convolution, inside the fissure"
+        }
+      ],
+      "plate_zones_secondary": [
+        {
+          "id": "ffa",
+          "name": "fusiform gyrus (under surface)"
+        },
+        {
+          "id": "ppa",
+          "name": "parahippocampal cortex (under surface)"
+        }
+      ],
+      "extra_references": [],
+      "cases": [
+        {
+          "case": 1,
+          "initials": "E.Wh.",
+          "patient": "woman of 37",
+          "side_operated": "left",
+          "pages": "612",
+          "report": "When her temporal lobe was probed, she saw herself giving birth and felt she was living through it again.",
+          "opens_the_record": true
+        },
+        {
+          "case": 18,
+          "initials": "G.B.",
+          "patient": "girl of 16",
+          "side_operated": "left",
+          "pages": "632",
+          "report": "A probe 3 cm deep made her see a dog chasing a cat in the driveway at home, which she had seen happen. Two minutes later a probe at the same point gave a forest fire she could not place.",
+          "opens_the_record": false
+        },
+        {
+          "case": 3,
+          "initials": "R.W.",
+          "patient": "boy of 12",
+          "side_operated": "right",
+          "pages": "615–617",
+          "report": "Under the probe he saw robbers with guns coming at him, without sound. The report traces this to his comic books and calls it a fantasy. A probe at another point made him see his brother aiming an air rifle at him in the yard, and he felt scared.",
+          "opens_the_record": false
+        },
+        {
+          "case": 23,
+          "initials": "R.M.",
+          "patient": "man of 31",
+          "side_operated": "left",
+          "pages": "635–636",
+          "report": "When his temporal lobe was probed, he saw a man coming through a fence at a baseball game, which he said he had seen.",
+          "opens_the_record": false
+        },
+        {
+          "case": 32,
+          "initials": "G.E.",
+          "patient": "woman of 22",
+          "side_operated": "right",
+          "pages": "644–645",
+          "report": "Probes at the back of her temporal lobe made her see a friend she had met on the street, then a machine she had seen before, then the nurses on her ward.",
+          "opens_the_record": false
+        }
+      ]
+    },
+    {
+      "id": "both",
+      "address": "https://penfieldsmap.com/experience/sound-with-sight/",
+      "layer": "R",
+      "title": "Sound and sight together",
+      "plate_label": "Sound with sight",
+      "term_in_1963_paper": "Experiential response, combined auditory and visual",
+      "note": "",
+      "count": "22 points in 12 patients. In 18 the patient recognised the experience as part of the past. Five of the points gave a sound on one trial and a sight on another.",
+      "site": "Almost all on the first temporal convolution, about as often on one side as on the other.",
+      "side": "13 from the non-dominant hemisphere in 7 patients, 9 from the dominant hemisphere in 5.",
+      "plate_zones": [
+        {
+          "id": "t1",
+          "name": "first temporal convolution, side"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": [
+        {
+          "case": 2,
+          "initials": "R.B.",
+          "patient": "man of 21",
+          "side_operated": "left",
+          "pages": "612–615",
+          "report": "A probe brought footsteps and company, which he placed in a dance hall. Then came a scene at the seashore, with a woman talking to a child. His speech was in the right hemisphere.",
+          "opens_the_record": false
+        },
+        {
+          "case": 36,
+          "initials": "M.M.",
+          "patient": "woman of 26",
+          "side_operated": "right",
+          "pages": "648–651",
+          "report": "When the surgeon probed her temporal lobe, she heard a mother calling her little boy, which seemed to have happened years before. She said it was somebody from the neighbourhood where she lived. A probe at another point gave voices along a river she knew, and she thought she saw the river. Another gave an office she knew, with desks, and a man leaning on one of them and calling to her.",
+          "opens_the_record": true
+        },
+        {
+          "case": 29,
+          "initials": "S.Be.",
+          "patient": "man of 25",
+          "side_operated": "right",
+          "pages": "639–641",
+          "report": "One point gave different things when it was probed again and again: a piano playing a song he had once sung, then someone speaking, then “Oh Marie, Oh Marie”, the theme song of a radio programme, of which he sang the refrain.",
+          "opens_the_record": false
+        },
+        {
+          "case": 37,
+          "initials": "T.S.",
+          "patient": "man of 19",
+          "side_operated": "right",
+          "pages": "651–652",
+          "report": "Probes brought two scenes he knew, and then music from the stage show “Guys and Dolls”, with the feeling that he was there.",
+          "opens_the_record": false
+        },
+        {
+          "case": 38,
+          "initials": "J.T.",
+          "patient": "man of 22",
+          "side_operated": "right",
+          "pages": "652–653",
+          "report": "A probe on the upper surface of the first temporal convolution, just in front of Heschl’s gyrus, brought friends laughing, in South Africa. He named two cousins.",
+          "opens_the_record": false
+        },
+        {
+          "case": 33,
+          "initials": "G.F.",
+          "patient": "woman of 45",
+          "side_operated": "right",
+          "pages": "645–646",
+          "report": "When her temporal lobe was probed, she heard her elder son speaking, with the noises of the neighbourhood behind him. Ten days later she said it had felt more real than a memory.",
+          "opens_the_record": false
+        },
+        {
+          "case": 32,
+          "initials": "G.E.",
+          "patient": "woman of 22",
+          "side_operated": "right",
+          "pages": "644–645",
+          "report": "Under the probe she heard her mother shouting at her baby sister, and she saw them both. Another response was her parents talking and singing Christmas carols, and she saw them briefly.",
+          "opens_the_record": false
+        }
+      ]
+    },
+    {
+      "id": "flash",
+      "address": "https://penfieldsmap.com/experience/thoughts-and-dreams/",
+      "layer": "R",
+      "title": "Thoughts, dreams and flash-backs",
+      "plate_label": "Thoughts, dreams",
+      "term_in_1963_paper": "Experiential response, unclassified",
+      "note": "",
+      "count": "12 points in 5 patients. The patients’ own words for them were a thought, a dream, a flash-back, a memory.",
+      "site": "The first and second temporal convolutions, with no clear difference between the sides. Few responses of any kind came from the under surface of the lobe, which was stimulated less often.",
+      "side": "8 from the non-dominant hemisphere in 3 patients, 4 from the dominant hemisphere in 2.",
+      "plate_zones": [
+        {
+          "id": "t1",
+          "name": "first temporal convolution, side"
+        },
+        {
+          "id": "t2",
+          "name": "second temporal convolution"
+        }
+      ],
+      "plate_zones_secondary": [
+        {
+          "id": "amy",
+          "name": "amygdala (deep)"
+        },
+        {
+          "id": "hip",
+          "name": "hippocampus (deep)"
+        },
+        {
+          "id": "rhi",
+          "name": "rhinal cortex (inner face)"
+        }
+      ],
+      "extra_references": [],
+      "cases": [
+        {
+          "case": 40,
+          "initials": "S.S.",
+          "patient": "woman of 20",
+          "side_operated": "right",
+          "pages": "654",
+          "report": "Probes at several points gave what she called a flash-back. One reminded her of a football game, another of the time her mother went into hospital. A probe 3 cm deep, in the region of the amygdala, set her thinking about her dog.",
+          "opens_the_record": true
+        },
+        {
+          "case": 39,
+          "initials": "H.N.",
+          "patient": "man of 19",
+          "side_operated": "left",
+          "pages": "653",
+          "report": "A probe on the cut upper surface of the first temporal convolution, inside the fissure, gave him a dream. He said it was not like his usual attacks.",
+          "opens_the_record": false
+        },
+        {
+          "case": 36,
+          "initials": "M.M.",
+          "patient": "woman of 26",
+          "side_operated": "right",
+          "pages": "648–651",
+          "report": "A probe on the lower face of the first temporal convolution gave her a very familiar memory.",
+          "opens_the_record": false
+        },
+        {
+          "case": 34,
+          "initials": "L.G.",
+          "patient": "boy of 14",
+          "side_operated": "left",
+          "pages": "646–647",
+          "report": "When his temporal lobe was probed, he had a thought he had had before, like the start of one of his attacks.",
+          "opens_the_record": false
+        }
+      ]
+    },
+    {
+      "id": "familiar",
+      "address": "https://penfieldsmap.com/experience/familiar-or-strange/",
+      "layer": "I",
+      "title": "Familiar or strange",
+      "plate_label": "Familiar or strange",
+      "term_in_1963_paper": "Interpretive illusion of recognition",
+      "note": "The present moment seemed familiar (déjà vu), or strange, altered or unreal.",
+      "count": "Not counted separately in the 1963 paper. Illusions of all four groups were found in 70 of 214 patients operated on for temporal lobe epilepsy, in their seizures or under the electrode.",
+      "site": "Fig. 1 of the 1963 paper letters the word familiarity along the side of the non-dominant temporal lobe, directly beneath the word auditory. This plate shades the second temporal convolution to stand for it.",
+      "side": "Familiarity and strangeness: mainly the non-dominant temporal lobe. A feeling of unreality: either side.",
+      "plate_zones": [
+        {
+          "id": "t2",
+          "name": "second temporal convolution"
+        }
+      ],
+      "plate_zones_secondary": [
+        {
+          "id": "rhi",
+          "name": "rhinal cortex (inner face)"
+        },
+        {
+          "id": "amy",
+          "name": "amygdala (deep)"
+        },
+        {
+          "id": "hip",
+          "name": "hippocampus (deep)"
+        }
+      ],
+      "extra_references": [
+        "mullan1959"
+      ],
+      "cases": []
+    },
+    {
+      "id": "csound",
+      "address": "https://penfieldsmap.com/experience/changed-sound/",
+      "layer": "I",
+      "title": "Changed sound",
+      "plate_label": "Changed sound",
+      "term_in_1963_paper": "Interpretive illusion, auditory",
+      "note": "Sounds seemed louder or clearer, fainter or more distinct, nearer or farther.",
+      "count": "Not counted separately in the 1963 paper.",
+      "site": "Chiefly the first temporal convolution.",
+      "side": "Both sides.",
+      "plate_zones": [
+        {
+          "id": "t1",
+          "name": "first temporal convolution, side"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": []
+    },
+    {
+      "id": "csight",
+      "address": "https://penfieldsmap.com/experience/changed-sight/",
+      "layer": "I",
+      "title": "Changed sight",
+      "plate_label": "Changed sight",
+      "term_in_1963_paper": "Interpretive illusion, visual",
+      "note": "Things seemed clearer or blurred, nearer or farther, larger or smaller, fatter or thinner.",
+      "count": "Not counted separately in the 1963 paper.",
+      "site": "Fig. 1 of the 1963 paper letters the word visual lowest on the non-dominant temporal lobe, starting further back than the other two words. This plate shades the third temporal convolution and the back of the lobe to stand for it.",
+      "side": "Mainly the non-dominant temporal lobe.",
+      "plate_zones": [
+        {
+          "id": "t3",
+          "name": "third temporal convolution"
+        },
+        {
+          "id": "tpo",
+          "name": "back of the temporal lobe, toward the occipital lobe"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": []
+    },
+    {
+      "id": "fear",
+      "address": "https://penfieldsmap.com/experience/fear/",
+      "layer": "I",
+      "title": "Fear",
+      "plate_label": "Fear",
+      "term_in_1963_paper": "Interpretive illusion of emotion",
+      "note": "In the case reports of the 1963 paper fear also comes with some memory-like scenes. The authors write that many patients were aware of pleasure or fear attached to what came back.",
+      "count": "The 1963 paper says the emotional group was too small to analyse, except for fear.",
+      "site": "Either temporal region, by the caption of Fig. 1. The figure does not letter a band for fear, and this plate shades the whole lobe.",
+      "side": "Either side.",
+      "plate_zones": [
+        {
+          "id": "t1",
+          "name": "first temporal convolution, side"
+        },
+        {
+          "id": "t2",
+          "name": "second temporal convolution"
+        },
+        {
+          "id": "t3",
+          "name": "third temporal convolution"
+        }
+      ],
+      "plate_zones_secondary": [
+        {
+          "id": "amy",
+          "name": "amygdala (deep)"
+        }
+      ],
+      "extra_references": [],
+      "cases": [
+        {
+          "case": 30,
+          "initials": "A.Br.",
+          "patient": "woman of 28",
+          "side_operated": "right",
+          "pages": "641–642",
+          "report": "A probe gave her terror for an instant, of the kind she had in her attacks. Probes at other points in the same patient gave singing.",
+          "opens_the_record": true
+        },
+        {
+          "case": 23,
+          "initials": "R.M.",
+          "patient": "man of 31",
+          "side_operated": "left",
+          "pages": "635–636",
+          "report": "Under the probe he felt very scared and said this feeling was his attack. Thirteen minutes later a probe at the same point made him say he was going to die.",
+          "opens_the_record": false
+        },
+        {
+          "case": 15,
+          "initials": "J.V.",
+          "patient": "girl of 14",
+          "side_operated": "right",
+          "pages": "629–630",
+          "report": "While the probe made her hear voices shouting at her, she felt that something dreadful was about to happen.",
+          "opens_the_record": false
+        }
+      ]
+    },
+    {
+      "id": "lonely",
+      "address": "https://penfieldsmap.com/experience/loneliness/",
+      "layer": "I",
+      "title": "Loneliness, sorrow, disgust",
+      "plate_label": "Loneliness",
+      "term_in_1963_paper": "Interpretive illusion of emotion",
+      "note": "",
+      "count": "Listed beside fear in the 1963 table of interpretive illusions. Too few to analyse.",
+      "site": "Either temporal region, by the caption of Fig. 1, which names lonesomeness and a feeling of being somewhere else. This plate shades the whole lobe.",
+      "side": "Either side for loneliness. The paper gives no side for sorrow or disgust.",
+      "plate_zones": [
+        {
+          "id": "t1",
+          "name": "first temporal convolution, side"
+        },
+        {
+          "id": "t2",
+          "name": "second temporal convolution"
+        },
+        {
+          "id": "t3",
+          "name": "third temporal convolution"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": []
+    },
+    {
+      "id": "laughter",
+      "address": "https://penfieldsmap.com/experience/laughter/",
+      "layer": "L",
+      "title": "Laughter and mirth",
+      "plate_label": "Laughter",
+      "term_in_1963_paper": "",
+      "note": "Stimulation has made patients laugh. In some the laughter came with a feeling of amusement.",
+      "count": "A series of ten patients, a report of three, and a single case. All had epilepsy.",
+      "site": "The front of the cingulate cortex on the inner face of the hemisphere, the cingulum bundle that runs beneath the cingulate cortex, and the front of the supplementary motor area. The cingulum bundle is not drawn on the plate.",
+      "side": "Left in the cingulum and supplementary motor reports. The cingulate series was read as an abstract, which gives no side.",
+      "plate_zones": [
+        {
+          "id": "pacc",
+          "name": "anterior cingulate cortex, in front of the corpus callosum (inner face)"
+        },
+        {
+          "id": "sma",
+          "name": "supplementary motor area"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": []
+    },
+    {
+      "id": "bliss",
+      "address": "https://penfieldsmap.com/experience/bliss/",
+      "layer": "L",
+      "title": "Bliss",
+      "plate_label": "Bliss",
+      "term_in_1963_paper": "",
+      "note": "A feeling of bliss and of mental clarity.",
+      "count": "Four patients in two reports from one group, and an earlier single case from the same group. Three of the four already had the feeling at the start of their seizures.",
+      "site": "The upper front part of the insula, which lies hidden inside the lateral fissure.",
+      "side": "Right in two patients and left in two.",
+      "plate_zones": [
+        {
+          "id": "dai",
+          "name": "front of the insula (deep in the fissure)"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": []
+    },
+    {
+      "id": "mood",
+      "address": "https://penfieldsmap.com/experience/mood/",
+      "layer": "L",
+      "title": "Mood",
+      "plate_label": "Mood",
+      "term_in_1963_paper": "",
+      "note": "A lift of mood lasting minutes, in one study, and treatment of depression with an implanted stimulator, in two.",
+      "count": "One study of 25 patients who had electrodes in place for epilepsy, one open trial in six patients, and one single case.",
+      "site": "The lateral orbitofrontal cortex. The white matter beside the subgenual cingulate. The ventral capsule and ventral striatum, which are not drawn on the plate.",
+      "side": "One side in the orbitofrontal study. Right in the single case.",
+      "plate_zones": [
+        {
+          "id": "lofc",
+          "name": "lateral orbitofrontal cortex"
+        },
+        {
+          "id": "scc",
+          "name": "subcallosal cingulate (inner face)"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": []
+    },
+    {
+      "id": "wanting",
+      "address": "https://penfieldsmap.com/experience/changed-preference/",
+      "layer": "L",
+      "title": "A changed preference",
+      "plate_label": "Preference",
+      "term_in_1963_paper": "",
+      "note": "One patient’s taste in music changed while his stimulator was running and changed back when its batteries ran down.",
+      "count": "One patient.",
+      "site": "The nucleus accumbens, deep at the base of the forebrain.",
+      "side": "",
+      "plate_zones": [
+        {
+          "id": "nac",
+          "name": "nucleus accumbens (deep)"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": []
+    },
+    {
+      "id": "drive",
+      "address": "https://penfieldsmap.com/experience/resolve/",
+      "layer": "L",
+      "title": "Resolve",
+      "plate_label": "Resolve",
+      "term_in_1963_paper": "",
+      "note": "A feeling that a challenge was coming, with a determination to get through it.",
+      "count": "Two patients.",
+      "site": "The anterior midcingulate cortex, on the inner face of the hemisphere.",
+      "side": "The paper does not state a side in words.",
+      "plate_zones": [
+        {
+          "id": "amcc",
+          "name": "anterior midcingulate cortex (inner face)"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": []
+    },
+    {
+      "id": "oob",
+      "address": "https://penfieldsmap.com/experience/leaving-the-body/",
+      "layer": "L",
+      "title": "Leaving the body",
+      "plate_label": "Out of body",
+      "term_in_1963_paper": "",
+      "note": "A patient reported seeing herself from above.",
+      "count": "One patient.",
+      "site": "The angular gyrus.",
+      "side": "Right.",
+      "plate_zones": [
+        {
+          "id": "ang",
+          "name": "angular gyrus"
+        }
+      ],
+      "plate_zones_secondary": [],
+      "extra_references": [],
+      "cases": []
+    }
+  ],
+  "later_findings": [
+    {
+      "records": [
+        "voices",
+        "music",
+        "csound"
+      ],
+      "method": "STIM",
+      "text": "In a series from Grenoble, 50 epilepsy patients heard something when they were stimulated through depth electrodes. Most of what they heard was a simple sound, or a change in the sounds already in the room. A few of the reports were of music or of speaking voices.",
+      "references": [
+        "jaroszynski2022"
+      ]
+    },
+    {
+      "records": [
+        "voices",
+        "music"
+      ],
+      "method": "REV",
+      "text": "A 2010 review of 93 reports lists voices and music among the effects reported from the superior temporal gyrus. It records what has been reported at least once and gives no frequencies.",
+      "references": [
+        "selim2010"
+      ]
+    },
+    {
+      "records": [
+        "music"
+      ],
+      "method": "STIM",
+      "text": "In a series of 28 epilepsy patients, stimulation of the auditory cortex produced sound at 113 sites. At three of them the patient heard familiar music or songs. The count of three was read in the preprint of the paper.",
+      "references": [
+        "wang2024"
+      ]
+    },
+    {
+      "records": [
+        "music"
+      ],
+      "method": "REV",
+      "text": "A 2019 systematic review of musical hallucinations in epilepsy cites only Penfield and Perot 1963 for music produced by stimulation inside the skull.",
+      "references": [
+        "coebergh2019"
+      ]
+    },
+    {
+      "records": [
+        "music"
+      ],
+      "method": "REC",
+      "text": "Recording, not stimulation. Brain activity was recorded from 29 epilepsy patients while they listened to Pink Floyd’s “Another Brick in the Wall, Part 1”, and a recognisable version of the song was rebuilt from the recordings. The superior temporal gyrus carried most of the information, the right side more than the left.",
+      "references": [
+        "bellier2023"
+      ]
+    },
+    {
+      "records": [
+        "scenes"
+      ],
+      "method": "STIM",
+      "text": "In one man of 45 with electrodes over the right fusiform gyrus, stimulating two face-selective spots made the faces of the people in the room look distorted. Objects in the room were not affected in the same way, and nothing happened with sham stimulation.",
+      "references": [
+        "parvizi2012"
+      ]
+    },
+    {
+      "records": [
+        "scenes"
+      ],
+      "method": "STIM",
+      "text": "In one man of 22 with epilepsy, stimulating a scene-selective area on the underside of the right temporal lobe made him see places, among them a train station and a street in his own neighbourhood. Not every scene returned when the same site was stimulated again.",
+      "references": [
+        "megevand2014"
+      ]
+    },
+    {
+      "records": [
+        "flash"
+      ],
+      "method": "REV",
+      "text": "A review of 80 years of reports found 273 stimulations that brought back a memory, from 73 published patients and 18 of the reviewers’ own. Most of the memories were vague. About 14% were of one particular event in the patient’s life. Nearly all came from the temporal lobe, and well under 1% of stimulations produced one.",
+      "references": [
+        "curot2017"
+      ]
+    },
+    {
+      "records": [
+        "flash",
+        "familiar"
+      ],
+      "method": "STIM",
+      "text": "Of 29 patients with temporal lobe epilepsy studied with depth electrodes, 18 had dream-like experiences such as flash-backs, feelings of familiarity, hallucinations or sudden emotions, in seizures or under stimulation. These came only when the seizure or the current reached the limbic structures deep in the lobe. The outer temporal cortex did not have to be involved.",
+      "references": [
+        "gloor1982"
+      ]
+    },
+    {
+      "records": [
+        "flash"
+      ],
+      "method": "STIM",
+      "text": "An earlier study gave 3,495 stimulations to deep structures of the temporal lobe in 36 patients and recorded 267 mental responses. Its authors tied the kind of experience more to the person than to the exact spot stimulated. These figures are as given by the 2017 review. The study itself was not read for this page.",
+      "references": [
+        "halgren1978",
+        "curot2017"
+      ]
+    },
+    {
+      "records": [
+        "flash",
+        "familiar"
+      ],
+      "method": "STIM",
+      "text": "In 16 patients with temporal lobe epilepsy, stimulation set off a dreamy state, meaning déjà vu or vivid scenes like memories, 43 times in 14 of them. It could be started from the amygdala, from the front of the hippocampus or from the outer temporal cortex, and a larger share of the deep sites than of the outer sites produced it.",
+      "references": [
+        "bancaud1994"
+      ]
+    },
+    {
+      "records": [
+        "familiar"
+      ],
+      "method": "STIM",
+      "text": "In 24 patients and 280 stimulations, déjà vu was linked mainly to the entorhinal cortex, and the recall of past scenes to the perirhinal cortex. These are two strips of cortex beside the hippocampus. Both effects were uncommon.",
+      "references": [
+        "bartolomei2004"
+      ]
+    },
+    {
+      "records": [
+        "flash"
+      ],
+      "method": "CRIT",
+      "text": "Loftus and Loftus noted that only 40 of Penfield’s 1,132 patients gave such responses. From Penfield and Perot’s own case notes they argued that even the most lifelike reports read as scenes the patient put together, and not as the replay of a stored record.",
+      "references": [
+        "loftus1980"
+      ]
+    },
+    {
+      "records": [
+        "flash"
+      ],
+      "method": "CRIT",
+      "text": "Sjöberg argues that a memory reported under stimulation may be a mental event which the patient, steered by the current and by the surgeon’s questions, takes for a real memory. He notes that such reports have not come from modern awake surgery for tumours, and says that neither account can yet be proved.",
+      "references": [
+        "sjoberg2023"
+      ]
+    },
+    {
+      "records": [
+        "familiar",
+        "csound",
+        "csight",
+        "fear",
+        "lonely"
+      ],
+      "method": "HIST",
+      "text": "In 1959 Penfield offered “interpretive cortex” as a working name for parts of both temporal lobes where a gentle current sometimes gave one of two responses: a vivid return of a past experience, or a sudden change in how the present felt.",
+      "references": [
+        "penfield1959"
+      ]
+    },
+    {
+      "records": [
+        "fear",
+        "lonely"
+      ],
+      "method": "HIST",
+      "text": "In a lecture of 1957 Penfield listed the feelings that stimulation could produce as fear, loneliness, separation, sorrow and disgust. He gave no counts.",
+      "references": [
+        "penfield1958"
+      ]
+    },
+    {
+      "records": [
+        "fear"
+      ],
+      "method": "STIM",
+      "text": "In 74 epilepsy patients, 79 of 938 stimulations of the temporal lobe produced an emotion, and in 67 of the 79 it was fear. Fear came most often from the amygdala, and women reported it more often than men.",
+      "references": [
+        "meletti2006"
+      ]
+    },
+    {
+      "records": [
+        "fear"
+      ],
+      "method": "STIM",
+      "text": "In eight epilepsy patients, about half of the brief stimulations of the amygdala changed how the patient felt. On the right the feeling was always unpleasant: fear, anxiety or sadness. On the left it was unpleasant about half the time and happy the rest. Five of the eight had an electrode on the right and five on the left.",
+      "references": [
+        "lanteaume2007"
+      ]
+    },
+    {
+      "records": [
+        "fear"
+      ],
+      "method": "STIM",
+      "text": "In nine epilepsy patients, stimulating the amygdala reliably changed sweating and heart rate, and seven of the nine felt no emotion. One man felt fear that grew to terror as the voltage on his right amygdala was raised.",
+      "references": [
+        "inman2020"
+      ]
+    },
+    {
+      "records": [
+        "laughter"
+      ],
+      "method": "STIM",
+      "text": "In 10 epilepsy patients, stimulating the pregenual anterior cingulate cortex, the part in front of the corpus callosum, made them laugh. In half of them the laughter came with a feeling of amusement. In the other half amusement was not evident. The ten are the patients who laughed, out of a larger group that was stimulated.",
+      "references": [
+        "caruana2015"
+      ]
+    },
+    {
+      "records": [
+        "laughter"
+      ],
+      "method": "STIM",
+      "text": "In a woman of 23 with epilepsy, stimulating the cingulum bundle on the left produced smiling, laughter and a calm, happy mood. Her surgeons then used it to keep her calm through brain surgery done while she was awake. Two further patients showed the same smiling and lift of mood. Grey matter nearby gave nothing in the first patient.",
+      "references": [
+        "bijanki2019"
+      ]
+    },
+    {
+      "records": [
+        "laughter"
+      ],
+      "method": "STIM",
+      "text": "In one patient, stimulation of a small area at the front of the supplementary motor area, on the left, produced laughter.",
+      "references": [
+        "fried1998"
+      ]
+    },
+    {
+      "records": [
+        "bliss"
+      ],
+      "method": "STIM",
+      "text": "In three epilepsy patients whose seizures began with a feeling of bliss, a few seconds of stimulation of the upper front part of the insula brought on the same state. The site was on the right in two and on the left in one. Stimulation of other sites did not do it.",
+      "references": [
+        "bartolomei2019"
+      ]
+    },
+    {
+      "records": [
+        "bliss"
+      ],
+      "method": "STIM",
+      "text": "A man of 51 who did not have such seizures reported bliss and mental clarity when the same part of the left insula was stimulated. Five other patients tested in similar conditions did not.",
+      "references": [
+        "nencha2022"
+      ]
+    },
+    {
+      "records": [
+        "bliss"
+      ],
+      "method": "STIM",
+      "text": "An earlier letter from the same group reported a woman of 23 whose seizures began with a feeling of bliss, in whom three seconds of stimulation of the same region brought the feeling on. The letter was not read for this page. This account is from the group’s later papers.",
+      "references": [
+        "picard2013",
+        "bartolomei2019"
+      ]
+    },
+    {
+      "records": [
+        "mood"
+      ],
+      "method": "STIM",
+      "text": "In a study of 25 epilepsy patients with electrodes already in place, 100 to 200 seconds of stimulation of the lateral orbitofrontal cortex on one side lifted mood in those with moderate to severe symptoms of depression, more so at the higher current. Patients with few or no such symptoms showed no significant change. The effect was measured over minutes.",
+      "references": [
+        "rao2018"
+      ]
+    },
+    {
+      "records": [
+        "mood"
+      ],
+      "method": "DBS",
+      "text": "In six people whose depression had not responded to other treatment, continuous stimulation of the white matter beside the subgenual cingulate was followed by a lasting response in four at six months. In the operating room patients reported a sudden calm or lightness, and a room that looked brighter, when the current was on. They reported nothing with sham stimulation. The trial had no placebo group.",
+      "references": [
+        "mayberg2005"
+      ]
+    },
+    {
+      "records": [
+        "mood"
+      ],
+      "method": "DBS",
+      "text": "In one woman of 36 with severe depression of long standing, doctors found a signal in her amygdala that tracked her worst symptoms. They implanted a device that answered the signal with six seconds of stimulation to the right ventral capsule and ventral striatum. Her depression score fell from 33 to 14 in 12 days and later fell below 10, the level counted as remission. There was no control condition.",
+      "references": [
+        "scangos2021"
+      ]
+    },
+    {
+      "records": [
+        "wanting"
+      ],
+      "method": "DBS",
+      "text": "A man of about 60 was treated for severe obsessive-compulsive disorder by deep brain stimulation of the nucleus accumbens. He had never cared much for music. About six months after surgery he became a devoted listener to Johnny Cash, after hearing one of his songs by chance. When the stimulator’s batteries ran down he went back to his old favourites. The change came together with a large improvement in his illness and in his confidence.",
+      "references": [
+        "mantione2014"
+      ]
+    },
+    {
+      "records": [
+        "drive"
+      ],
+      "method": "STIM",
+      "text": "In two men with epilepsy, stimulating the anterior midcingulate cortex produced a faster heartbeat, a sensation in the chest or neck, and a feeling that a challenge was coming, with a determination to get through it. The feeling included worry. Neither man reported anything in sham trials.",
+      "references": [
+        "parvizi2013"
+      ]
+    },
+    {
+      "records": [
+        "oob"
+      ],
+      "method": "STIM",
+      "text": "In a woman of 43 being assessed for epilepsy surgery, stimulating the right angular gyrus first made her feel that she was sinking into the bed or falling. At a slightly higher current she reported seeing herself from above, lying in bed, and this happened three times. She saw only her legs and lower trunk.",
+      "references": [
+        "blanke2002"
+      ]
+    }
+  ],
+  "method_codes": {
+    "STIM": "Electrical stimulation through electrodes placed to study a patient’s epilepsy",
+    "DBS": "Deep brain stimulation through an implanted stimulator",
+    "REC": "Recording from implanted electrodes, with decoding",
+    "REV": "Review of published cases",
+    "CRIT": "Critique or reanalysis",
+    "HIST": "Penfield’s own earlier papers"
+  },
+  "responses_by_hemisphere": [
+    {
+      "kind": "Auditory",
+      "non_dominant_points": 42,
+      "non_dominant_patients": 15,
+      "dominant_points": 24,
+      "dominant_patients": 9
+    },
+    {
+      "kind": "Visual",
+      "non_dominant_points": 28,
+      "non_dominant_patients": 12,
+      "dominant_points": 10,
+      "dominant_patients": 7
+    },
+    {
+      "kind": "Combined",
+      "non_dominant_points": 13,
+      "non_dominant_patients": 7,
+      "dominant_points": 9,
+      "dominant_patients": 5
+    },
+    {
+      "kind": "Unclassified",
+      "non_dominant_points": 8,
+      "non_dominant_patients": 3,
+      "dominant_points": 4,
+      "dominant_patients": 2
+    }
+  ],
+  "the_1963_series": [
+    {
+      "item": "Operations reviewed",
+      "value": "1,288"
+    },
+    {
+      "item": "Patients",
+      "value": "1,132"
+    },
+    {
+      "item": "Temporal lobe explored and stimulated",
+      "value": "520"
+    },
+    {
+      "item": "of these, right side and left side",
+      "value": "248 and 272"
+    },
+    {
+      "item": "Memory-like experience under the electrode",
+      "value": "40 (7.7%)"
+    },
+    {
+      "item": "Memory-like experience in their own seizures",
+      "value": "53 (10%)"
+    },
+    {
+      "item": "of these 53, a response at operation",
+      "value": "24"
+    },
+    {
+      "item": "of these 24, with the same content",
+      "value": "16"
+    },
+    {
+      "item": "Patients explored outside the temporal lobe",
+      "value": "612"
+    },
+    {
+      "item": "of these, with a memory-like experience",
+      "value": "0"
+    }
+  ],
+  "methods_and_known_gaps": [
+    {
+      "heading": "Scope",
+      "text": "The experience map shows what Penfield and Perot (1963) report from electrical stimulation of the temporal lobe: memory-like experiences, and altered interpretation of the present. A third layer adds feelings reported by later groups, mostly from other parts of the brain. It does not reproduce the 1963 figures."
+    },
+    {
+      "heading": "Counts",
+      "text": "Counts of memory-like experiences are from Table V and section 7 of the 1963 paper. The figures for the series as a whole are from its sections 3 and 5. A count is a number of stimulation points unless it says patients. The count of music points by side was made for this site from the legend of Fig. 9 and the case reports, and is not in the paper."
+    },
+    {
+      "heading": "Cases",
+      "text": "The case notes paraphrase the case reports in section 5 of the 1963 paper and carry its case numbers and page numbers. Each case is filed under the kind of response that the legends of Figs 9 to 12 give it. Patients’ words are not quoted at length. Some titles of pieces of music are given, as the paper prints them."
+    },
+    {
+      "heading": "Plate",
+      "text": "Fig. 1 is an original schematic and is not to scale. Shading shows the convolution or surface that a source names. The numbered points of Figs 9 to 12 of the 1963 paper are not transferred to it. Structures on the inner face of the hemisphere or inside it are projected onto the side view in broken outline, and their positions are approximate."
+    },
+    {
+      "heading": "The present, altered",
+      "text": "The interpretive illusions are described in the 1963 paper only in summary, in its Table II and Fig. 1, with reference to Mullan and Penfield (1959), which was not reached. The 1963 paper gives that study as 214 patients, 70 of them with illusions. A lecture Penfield gave in 1957, before the study was published, gives 217 and 38."
+    },
+    {
+      "heading": "Later work",
+      "text": "Each later finding paraphrases its source, and the note after each reference says how much of the source was read. Nearly all the patients had epilepsy, and the electrodes were placed to find where their seizures began. Several findings rest on one patient. They are listed to show what has been reported, not how often it happens."
+    },
+    {
+      "heading": "Sides",
+      "text": "Dominant means the hemisphere that carries speech. The plate shows one hemisphere and stands for either. The side for each finding is in its record."
+    },
+    {
+      "heading": "Source check",
+      "text": "On 26 November 2026 every statement taken from the 1963 paper was checked against its pages in two separate passes, apart from the reading that wrote the page, and the corrections were applied. Each later source was read once for this site. The site has not been peer reviewed."
+    },
+    {
+      "heading": "Known gaps",
+      "text": "Not reached: Mullan and Penfield 1959, Penfield 1938, Halgren et al. 1978 and the 2013 letter of Picard et al. Read as abstracts only: Gloor et al. 1982, Bancaud et al. 1994, Bartolomei et al. 2004, Meletti et al. 2006 and Caruana et al. 2015. Of Fried et al. 1998 only the opening paragraph and the figure legend were read. The count of three music sites in Wang et al. 2024 is from the preprint. The 1963 paper says that 31 of the 46 voice responses were recognised by the patient, but the legend of its Fig. 9 marks 17 voice responses as familiar, and the map leaves the figure out."
+    },
+    {
+      "heading": "Use",
+      "text": "Check a finding against its source before citing it."
+    }
+  ]
+}

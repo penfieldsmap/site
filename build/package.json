@@ -1,0 +1,13 @@
+{
+  "name": "penfieldsmap-build",
+  "private": true,
+  "description": "Build and check scripts for penfieldsmap.com",
+  "license": "MIT",
+  "scripts": {
+    "build": "python3 build.py",
+    "check": "node ../checks/check-site.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

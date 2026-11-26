@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Penfield’s Map: what stimulating the brain made patients hear, see and feel</title>
+<meta name="description" content="An interactive reference to what Wilder Penfield’s patients reported when their temporal lobes were stimulated: voices, music, scenes, memories, fear. Case by case from the 1963 summary, with later evidence and sources.">
+<link rel="canonical" href="https://penfieldsmap.com/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f3efe4">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Penfield’s Map">
+<meta property="og:title" content="Penfield’s Map">
+<meta property="og:description" content="Voices, music, scenes, memories and fear from electrical stimulation of the brain. The 1963 cases and the 1950 body map, with later evidence and sources.">
+<meta property="og:url" content="https://penfieldsmap.com/">
+<meta property="og:image" content="https://penfieldsmap.com/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A side view of the brain in the style of an anatomy plate, with the upper temporal lobe shaded, beside the title Penfield’s Map.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Penfield’s Map">
+<meta name="twitter:description" content="Voices, music, scenes, memories and fear from electrical stimulation of the brain. The 1963 cases and the 1950 body map, with later evidence and sources.">
+<meta name="twitter:image" content="https://penfieldsmap.com/og.png">
+<meta name="twitter:image:alt" content="A side view of the brain in the style of an anatomy plate, with the upper temporal lobe shaded, beside the title Penfield’s Map.">
+<style>
+@font-face{font-family:"Libre Baskerville";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/libre-baskerville-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Libre Baskerville";font-style:italic;font-weight:400;font-display:swap;src:url("/fonts/libre-baskerville-latin-400-italic.woff2") format("woff2")}
+@font-face{font-family:"Libre Baskerville";font-style:normal;font-weight:700;font-display:swap;src:url("/fonts/libre-baskerville-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"Libre Baskerville";font-style:italic;font-weight:700;font-display:swap;src:url("/fonts/libre-baskerville-latin-700-italic.woff2") format("woff2")}
+:root{
+  /* Layout: toolbar on top, figure column left, sticky record column right, methods and references below.
+     Treatment: a mid-century anatomy text. Uncoated paper, black ink, one book face, framed plates, hatching. Single light theme by choice. */
+  --bg:#f3efe4;
+  --plate:#f8f5ec;
+  --ink:#1c1a16;
+  --ink2:#5a554b;
+  --rule:#b5ad9b;
+  --hair:#d6cfbe;
+  --bar:#e9e3d4;
+  --link:#1e3f73;
+  --display:"Libre Baskerville",Baskerville,"Baskerville Old Face","Hoefler Text",Georgia,"Times New Roman",serif;
+  --body:"Libre Baskerville",Baskerville,"Baskerville Old Face","Hoefler Text",Georgia,"Times New Roman",serif;
+  --toolh:38px;
+  --headh:40px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:12.5px/1.5 var(--body);font-variant-numeric:lining-nums}
+body{padding-bottom:26px}
+a{color:var(--link)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--link);outline-offset:1px}
+.caps{text-transform:uppercase;letter-spacing:.09em;font-size:.84em}
+
+header.top{position:sticky;top:0;z-index:7;background:var(--bg);display:flex;align-items:flex-end;justify-content:space-between;gap:2px 16px;padding:9px 16px 8px;border-bottom:3px double var(--ink)}
+header.top h1{font:700 21px/1.1 var(--display);margin:0;text-transform:uppercase;letter-spacing:.07em}
+header.top h1 small{display:block;font:italic 400 12px/1.3 var(--display);text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:3px}
+.build2{display:none}
+header.top nav.menu{display:flex;align-items:flex-end;gap:2px 18px;margin:0 auto 1px 30px;flex-wrap:nowrap}
+nav.menu a{font:700 10.5px/1.6 var(--display);text-transform:uppercase;letter-spacing:.09em;color:var(--ink);text-decoration:none;padding:2px 0 1px;border-bottom:2px solid transparent;white-space:nowrap}
+nav.menu a:hover{border-bottom-color:var(--rule)}
+nav.menu a[aria-current="page"]{border-bottom-color:var(--ink)}
+nav.menu .sep{width:1px;height:14px;background:var(--rule);margin:0 0 4px}
+header.top .build{margin-left:auto;font-size:11px;color:var(--ink2);font-style:italic}
+header.top .build::before{content:attr(data-t)}
+
+.tools{position:sticky;top:var(--headh);z-index:5;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding:6px 16px;background:var(--bar);border-bottom:1px solid var(--ink)}
+.tools .lbl{font-size:11.5px;color:var(--ink2);font-style:italic}
+.grp{display:inline-flex;align-items:center;gap:6px}
+.seg2{display:inline-flex}
+.seg2 button{border:1px solid var(--ink);background:var(--plate);padding:3px 10px;font-size:11.5px;cursor:pointer;margin-left:-1px}
+.seg2 button:first-child{margin-left:0}
+.seg2 button[aria-pressed="true"]{background:var(--ink);color:var(--plate)}
+.tools input[type=search]{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);width:140px;border-radius:0;background:var(--plate);color:var(--ink);-webkit-appearance:none;appearance:none}
+#found{font-size:11.5px;display:flex;flex-wrap:wrap;gap:2px 10px}
+.tools select{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);border-radius:0;background:var(--plate);color:var(--ink);max-width:230px}
+.tools .right{margin-left:auto;display:flex;gap:6px}
+.plain{border:1px solid var(--ink);background:var(--plate);padding:3px 10px;font-size:11.5px;cursor:pointer}
+.plain:disabled{color:#a39d8e;border-color:#a39d8e;cursor:default}
+.lk{border:0;background:none;padding:0;color:var(--link);cursor:pointer;text-align:left;font-size:inherit;text-decoration:underline;text-decoration-color:#93a3bd;text-underline-offset:2px}
+.lk:hover{text-decoration-color:var(--link)}
+.lk.on{color:var(--ink);font-weight:700;text-decoration:none}
+
+main{display:block}
+.duo{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);align-items:start;border-bottom:1px solid var(--ink)}
+#p1{position:sticky;top:calc(var(--headh) + var(--toolh));height:var(--p1h,calc(100vh - var(--toolh) - var(--headh) - 26px));display:flex;flex-direction:column;border-bottom:0;border-right:1px solid var(--ink);background:var(--bg)}
+#p1 .pbody{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;flex-wrap:nowrap;gap:0;padding:10px 12px 12px}
+#fig1{flex:1 1 auto;min-height:0;max-width:none;overflow:hidden}
+#fig1 svg{width:100%;height:100%;min-width:0}
+.panel{min-width:0;border-bottom:1px solid var(--ink)}
+.panel>h2{margin:0;padding:7px 16px 6px;font:400 12.5px/1.45 var(--display);border-bottom:1px solid var(--rule)}
+.panel>h2 b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
+.panel>h2 span{color:var(--ink)}
+.pbody{display:flex;flex-wrap:wrap;gap:12px 22px;padding:12px 16px 13px}
+.svgwrap{flex:3 1 540px;max-width:780px;min-width:0;overflow-x:auto}
+.svgwrap.wide{flex-basis:100%;max-width:1010px}
+.svgwrap svg{display:block;width:100%;min-width:540px;height:auto;background:var(--plate);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-4px}
+.svgwrap.wide svg{min-width:760px}
+.side{flex:1 1 230px;min-width:0;max-width:560px;font-size:11.5px}
+#key{flex:1 1 100%;max-width:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 36px}
+.side h3{font:700 10.5px/1.5 var(--display);text-transform:uppercase;letter-spacing:.09em;margin:0 0 4px;padding-bottom:2px;border-bottom:1px solid var(--ink)}
+.side h3:not(:first-child){margin-top:13px}
+.side ul,.side ol{margin:0;padding:0;list-style:none}
+.side li{padding:1.5px 0}
+.side p{margin:0 0 6px;color:var(--ink2)}
+.sw{display:inline-block;width:24px;height:12px;margin-right:7px;vertical-align:-2px}
+.cap{flex:1 1 100%;margin:0;font-size:11.5px;color:var(--ink2);max-width:92ch;font-style:italic}
+
+.tblwrap{flex:1 1 100%;overflow-x:auto}
+table.dt{border-collapse:collapse;font:11px/1.4 var(--body);min-width:700px;width:100%;font-variant-numeric:tabular-nums lining-nums}
+table.dt th,table.dt td{padding:3px 8px;border-bottom:1px solid var(--hair);text-align:left;white-space:nowrap}
+table.dt th{font:italic 400 11px var(--body);border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+table.dt tbody tr:last-child td{border-bottom:2px solid var(--ink)}
+table.dt td.num,table.dt th.num{text-align:right}
+table.dt td.site{white-space:normal}
+table.dt tr.grp td{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:10px;padding-top:9px;border-bottom:1px solid var(--ink)}
+table.dt tbody tr[data-cid]{cursor:pointer}
+table.dt tbody tr[data-cid]:hover td{background:var(--bar)}
+table.dt tbody tr.on td{background:var(--ink);color:var(--plate)}
+
+.record{min-width:0}
+.record>*{max-width:780px}
+.notes{padding:6px 14px 8px;border-bottom:1px solid var(--hair)}
+.rec-h{padding:11px 14px 10px;border-bottom:1px solid var(--ink);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
+.rec-id{font-size:10px;color:var(--ink2);text-transform:uppercase;letter-spacing:.09em}
+.rec-h h2{font:400 23px/1.15 var(--display);margin:3px 0 7px;text-wrap:balance}
+.kv{margin:0;font-size:11.5px;color:var(--ink2)}
+.kv b{color:var(--ink);font-weight:400;font-style:italic}
+.kv+.kv{margin-top:1px}
+.note{margin:7px 0 0;font-size:12px}
+.rec-act{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+.pics{display:flex;gap:6px;align-items:flex-start}
+.pics svg{display:block}
+.pics figcaption{font-size:10px;color:var(--ink2);max-width:118px;margin-top:3px;line-height:1.3;font-style:italic}
+.pics figure{margin:0}
+.sect h3{margin:0;padding:6px 14px 4px;font:700 10.5px/1.5 var(--display);text-transform:uppercase;letter-spacing:.09em;border-bottom:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px;padding:6px 14px 7px;border-bottom:1px solid var(--hair)}
+.row .m{font-size:9.5px;line-height:1.95;color:var(--ink2);letter-spacing:.05em}
+.row .r{color:var(--ink2);font-size:11px}
+.row .sc{display:block;color:var(--ink2);font-size:10.5px;margin-top:1px;font-style:italic}
+.none{padding:6px 14px 7px;color:var(--ink2);font-size:11.5px;border-bottom:1px solid var(--hair);font-style:italic}
+.srcs{margin:0;padding:6px 14px 10px 30px;font-size:11px}
+.srcs li{padding:2px 0}
+.srcs .rn{color:var(--ink2);font-style:italic}
+.rec-c{padding:0 14px 8px;overflow-x:auto}
+.rec-c table.dt{min-width:360px}
+.rec-c table.dt th{border-top:0}
+
+#status{position:fixed;left:0;right:0;bottom:0;height:26px;padding:0 16px;display:flex;align-items:center;background:var(--bar);border-top:1px solid var(--ink);font-size:11px;font-variant-numeric:tabular-nums lining-nums;color:var(--ink);white-space:nowrap;overflow:hidden;z-index:6}
+
+.doc{padding:20px 16px 30px;border-top:3px double var(--ink);display:grid;grid-template-columns:minmax(0,84ch) minmax(0,1fr);gap:10px 40px}
+.doc h2{font:700 11.5px/1.4 var(--display);text-transform:uppercase;letter-spacing:.09em;margin:0 0 8px}
+.doc ol{margin:0;padding-left:20px}
+.doc li{margin:0 0 6px}
+.doc li b{font-weight:400;font-style:italic}
+.doc dl{margin:0;display:grid;grid-template-columns:48px minmax(0,1fr);gap:2px 8px;font-size:11.5px}
+.doc dt{font-size:10px;line-height:1.85;letter-spacing:.05em}
+.doc dd{margin:0}
+#reflist{list-style:none;padding:0;margin:0;font-size:11.5px;max-width:118ch}
+#reflist li{padding:3px 0 3px 2em;text-indent:-2em}
+#reflist .rn{color:var(--ink2);font-style:italic}
+#reflist a,.srcs a{overflow-wrap:anywhere}
+.about{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 48px}
+.about h3{font:700 10.5px/1.5 var(--display);text-transform:uppercase;letter-spacing:.09em;margin:14px 0 5px;padding-bottom:2px;border-bottom:1px solid var(--ink)}
+.about h2+h3,.about div>h3:first-child{margin-top:0}
+.about p{margin:0 0 8px;max-width:70ch}
+.about .src{font-size:11px;font-style:italic;color:var(--ink2)}
+.doc dl.abl{grid-template-columns:84px minmax(0,1fr);gap:7px 12px;margin:0 0 8px;max-width:76ch;font-size:inherit}
+.doc dl.abl dt{font-size:inherit;line-height:inherit;letter-spacing:0;font-style:italic}
+.doc dl.abl dd{margin:0}
+#about,#methods,#refs{scroll-margin-top:calc(var(--headh) + var(--toolh))}
+.abl2{margin:0;padding-left:18px;max-width:70ch}
+.abl2 li{margin:0 0 5px}
+.about a{overflow-wrap:anywhere}
+.foot{padding:12px 16px 16px;border-top:1px solid var(--ink);font-size:11px;color:var(--ink2)}
+.narrow{display:none}
+.docfull{grid-column:1/-1}
+
+/* figures */
+svg text{font-family:var(--body)}
+.anat path,.anat ellipse,.anat line{fill:none;stroke:var(--ink);stroke-width:1.1}
+.anat .wm{fill:var(--plate);stroke:none}
+.anat .rib0{stroke-width:27.2;stroke-linejoin:round}
+.anat .rib{stroke:url(#stip);stroke-width:26;stroke-linejoin:round}
+.anat .out{stroke-width:1.1}
+.anat .cc{fill:url(#fib);stroke:none}
+.anat .vent{fill:var(--ink);stroke:none}
+.anat .nuc{fill:url(#stip);stroke-width:.8}
+.anat .fine{stroke-width:.6}
+.anat .claus{stroke-width:2.2;stroke-opacity:.55}
+.anat .mid{stroke-dasharray:1.5 4;stroke-width:1}
+.anat .faint{stroke-dasharray:2 2.5;stroke-width:.9}
+.anat .ptr{stroke-width:.7}
+.anat text{font-size:10.5px;fill:var(--ink);font-style:italic;paint-order:stroke;stroke:var(--plate);stroke-width:3.5px;stroke-linejoin:round}
+.anat .ori{font-style:normal;font-size:9.5px;letter-spacing:.09em;stroke:none}
+.seg{cursor:pointer;outline:none}
+.seg .band,.seg .tex{fill:none;stroke-width:14.6}
+.seg .tex{pointer-events:none}
+.seg .edge{fill:none;stroke:var(--ink);stroke-width:17}
+.seg .halo{fill:none;stroke:var(--ink);stroke-width:24;display:none}
+.seg.on .halo,.seg:focus-visible .halo{display:inline}
+.seg:hover .halo{display:inline;stroke:var(--ink2)}
+.seg.on:hover .halo,.seg.on .halo{stroke:var(--ink)}
+.seg .lead{stroke:var(--ink);stroke-width:.6;fill:none}
+.seg .lab{font-size:12px;fill:var(--ink)}
+.seg.on .lab{font-weight:700}
+.seg.dim .band,.seg.dim .tex,.seg.dim .gm{opacity:.25}
+.seg.dim .edge{opacity:.35}
+.seg.dim .lab{fill:#a39d8e}
+.seg .gm{stroke:var(--ink);stroke-width:1.1}
+.seg.on .gm,.seg:focus-visible .gm{stroke-width:3}
+.alt{cursor:pointer;outline:none}
+.alt .altp{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3}
+.alt.solid .altp{stroke-dasharray:none}
+.alt .altl{fill:none;stroke:var(--ink);stroke-width:.6}
+.alt text{font-size:10.5px;fill:var(--ink);font-style:italic;paint-order:stroke;stroke:var(--plate);stroke-width:3.5px;stroke-linejoin:round}
+.alt.on .altp,.alt:focus-visible .altp{stroke-width:2.6}
+.alt.on text{font-weight:700}
+
+.cell{cursor:pointer;outline:none}
+.cell rect.c,.cell circle{stroke:var(--ink);stroke-width:.8}
+.cell rect.t{pointer-events:none}
+.cell text{font-size:11px;fill:var(--ink)}
+.cell .ld{stroke:var(--ink2);stroke-width:.6;fill:none}
+.cell:hover rect.c,.cell:focus-visible rect.c{stroke-width:1.8}
+.cell.on rect.c{stroke-width:2.6}
+.cell.on circle{stroke-width:3}
+.cell.on text{font-weight:700}
+.cell.on .ld{stroke:var(--ink);stroke-width:1.2}
+.cell.ie rect.c{stroke-dasharray:3 2}
+.lnk{fill:none;stroke:#8f8878;stroke-width:.8}
+.lnk.on{stroke:var(--ink);stroke-width:2}
+.colh{font-size:10px;font-weight:700;fill:var(--ink);letter-spacing:.09em}
+.ax{font-size:10.5px;fill:var(--ink2);font-style:italic}
+
+.grid line{stroke:#b5ad9b;stroke-width:.7;stroke-dasharray:1 3}
+.axis line{stroke:var(--ink);stroke-width:1}
+.axis text{font-size:9.5px;fill:var(--ink);font-variant-numeric:tabular-nums lining-nums}
+.axis .ttl{font-size:11px;font-style:italic}
+.ptitle{font-size:10px;font-weight:700;fill:var(--ink);letter-spacing:.09em}
+.pt{cursor:pointer;outline:none}
+.pt .sd{stroke:var(--ink2);stroke-width:.8}
+.pt .ld{stroke:#8f8878;stroke-width:.6}
+.pt .mk{stroke:var(--ink);stroke-width:.9}
+.pt text{font-size:10px;fill:var(--ink);font-style:italic;paint-order:stroke;stroke:var(--plate);stroke-width:2.5px;stroke-linejoin:round}
+.pt.on .mk,.pt:focus-visible .mk{stroke-width:2.8}
+.pt.on text{font-weight:700}
+.pt.on .sd,.pt.on .ld{stroke:var(--ink);stroke-width:1.2}
+
+.pic .p{fill:var(--plate);stroke:var(--ink);stroke-width:.9}
+.pic .o{fill:var(--plate);stroke:#a39d8e;stroke-width:.9}
+.pic .p{cursor:pointer}
+.pic .p.hi{stroke:var(--ink);stroke-width:1.4}
+.pic .dash{stroke-dasharray:2 2}
+
+.mbar{display:none}
+.zoomb{display:none}
+.grpl{font-size:18px;fill:var(--ink);font-style:italic;paint-order:stroke;stroke:var(--plate);stroke-width:4px;stroke-linejoin:round;pointer-events:none}
+.seg .hitc{fill:transparent;stroke:none}
+#fig1.fitm .seg .lab,#fig1.fitm .seg .lead,#fig1.fitm .alt,#fig1.fitm .anat text,#fig1.fitm .anat .ptr{display:none}
+#fig1.fitm .seg .hit{stroke-width:64}
+#fig1.fitm .seg .halo{stroke-width:32}
+.seg .hit{fill:none;stroke:transparent;stroke-width:30;pointer-events:stroke}
+/* long records: later sections open on request */
+details.fold>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--ink)}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary h3{flex:1 1 auto;border-bottom:0}
+details.fold>summary .fc{flex:0 0 auto;padding-right:12px;font-size:10.5px;font-style:italic;color:var(--ink2);white-space:nowrap}
+details.fold>summary .fc::after{content:"+";display:inline-block;width:1.4em;text-align:right;font:normal 700 13px/1 var(--display);color:var(--ink)}
+details.fold[open]>summary .fc::after{content:"\2212"}
+details.fold>summary:hover h3{text-decoration:underline;text-underline-offset:2px}
+/* further figures of the body map, on their own page */
+.crumb{margin:0;padding:8px 16px;font-size:11.5px;font-style:italic;color:var(--ink2);border-bottom:1px solid var(--ink)}
+.crumb a{margin-right:14px;font-style:normal;white-space:nowrap}
+.morefigs{list-style:none;margin:0;padding:0;flex:1 1 100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 36px;max-width:1010px}
+.morefigs li{font-size:11.5px;color:var(--ink2)}
+.morefigs a{display:block;font-size:12.5px;margin-bottom:2px}
+.morefigs a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
+body.figs #duo,body.figs .tools .grp:not(.g-len),body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
+body.figs main{display:flex;flex-direction:column}
+body.figs #p1k{order:3}
+body.figs #key{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
+body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
+/* opening lines of the home page */
+.lede .try{display:flex;flex-wrap:wrap;align-items:center;gap:6px 7px;max-width:none;margin-top:10px;font:italic 400 12px/1.2 var(--display);color:var(--ink2)}
+.try a{font-style:normal;font-size:12px;color:var(--ink);text-decoration:none;border:1px solid var(--ink);background:var(--bg);padding:3px 10px 4px}
+.try a:hover{background:var(--bar)}
+.try a.on{background:var(--ink);color:var(--plate)}
+.try a.all{border:0;background:none;padding:3px 2px;color:var(--link);text-decoration:underline;text-underline-offset:2px}
+/* a record that opens on a case; the address of its own page */
+.lead{margin:8px 0 2px;font:400 14.5px/1.5 var(--display);color:var(--ink);max-width:62ch}
+.lead .who{font-weight:400;font-style:italic}
+.lead .r{font-size:11px;color:var(--ink2);white-space:nowrap}
+.facts{padding:8px 14px 9px;border-bottom:1px solid var(--hair)}
+.facts .note{margin:0 0 6px}
+.perm{margin:0;padding:9px 14px 12px;font-size:11px;font-style:italic;color:var(--ink2)}
+.perm a{font-style:normal;overflow-wrap:anywhere}
+.lede{margin:0;padding:13px 16px;font:italic 400 14px/1.6 var(--display);color:var(--ink);background:var(--plate);border-bottom:1px solid var(--ink)}
+.lede span{display:block;max-width:106ch}
+.lede a{font-style:normal;font-size:12px;white-space:nowrap}
+@media (max-width:1020px){
+  .duo{display:block}
+  .morefigs{grid-template-columns:minmax(0,1fr)}
+  body.figs #key{grid-template-columns:minmax(0,1fr)}
+  body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
+  .lede{padding:10px 12px;font-size:13px;line-height:1.55}
+  details.fold>summary h3{padding-top:9px;padding-bottom:7px}
+  .g-strip{display:none}
+  header.top{padding:7px 12px 0;flex-wrap:wrap}
+  header.top nav.menu{flex:1 1 100%;margin:5px -12px 0;padding:0 12px;gap:2px 8px;justify-content:space-between;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--rule)}
+  header.top nav.menu::-webkit-scrollbar{display:none}
+  nav.menu a{font-size:9.5px;letter-spacing:.05em;line-height:2.6;padding:0}
+  nav.menu .sep{margin:0 0 8px}
+  .mw{display:none}
+  header.top h1{font-size:17px}
+  header.top h1 small{font-size:10.5px;margin-top:2px}
+  .build2{display:block;margin:0;padding:5px 12px;font-size:10.5px;font-style:italic;color:var(--ink2);border-bottom:1px solid var(--rule)}
+  #p1{top:var(--headh);height:auto;display:block;z-index:4;border-right:0;border-bottom:2px solid var(--ink)}
+  #p1>h2{display:none}
+  #p1 .pbody{display:block;padding:0}
+  .mbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 8px;background:var(--bar);border-bottom:1px solid var(--ink)}
+  .mbar .seg2 button{padding:5px 11px;font-size:12px}
+  .mnow{flex:1 1 auto;min-width:0;text-align:center;font-weight:700;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #fig1{height:44vh;height:44dvh;overflow:hidden;background:var(--plate)}
+  #fig1 svg{width:100%;height:100%;min-width:0;border:0;outline:0}
+  #fig1.panm{overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  #fig1.panm svg{width:640px;min-width:640px;height:auto}
+  #p1.canzoom .zoomb{display:block;position:absolute;right:8px;bottom:8px;z-index:2;border:1px solid var(--ink);background:var(--plate);font-size:11.5px;padding:5px 10px;cursor:pointer}
+  #key{grid-template-columns:minmax(0,1fr)}
+  .doc,.about{grid-template-columns:minmax(0,1fr)}
+  #about,#methods,#refs{scroll-margin-top:var(--headh)}
+  header.top .build{display:none}
+  .tools{position:static}
+  .tools .right{margin-left:0}
+  .narrow{display:inline}
+  #status{display:none}
+  body{padding-bottom:0}
+}
+@media (max-width:1020px) and (min-width:640px) and (orientation:landscape){
+  .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  #p1{border-bottom:0;border-right:1px solid var(--ink)}
+  #fig1{height:calc(100vh - 39px - var(--headh));height:calc(100dvh - 39px - var(--headh))}
+}
+
+/* ---------- experience map ---------- */
+.anat .hemi{fill:url(#stip);stroke:none}
+.anat .cbl{fill:url(#fib);stroke-width:1}
+.anat .stem{fill:var(--plate);stroke-width:1}
+.anat .strip{fill:url(#fib);stroke:none;opacity:.55}
+.sul .fis{stroke-width:1.9}
+.sul .cs{stroke-width:1.5}
+.sul .out{stroke-width:1.5}
+.sul .ctx{stroke:var(--ink);stroke-dasharray:3 3;stroke-opacity:.55;stroke-linecap:butt}
+.sul .ctxb{stroke:var(--plate);stroke-opacity:.82}
+.sul .ctxe{stroke-dasharray:3 3;stroke-opacity:.55;stroke-width:1}
+.zn{cursor:pointer;outline:none}
+.zn .zf{fill:transparent;stroke:none}
+.zn .zt{fill:none;stroke:none;pointer-events:none}
+.zn .zo{fill:none;stroke:none;pointer-events:none}
+.zn.on .zf{fill:var(--gc)}
+.zn.on .zt{fill:url(#tx-on)}
+.zn.ol.on .zo{stroke:var(--ink);stroke-width:1.2}
+.zn:hover .zo{stroke:var(--ink2);stroke-width:1;stroke-dasharray:2 2}
+.zn .ze{fill:none;stroke:var(--ink);stroke-dasharray:3 2.6;stroke-linecap:butt}
+.zn .zb{fill:none;stroke:var(--plate);stroke-linecap:butt}
+.zn .zf.ln{fill:none;stroke:transparent;stroke-linecap:butt}
+.zn .zt.ln{fill:none;stroke:none;stroke-linecap:butt}
+.zn .zh{fill:none;stroke:transparent;pointer-events:stroke}
+.zn circle.zh{fill:transparent;stroke:none;pointer-events:all}
+.zn .zc{fill:var(--plate);stroke:var(--ink);stroke-width:1.1;stroke-dasharray:3 2.6}
+.zn.on .zf.ln{stroke:var(--gc)}
+.zn.on .zt.ln{stroke:url(#tx-on)}
+.zn.on .ze,.zn.on .zc{stroke-dasharray:none}
+.zn.on2 .zf{fill:var(--gc);fill-opacity:.38}
+.zn.on2 .zf.ln{fill:none;stroke:var(--gc);stroke-opacity:.38}
+.hes{fill:var(--ink);stroke:none}
+.anat.lbl text{pointer-events:none}
+.bodylink{cursor:pointer}
+.bodylink .blk{font-size:10.5px;font-style:italic;fill:var(--link);text-decoration:underline}
+.bodylink .ptr2{stroke:var(--link);stroke-width:.7;fill:none}
+.elab{cursor:pointer;outline:none}
+.elab .lab{font-size:13.5px;fill:var(--ink);paint-order:stroke;stroke:var(--plate);stroke-width:4px;stroke-linejoin:round}
+.elab .lead{stroke:var(--ink);stroke-width:.7;fill:none}
+.elab .dot{fill:var(--ink)}
+.elab.on .lab{font-weight:700}
+.elab.on .lead{stroke-width:1.5}
+.elab:hover .lab,.elab:focus-visible .lab{text-decoration:underline}
+#fig1.fitm .labs,#fig1.fitm .anat.lbl,#fig1.fitm .bodylink{display:none}
+.chips{display:none}
+.who{font-weight:400;font-style:italic}
+.none.plain2{font-style:normal}
+.bar .bk{font-size:12px;fill:var(--ink)}
+.bar .bv,.bv{font-size:11px;fill:var(--ink);font-variant-numeric:tabular-nums lining-nums}
+dl.series{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 14px;font-size:11.5px}
+dl.series dt{color:var(--ink2)}
+dl.series dd{margin:0;text-align:right;font-variant-numeric:tabular-nums lining-nums}
+#p2 .svgwrap svg{min-width:520px}
+@media (max-width:1020px){
+  #fig1{height:36vh;height:36dvh}
+  /* on a phone the layer bar, the arrows and the row of names under the plate already do these jobs */
+  #tools,.lede .try{display:none}
+  .chips{display:flex;gap:6px;overflow-x:auto;padding:6px 8px;background:var(--bg);border-top:1px solid var(--ink);scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;border:1px solid var(--ink);background:var(--plate);padding:4px 9px;font-size:11.5px;cursor:pointer;white-space:nowrap}
+  .chip.on{background:var(--ink);color:var(--plate)}
+  .mbar .seg2 button{padding:5px 8px}
+}
+@media (max-width:1020px) and (min-width:640px) and (orientation:landscape){
+  #fig1{height:calc(100vh - 78px - var(--headh));height:calc(100dvh - 78px - var(--headh))}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="stip" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#f8f5ec"/><circle cx="1.5" cy="1.5" r=".55" fill="#1c1a16" fill-opacity=".3"/><circle cx="4.5" cy="4.5" r=".55" fill="#1c1a16" fill-opacity=".3"/></pattern>
+    <pattern id="fib" width="4" height="3.4" patternUnits="userSpaceOnUse"><rect width="4" height="3.4" fill="#f8f5ec"/><line x1="0" y1="1.7" x2="4" y2="1.7" stroke="#1c1a16" stroke-opacity=".6" stroke-width=".6"/></pattern>
+    <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#f8f5ec"/><line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#1c1a16" stroke-width="1.1"/></pattern>
+    <pattern id="tx-ll" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#f8f5ec" stroke-opacity=".5" stroke-width="1"/></pattern>
+    <pattern id="tx-ul" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#f8f5ec" stroke-opacity=".5" stroke-width="1"/></pattern>
+    <pattern id="tx-mo" width="5.5" height="5.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="2.75" y1="0" x2="2.75" y2="5.5" stroke="#f8f5ec" stroke-opacity=".45" stroke-width=".9"/><line x1="0" y1="2.75" x2="5.5" y2="2.75" stroke="#f8f5ec" stroke-opacity=".45" stroke-width=".9"/></pattern>
+    <pattern id="tx-vi" width="4" height="4" patternUnits="userSpaceOnUse"><line x1="2" y1="0" x2="2" y2="4" stroke="#f8f5ec" stroke-opacity=".6" stroke-width="1"/></pattern>
+    <pattern id="tx-fc" width="4" height="4" patternUnits="userSpaceOnUse"><line x1="0" y1="2" x2="4" y2="2" stroke="#1c1a16" stroke-opacity=".5" stroke-width=".8"/></pattern>
+    <pattern id="tx-hd" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="1.25" cy="1.25" r=".75" fill="#1c1a16" fill-opacity=".55"/><circle cx="3.75" cy="3.75" r=".75" fill="#1c1a16" fill-opacity=".55"/></pattern>
+  </defs>
+</svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <pattern id="tx-on" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="2.5" y1="0" x2="2.5" y2="5" stroke="#f8f5ec" stroke-opacity=".55" stroke-width="1.1"/></pattern>
+</defs></svg>
+
+<header class="top">
+  <h1>Penfield’s Map <small>of human experience</small></h1>
+  <nav class="menu" aria-label="Site">
+    <a href="/" aria-current="page">Experience<span class="mw"> map</span></a>
+    <a href="/body/">Body<span class="mw"> map</span></a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="/about/">About</a>
+    <a href="/methods/">Methods</a>
+    <a href="/references/">References</a>
+  </nav>
+  <span class="build" data-t="updated 2026-11-26. Work in progress, not peer reviewed"></span>
+</header>
+<p class="build2">updated 2026-11-26. Work in progress, not peer reviewed</p>
+
+<p class="lede" id="lede"><span>The surgeon Wilder Penfield operated on patients who were awake, stimulated the exposed brain with an electrode and recorded what they reported. On the temporal lobe, in 40 of 520 patients, the current brought voices, music and scenes that he read as a record of the patient’s own past. This map shows where, case by case, with what later work found. Devices are now being built to read the brain and write to it. <a href="/about/">About the map</a></span>
+<span class="try">Start with a case <a data-id="voices" data-scroll="1" href="/experience/voices/">Voices</a> <a data-id="music" data-scroll="1" href="/experience/music/">Music</a> <a data-id="fear" data-scroll="1" href="/experience/fear/">Fear</a> <a data-id="laughter" data-scroll="1" href="/experience/laughter/">Laughter</a> <a data-id="oob" data-scroll="1" href="/experience/leaving-the-body/">Leaving the body</a> <a class="all" href="/records/">All records</a></span></p>
+<noscript><p class="crumb">The map on this page is drawn by a script. Every record is also a plain page: <a href="/records/">index of records</a>.</p></noscript>
+
+<div class="tools" id="tools">
+  <span class="grp g-strip">
+    <span class="lbl" id="lblg">Layer</span>
+    <span class="seg2" role="group" aria-labelledby="lblg">
+      <button type="button" id="btn-R" data-g="R" aria-pressed="true">Memory-like experiences</button>
+      <button type="button" id="btn-I" data-g="I" aria-pressed="false">The present, altered</button>
+      <button type="button" id="btn-L" data-g="L" aria-pressed="false">Later work on feeling</button>
+    </span>
+  </span>
+  <span class="grp">
+    <label class="lbl" for="pick">Go to</label>
+    <select id="pick"></select>
+  </span>
+</div>
+
+<main>
+  <div class="duo" id="duo">
+    <section class="panel" id="p1">
+      <h2><b>Fig. 1.</b> <span id="f1t"></span></h2>
+      <div class="pbody">
+        <div class="mbar" id="mbar">
+          <span class="seg2" role="group" aria-label="Layer shown">
+            <button type="button" id="m-R" data-g="R" aria-pressed="true">Memory-like</button>
+            <button type="button" id="m-I" data-g="I" aria-pressed="false">Altered</button>
+            <button type="button" id="m-L" data-g="L" aria-pressed="false">Later</button>
+          </span>
+          <span class="mnow" id="mnow"></span>
+          <span class="seg2" role="group" aria-label="Step through the records">
+            <button type="button" id="m-prev" aria-label="Previous record">←</button>
+            <button type="button" id="m-next" aria-label="Next record">→</button>
+          </span>
+        </div>
+        <div class="svgwrap" id="fig1"></div>
+        <div class="chips" id="chips"></div>
+      </div>
+    </section>
+    <aside class="record" id="record" aria-live="polite"></aside>
+  </div>
+  <section class="panel" id="p1k">
+    <h2><b>Fig. 1.</b> <span>Key and notes</span></h2>
+    <div class="pbody">
+      <div class="side" id="key"></div>
+      <p class="cap">Select a name on the plate, a region, or a line in the key. Left and right arrow keys step through the records. The plate is an original schematic of one hemisphere seen from the side and is not to scale. Shading marks the region a source names, not the points it plotted. Broken outlines are structures on the inner face of the hemisphere or deep inside it, projected onto this view. The first, second and third temporal convolutions are the superior, middle and inferior temporal gyri. The dark mark inside the fissure is the anterior transverse gyrus of Heschl, where stimulation gave crude sound and no memory-like experience. The side of the brain for each finding is given in its record. The method codes in the records are explained under <a href="/methods/#codes-experience">Methods</a>.</p>
+    </div>
+  </section>
+  <section class="panel" id="p2">
+    <h2><b>Fig. 2.</b> <span>Memory-like experiences by kind and by hemisphere: Table V of Penfield and Perot 1963, 138 responses in 40 patients.</span></h2>
+    <div class="pbody">
+      <div class="svgwrap" id="fig2"></div>
+      <div class="side" id="series"></div>
+      <p class="cap" id="cap2"></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">Published and maintained by <a href="https://www.dargentic.com" rel="noopener">Dargentic Intelligence</a>. Not peer reviewed. © 2026 Dargentic Pty Ltd. <a href="/records/">Index of records</a>. Corrections: <a href="mailto:suggestions@penfieldsmap.com">suggestions@penfieldsmap.com</a></footer>
+
+<div id="status" role="status">Point at a name or a region for a readout.</div>
+
+<script>
+var BODYURL='/body/',EXPURL='/',XPRE='/experience/',XSUF='/';
+/* Experience map: data. Every statement below is checked against its source before publication. */
+var PP='pp63';
+/* Permanent addresses of the record pages, under /experience/. They are printed elsewhere: never change a value. */
+var SLUG={voices:'voices',music:'music',scenes:'people-and-scenes',both:'sound-with-sight',flash:'thoughts-and-dreams',familiar:'familiar-or-strange',csound:'changed-sound',csight:'changed-sight',fear:'fear',lonely:'loneliness',laughter:'laughter',bliss:'bliss',mood:'mood',wanting:'changed-preference',drive:'resolve',oob:'leaving-the-body'};
+var GROUPS=[
+  {k:'R',l:'Memory-like experiences',s:'Memory-like',c:'#285192',tx:'tx-ll',
+   t:'Penfield and Perot called these experiential responses: things the patient had seen, heard or lived through before, returning while the electrode was on the cortex. They came in 40 of the 520 patients whose temporal lobes were explored and stimulated, and in none of the 612 patients explored elsewhere.'},
+  {k:'I',l:'The present, altered',s:'Altered',c:'#c2761b',tx:'tx-hd',
+   t:'A second kind of response changed how the present moment seemed, without bringing anything back. The 1963 paper calls these interpretive illusions and lists four groups: of sound, of sight, of recognition and of emotion.'},
+  {k:'L',l:'Later work on feeling',s:'Later',c:'#037b5f',tx:'tx-ul',
+   t:'Feelings that are not in Penfield’s tables, reported since by other groups, mostly from stimulation outside the temporal cortex he mapped. Most rest on a handful of patients.'}
+];
+
+/* cases: c case number in the 1963 paper, i initials, w who, sd side operated, p pages, t what was reported (paraphrase) */
+var ENTRIES=[
+ {id:'voices',g:'R',l:'Voices',lab:'Voices',
+  term:'Experiential response, auditory: voice',
+  count:'46 of the 138 responses. Auditory responses of all kinds came from 66 points in 24 patients.',
+  where:'The side and the upper surface of the first temporal convolution. None lay in the anterior transverse gyrus of Heschl, where stimulation gave only crude sound such as buzzing. On the right the points ran further back along the convolution than on the left. Points for voices, music and other sounds were not separated from one another.',
+  side:'Auditory responses: 42 from the non-dominant hemisphere in 15 patients, 24 from the dominant hemisphere in 9.',
+  z:['t1','sup'],z2:[],
+  cases:[
+   {c:3,i:'R.W.',w:'boy of 12',sd:'right',p:'615–617',t:'When the surgeon probed his temporal lobe, he heard his mother telling an aunt to come up that night. A probe at the next point gave the same conversation, and he said it was over the telephone. Another point gave her voice telling his brother that his coat was on backwards.'},
+   {c:8,i:'R.L.',w:'woman of 26',sd:'right',p:'623',t:'When her temporal lobe was probed, she heard a faint voice far away, then a name called three times. She said it was her husband’s name. Seven minutes later the same point was probed four more times and gave nothing.'},
+   {c:15,i:'J.V.',w:'girl of 14',sd:'right',p:'629–630',t:'Under the probe she heard many people shouting at her. When the point was probed again she said they were her mother and brothers, and she asked for it to stop.'},
+   {c:13,i:'A.P.',w:'man of 19',sd:'left',p:'626–628',t:'When the surgeon probed his temporal lobe, he heard a man’s voice in a pool room telling him to get out. He later confirmed that this had happened.'},
+   {c:28,i:'E.B.',w:'girl of 12',sd:'right',p:'639',t:'A probe on the first temporal convolution made her hear someone speaking on the telephone.'}
+  ]},
+ {id:'music',g:'R',l:'Music',lab:'Music',
+  term:'Experiential response, auditory: music',
+  count:'17 points in 11 patients. The legend of Fig. 9 of the paper marks 13 of the 17 as familiar to the patient.',
+  where:'The first temporal convolution, on its side or on its upper surface.',
+  side:'The paper gives no count by side for music. Counted for this page from the legend of its Fig. 9 and the case reports, 13 of the 17 points were in right hemispheres and 4 in left.',
+  note:'The authors remark that music came surprisingly often and that it was sometimes the theme song of a radio programme.',
+  z:['t1','sup'],z2:[],
+  cases:[
+   {c:5,i:'D.F.',w:'woman of 26',sd:'right',p:'619–620',t:'Repeated probes at one point made her hear music that sounded as if it came from a radio. She could not name it but said it was familiar. She hummed it, and the operating-room nurse recognised the tune as “Rolling Along Together”. Probes at three points close by gave the same tune. The first point was on the upper, inner face of the first temporal convolution, on the cut surface against the insula.'},
+   {c:4,i:'A.Bra.',w:'woman of 32',sd:'right',p:'617–619',t:'Under the probe she heard singing, which she named as “White Christmas”, sung by a choir. When another point was probed she hummed a tune she knew and could not name.'},
+   {c:31,i:'N.C.',w:'woman of 23',sd:'left',p:'642–644',t:'When her temporal lobe was probed, she hummed a march, which was identified as the “War March of the Priests”. She said she had it on a record at home.'},
+   {c:10,i:'R.McA.',w:'man of 18',sd:'right',p:'624–625',t:'A probe made him hear a popular song from the radio, played by instruments. When the point was probed again he said the song had come back. His speech was in the right hemisphere.'},
+   {c:30,i:'A.Br.',w:'woman of 28',sd:'right',p:'641–642',t:'A probe at one point made her hear singing, and at another a song that sounded familiar, as if on the radio. The legend of Fig. 9 lists four music points in this patient.'},
+   {c:9,i:'E.Le.',w:'woman of 44',sd:'right',p:'623–624',t:'A probe 1 cm deep in the first temporal convolution made her hear a distant sound like singing, a group in the background, probably hymns.'},
+   {c:11,i:'M.N.',w:'woman of 45',sd:'left',p:'625–626',t:'When her temporal lobe was probed, she heard music in the background, like an orchestra or an organ.'}
+  ]},
+ {id:'scenes',g:'R',l:'People and scenes',lab:'People and scenes',
+  term:'Experiential response, visual',
+  count:'38 points in 19 patients: a person or people in 23, a scene in 10, an object in 5. In 14 the patient recognised what was seen as part of the past.',
+  where:'On the right, scattered through the temporal lobe and back to where it meets the occipital lobe. On the left, three points on the side of the first and second convolutions and the rest on the upper surface of the first. Stimulation of the visual cortex itself gave no such response.',
+  side:'28 from the non-dominant hemisphere in 12 patients, 10 from the dominant hemisphere in 7.',
+  z:['t1','t2','tpo','sup'],z2:['ffa','ppa'],
+  cases:[
+   {c:1,i:'E.Wh.',w:'woman of 37',sd:'left',p:'612',t:'When her temporal lobe was probed, she saw herself giving birth and felt she was living through it again.'},
+   {c:18,i:'G.B.',w:'girl of 16',sd:'left',p:'632',t:'A probe 3 cm deep made her see a dog chasing a cat in the driveway at home, which she had seen happen. Two minutes later a probe at the same point gave a forest fire she could not place.'},
+   {c:3,i:'R.W.',w:'boy of 12',sd:'right',p:'615–617',t:'Under the probe he saw robbers with guns coming at him, without sound. The report traces this to his comic books and calls it a fantasy. A probe at another point made him see his brother aiming an air rifle at him in the yard, and he felt scared.'},
+   {c:23,i:'R.M.',w:'man of 31',sd:'left',p:'635–636',t:'When his temporal lobe was probed, he saw a man coming through a fence at a baseball game, which he said he had seen.'},
+   {c:32,i:'G.E.',w:'woman of 22',sd:'right',p:'644–645',t:'Probes at the back of her temporal lobe made her see a friend she had met on the street, then a machine she had seen before, then the nurses on her ward.'}
+  ]},
+ {id:'both',lead:36,g:'R',l:'Sound and sight together',lab:'Sound with sight',
+  term:'Experiential response, combined auditory and visual',
+  count:'22 points in 12 patients. In 18 the patient recognised the experience as part of the past. Five of the points gave a sound on one trial and a sight on another.',
+  where:'Almost all on the first temporal convolution, about as often on one side as on the other.',
+  side:'13 from the non-dominant hemisphere in 7 patients, 9 from the dominant hemisphere in 5.',
+  z:['t1'],z2:[],
+  cases:[
+   {c:2,i:'R.B.',w:'man of 21',sd:'left',p:'612–615',t:'A probe brought footsteps and company, which he placed in a dance hall. Then came a scene at the seashore, with a woman talking to a child. His speech was in the right hemisphere.'},
+   {c:36,i:'M.M.',w:'woman of 26',sd:'right',p:'648–651',t:'When the surgeon probed her temporal lobe, she heard a mother calling her little boy, which seemed to have happened years before. She said it was somebody from the neighbourhood where she lived. A probe at another point gave voices along a river she knew, and she thought she saw the river. Another gave an office she knew, with desks, and a man leaning on one of them and calling to her.'},
+   {c:29,i:'S.Be.',w:'man of 25',sd:'right',p:'639–641',t:'One point gave different things when it was probed again and again: a piano playing a song he had once sung, then someone speaking, then “Oh Marie, Oh Marie”, the theme song of a radio programme, of which he sang the refrain.'},
+   {c:37,i:'T.S.',w:'man of 19',sd:'right',p:'651–652',t:'Probes brought two scenes he knew, and then music from the stage show “Guys and Dolls”, with the feeling that he was there.'},
+   {c:38,i:'J.T.',w:'man of 22',sd:'right',p:'652–653',t:'A probe on the upper surface of the first temporal convolution, just in front of Heschl’s gyrus, brought friends laughing, in South Africa. He named two cousins.'},
+   {c:33,i:'G.F.',w:'woman of 45',sd:'right',p:'645–646',t:'When her temporal lobe was probed, she heard her elder son speaking, with the noises of the neighbourhood behind him. Ten days later she said it had felt more real than a memory.'},
+   {c:32,i:'G.E.',w:'woman of 22',sd:'right',p:'644–645',t:'Under the probe she heard her mother shouting at her baby sister, and she saw them both. Another response was her parents talking and singing Christmas carols, and she saw them briefly.'}
+  ]},
+ {id:'flash',g:'R',l:'Thoughts, dreams and flash-backs',lab:'Thoughts, dreams',
+  term:'Experiential response, unclassified',
+  count:'12 points in 5 patients. The patients’ own words for them were a thought, a dream, a flash-back, a memory.',
+  where:'The first and second temporal convolutions, with no clear difference between the sides. Few responses of any kind came from the under surface of the lobe, which was stimulated less often.',
+  side:'8 from the non-dominant hemisphere in 3 patients, 4 from the dominant hemisphere in 2.',
+  z:['t1','t2'],z2:['amy','hip','rhi'],
+  cases:[
+   {c:40,i:'S.S.',w:'woman of 20',sd:'right',p:'654',t:'Probes at several points gave what she called a flash-back. One reminded her of a football game, another of the time her mother went into hospital. A probe 3 cm deep, in the region of the amygdala, set her thinking about her dog.'},
+   {c:39,i:'H.N.',w:'man of 19',sd:'left',p:'653',t:'A probe on the cut upper surface of the first temporal convolution, inside the fissure, gave him a dream. He said it was not like his usual attacks.'},
+   {c:36,i:'M.M.',w:'woman of 26',sd:'right',p:'648–651',t:'A probe on the lower face of the first temporal convolution gave her a very familiar memory.'},
+   {c:34,i:'L.G.',w:'boy of 14',sd:'left',p:'646–647',t:'When his temporal lobe was probed, he had a thought he had had before, like the start of one of his attacks.'}
+  ]},
+
+ {id:'familiar',g:'I',l:'Familiar or strange',lab:'Familiar or strange',
+  term:'Interpretive illusion of recognition',
+  count:'Not counted separately in the 1963 paper. Illusions of all four groups were found in 70 of 214 patients operated on for temporal lobe epilepsy, in their seizures or under the electrode.',
+  where:'Fig. 1 of the 1963 paper letters the word familiarity along the side of the non-dominant temporal lobe, directly beneath the word auditory. This plate shades the second temporal convolution to stand for it.',
+  side:'Familiarity and strangeness: mainly the non-dominant temporal lobe. A feeling of unreality: either side.',
+  note:'The present moment seemed familiar (déjà vu), or strange, altered or unreal.',
+  src:['mullan1959'],z:['t2'],z2:['rhi','amy','hip'],cases:[]},
+ {id:'csound',g:'I',l:'Changed sound',lab:'Changed sound',
+  term:'Interpretive illusion, auditory',
+  count:'Not counted separately in the 1963 paper.',
+  where:'Chiefly the first temporal convolution.',
+  side:'Both sides.',
+  note:'Sounds seemed louder or clearer, fainter or more distinct, nearer or farther.',
+  z:['t1'],z2:[],cases:[]},
+ {id:'csight',g:'I',l:'Changed sight',lab:'Changed sight',
+  term:'Interpretive illusion, visual',
+  count:'Not counted separately in the 1963 paper.',
+  where:'Fig. 1 of the 1963 paper letters the word visual lowest on the non-dominant temporal lobe, starting further back than the other two words. This plate shades the third temporal convolution and the back of the lobe to stand for it.',
+  side:'Mainly the non-dominant temporal lobe.',
+  note:'Things seemed clearer or blurred, nearer or farther, larger or smaller, fatter or thinner.',
+  z:['t3','tpo'],z2:[],cases:[]},
+ {id:'fear',g:'I',l:'Fear',lab:'Fear',
+  term:'Interpretive illusion of emotion',
+  count:'The 1963 paper says the emotional group was too small to analyse, except for fear.',
+  where:'Either temporal region, by the caption of Fig. 1. The figure does not letter a band for fear, and this plate shades the whole lobe.',
+  side:'Either side.',
+  note:'In the case reports of the 1963 paper fear also comes with some memory-like scenes. The authors write that many patients were aware of pleasure or fear attached to what came back.',
+  z:['t1','t2','t3'],z2:['amy'],
+  cases:[
+   {c:30,i:'A.Br.',w:'woman of 28',sd:'right',p:'641–642',t:'A probe gave her terror for an instant, of the kind she had in her attacks. Probes at other points in the same patient gave singing.'},
+   {c:23,i:'R.M.',w:'man of 31',sd:'left',p:'635–636',t:'Under the probe he felt very scared and said this feeling was his attack. Thirteen minutes later a probe at the same point made him say he was going to die.'},
+   {c:15,i:'J.V.',w:'girl of 14',sd:'right',p:'629–630',t:'While the probe made her hear voices shouting at her, she felt that something dreadful was about to happen.'}
+  ]},
+ {id:'lonely',g:'I',l:'Loneliness, sorrow, disgust',lab:'Loneliness',
+  term:'Interpretive illusion of emotion',
+  count:'Listed beside fear in the 1963 table of interpretive illusions. Too few to analyse.',
+  where:'Either temporal region, by the caption of Fig. 1, which names lonesomeness and a feeling of being somewhere else. This plate shades the whole lobe.',
+  side:'Either side for loneliness. The paper gives no side for sorrow or disgust.',
+  z:['t1','t2','t3'],z2:[],cases:[]},
+
+ {id:'laughter',g:'L',l:'Laughter and mirth',lab:'Laughter',
+  note:'Stimulation has made patients laugh. In some the laughter came with a feeling of amusement.',
+  count:'A series of ten patients, a report of three, and a single case. All had epilepsy.',
+  where:'The front of the cingulate cortex on the inner face of the hemisphere, the cingulum bundle that runs beneath the cingulate cortex, and the front of the supplementary motor area. The cingulum bundle is not drawn on the plate.',
+  side:'Left in the cingulum and supplementary motor reports. The cingulate series was read as an abstract, which gives no side.',
+  z:['pacc','sma'],z2:[],cases:[]},
+ {id:'bliss',g:'L',l:'Bliss',lab:'Bliss',
+  note:'A feeling of bliss and of mental clarity.',
+  count:'Four patients in two reports from one group, and an earlier single case from the same group. Three of the four already had the feeling at the start of their seizures.',
+  where:'The upper front part of the insula, which lies hidden inside the lateral fissure.',
+  side:'Right in two patients and left in two.',
+  z:['dai'],z2:[],cases:[]},
+ {id:'mood',g:'L',l:'Mood',lab:'Mood',
+  note:'A lift of mood lasting minutes, in one study, and treatment of depression with an implanted stimulator, in two.',
+  count:'One study of 25 patients who had electrodes in place for epilepsy, one open trial in six patients, and one single case.',
+  where:'The lateral orbitofrontal cortex. The white matter beside the subgenual cingulate. The ventral capsule and ventral striatum, which are not drawn on the plate.',
+  side:'One side in the orbitofrontal study. Right in the single case.',
+  z:['lofc','scc'],z2:[],cases:[]},
+ {id:'wanting',g:'L',l:'A changed preference',lab:'Preference',
+  note:'One patient’s taste in music changed while his stimulator was running and changed back when its batteries ran down.',
+  count:'One patient.',
+  where:'The nucleus accumbens, deep at the base of the forebrain.',
+  side:'',
+  z:['nac'],z2:[],cases:[]},
+ {id:'drive',g:'L',l:'Resolve',lab:'Resolve',
+  note:'A feeling that a challenge was coming, with a determination to get through it.',
+  count:'Two patients.',
+  where:'The anterior midcingulate cortex, on the inner face of the hemisphere.',
+  side:'The paper does not state a side in words.',
+  z:['amcc'],z2:[],cases:[]},
+ {id:'oob',g:'L',l:'Leaving the body',lab:'Out of body',
+  note:'A patient reported seeing herself from above.',
+  count:'One patient.',
+  where:'The angular gyrus.',
+  side:'Right.',
+  z:['ang'],z2:[],cases:[]}
+];
+
+/* later evidence: to entry ids, m method code, t text, r reference keys */
+var LATER=[
+ {to:['voices','music','csound'],m:'STIM',r:['jaroszynski2022'],t:'In a series from Grenoble, 50 epilepsy patients heard something when they were stimulated through depth electrodes. Most of what they heard was a simple sound, or a change in the sounds already in the room. A few of the reports were of music or of speaking voices.'},
+ {to:['voices','music'],m:'REV',r:['selim2010'],t:'A 2010 review of 93 reports lists voices and music among the effects reported from the superior temporal gyrus. It records what has been reported at least once and gives no frequencies.'},
+ {to:['music'],m:'STIM',r:['wang2024'],t:'In a series of 28 epilepsy patients, stimulation of the auditory cortex produced sound at 113 sites. At three of them the patient heard familiar music or songs. The count of three was read in the preprint of the paper.'},
+ {to:['music'],m:'REV',r:['coebergh2019'],t:'A 2019 systematic review of musical hallucinations in epilepsy cites only Penfield and Perot 1963 for music produced by stimulation inside the skull.'},
+ {to:['music'],m:'REC',r:['bellier2023'],t:'Recording, not stimulation. Brain activity was recorded from 29 epilepsy patients while they listened to Pink Floyd’s “Another Brick in the Wall, Part 1”, and a recognisable version of the song was rebuilt from the recordings. The superior temporal gyrus carried most of the information, the right side more than the left.'},
+ {to:['scenes'],m:'STIM',r:['parvizi2012'],t:'In one man of 45 with electrodes over the right fusiform gyrus, stimulating two face-selective spots made the faces of the people in the room look distorted. Objects in the room were not affected in the same way, and nothing happened with sham stimulation.'},
+ {to:['scenes'],m:'STIM',r:['megevand2014'],t:'In one man of 22 with epilepsy, stimulating a scene-selective area on the underside of the right temporal lobe made him see places, among them a train station and a street in his own neighbourhood. Not every scene returned when the same site was stimulated again.'},
+ {to:['flash'],m:'REV',r:['curot2017'],t:'A review of 80 years of reports found 273 stimulations that brought back a memory, from 73 published patients and 18 of the reviewers’ own. Most of the memories were vague. About 14% were of one particular event in the patient’s life. Nearly all came from the temporal lobe, and well under 1% of stimulations produced one.'},
+ {to:['flash','familiar'],m:'STIM',r:['gloor1982'],t:'Of 29 patients with temporal lobe epilepsy studied with depth electrodes, 18 had dream-like experiences such as flash-backs, feelings of familiarity, hallucinations or sudden emotions, in seizures or under stimulation. These came only when the seizure or the current reached the limbic structures deep in the lobe. The outer temporal cortex did not have to be involved.'},
+ {to:['flash'],m:'STIM',r:['halgren1978','curot2017'],t:'An earlier study gave 3,495 stimulations to deep structures of the temporal lobe in 36 patients and recorded 267 mental responses. Its authors tied the kind of experience more to the person than to the exact spot stimulated. These figures are as given by the 2017 review. The study itself was not read for this page.'},
+ {to:['flash','familiar'],m:'STIM',r:['bancaud1994'],t:'In 16 patients with temporal lobe epilepsy, stimulation set off a dreamy state, meaning déjà vu or vivid scenes like memories, 43 times in 14 of them. It could be started from the amygdala, from the front of the hippocampus or from the outer temporal cortex, and a larger share of the deep sites than of the outer sites produced it.'},
+ {to:['familiar'],m:'STIM',r:['bartolomei2004'],t:'In 24 patients and 280 stimulations, déjà vu was linked mainly to the entorhinal cortex, and the recall of past scenes to the perirhinal cortex. These are two strips of cortex beside the hippocampus. Both effects were uncommon.'},
+ {to:['flash'],m:'CRIT',r:['loftus1980'],t:'Loftus and Loftus noted that only 40 of Penfield’s 1,132 patients gave such responses. From Penfield and Perot’s own case notes they argued that even the most lifelike reports read as scenes the patient put together, and not as the replay of a stored record.'},
+ {to:['flash'],m:'CRIT',r:['sjoberg2023'],t:'Sjöberg argues that a memory reported under stimulation may be a mental event which the patient, steered by the current and by the surgeon’s questions, takes for a real memory. He notes that such reports have not come from modern awake surgery for tumours, and says that neither account can yet be proved.'},
+ {to:['familiar','csound','csight','fear','lonely'],m:'HIST',r:['penfield1959'],t:'In 1959 Penfield offered “interpretive cortex” as a working name for parts of both temporal lobes where a gentle current sometimes gave one of two responses: a vivid return of a past experience, or a sudden change in how the present felt.'},
+ {to:['fear','lonely'],m:'HIST',r:['penfield1958'],t:'In a lecture of 1957 Penfield listed the feelings that stimulation could produce as fear, loneliness, separation, sorrow and disgust. He gave no counts.'},
+ {to:['fear'],m:'STIM',r:['meletti2006'],t:'In 74 epilepsy patients, 79 of 938 stimulations of the temporal lobe produced an emotion, and in 67 of the 79 it was fear. Fear came most often from the amygdala, and women reported it more often than men.'},
+ {to:['fear'],m:'STIM',r:['lanteaume2007'],t:'In eight epilepsy patients, about half of the brief stimulations of the amygdala changed how the patient felt. On the right the feeling was always unpleasant: fear, anxiety or sadness. On the left it was unpleasant about half the time and happy the rest. Five of the eight had an electrode on the right and five on the left.'},
+ {to:['fear'],m:'STIM',r:['inman2020'],t:'In nine epilepsy patients, stimulating the amygdala reliably changed sweating and heart rate, and seven of the nine felt no emotion. One man felt fear that grew to terror as the voltage on his right amygdala was raised.'},
+ {to:['laughter'],m:'STIM',r:['caruana2015'],t:'In 10 epilepsy patients, stimulating the pregenual anterior cingulate cortex, the part in front of the corpus callosum, made them laugh. In half of them the laughter came with a feeling of amusement. In the other half amusement was not evident. The ten are the patients who laughed, out of a larger group that was stimulated.'},
+ {to:['laughter'],m:'STIM',r:['bijanki2019'],t:'In a woman of 23 with epilepsy, stimulating the cingulum bundle on the left produced smiling, laughter and a calm, happy mood. Her surgeons then used it to keep her calm through brain surgery done while she was awake. Two further patients showed the same smiling and lift of mood. Grey matter nearby gave nothing in the first patient.'},
+ {to:['laughter'],m:'STIM',r:['fried1998'],t:'In one patient, stimulation of a small area at the front of the supplementary motor area, on the left, produced laughter.'},
+ {to:['bliss'],m:'STIM',r:['bartolomei2019'],t:'In three epilepsy patients whose seizures began with a feeling of bliss, a few seconds of stimulation of the upper front part of the insula brought on the same state. The site was on the right in two and on the left in one. Stimulation of other sites did not do it.'},
+ {to:['bliss'],m:'STIM',r:['nencha2022'],t:'A man of 51 who did not have such seizures reported bliss and mental clarity when the same part of the left insula was stimulated. Five other patients tested in similar conditions did not.'},
+ {to:['bliss'],m:'STIM',r:['picard2013','bartolomei2019'],t:'An earlier letter from the same group reported a woman of 23 whose seizures began with a feeling of bliss, in whom three seconds of stimulation of the same region brought the feeling on. The letter was not read for this page. This account is from the group’s later papers.'},
+ {to:['mood'],m:'STIM',r:['rao2018'],t:'In a study of 25 epilepsy patients with electrodes already in place, 100 to 200 seconds of stimulation of the lateral orbitofrontal cortex on one side lifted mood in those with moderate to severe symptoms of depression, more so at the higher current. Patients with few or no such symptoms showed no significant change. The effect was measured over minutes.'},
+ {to:['mood'],m:'DBS',r:['mayberg2005'],t:'In six people whose depression had not responded to other treatment, continuous stimulation of the white matter beside the subgenual cingulate was followed by a lasting response in four at six months. In the operating room patients reported a sudden calm or lightness, and a room that looked brighter, when the current was on. They reported nothing with sham stimulation. The trial had no placebo group.'},
+ {to:['mood'],m:'DBS',r:['scangos2021'],t:'In one woman of 36 with severe depression of long standing, doctors found a signal in her amygdala that tracked her worst symptoms. They implanted a device that answered the signal with six seconds of stimulation to the right ventral capsule and ventral striatum. Her depression score fell from 33 to 14 in 12 days and later fell below 10, the level counted as remission. There was no control condition.'},
+ {to:['wanting'],m:'DBS',r:['mantione2014'],t:'A man of about 60 was treated for severe obsessive-compulsive disorder by deep brain stimulation of the nucleus accumbens. He had never cared much for music. About six months after surgery he became a devoted listener to Johnny Cash, after hearing one of his songs by chance. When the stimulator’s batteries ran down he went back to his old favourites. The change came together with a large improvement in his illness and in his confidence.'},
+ {to:['drive'],m:'STIM',r:['parvizi2013'],t:'In two men with epilepsy, stimulating the anterior midcingulate cortex produced a faster heartbeat, a sensation in the chest or neck, and a feeling that a challenge was coming, with a determination to get through it. The feeling included worry. Neither man reported anything in sham trials.'},
+ {to:['oob'],m:'STIM',r:['blanke2002'],t:'In a woman of 43 being assessed for epilepsy surgery, stimulating the right angular gyrus first made her feel that she was sinking into the bed or falling. At a slightly higher current she reported seeing herself from above, lying in bed, and this happened three times. She saw only her legs and lower trunk.'}
+];
+
+/* Table V of the 1963 paper */
+var TABLEV=[
+  {k:'Auditory',nd:42,ndp:15,d:24,dp:9},
+  {k:'Visual',nd:28,ndp:12,d:10,dp:7},
+  {k:'Combined',nd:13,ndp:7,d:9,dp:5},
+  {k:'Unclassified',nd:8,ndp:3,d:4,dp:2}
+];
+
+var REFS={
+  pp63:{s:'Penfield & Perot 1963',f:'Penfield W, Perot P. The brain’s record of auditory and visual experience: a final summary and discussion. Brain 1963;86(4):595–696.',u:'https://doi.org/10.1093/brain/86.4.595',n:'Read in full, as text and as page images.'},
+  mullan1959:{s:'Mullan & Penfield 1959',f:'Mullan S, Penfield W. Illusions of comparative interpretation and emotion: production by epileptic discharge and by electrical stimulation in the temporal cortex. A.M.A. Archives of Neurology & Psychiatry 1959;81(3):269–284.',u:'https://doi.org/10.1001/archneurpsyc.1959.02340150001001',n:'Not reached. Cited as Penfield and Perot 1963 report it.'},
+  penfield1938:{s:'Penfield 1938',f:'Penfield W. The cerebral cortex in man: I. The cerebral cortex and consciousness. Archives of Neurology & Psychiatry 1938;40(3):417–442.',u:'https://doi.org/10.1001/archneurpsyc.1938.02270090011001',n:'Not reached. Penfield’s later papers cite it as his first report of a relived experience.'},
+  penfield1958:{s:'Penfield 1958',f:'Penfield W. Some mechanisms of consciousness discovered during electrical stimulation of the brain. Proceedings of the National Academy of Sciences of the USA 1958;44(2):51–66.',u:'https://pmc.ncbi.nlm.nih.gov/articles/PMC335365/',n:'Read in full, as page scans. A lecture given in November 1957.'},
+  penfield1959:{s:'Penfield 1959',f:'Penfield W. The interpretive cortex: the stream of consciousness in the human brain can be electrically reactivated. Science 1959;129(3365):1719–1725.',u:'https://doi.org/10.1126/science.129.3365.1719',n:'Read in full.'},
+  gloor1982:{s:'Gloor et al. 1982',f:'Gloor P, Olivier A, Quesney LF, Andermann F, Horowitz S. The role of the limbic system in experiential phenomena of temporal lobe epilepsy. Annals of Neurology 1982;12(2):129–144.',u:'https://doi.org/10.1002/ana.410120203',n:'Abstract only.'},
+  halgren1978:{s:'Halgren et al. 1978',f:'Halgren E, Walter RD, Cherlow DG, Crandall PH. Mental phenomena evoked by electrical stimulation of the human hippocampal formation and amygdala. Brain 1978;101(1):83–117.',u:'https://doi.org/10.1093/brain/101.1.83',n:'Not reached. Figures as given by Curot et al. 2017. PubMed gives the last page as 117, the publisher as 115.'},
+  bancaud1994:{s:'Bancaud et al. 1994',f:'Bancaud J, Brunet-Bourgin F, Chauvel P, Halgren E. Anatomical origin of déjà vu and vivid ‘memories’ in human temporal lobe epilepsy. Brain 1994;117(1):71–90.',u:'https://doi.org/10.1093/brain/117.1.71',n:'Abstract only.'},
+  bartolomei2004:{s:'Bartolomei et al. 2004',f:'Bartolomei F, Barbeau E, Gavaret M, Guye M, McGonigal A, Régis J, Chauvel P. Cortical stimulation study of the role of rhinal cortex in déjà vu and reminiscence of memories. Neurology 2004;63(5):858–864.',u:'https://doi.org/10.1212/01.WNL.0000137037.56916.3F',n:'Abstract only.'},
+  curot2017:{s:'Curot et al. 2017',f:'Curot J, Busigny T, Valton L, Denuelle M, Vignal JP, Maillard L, et al. Memory scrutinized through electrical brain stimulation: a review of 80 years of experiential phenomena. Neuroscience & Biobehavioral Reviews 2017;78:161–177.',u:'https://doi.org/10.1016/j.neubiorev.2017.04.018',n:'Read in full.'},
+  loftus1980:{s:'Loftus & Loftus 1980',f:'Loftus EF, Loftus GR. On the permanence of stored information in the human brain. American Psychologist 1980;35(5):409–420.',u:'https://doi.org/10.1037/0003-066X.35.5.409',n:'Read in full.'},
+  sjoberg2023:{s:'Sjöberg 2023',f:'Sjöberg RL. Brain stimulation and elicited memories. Acta Neurochirurgica 2023;165(10):2737–2745.',u:'https://doi.org/10.1007/s00701-022-05307-6',n:'Read in full. An invited review with no new data.'},
+  fox2020:{s:'Fox et al. 2020',f:'Fox KCR, Shi L, Baek S, Raccah O, Foster BL, Saha S, et al. Intrinsic network architecture predicts the effects elicited by intracranial electrical stimulation of the human brain. Nature Human Behaviour 2020;4(10):1039–1052.',u:'https://doi.org/10.1038/s41562-020-0910-1',n:'Read in full, as the author manuscript.'},
+  selim2010:{s:'Selimbeyoglu & Parvizi 2010',f:'Selimbeyoglu A, Parvizi J. Electrical stimulation of the human brain: perceptual and behavioral phenomena reported in the old and new literature. Frontiers in Human Neuroscience 2010;4:46.',u:'https://doi.org/10.3389/fnhum.2010.00046',n:'Read in full.'},
+  jaroszynski2022:{s:'Jaroszynski et al. 2022',f:'Jaroszynski C, Amorim-Leite R, Deman P, Perrone-Bertolotti M, Chabert F, Job-Chapron AS, et al. Brain mapping of auditory hallucinations and illusions induced by direct intracortical electrical stimulation. Brain Stimulation 2022;15(5):1077–1087.',u:'https://doi.org/10.1016/j.brs.2022.08.002',n:'Read in full.'},
+  wang2024:{s:'Wang et al. 2024',f:'Wang Q, Luo L, Xu N, Wang J, Yang R, Chen G, et al. Neural response properties predict perceived contents and locations elicited by intracranial electrical stimulation of human auditory cortex. Cerebral Cortex 2024;34(2):bhad517.',u:'https://doi.org/10.1093/cercor/bhad517',n:'Abstract of the published paper, and the body of its preprint.'},
+  coebergh2019:{s:'Coebergh et al. 2019',f:'Coebergh JAF, Lauw RF, Sommer IEC, Blom JD. Musical hallucinations and their relation with epilepsy. Journal of Neurology 2019;266(6):1501–1515.',u:'https://doi.org/10.1007/s00415-019-09289-x',n:'Read in full.'},
+  bellier2023:{s:'Bellier et al. 2023',f:'Bellier L, Llorens A, Marciano D, Gunduz A, Schalk G, Brunner P, Knight RT. Music can be reconstructed from human auditory cortex activity using nonlinear decoding models. PLoS Biology 2023;21(8):e3002176.',u:'https://doi.org/10.1371/journal.pbio.3002176',n:'Read in full.'},
+  parvizi2012:{s:'Parvizi et al. 2012',f:'Parvizi J, Jacques C, Foster BL, Witthoft N, Rangarajan V, Weiner KS, Grill-Spector K. Electrical stimulation of human fusiform face-selective regions distorts face perception. Journal of Neuroscience 2012;32(43):14915–14920.',u:'https://doi.org/10.1523/JNEUROSCI.2609-12.2012',n:'Read in full. A later erratum was not reached.'},
+  megevand2014:{s:'Mégevand et al. 2014',f:'Mégevand P, Groppe DM, Goldfinger MS, Hwang ST, Kingsley PB, Davidesco I, Mehta AD. Seeing scenes: topographic visual hallucinations evoked by direct electrical stimulation of the parahippocampal place area. Journal of Neuroscience 2014;34(16):5399–5405.',u:'https://doi.org/10.1523/JNEUROSCI.5202-13.2014',n:'Read in full.'},
+  meletti2006:{s:'Meletti et al. 2006',f:'Meletti S, Tassi L, Mai R, Fini N, Tassinari CA, Lo Russo G. Emotions induced by intracerebral electrical stimulation of the temporal lobe. Epilepsia 2006;47(Suppl 5):47–51.',u:'https://doi.org/10.1111/j.1528-1167.2006.00877.x',n:'Abstract only.'},
+  lanteaume2007:{s:'Lanteaume et al. 2007',f:'Lanteaume L, Khalfa S, Régis J, Marquis P, Chauvel P, Bartolomei F. Emotion induction after direct intracerebral stimulations of human amygdala. Cerebral Cortex 2007;17(6):1307–1313.',u:'https://doi.org/10.1093/cercor/bhl041',n:'Read in full.'},
+  inman2020:{s:'Inman et al. 2020',f:'Inman CS, Bijanki KR, Bass DI, Gross RE, Hamann S, Willie JT. Human amygdala stimulation effects on emotion physiology and emotional experience. Neuropsychologia 2020;145:106722.',u:'https://doi.org/10.1016/j.neuropsychologia.2018.03.019',n:'Read in full.'},
+  caruana2015:{s:'Caruana et al. 2015',f:'Caruana F, Avanzini P, Gozzo F, Francione S, Cardinale F, Rizzolatti G. Mirth and laughter elicited by electrical stimulation of the human anterior cingulate cortex. Cortex 2015;71:323–331.',u:'https://doi.org/10.1016/j.cortex.2015.07.024',n:'Abstract only.'},
+  bijanki2019:{s:'Bijanki et al. 2019',f:'Bijanki KR, Manns JR, Inman CS, Choi KS, Harati S, Pedersen NP, et al. Cingulum stimulation enhances positive affect and anxiolysis to facilitate awake craniotomy. Journal of Clinical Investigation 2019;129(3):1152–1166.',u:'https://doi.org/10.1172/JCI120110',n:'Read in full.'},
+  fried1998:{s:'Fried et al. 1998',f:'Fried I, Wilson CL, MacDonald KA, Behnke EJ. Electric current stimulates laughter. Nature 1998;391(6668):650.',u:'https://doi.org/10.1038/35536',n:'Opening paragraph and figure legend only.'},
+  picard2013:{s:'Picard et al. 2013',f:'Picard F, Scavarda D, Bartolomei F. Induction of a sense of bliss by electrical stimulation of the anterior insula. Cortex 2013;49(10):2935–2937.',u:'https://doi.org/10.1016/j.cortex.2013.08.013',n:'Not reached. Described from the same group’s later papers.'},
+  bartolomei2019:{s:'Bartolomei et al. 2019',f:'Bartolomei F, Lagarde S, Scavarda D, Carron R, Bénar CG, Picard F. The role of the dorsal anterior insula in ecstatic sensation revealed by direct electrical brain stimulation. Brain Stimulation 2019;12(5):1121–1126.',u:'https://doi.org/10.1016/j.brs.2019.06.005',n:'Read in full, as the accepted manuscript.'},
+  nencha2022:{s:'Nencha et al. 2022',f:'Nencha U, Spinelli L, Vulliemoz S, Seeck M, Picard F. Insular stimulation produces mental clarity and bliss. Annals of Neurology 2022;91(2):289–292.',u:'https://doi.org/10.1002/ana.26282',n:'Read in full.'},
+  rao2018:{s:'Rao et al. 2018',f:'Rao VR, Sellers KK, Wallace DL, Lee MB, Bijanzadeh M, Sani OG, et al. Direct electrical stimulation of lateral orbitofrontal cortex acutely improves mood in individuals with symptoms of depression. Current Biology 2018;28(24):3893–3902.e4.',u:'https://doi.org/10.1016/j.cub.2018.10.026',n:'Read in full. Supplementary tables not read.'},
+  mayberg2005:{s:'Mayberg et al. 2005',f:'Mayberg HS, Lozano AM, Voon V, McNeely HE, Seminowicz D, Hamani C, Schwalb JM, Kennedy SH. Deep brain stimulation for treatment-resistant depression. Neuron 2005;45(5):651–660.',u:'https://doi.org/10.1016/j.neuron.2005.02.014',n:'Read in full.'},
+  scangos2021:{s:'Scangos et al. 2021',f:'Scangos KW, Khambhati AN, Daly PM, Makhoul GS, Sugrue LP, Zamanian H, et al. Closed-loop neuromodulation in an individual with treatment-resistant depression. Nature Medicine 2021;27(10):1696–1700.',u:'https://doi.org/10.1038/s41591-021-01480-w',n:'Read in full, as the author manuscript.'},
+  mantione2014:{s:'Mantione et al. 2014',f:'Mantione M, Figee M, Denys D. A case of musical preference for Johnny Cash following deep brain stimulation of the nucleus accumbens. Frontiers in Behavioral Neuroscience 2014;8:152.',u:'https://doi.org/10.3389/fnbeh.2014.00152',n:'Read in full.'},
+  parvizi2013:{s:'Parvizi et al. 2013',f:'Parvizi J, Rangarajan V, Shirer WR, Desai N, Greicius MD. The will to persevere induced by electrical stimulation of the human cingulate gyrus. Neuron 2013;80(6):1359–1367.',u:'https://doi.org/10.1016/j.neuron.2013.10.057',n:'Read in full, as the author manuscript.'},
+  blanke2002:{s:'Blanke et al. 2002',f:'Blanke O, Ortigue S, Landis T, Seeck M. Stimulating illusory own-body perceptions. Nature 2002;419(6904):269–270.',u:'https://doi.org/10.1038/419269a',n:'Read in full.'},
+  ezzyat2018:{s:'Ezzyat et al. 2018',f:'Ezzyat Y, Wanda PA, Levy DF, Kadel A, Aka A, Pedisich I, et al. Closed-loop stimulation of temporal cortex rescues functional networks and improves memory. Nature Communications 2018;9(1):365.',u:'https://doi.org/10.1038/s41467-017-02753-0',n:'Read in full.'}
+};
+
+/* Experience map: running text. Checked against sources before publication. */
+var SERIES=[
+  ['Operations reviewed','1,288'],
+  ['Patients','1,132'],
+  ['Temporal lobe explored and stimulated','520'],
+  ['of these, right side and left side','248 and 272'],
+  ['Memory-like experience under the electrode','40 (7.7%)'],
+  ['Memory-like experience in their own seizures','53 (10%)'],
+  ['of these 53, a response at operation','24'],
+  ['of these 24, with the same content','16'],
+  ['Patients explored outside the temporal lobe','612'],
+  ['of these, with a memory-like experience','0']
+];
+var CAP2='Each bar counts responses. A response is one point on the cortex that gave an experience, and a point stimulated more than once is counted once. Dominant means the hemisphere that carries speech. In two of the 40 patients speech was in the right hemisphere, so non-dominant does not always mean right. The 40 patients were 18 male and 22 female, and their average age at operation was 25.';
+function REC(id,label){return ' <a class="lk" href="'+EXPURL+'#'+id+'">Record: '+label+'</a>';}
+var ABOUT_A='<h2>About this map</h2>'+
+'<h3>Wilder Penfield</h3>'+
+'<p>Wilder Graves Penfield (1891 to 1976) was a neurosurgeon. He was born in Spokane, Washington, studied at Princeton and at Oxford, where Charles Sherrington introduced him to the study of the brain, and took his medical degree at Johns Hopkins in 1918. In 1928 he moved from New York to the Royal Victoria Hospital in Montreal with his surgical partner William Cone. In 1934 he founded the Montreal Neurological Institute. He directed it until 1960 and died in Montreal.</p>'+
+'<p>His subject was epilepsy. He operated under local anaesthetic, so the patient was conscious. He stimulated points on the exposed cortex with an electric current and recorded what the patient reported. The aim was to find and remove the tissue where the seizures began. This way of operating became known as the Montreal procedure. The responses on this page were recorded during those operations.</p>'+
+'<h3>What the temporal lobe gave</h3>'+
+'<p>On the sensorimotor strip a current gives a movement or a tingling in some part of the body. That is the subject of the <a href="'+BODYURL+'">Body map</a>. On the anterior transverse gyrus of Heschl it gives a crude sound such as buzzing. Elsewhere in the temporal lobe Penfield sometimes got something of another kind. A patient heard a voice or a piece of music, or saw people or a place, and often knew it as something from the past. He called this an experiential response. He first reported one in 1938. In 1963, with Phanor Perot, he published a final summary of every case.</p>'+
+'<p>That paper reviews 1,288 consecutive operations on 1,132 patients. The temporal lobe was explored and stimulated in 520 of them. Forty reported a memory-like experience under the electrode. Among the 612 patients explored elsewhere, none did.</p>'+
+'<p>The stimulus usually used was a train of square-wave pulses, each of 2 to 5 milliseconds, 40 to 100 a second, at 1 to 5 volts. The patients stayed aware of the operating room while the experience ran. Where it could be tested, the experience moved forward at a normal pace while the current was on and stopped when the electrode was lifted. Occasionally it outlasted the stimulus.</p>'+
+'<p>A second kind of response brought nothing back. It changed how the present seemed: familiar, strange, louder, nearer, frightening. The paper calls these interpretive illusions, and it calls the cortex that gave both kinds of response the interpretive cortex.</p>'+
+'<p>Some kinds of experience never came. The paper lists them: making up one’s mind, skilled acts, speaking, writing, adding figures, eating and tasting, sexual experience, painful suffering and weeping.</p>'+
+'<p>The authors do not claim that the temporal cortex holds the record of the past. They suggest that the record lies in circuits at a distance, and that this cortex can call it up.</p>'+
+'<p class="src">Sources: Penfield &amp; Perot 1963. Penfield 1938, as cited there.</p>'+
+'<h3>The original figures</h3>'+
+'<p>The 1963 paper has summary maps. Figs 9 to 12 carry a numbered point for each response, Figs 7 and 13 show the points as dots, and Figs 1 and 14 letter the kinds of response on outline drawings of the two hemispheres. They are published artwork and are not reproduced on this site.</p>'+
+'<ul class="abl2"><li>Penfield and Perot 1963, in the journal Brain. <a href="https://doi.org/10.1093/brain/86.4.595" rel="noopener">doi.org/10.1093/brain/86.4.595</a></li>'+
+'<li>Penfield 1958, a lecture given in 1957. It marks the interpretive cortex on a photograph of the left hemisphere. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC335365/" rel="noopener">Free full text, PubMed Central</a></li></ul>';
+var ABOUT_B='<h3>What later work changed</h3>'+
+'<p>Groups that worked later with electrodes placed deep in the brain moved the source of these experiences inward. In one series of 29 patients, dream-like experiences came only when a seizure or the current reached the limbic structures deep in the temporal lobe, and the outer cortex did not have to take part. In another series a dreamy state could be started from the amygdala, from the hippocampus or from the outer cortex, and a larger share of the deep sites produced it.</p>'+
+'<p>A review of 80 years of reports counted 273 stimulations that brought back a memory. Most of the memories were vague, about 14% were of one particular event, and well under 1% of stimulations produced one.</p>'+
+'<p>Some doubt that these are memories at all. Loftus and Loftus read Penfield and Perot’s case notes and argued that even the most lifelike reports look like scenes the patient put together. Sjöberg argues that the patient may take a mental event for a memory, and says that neither account can yet be proved.</p>'+
+'<p>A map of 1,537 stimulated sites in 67 patients shows how unevenly the brain answers. Stimulation produced a noticeable effect at just over half the sites in the networks for movement, touch and vision. In the limbic and default networks it did so at about a fifth to a quarter of the sites, and the effects there were more varied and included emotion and recall.</p>'+
+'<p class="src">Sources: Gloor et al. 1982. Bancaud et al. 1994. Curot et al. 2017. Loftus &amp; Loftus 1980. Sjöberg 2023. Fox et al. 2020.</p>'+
+'<h3>Significance to brain-computer interfaces</h3>'+
+'<dl class="abl">'+
+'<dt>Reading</dt><dd>A song has been rebuilt from recordings made over the convolution where Penfield’s patients heard music. Twenty-nine patients listened to the song while their brain activity was recorded. Nothing was stimulated, and what was read out was a song being heard, not one imagined.'+REC('music','Music')+'</dd>'+
+'<dt>Memory</dt><dd>In 25 epilepsy patients a system watched brain activity while they learned lists of words, and gave a half-second burst of stimulation to the lateral temporal cortex when it predicted that a word would be forgotten. Words stimulated in this way were about 15% more likely to be recalled. The authors call it a proof of concept.</dd>'+
+'<dt>Mood</dt><dd>One woman with severe depression was given a device that answered a signal in her amygdala with six seconds of stimulation. Her depression score fell by more than half in 12 days. In a study of 25 epilepsy patients, 100 to 200 seconds of stimulation of the lateral orbitofrontal cortex lifted mood in those with moderate to severe symptoms of depression.'+REC('mood','Mood')+'</dd>'+
+'<dt>Preference</dt><dd>One man’s taste in music changed while a stimulator in his nucleus accumbens was running, and changed back when its batteries ran down.'+REC('wanting','A changed preference')+'</dd>'+
+'<dt>Limits</dt><dd>Nearly every finding on the experience map comes from people with epilepsy, or with another illness that was the reason for the electrodes. Several rest on one patient. Most stimulations produce no experience. In nine patients whose amygdala was stimulated, the body answered reliably and seven of them felt no emotion.'+REC('fear','Fear')+'</dd>'+
+'</dl>'+
+'<p class="src">Sources: Bellier et al. 2023. Ezzyat et al. 2018. Scangos et al. 2021. Rao et al. 2018. Mantione et al. 2014. Inman et al. 2020.</p>';
+var METHODS=[
+ ['Scope','The experience map shows what Penfield and Perot (1963) report from electrical stimulation of the temporal lobe: memory-like experiences, and altered interpretation of the present. A third layer adds feelings reported by later groups, mostly from other parts of the brain. It does not reproduce the 1963 figures.'],
+ ['Counts','Counts of memory-like experiences are from Table V and section 7 of the 1963 paper. The figures for the series as a whole are from its sections 3 and 5. A count is a number of stimulation points unless it says patients. The count of music points by side was made for this site from the legend of Fig. 9 and the case reports, and is not in the paper.'],
+ ['Cases','The case notes paraphrase the case reports in section 5 of the 1963 paper and carry its case numbers and page numbers. Each case is filed under the kind of response that the legends of Figs 9 to 12 give it. Patients’ words are not quoted at length. Some titles of pieces of music are given, as the paper prints them.'],
+ ['Plate','Fig. 1 is an original schematic and is not to scale. Shading shows the convolution or surface that a source names. The numbered points of Figs 9 to 12 of the 1963 paper are not transferred to it. Structures on the inner face of the hemisphere or inside it are projected onto the side view in broken outline, and their positions are approximate.'],
+ ['The present, altered','The interpretive illusions are described in the 1963 paper only in summary, in its Table II and Fig. 1, with reference to Mullan and Penfield (1959), which was not reached. The 1963 paper gives that study as 214 patients, 70 of them with illusions. A lecture Penfield gave in 1957, before the study was published, gives 217 and 38.'],
+ ['Later work','Each later finding paraphrases its source, and the note after each reference says how much of the source was read. Nearly all the patients had epilepsy, and the electrodes were placed to find where their seizures began. Several findings rest on one patient. They are listed to show what has been reported, not how often it happens.'],
+ ['Sides','Dominant means the hemisphere that carries speech. The plate shows one hemisphere and stands for either. The side for each finding is in its record.'],
+ ['Source check','On 26 November 2026 every statement taken from the 1963 paper was checked against its pages in two separate passes, apart from the reading that wrote the page, and the corrections were applied. Each later source was read once for this site. The site has not been peer reviewed.'],
+ ['Known gaps','Not reached: Mullan and Penfield 1959, Penfield 1938, Halgren et al. 1978 and the 2013 letter of Picard et al. Read as abstracts only: Gloor et al. 1982, Bancaud et al. 1994, Bartolomei et al. 2004, Meletti et al. 2006 and Caruana et al. 2015. Of Fried et al. 1998 only the opening paragraph and the figure legend were read. The count of three music sites in Wang et al. 2024 is from the preprint. The 1963 paper says that 31 of the 46 voice responses were recognised by the patient, but the legend of its Fig. 9 marks 17 voice responses as familiar, and the map leaves the figure out.'],
+ ['Use','Check a finding against its source before citing it.']
+];
+
+(function(){
+'use strict';
+function $(i){return document.getElementById(i);}
+var NS='http://www.w3.org/2000/svg';
+function S(t,a,p){var e=document.createElementNS(NS,t),k;for(k in a){if(a[k]!==null&&a[k]!==undefined){e.setAttribute(k,a[k]);}}if(p){p.appendChild(e);}return e;}
+function H(t,c,h,p){var e=document.createElement(t);if(c){e.className=c;}if(h!==undefined&&h!==null){e.innerHTML=h;}if(p){p.appendChild(e);}return e;}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function r1(v){return Math.round(v*10)/10;}
+
+var EID={},GK={},SEQ=[];
+ENTRIES.forEach(function(e){EID[e.id]=e;SEQ.push(e.id);});
+GROUPS.forEach(function(g){GK[g.k]=g;});
+var state={sel:null,g:'R'};
+var MQ=window.matchMedia?window.matchMedia('(max-width:1020px)'):null;
+function isNarrow(){return !!(MQ&&MQ.matches);}
+function paneSmall(){return isNarrow()&&$('fig1').clientWidth<560;}
+var PMODE='';
+function paneMode(){return (paneSmall()?'s':'l')+state.g;}
+
+/* ---------- curves ---------- */
+function sp(p){var d='',n=p.length,i,a,b,c,e;
+  for(i=0;i<n-1;i++){a=p[i?i-1:0];b=p[i];c=p[i+1];e=p[i+2<n?i+2:n-1];
+    d+=' C'+r1(b[0]+(c[0]-a[0])/6)+' '+r1(b[1]+(c[1]-a[1])/6)+' '+r1(c[0]-(e[0]-b[0])/6)+' '+r1(c[1]-(e[1]-b[1])/6)+' '+c[0]+' '+c[1];}
+  return d;}
+function open(p){return 'M'+p[0][0]+' '+p[0][1]+sp(p);}
+function rev(p){return p.slice().reverse();}
+function area(parts){var d='',i;for(i=0;i<parts.length;i++){d+=(i?' L':'M')+parts[i][0][0]+' '+parts[i][0][1]+(parts[i].length>1?sp(parts[i]):'');}return d+' Z';}
+
+/* ---------- side view of one hemisphere, front to the left. An original schematic, not to scale. ---------- */
+var OUT=[[258,356],[232,366],[196,372],[158,368],[122,356],[94,336],[76,308],[70,272],[76,230],[94,186],[124,144],[164,108],[214,78],[272,56],[336,44],[402,42],[466,50],[526,68],[578,96],[622,134],[654,180],[672,230],[678,282],[670,330],[650,372],[620,404],[584,426],[540,444],[490,460],[436,474],[380,484],[330,484],[288,472],[258,450],[240,420],[236,390],[244,368],[258,356]];
+var SYL=[[258,356],[300,344],[352,330],[410,312],[466,292],[516,270],[552,248],[566,222]];
+var STS=[[262,410],[310,398],[370,384],[432,366],[492,344],[540,318],[576,286],[592,252]];
+var ITS=[[282,452],[336,446],[400,436],[464,420],[524,396],[572,368],[600,350]];
+var CS=[[424,43],[420,96],[410,150],[396,204],[382,256],[372,304]];
+var PRCS=[[366,52],[358,106],[346,160],[332,214],[320,264],[314,310]];
+var POCS=[[480,52],[474,104],[462,158],[446,210],[430,256],[422,292]];
+var MINOR=[
+  [[352,128],[296,122],[236,134],[180,160]],
+  [[326,226],[276,214],[222,222],[172,250]],
+  [[300,344],[294,316],[288,292]],
+  [[274,352],[248,338],[222,332]],
+  [[456,176],[500,146],[548,134],[594,152],[626,190]],
+  [[612,330],[640,312],[660,286]],
+  [[626,138],[612,160]],
+  [[156,300],[124,292]],
+  [[556,174],[596,188]],
+  [[120,214],[150,200],[176,210]],
+  [[206,98],[216,126]],
+  [[252,282],[228,272],[208,282]],
+  [[512,98],[522,130]],
+  [[640,232],[656,258]],
+  [[344,468],[396,462]],
+  [[410,404],[448,394]]
+];
+var CING=[[232,338],[206,318],[190,290],[188,258],[204,224],[238,196],[292,174],[360,164],[428,166],[490,182],[530,218]];
+var ZONES={
+  t1:{k:'a',d:area([SYL.slice(0,7),rev(STS.slice(0,7)),[[242,414],[237,392],[244,370]]])},
+  t2:{k:'a',d:area([STS.slice(0,7),rev(ITS),[[262,458],[245,438],[242,414]]])},
+  t3:{k:'a',d:area([ITS,[[620,404],[584,426],[540,444],[490,460],[436,474],[380,484],[330,484],[292,474]]])},
+  tpo:{k:'a',d:area([[[576,286],[600,350]],[[620,404],[646,360],[644,314],[612,284]]])},
+  ang:{k:'a',d:area([[[570,268],[580,236],[606,224],[630,242],[626,276],[600,292],[570,268]]]),ol:1},
+  lofc:{k:'a',d:area([[[242,352],[214,340],[168,340],[128,344],[108,350]],[[122,356],[158,368],[196,372],[232,366]]]),ol:1},
+  sma:{k:'a',d:area([[[300,52],[334,46],[366,44]],[[364,74],[334,80],[304,86]]]),ol:1},
+  sup:{k:'l',p:[[342,340],[410,320],[466,300],[520,278]],w:11,ph:1},
+  inf:{k:'l',p:[[330,474],[400,468],[470,452],[540,430]],w:9,ph:1},
+  hip:{k:'l',p:[[322,424],[366,416],[408,402],[446,384]],w:13,ph:1},
+  rhi:{k:'l',p:[[286,460],[316,466],[348,464]],w:9,ph:1},
+  ppa:{k:'l',p:[[452,440],[482,430],[510,418]],w:9,ph:1},
+  ffa:{k:'l',p:[[534,424],[560,410],[584,394]],w:9,ph:1},
+  pacc:{k:'l',p:[[192,300],[187,272],[192,244]],w:20,ph:1},
+  amcc:{k:'l',p:[[244,193],[274,180],[310,170]],w:20,ph:1},
+  scc:{k:'l',p:[[234,339],[218,329],[204,315]],w:20,ph:1},
+  amy:{k:'c',c:[298,420],r:14,ph:1},
+  dai:{k:'c',c:[330,324],r:12,ph:1},
+  nac:{k:'c',c:[276,332],r:9,ph:1}
+};
+var ZNAME={t1:'first temporal convolution, side',t2:'second temporal convolution',t3:'third temporal convolution',tpo:'back of the temporal lobe, toward the occipital lobe',ang:'angular gyrus',lofc:'lateral orbitofrontal cortex',sma:'supplementary motor area',sup:'upper surface of the first temporal convolution, inside the fissure',inf:'under surface of the temporal lobe',hip:'hippocampus (deep)',rhi:'rhinal cortex (inner face)',ppa:'parahippocampal cortex (under surface)',ffa:'fusiform gyrus (under surface)',pacc:'anterior cingulate cortex, in front of the corpus callosum (inner face)',amcc:'anterior midcingulate cortex (inner face)',scc:'subcallosal cingulate (inner face)',amy:'amygdala (deep)',dai:'front of the insula (deep in the fissure)',nac:'nucleus accumbens (deep)'};
+var BASE={R:['sup'],I:['sup'],L:['pacc','amcc','scc','dai','nac']};
+var LP={
+  voices:{x:216,y:584,tx:300,ty:372},music:{x:316,y:584,tx:372,ty:356},both:{x:446,y:584,tx:440,ty:332},flash:{x:236,y:616,tx:330,ty:424},scenes:{x:566,y:616,tx:618,ty:340},
+  familiar:{x:190,y:584,tx:300,ty:428},csound:{x:336,y:584,tx:392,ty:350},csight:{x:480,y:584,tx:500,ty:384},fear:{x:290,y:616,tx:350,ty:462},lonely:{x:430,y:616,tx:452,ty:446},
+  laughter:{x:120,y:-36,tx:188,ty:268},drive:{x:262,y:-36,tx:276,ty:180},oob:{x:620,y:-36,tx:604,ty:240},mood:{x:112,y:440,tx:160,ty:356},wanting:{x:134,y:480,tx:270,ty:336},bliss:{x:160,y:520,tx:322,ty:329}
+};
+
+function zel(id,parent){
+  var z=ZONES[id],g=S('g',{'class':'zn'+(z.ph?' ph':'')+(z.ol?' ol':''),'data-z':id,tabindex:'-1'},parent),d;
+  if(z.k==='a'){
+    S('path',{d:z.d,'class':'zf'},g);S('path',{d:z.d,'class':'zt'},g);S('path',{d:z.d,'class':'zo'},g);
+  }else if(z.k==='l'){
+    d=open(z.p);
+    S('path',{d:d,'class':'ze','stroke-width':z.w},g);S('path',{d:d,'class':'zb','stroke-width':z.w-2.2},g);
+    S('path',{d:d,'class':'zf ln','stroke-width':z.w-2.2},g);S('path',{d:d,'class':'zt ln','stroke-width':z.w-2.2},g);
+    S('path',{d:d,'class':'zh','stroke-width':Math.max(z.w+10,24)},g);
+  }else{
+    S('circle',{cx:z.c[0],cy:z.c[1],r:z.r,'class':'zc'},g);S('circle',{cx:z.c[0],cy:z.c[1],r:z.r,'class':'zf'},g);S('circle',{cx:z.c[0],cy:z.c[1],r:z.r,'class':'zt'},g);
+    S('circle',{cx:z.c[0],cy:z.c[1],r:z.r+9,'class':'zh'},g);
+  }
+  return g;
+}
+function txt(x,y,s,cls,parent,anchor){var t=S('text',{x:x,y:y,'class':cls||null,'text-anchor':anchor||null},parent);t.textContent=s;return t;}
+
+function buildPlate(){
+  var wrap=$('fig1'),small=paneSmall(),g=GK[state.g],i,k;
+  wrap.innerHTML='';wrap.classList.toggle('fitm',small);PMODE=paneMode();
+  var svg=S('svg',{viewBox:small?'56 28 638 530':'30 -70 700 700',role:'img','aria-label':'Side view of one cerebral hemisphere with the regions named in the records'},wrap);
+  svg.style.setProperty('--gc',g.c);
+  var an=S('g',{'class':'anat'},svg);
+  S('path',{d:area([[[516,446],[532,486],[566,514],[610,524],[650,510],[674,478],[680,438],[664,402],[636,386]]]),'class':'cbl'},an);
+  S('path',{d:'M468 452 C472 486 480 516 492 550 L530 550 C524 516 520 488 522 450 Z','class':'stem'},an);
+  S('path',{d:open(OUT)+' Z','class':'hemi'},an);
+  S('path',{d:area([PRCS,rev(POCS),[[440,46],[402,42],[370,44]]]),'class':'strip'},an);
+  var zg=S('g',{'class':'zones'},svg),shown={};
+  ['t1','t2','t3','tpo','ang','lofc','sma'].forEach(function(id){zel(id,zg);shown[id]=1;});
+  var sl=S('g',{'class':'anat sul'},svg);
+  [SYL,STS,ITS,CS,PRCS,POCS].forEach(function(p,n){S('path',{d:open(p),'class':n===0?'fis':(n===3?'cs':null)},sl);});
+  MINOR.forEach(function(p){S('path',{d:open(p),'class':'fine'},sl);});
+  S('path',{d:open(OUT)+' Z','class':'out'},sl);
+  if(state.g==='L'){
+    S('path',{d:open(CING),'class':'ctx','stroke-width':22},sl);S('path',{d:open(CING),'class':'ctxb','stroke-width':19.8},sl);
+    S('ellipse',{cx:380,cy:318,rx:72,ry:22,transform:'rotate(-18 380 318)','class':'ctxe'},sl);
+  }
+  var pg=S('g',{'class':'zones deep'},svg);
+  var need=BASE[state.g].slice(),e=EID[state.sel];
+  if(e){e.z.concat(e.z2||[]).forEach(function(id){if(need.indexOf(id)<0){need.push(id);}});}
+  need.forEach(function(id){if(!shown[id]&&ZONES[id]){zel(id,pg);shown[id]=1;}});
+  if(shown.sup){S('ellipse',{cx:452,cy:305,rx:12,ry:4.4,transform:'rotate(-20 452 305)','class':'hes'},pg);}
+  /* anatomy lettering, large panes only */
+  var al=S('g',{'class':'anat lbl'},svg);
+  txt(78,140,'FRONT','ori',al,'middle');txt(690,150,'BACK','ori',al,'middle');
+  txt(246,112,'frontal lobe',null,al,'middle');txt(548,112,'parietal lobe',null,al,'middle');
+  txt(606,474,'cerebellum',null,al,'middle');
+  txt(476,228,'lateral fissure',null,al,'start');S('path',{d:'M490 232 L482 284','class':'ptr'},al);
+  txt(506,312,'1st',null,al,'middle');txt(508,376,'2nd',null,al,'middle');txt(482,444,'3rd',null,al,'middle');
+  if(shown.sup){txt(404,280,'Heschl’s gyrus',null,al,'end');S('path',{d:'M406 284 L446 303','class':'ptr'},al);}
+  var bl=S('a',{'class':'bodylink',href:BODYURL},svg);
+  txt(424,-14,'touch and movement: see the Body map','blk',bl,'middle');S('path',{d:'M424 -8 L424 40','class':'ptr2'},bl);
+  /* entry labels */
+  var lg=S('g',{'class':'labs'},svg);
+  ENTRIES.forEach(function(en){
+    if(en.g!==state.g){return;}
+    var p=LP[en.id];if(!p){return;}
+    var up=p.y<p.ty,a=S('g',{'class':'elab','data-id':en.id,tabindex:'0',role:'button','aria-label':en.l},lg);
+    S('path',{d:'M'+p.x+' '+(up?p.y+6:p.y-13)+' L'+p.tx+' '+p.ty,'class':'lead'},a);
+    S('circle',{cx:p.tx,cy:p.ty,r:2.2,'class':'dot'},a);
+    txt(p.x,p.y,en.lab,'lab',a,'middle');
+  });
+  mark();
+}
+function mark(){
+  var e=EID[state.sel],on={},on2={},i,els;
+  if(e){e.z.forEach(function(z){on[z]=1;});(e.z2||[]).forEach(function(z){on2[z]=1;});}
+  els=document.querySelectorAll('#fig1 .zn');
+  for(i=0;i<els.length;i++){var z=els[i].getAttribute('data-z');els[i].classList.toggle('on',!!on[z]);els[i].classList.toggle('on2',!!on2[z]&&!on[z]);}
+  els=document.querySelectorAll('[data-id]');
+  for(i=0;i<els.length;i++){els[i].classList.toggle('on',els[i].getAttribute('data-id')===state.sel);}
+  var b=['R','I','L'];
+  b.forEach(function(k){['btn-','m-'].forEach(function(pre){var x=$(pre+k);if(x){x.setAttribute('aria-pressed',state.g===k?'true':'false');}});});
+  if($('pick')){$('pick').value=state.sel||'';}
+}
+
+/* ---------- record ---------- */
+function refTag(keys){return keys.map(function(k){return REFS[k]?REFS[k].s:k;}).join('; ');}
+function recUrl(id){return XPRE+SLUG[id]+XSUF;}
+function caseText(c){return '<b class="who">'+esc(c.i)+', '+esc(c.w)+', '+esc(c.sd)+' side.</b> '+esc(c.t)+' <span class="r">[Case '+c.c+', pp. '+esc(c.p)+']</span>';}
+/* A record with case reports opens on one of them; its counts and anatomy follow the cases. */
+function renderRecord(){
+  var e=EID[state.sel],rec=$('record'),g=GK[e.g],h='',used=[],i,n=0,inG=ENTRIES.filter(function(x){return x.g===e.g;});
+  function use(k){if(used.indexOf(k)<0){used.push(k);}}
+  for(i=0;i<inG.length;i++){if(inG[i].id===e.id){n=i+1;}}
+  var cases=(e.cases||[]).slice(),lead=null,facts='';
+  if(cases.length){i=0;if(e.lead){cases.forEach(function(c,j){if(c.c===e.lead){i=j;}});}lead=cases.splice(i,1)[0];}
+  if(e.term){facts+='<p class="kv"><b>Penfield’s term</b> '+esc(e.term)+'</p>';}
+  if(e.count){facts+='<p class="kv"><b>'+(e.g==='L'?'Evidence':'Count')+'</b> '+esc(e.count)+'</p>';}
+  if(e.where){facts+='<p class="kv"><b>Where</b> '+esc(e.where)+'</p>';}
+  if(e.side){facts+='<p class="kv"><b>Side</b> '+esc(e.side)+'</p>';}
+  h+='<div class="rec-h"><div><div class="rec-id">'+esc(g.l)+' · '+n+' of '+inG.length+'</div><h2>'+esc(e.l)+'</h2>';
+  if(lead){h+='<p class="lead">'+caseText(lead)+'</p>';}
+  else{if(e.note){h+='<p class="note">'+esc(e.note)+'</p>';}h+=facts;}
+  h+='<div class="rec-act"><button type="button" class="plain" data-step="-1">← Previous</button><button type="button" class="plain" data-step="1">Next →</button></div></div></div>';
+  if(lead){
+    use(PP);
+    h+='<div class="sect"><h3>More from the 1963 case reports</h3>';
+    cases.forEach(function(c){h+='<div class="row"><span class="m">C'+c.c+'</span><div>'+caseText(c)+'</div></div>';});
+    h+='<p class="none">Paraphrased from the case reports of Penfield and Perot 1963. A probe is a touch of the stimulating electrode. The numbers are the case numbers of that paper.</p></div>';
+    h+='<div class="sect"><h3>Term, count and site</h3><div class="facts">'+(e.note?'<p class="note">'+esc(e.note)+'</p>':'')+facts+'</div></div>';
+  }else if(e.g!=='L'){use(PP);}
+  var lat=LATER.filter(function(f){return f.to.indexOf(e.id)>=0;});
+  if(lat.length){
+    h+='<div class="sect"><h3>'+(e.g==='L'?'Findings':'Later evidence')+'</h3>';
+    lat.forEach(function(f){f.r.forEach(use);h+='<div class="row"><span class="m">'+esc(f.m)+'</span><div>'+esc(f.t)+' <span class="r">['+esc(refTag(f.r))+']</span></div></div>';});
+    h+='</div>';
+  }
+  if(e.src){e.src.forEach(use);}
+  h+='<div class="sect"><h3>On the plate</h3><p class="none plain2">'+esc(plateNote(e))+'</p></div>';
+  h+='<div class="sect"><h3>Sources cited in this record</h3><ol class="srcs">';
+  used.forEach(function(k){var r=REFS[k];if(r){h+='<li>'+esc(r.f)+(r.u?' <a href="'+esc(r.u)+'" rel="noopener">'+esc(r.u.replace(/^https?:\/\//,''))+'</a>':'')+(r.n?' <span class="rn">'+esc(r.n)+'</span>':'')+'</li>';}});
+  h+='</ol></div>';
+  h+='<p class="perm">This record has its own page: <a href="'+esc(recUrl(e.id))+'">penfieldsmap.com/experience/'+esc(SLUG[e.id])+'/</a></p>';
+  rec.innerHTML=h;
+}
+function plateNote(e){
+  var a=e.z.map(function(z){return ZNAME[z];}),b=(e.z2||[]).map(function(z){return ZNAME[z];}),s='Shaded: '+a.join('; ')+'.';
+  if(b.length){s+=' Lighter, in broken outline, sites from later work: '+b.join('; ')+'.';}
+  return s+' Positions are by region, not by point.';
+}
+
+/* ---------- selection ---------- */
+function select(id,opt){
+  opt=opt||{};var e=EID[id];if(!e){return;}
+  var regroup=e.g!==state.g;state.sel=id;state.g=e.g;
+  buildPlate();buildChips();renderRecord();
+  $('f1t').textContent=GK[e.g].l+'. Side view of one hemisphere, front to the left.';
+  if($('mnow')){$('mnow').textContent=e.lab;}
+  if(!opt.nohash){try{if(location.hash.slice(1)!==id){history.replaceState(null,'','#'+id);}}catch(x){}}
+  if(!opt.noscroll){
+    var d=$('duo'),y=d.getBoundingClientRect().top+window.pageYOffset-document.querySelector('header.top').offsetHeight-(isNarrow()?0:$('tools').offsetHeight);
+    if(opt.scroll||window.pageYOffset>y){window.scrollTo(0,y);}
+  }
+  var c=document.querySelector('#chips .on');if(c&&c.scrollIntoView&&regroup===false){try{c.scrollIntoView({block:'nearest',inline:'nearest'});}catch(x){}}
+}
+function step(d){var i=SEQ.indexOf(state.sel);i=(i+d+SEQ.length)%SEQ.length;select(SEQ[i]);}
+function setGroup(k){if(k===state.g){return;}var f=ENTRIES.filter(function(x){return x.g===k;})[0];if(f){select(f.id);}}
+function pickZone(z){
+  var c=ENTRIES.filter(function(x){return x.g===state.g&&(x.z.indexOf(z)>=0||(x.z2||[]).indexOf(z)>=0);});
+  if(!c.length){c=ENTRIES.filter(function(x){return x.z.indexOf(z)>=0;});}
+  if(!c.length){return;}
+  var i=-1,j;for(j=0;j<c.length;j++){if(c[j].id===state.sel){i=j;}}
+  select(c[(i+1)%c.length].id);
+}
+function buildChips(){
+  var c=$('chips');c.innerHTML='';
+  ENTRIES.forEach(function(e){if(e.g===state.g){var b=H('button','chip'+(e.id===state.sel?' on':''),esc(e.lab),c);b.type='button';b.setAttribute('data-id',e.id);}});
+}
+
+/* ---------- key, chart, references ---------- */
+function buildKey(){
+  var k=$('key');k.innerHTML='';
+  GROUPS.forEach(function(g){
+    var d=H('div',null,null,k);
+    H('h3',null,'<svg class="sw" viewBox="0 0 24 12" aria-hidden="true"><rect width="24" height="12" fill="'+g.c+'"/><rect width="24" height="12" fill="url(#'+g.tx+')"/><rect x=".5" y=".5" width="23" height="11" fill="none" stroke="#1c1a16"/></svg>'+esc(g.l),d);
+    H('p',null,esc(g.t),d);
+    var ul=H('ul',null,null,d);
+    ENTRIES.forEach(function(e){if(e.g===g.k){var li=H('li',null,null,ul),b=H('button','lk',esc(e.l),li);b.type='button';b.setAttribute('data-id',e.id);b.setAttribute('data-scroll','1');}});
+  });
+  var p=$('pick');p.innerHTML='';
+  GROUPS.forEach(function(g){var og=H('optgroup',null,null,p);og.label=g.l;ENTRIES.forEach(function(e){if(e.g===g.k){var o=H('option',null,esc(e.l),og);o.value=e.id;}});});
+}
+function buildChart(){
+  var w=$('fig2');w.innerHTML='';
+  var svg=S('svg',{viewBox:'0 0 760 250',role:'img','aria-label':'Responses by kind and by hemisphere, from Table V of the 1963 paper'},w),x0=150,sc=11.4,y=34,g;
+  S('line',{x1:x0,y1:18,x2:x0,y2:226,stroke:'#1c1a16','stroke-width':1},svg);
+  TABLEV.forEach(function(r){
+    g=S('g',{'class':'bar','data-tip':r.k+': '+r.nd+' responses from the non-dominant hemisphere in '+r.ndp+' patients, '+r.d+' from the dominant hemisphere in '+r.dp+' patients'},svg);
+    txt(x0-10,y+19,r.k,'bk',g,'end');
+    S('rect',{x:x0,y:y,width:r1(r.nd*sc),height:15,fill:'url(#hatch)',stroke:'#1c1a16','stroke-width':.9},g);
+    txt(x0+r.nd*sc+7,y+12,r.nd+'  ('+r.ndp+' patients)','bv',g,'start');
+    S('rect',{x:x0,y:y+18,width:r1(r.d*sc),height:15,fill:'url(#stip)',stroke:'#1c1a16','stroke-width':.9},g);
+    txt(x0+r.d*sc+7,y+30,r.d+'  ('+r.dp+' patients)','bv',g,'start');
+    y+=48;
+  });
+  S('rect',{x:x0+350,y:150,width:24,height:12,fill:'url(#hatch)',stroke:'#1c1a16','stroke-width':.9},svg);txt(x0+382,160,'non-dominant, 91 responses','bv',svg,'start');
+  S('rect',{x:x0+350,y:172,width:24,height:12,fill:'url(#stip)',stroke:'#1c1a16','stroke-width':.9},svg);txt(x0+382,182,'dominant, 47 responses','bv',svg,'start');
+}
+function buildRefs(){
+  var ul=$('reflist');if(!ul){return;}
+  var ks=Object.keys(REFS).sort(function(a,b){return REFS[a].s.toLowerCase()<REFS[b].s.toLowerCase()?-1:1;});
+  ul.innerHTML='';
+  ks.forEach(function(k){var r=REFS[k];H('li',null,esc(r.f)+(r.u?' <a href="'+esc(r.u)+'" rel="noopener">'+esc(r.u.replace(/^https?:\/\//,''))+'</a>':'')+(r.n?' <span class="rn">'+esc(r.n)+'</span>':''),ul);});
+}
+
+function buildText(){
+  if($('about-a')){$('about-a').innerHTML=ABOUT_A;$('about-b').innerHTML=ABOUT_B;}
+  var ol=$('methlist');if(ol){ol.innerHTML='';METHODS.forEach(function(m){H('li',null,'<b>'+esc(m[0])+'.</b> '+esc(m[1]),ol);});}
+  var s=$('series'),h='<h3>The 1963 series</h3><dl class="series">';SERIES.forEach(function(r){h+='<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>';});s.innerHTML=h+'</dl>';
+  $('cap2').textContent=CAP2;
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click',function(ev){
+  var t=ev.target;if(!t.closest){return;}
+  var a=t.closest('nav.menu a');
+  if(a){var h=a.getAttribute('href')||'';if(h.charAt(0)==='#'&&h.length>1){ev.preventDefault();var el=$(h.slice(1));if(el){el.scrollIntoView({block:'start'});}}return;}
+  var b=t.closest('[data-step]');if(b){step(parseInt(b.getAttribute('data-step'),10));return;}
+  if(t.id==='m-prev'){step(-1);return;}
+  if(t.id==='m-next'){step(1);return;}
+  var gb=t.closest('[data-g]');if(gb){setGroup(gb.getAttribute('data-g'));return;}
+  var d=t.closest('[data-id]');if(d){if(d.tagName==='A'){if(ev.metaKey||ev.ctrlKey||ev.shiftKey){return;}ev.preventDefault();}select(d.getAttribute('data-id'),{scroll:!!d.getAttribute('data-scroll')});return;}
+  var z=t.closest('.zn');if(z){pickZone(z.getAttribute('data-z'));return;}
+});
+document.addEventListener('keydown',function(ev){
+  var t=ev.target,tag=t&&t.tagName?t.tagName.toLowerCase():'';
+  if(tag==='select'||tag==='input'){return;}
+  if((ev.key==='Enter'||ev.key===' ')&&t.getAttribute&&t.getAttribute('data-id')&&tag!=='button'){ev.preventDefault();select(t.getAttribute('data-id'));return;}
+  if(ev.metaKey||ev.ctrlKey||ev.altKey){return;}
+  if(ev.key==='ArrowRight'){step(1);ev.preventDefault();}
+  if(ev.key==='ArrowLeft'){step(-1);ev.preventDefault();}
+});
+document.addEventListener('mouseover',function(ev){
+  var t=ev.target;if(!t.closest){return;}
+  var st=$('status'),e=t.closest('[data-id]'),z,b;
+  if(e&&EID[e.getAttribute('data-id')]){var x=EID[e.getAttribute('data-id')];st.textContent=x.l+'. '+(x.count||GK[x.g].l);return;}
+  z=t.closest('.zn');if(z){st.textContent=ZNAME[z.getAttribute('data-z')];return;}
+  b=t.closest('[data-tip]');if(b){st.textContent=b.getAttribute('data-tip');}
+});
+$('pick').addEventListener('change',function(){if(EID[this.value]){select(this.value,{scroll:true});}});
+window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if(/^(sen|mot)-/.test(h)){location.replace(BODYURL+'#'+h);return;}if(EID[h]&&h!==state.sel){select(h,{nohash:true});}});
+function toolh(){var st=document.documentElement.style;st.setProperty('--toolh',$('tools').offsetHeight+'px');st.setProperty('--headh',document.querySelector('header.top').offsetHeight+'px');fitPlate();}
+/* While the opening lines are still on screen the pinned plate starts lower, so it is made shorter by the same amount and never runs off the bottom. */
+function fitPlate(){
+  var st=document.documentElement.style;
+  if(isNarrow()){st.removeProperty('--p1h');return;}
+  var stick=document.querySelector('header.top').offsetHeight+$('tools').offsetHeight,top=Math.max(stick,$('duo').getBoundingClientRect().top);
+  st.setProperty('--p1h',Math.max(260,window.innerHeight-top-26)+'px');
+}
+var FITQ=false;window.addEventListener('scroll',function(){if(FITQ){return;}FITQ=true;(window.requestAnimationFrame||setTimeout)(function(){FITQ=false;fitPlate();});},{passive:true});
+function relayout(){toolh();if(paneMode()!==PMODE){buildPlate();}}
+window.addEventListener('resize',relayout);
+if(MQ&&MQ.addEventListener){MQ.addEventListener('change',relayout);}
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(toolh);}
+
+/* ---------- start ---------- */
+var h0='';try{h0=location.hash.slice(1);}catch(x){}
+if(/^(sen|mot)-/.test(h0)){location.replace(BODYURL+'#'+h0);return;}
+window.__E={ENTRIES:ENTRIES,LATER:LATER,REFS:REFS,ZONES:ZONES,GROUPS:GROUPS,SLUG:SLUG};
+buildKey();buildChart();buildRefs();buildText();toolh();
+select(EID[h0]?h0:'voices',{nohash:true,noscroll:true});
+toolh();
+})();
+
+</script>
+</body>
+</html>

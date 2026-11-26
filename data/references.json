@@ -1,0 +1,644 @@
+{
+  "about": "Every source cited on the two maps. how_read says how much of the source was read.",
+  "experience": [
+    {
+      "key": "pp63",
+      "short": "Penfield & Perot 1963",
+      "full": "Penfield W, Perot P. The brain’s record of auditory and visual experience: a final summary and discussion. Brain 1963;86(4):595–696.",
+      "url": "https://doi.org/10.1093/brain/86.4.595",
+      "how_read": "Read in full, as text and as page images."
+    },
+    {
+      "key": "mullan1959",
+      "short": "Mullan & Penfield 1959",
+      "full": "Mullan S, Penfield W. Illusions of comparative interpretation and emotion: production by epileptic discharge and by electrical stimulation in the temporal cortex. A.M.A. Archives of Neurology & Psychiatry 1959;81(3):269–284.",
+      "url": "https://doi.org/10.1001/archneurpsyc.1959.02340150001001",
+      "how_read": "Not reached. Cited as Penfield and Perot 1963 report it."
+    },
+    {
+      "key": "penfield1938",
+      "short": "Penfield 1938",
+      "full": "Penfield W. The cerebral cortex in man: I. The cerebral cortex and consciousness. Archives of Neurology & Psychiatry 1938;40(3):417–442.",
+      "url": "https://doi.org/10.1001/archneurpsyc.1938.02270090011001",
+      "how_read": "Not reached. Penfield’s later papers cite it as his first report of a relived experience."
+    },
+    {
+      "key": "penfield1958",
+      "short": "Penfield 1958",
+      "full": "Penfield W. Some mechanisms of consciousness discovered during electrical stimulation of the brain. Proceedings of the National Academy of Sciences of the USA 1958;44(2):51–66.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC335365/",
+      "how_read": "Read in full, as page scans. A lecture given in November 1957."
+    },
+    {
+      "key": "penfield1959",
+      "short": "Penfield 1959",
+      "full": "Penfield W. The interpretive cortex: the stream of consciousness in the human brain can be electrically reactivated. Science 1959;129(3365):1719–1725.",
+      "url": "https://doi.org/10.1126/science.129.3365.1719",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "gloor1982",
+      "short": "Gloor et al. 1982",
+      "full": "Gloor P, Olivier A, Quesney LF, Andermann F, Horowitz S. The role of the limbic system in experiential phenomena of temporal lobe epilepsy. Annals of Neurology 1982;12(2):129–144.",
+      "url": "https://doi.org/10.1002/ana.410120203",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "halgren1978",
+      "short": "Halgren et al. 1978",
+      "full": "Halgren E, Walter RD, Cherlow DG, Crandall PH. Mental phenomena evoked by electrical stimulation of the human hippocampal formation and amygdala. Brain 1978;101(1):83–117.",
+      "url": "https://doi.org/10.1093/brain/101.1.83",
+      "how_read": "Not reached. Figures as given by Curot et al. 2017. PubMed gives the last page as 117, the publisher as 115."
+    },
+    {
+      "key": "bancaud1994",
+      "short": "Bancaud et al. 1994",
+      "full": "Bancaud J, Brunet-Bourgin F, Chauvel P, Halgren E. Anatomical origin of déjà vu and vivid ‘memories’ in human temporal lobe epilepsy. Brain 1994;117(1):71–90.",
+      "url": "https://doi.org/10.1093/brain/117.1.71",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "bartolomei2004",
+      "short": "Bartolomei et al. 2004",
+      "full": "Bartolomei F, Barbeau E, Gavaret M, Guye M, McGonigal A, Régis J, Chauvel P. Cortical stimulation study of the role of rhinal cortex in déjà vu and reminiscence of memories. Neurology 2004;63(5):858–864.",
+      "url": "https://doi.org/10.1212/01.WNL.0000137037.56916.3F",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "curot2017",
+      "short": "Curot et al. 2017",
+      "full": "Curot J, Busigny T, Valton L, Denuelle M, Vignal JP, Maillard L, et al. Memory scrutinized through electrical brain stimulation: a review of 80 years of experiential phenomena. Neuroscience & Biobehavioral Reviews 2017;78:161–177.",
+      "url": "https://doi.org/10.1016/j.neubiorev.2017.04.018",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "loftus1980",
+      "short": "Loftus & Loftus 1980",
+      "full": "Loftus EF, Loftus GR. On the permanence of stored information in the human brain. American Psychologist 1980;35(5):409–420.",
+      "url": "https://doi.org/10.1037/0003-066X.35.5.409",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "sjoberg2023",
+      "short": "Sjöberg 2023",
+      "full": "Sjöberg RL. Brain stimulation and elicited memories. Acta Neurochirurgica 2023;165(10):2737–2745.",
+      "url": "https://doi.org/10.1007/s00701-022-05307-6",
+      "how_read": "Read in full. An invited review with no new data."
+    },
+    {
+      "key": "fox2020",
+      "short": "Fox et al. 2020",
+      "full": "Fox KCR, Shi L, Baek S, Raccah O, Foster BL, Saha S, et al. Intrinsic network architecture predicts the effects elicited by intracranial electrical stimulation of the human brain. Nature Human Behaviour 2020;4(10):1039–1052.",
+      "url": "https://doi.org/10.1038/s41562-020-0910-1",
+      "how_read": "Read in full, as the author manuscript."
+    },
+    {
+      "key": "selim2010",
+      "short": "Selimbeyoglu & Parvizi 2010",
+      "full": "Selimbeyoglu A, Parvizi J. Electrical stimulation of the human brain: perceptual and behavioral phenomena reported in the old and new literature. Frontiers in Human Neuroscience 2010;4:46.",
+      "url": "https://doi.org/10.3389/fnhum.2010.00046",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "jaroszynski2022",
+      "short": "Jaroszynski et al. 2022",
+      "full": "Jaroszynski C, Amorim-Leite R, Deman P, Perrone-Bertolotti M, Chabert F, Job-Chapron AS, et al. Brain mapping of auditory hallucinations and illusions induced by direct intracortical electrical stimulation. Brain Stimulation 2022;15(5):1077–1087.",
+      "url": "https://doi.org/10.1016/j.brs.2022.08.002",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "wang2024",
+      "short": "Wang et al. 2024",
+      "full": "Wang Q, Luo L, Xu N, Wang J, Yang R, Chen G, et al. Neural response properties predict perceived contents and locations elicited by intracranial electrical stimulation of human auditory cortex. Cerebral Cortex 2024;34(2):bhad517.",
+      "url": "https://doi.org/10.1093/cercor/bhad517",
+      "how_read": "Abstract of the published paper, and the body of its preprint."
+    },
+    {
+      "key": "coebergh2019",
+      "short": "Coebergh et al. 2019",
+      "full": "Coebergh JAF, Lauw RF, Sommer IEC, Blom JD. Musical hallucinations and their relation with epilepsy. Journal of Neurology 2019;266(6):1501–1515.",
+      "url": "https://doi.org/10.1007/s00415-019-09289-x",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "bellier2023",
+      "short": "Bellier et al. 2023",
+      "full": "Bellier L, Llorens A, Marciano D, Gunduz A, Schalk G, Brunner P, Knight RT. Music can be reconstructed from human auditory cortex activity using nonlinear decoding models. PLoS Biology 2023;21(8):e3002176.",
+      "url": "https://doi.org/10.1371/journal.pbio.3002176",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "parvizi2012",
+      "short": "Parvizi et al. 2012",
+      "full": "Parvizi J, Jacques C, Foster BL, Witthoft N, Rangarajan V, Weiner KS, Grill-Spector K. Electrical stimulation of human fusiform face-selective regions distorts face perception. Journal of Neuroscience 2012;32(43):14915–14920.",
+      "url": "https://doi.org/10.1523/JNEUROSCI.2609-12.2012",
+      "how_read": "Read in full. A later erratum was not reached."
+    },
+    {
+      "key": "megevand2014",
+      "short": "Mégevand et al. 2014",
+      "full": "Mégevand P, Groppe DM, Goldfinger MS, Hwang ST, Kingsley PB, Davidesco I, Mehta AD. Seeing scenes: topographic visual hallucinations evoked by direct electrical stimulation of the parahippocampal place area. Journal of Neuroscience 2014;34(16):5399–5405.",
+      "url": "https://doi.org/10.1523/JNEUROSCI.5202-13.2014",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "meletti2006",
+      "short": "Meletti et al. 2006",
+      "full": "Meletti S, Tassi L, Mai R, Fini N, Tassinari CA, Lo Russo G. Emotions induced by intracerebral electrical stimulation of the temporal lobe. Epilepsia 2006;47(Suppl 5):47–51.",
+      "url": "https://doi.org/10.1111/j.1528-1167.2006.00877.x",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "lanteaume2007",
+      "short": "Lanteaume et al. 2007",
+      "full": "Lanteaume L, Khalfa S, Régis J, Marquis P, Chauvel P, Bartolomei F. Emotion induction after direct intracerebral stimulations of human amygdala. Cerebral Cortex 2007;17(6):1307–1313.",
+      "url": "https://doi.org/10.1093/cercor/bhl041",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "inman2020",
+      "short": "Inman et al. 2020",
+      "full": "Inman CS, Bijanki KR, Bass DI, Gross RE, Hamann S, Willie JT. Human amygdala stimulation effects on emotion physiology and emotional experience. Neuropsychologia 2020;145:106722.",
+      "url": "https://doi.org/10.1016/j.neuropsychologia.2018.03.019",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "caruana2015",
+      "short": "Caruana et al. 2015",
+      "full": "Caruana F, Avanzini P, Gozzo F, Francione S, Cardinale F, Rizzolatti G. Mirth and laughter elicited by electrical stimulation of the human anterior cingulate cortex. Cortex 2015;71:323–331.",
+      "url": "https://doi.org/10.1016/j.cortex.2015.07.024",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "bijanki2019",
+      "short": "Bijanki et al. 2019",
+      "full": "Bijanki KR, Manns JR, Inman CS, Choi KS, Harati S, Pedersen NP, et al. Cingulum stimulation enhances positive affect and anxiolysis to facilitate awake craniotomy. Journal of Clinical Investigation 2019;129(3):1152–1166.",
+      "url": "https://doi.org/10.1172/JCI120110",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "fried1998",
+      "short": "Fried et al. 1998",
+      "full": "Fried I, Wilson CL, MacDonald KA, Behnke EJ. Electric current stimulates laughter. Nature 1998;391(6668):650.",
+      "url": "https://doi.org/10.1038/35536",
+      "how_read": "Opening paragraph and figure legend only."
+    },
+    {
+      "key": "picard2013",
+      "short": "Picard et al. 2013",
+      "full": "Picard F, Scavarda D, Bartolomei F. Induction of a sense of bliss by electrical stimulation of the anterior insula. Cortex 2013;49(10):2935–2937.",
+      "url": "https://doi.org/10.1016/j.cortex.2013.08.013",
+      "how_read": "Not reached. Described from the same group’s later papers."
+    },
+    {
+      "key": "bartolomei2019",
+      "short": "Bartolomei et al. 2019",
+      "full": "Bartolomei F, Lagarde S, Scavarda D, Carron R, Bénar CG, Picard F. The role of the dorsal anterior insula in ecstatic sensation revealed by direct electrical brain stimulation. Brain Stimulation 2019;12(5):1121–1126.",
+      "url": "https://doi.org/10.1016/j.brs.2019.06.005",
+      "how_read": "Read in full, as the accepted manuscript."
+    },
+    {
+      "key": "nencha2022",
+      "short": "Nencha et al. 2022",
+      "full": "Nencha U, Spinelli L, Vulliemoz S, Seeck M, Picard F. Insular stimulation produces mental clarity and bliss. Annals of Neurology 2022;91(2):289–292.",
+      "url": "https://doi.org/10.1002/ana.26282",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "rao2018",
+      "short": "Rao et al. 2018",
+      "full": "Rao VR, Sellers KK, Wallace DL, Lee MB, Bijanzadeh M, Sani OG, et al. Direct electrical stimulation of lateral orbitofrontal cortex acutely improves mood in individuals with symptoms of depression. Current Biology 2018;28(24):3893–3902.e4.",
+      "url": "https://doi.org/10.1016/j.cub.2018.10.026",
+      "how_read": "Read in full. Supplementary tables not read."
+    },
+    {
+      "key": "mayberg2005",
+      "short": "Mayberg et al. 2005",
+      "full": "Mayberg HS, Lozano AM, Voon V, McNeely HE, Seminowicz D, Hamani C, Schwalb JM, Kennedy SH. Deep brain stimulation for treatment-resistant depression. Neuron 2005;45(5):651–660.",
+      "url": "https://doi.org/10.1016/j.neuron.2005.02.014",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "scangos2021",
+      "short": "Scangos et al. 2021",
+      "full": "Scangos KW, Khambhati AN, Daly PM, Makhoul GS, Sugrue LP, Zamanian H, et al. Closed-loop neuromodulation in an individual with treatment-resistant depression. Nature Medicine 2021;27(10):1696–1700.",
+      "url": "https://doi.org/10.1038/s41591-021-01480-w",
+      "how_read": "Read in full, as the author manuscript."
+    },
+    {
+      "key": "mantione2014",
+      "short": "Mantione et al. 2014",
+      "full": "Mantione M, Figee M, Denys D. A case of musical preference for Johnny Cash following deep brain stimulation of the nucleus accumbens. Frontiers in Behavioral Neuroscience 2014;8:152.",
+      "url": "https://doi.org/10.3389/fnbeh.2014.00152",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "parvizi2013",
+      "short": "Parvizi et al. 2013",
+      "full": "Parvizi J, Rangarajan V, Shirer WR, Desai N, Greicius MD. The will to persevere induced by electrical stimulation of the human cingulate gyrus. Neuron 2013;80(6):1359–1367.",
+      "url": "https://doi.org/10.1016/j.neuron.2013.10.057",
+      "how_read": "Read in full, as the author manuscript."
+    },
+    {
+      "key": "blanke2002",
+      "short": "Blanke et al. 2002",
+      "full": "Blanke O, Ortigue S, Landis T, Seeck M. Stimulating illusory own-body perceptions. Nature 2002;419(6904):269–270.",
+      "url": "https://doi.org/10.1038/419269a",
+      "how_read": "Read in full."
+    },
+    {
+      "key": "ezzyat2018",
+      "short": "Ezzyat et al. 2018",
+      "full": "Ezzyat Y, Wanda PA, Levy DF, Kadel A, Aka A, Pedisich I, et al. Closed-loop stimulation of temporal cortex rescues functional networks and improves memory. Nature Communications 2018;9(1):365.",
+      "url": "https://doi.org/10.1038/s41467-017-02753-0",
+      "how_read": "Read in full."
+    }
+  ],
+  "body": [
+    {
+      "key": "PB1937",
+      "short": "Penfield & Boldrey 1937",
+      "full": "Penfield W, Boldrey E. Somatic motor and sensory representation in the cerebral cortex of man as studied by electrical stimulation. Brain. 1937;60(4):389–443.",
+      "url": "https://doi.org/10.1093/brain/60.4.389",
+      "how_read": "Full text read in a public scan."
+    },
+    {
+      "key": "PR1950",
+      "short": "Penfield & Rasmussen 1950",
+      "full": "Penfield W, Rasmussen T. The cerebral cortex of man: a clinical study of localization of function. New York: Macmillan; 1950.",
+      "url": "https://lccn.loc.gov/50008617",
+      "how_read": "Read as text passages from two scans (1957 printing and 1968 reprint). Figs 17 and 22 were viewed in a 1951 reproduction, not in the book."
+    },
+    {
+      "key": "P1975",
+      "short": "Penfield 1975",
+      "full": "Penfield W. The mystery of the mind: a critical study of consciousness and the human brain. With discussions by William Feindel, Charles Hendel and Charles Symonds. Princeton (NJ): Princeton University Press; 1975.",
+      "url": "https://lccn.loc.gov/74025626",
+      "how_read": "Read as text passages from two scans. Quotation on p. 76."
+    },
+    {
+      "key": "STUART1951",
+      "short": "Stuart et al. 1951",
+      "full": "Stuart EA, O’Brien FH, McNally WJ. Cerebral venous thrombosis. Its occurrence; its localization; its sources and sequelae. Ann Otol Rhinol Laryngol. 1951;60(2):406–438.",
+      "url": "https://doi.org/10.1177/000348945106000215",
+      "how_read": "Used only for its photographic reproduction of the two 1950 figures (p. 422), which was viewed."
+    },
+    {
+      "key": "WRIGHT1956",
+      "short": "Wright 1956",
+      "full": "Wright GH. The names of the parts of the body: a linguistic approach to the study of the body-image. Brain. 1956;79(1):188–210.",
+      "url": "https://doi.org/10.1093/brain/79.1.188",
+      "how_read": "Appendix II (pp. 208–209) read from page images and checked against the printed subtotals."
+    },
+    {
+      "key": "CAT2017",
+      "short": "Catani 2017",
+      "full": "Catani M. A little man of some importance. Brain. 2017;140(11):3055–3061.",
+      "url": "https://doi.org/10.1093/brain/awx270",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "POGLIANO2012",
+      "short": "Pogliano 2012",
+      "full": "Pogliano C. Penfield’s homunculus and other grotesque creatures from the Land of If. Nuncius. 2012;27(1):141–162.",
+      "url": "https://doi.org/10.1163/182539112x637192",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "GRAZIANO2016",
+      "short": "Graziano 2016",
+      "full": "Graziano MSA. Ethological action maps: a paradigm shift for the motor cortex. Trends Cogn Sci. 2016;20(2):121–132.",
+      "url": "https://doi.org/10.1016/j.tics.2015.10.008",
+      "how_read": "Fig. 2 viewed, for the motor label sequence."
+    },
+    {
+      "key": "MURPHY2018",
+      "short": "Murphy et al. 2018",
+      "full": "Murphy AC, Muldoon SF, Baker D, Lastowka A, Bennett B, Yang M, Bassett DS. Structure, function, and control of the human musculoskeletal network. PLoS Biol. 2018;16(1):e2002811.",
+      "url": "https://doi.org/10.1371/journal.pbio.2002811",
+      "how_read": "Table 3 read, for the motor label sequence. It is Table S3 in the preprint, arXiv:1612.06336."
+    },
+    {
+      "key": "ROUX2018",
+      "short": "Roux et al. 2018",
+      "full": "Roux F-E, Djidjeli I, Durand J-B. Functional architecture of the somatosensory homunculus detected by electrostimulation. J Physiol. 2018;596(5):941–956.",
+      "url": "https://doi.org/10.1113/JP275243",
+      "how_read": "Full text read in two versions."
+    },
+    {
+      "key": "ROUX2020",
+      "short": "Roux et al. 2020",
+      "full": "Roux F-E, Niare M, Charni S, Giussani C, Durand J-B. Functional architecture of the motor homunculus detected by electrostimulation. J Physiol. 2020;598(23):5487–5504.",
+      "url": "https://doi.org/10.1113/JP280156",
+      "how_read": "Accepted manuscript read in full; published abstract checked. The version of record was not reached."
+    },
+    {
+      "key": "SCH2020",
+      "short": "Schieber 2020",
+      "full": "Schieber MH. Modern coordinates for the motor homunculus. J Physiol. 2020;598(23):5305–5306.",
+      "url": "https://doi.org/10.1113/JP280712",
+      "how_read": "Full text read (author manuscript). A commentary on Roux et al. 2020."
+    },
+    {
+      "key": "GORDON2023",
+      "short": "Gordon et al. 2023",
+      "full": "Gordon EM, Chauvin RJ, Van AN, Rajesh A, Nielsen A, Newbold DJ, et al. A somato-cognitive action network alternates with effector regions in motor cortex. Nature. 2023;617(7960):351–359.",
+      "url": "https://doi.org/10.1038/s41586-023-05964-2",
+      "how_read": "Full text and supplementary tables read."
+    },
+    {
+      "key": "JENSEN2023",
+      "short": "Jensen et al. 2023",
+      "full": "Jensen MA, Huang H, Valencia GO, Klassen BT, van den Boom MA, Kaufmann TJ, et al. A motor association area in the depths of the central sulcus. Nat Neurosci. 2023;26(7):1165–1169. Author correction: Nat Neurosci. 2024;27(7):1425.",
+      "url": "https://doi.org/10.1038/s41593-023-01346-z",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "DEO2026",
+      "short": "Deo et al. 2026",
+      "full": "Deo DR, Okorokova EV, Pritchard AL, Hahn NV, Card NS, Nason-Tomaszewski SR, et al. A mosaic of whole-body representations on the human precentral gyrus. Nature. 2026;656(8128):680–687.",
+      "url": "https://doi.org/10.1038/s41586-026-10653-x",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "WHITE1997",
+      "short": "White et al. 1997",
+      "full": "White LE, Andrews TJ, Hulette C, Richards A, Groelle M, Paydarfar J, Purves D. Structure of the human sensorimotor system. I: Morphology and cytoarchitecture of the central sulcus. Cereb Cortex. 1997;7(1):18–30.",
+      "url": "https://doi.org/10.1093/cercor/7.1.18",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "GEYER1999",
+      "short": "Geyer et al. 1999",
+      "full": "Geyer S, Schleicher A, Zilles K. Areas 3a, 3b, and 1 of human primary somatosensory cortex. NeuroImage. 1999;10(1):63–83.",
+      "url": "https://doi.org/10.1006/nimg.1999.0440",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "GREFKES2001",
+      "short": "Grefkes et al. 2001",
+      "full": "Grefkes C, Geyer S, Schormann T, Roland P, Zilles K. Human somatosensory area 2: observer-independent cytoarchitectonic mapping, interindividual variability, and population map. NeuroImage. 2001;14(3):617–631.",
+      "url": "https://doi.org/10.1006/nimg.2001.0858",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "SUN2021",
+      "short": "Sun et al. 2021",
+      "full": "Sun F, Zhang G, Ren L, Yu T, Ren Z, Gao R, Zhang X. Functional organization of the human primary somatosensory cortex: a stereo-electroencephalography study. Clin Neurophysiol. 2021;132(2):487–497.",
+      "url": "https://doi.org/10.1016/j.clinph.2020.11.032",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "DISBROW2003",
+      "short": "Disbrow et al. 2003",
+      "full": "Disbrow EA, Hinkley LB, Roberts TP. Ipsilateral representation of oral structures in human anterior parietal somatosensory cortex and integration of inputs across the midline. J Comp Neurol. 2003;467(4):487–495.",
+      "url": "https://doi.org/10.1002/cne.10935",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "KELL2005",
+      "short": "Kell et al. 2005",
+      "full": "Kell CA, von Kriegstein K, Rösler A, Kleinschmidt A, Laufs H. The sensory cortical representation of the human penis: revisiting somatotopy in the male homunculus. J Neurosci. 2005;25(25):5984–5987.",
+      "url": "https://doi.org/10.1523/JNEUROSCI.0712-05.2005",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "LUIJTEN2020",
+      "short": "Luijten et al. 2020",
+      "full": "Luijten SPR, Groenendijk IM, Holstege JC, De Zeeuw CI, van der Zwaag W, Blok BFM. Single subject and group whole-brain fMRI mapping of male genital sensation at 7 Tesla. Sci Rep. 2020;10:2487.",
+      "url": "https://doi.org/10.1038/s41598-020-58966-9",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "KNOP2022",
+      "short": "Knop et al. 2022",
+      "full": "Knop AJJ, Spengler S, Bogler C, Forster C, Brecht M, Haynes J-D, Heim C. Sensory-tactile functional mapping and use-associated structural variation of the human female genital representation field. J Neurosci. 2022;42(6):1131–1140.",
+      "url": "https://doi.org/10.1523/JNEUROSCI.1081-21.2021",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "KOVALCHUK2026",
+      "short": "Kovalchuk et al. 2026",
+      "full": "Kovalchuk Y, Schienbein S, Knop AJJ, Bauer M, Spengler S, Brecht M, et al. Decreased thickness of the individually-mapped genital cortex after childhood sexual abuse exposure in adult women. Commun Biol. 2026;9:375.",
+      "url": "https://doi.org/10.1038/s42003-026-09627-6",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "PROELSS2025",
+      "short": "Proelss et al. 2025",
+      "full": "Proelss S, Tuncer MS, Heim C, Haynes J-D, Vajkoczy P, Brecht M, Faust K. Males but not females report genital sensations evoked by fixed-parameter stimulation of somatosensory cortex. Brain. 2025;148(11):3872–3879.",
+      "url": "https://doi.org/10.1093/brain/awaf240",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "CAZALA2015",
+      "short": "Cazala et al. 2015",
+      "full": "Cazala F, Vienney N, Stoléru S. The cortical sensory representation of genitalia in women and men: a systematic review. Socioaffect Neurosci Psychol. 2015;5:26428.",
+      "url": "https://doi.org/10.3402/snp.v5.26428",
+      "how_read": "Full text read. Source here for Komisaruk et al. 2011, Allison et al. 1996 and Georgiadis et al. 2010. Its table labels the Kell et al. focus as MNI; the primary paper gives Talairach."
+    },
+    {
+      "key": "DINOTO2013",
+      "short": "Di Noto et al. 2013",
+      "full": "Di Noto PM, Newman L, Wall S, Einstein G. The hermunculus: what is known about the representation of the female body in the brain? Cereb Cortex. 2013;23(5):1005–1013.",
+      "url": "https://doi.org/10.1093/cercor/bhs005",
+      "how_read": "Full text read in an author-hosted copy."
+    },
+    {
+      "key": "PRUDENTE2015",
+      "short": "Prudente et al. 2015",
+      "full": "Prudente CN, Stilla R, Buetefisch CM, Singh S, Hess EJ, Hu X, Sathian K, Jinnah HA. Neural substrates for head movements in humans: a functional magnetic resonance imaging study. J Neurosci. 2015;35(24):9163–9172.",
+      "url": "https://doi.org/10.1523/JNEUROSCI.0851-15.2015",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "YOUSRY1997",
+      "short": "Yousry et al. 1997",
+      "full": "Yousry TA, Schmid UD, Alkadhi H, Schmidt D, Peraud A, Buettner A, Winkler P. Localization of the motor hand area to a knob on the precentral gyrus. A new landmark. Brain. 1997;120(1):141–157.",
+      "url": "https://doi.org/10.1093/brain/120.1.141",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "EICHERT2020",
+      "short": "Eichert et al. 2020",
+      "full": "Eichert N, Papp D, Mars RB, Watkins KE. Mapping human laryngeal motor cortex during vocalization. Cereb Cortex. 2020;30(12):6254–6269.",
+      "url": "https://doi.org/10.1093/cercor/bhaa182",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "ELBERT1995",
+      "short": "Elbert et al. 1995",
+      "full": "Elbert T, Pantev C, Wienbruch C, Rockstroh B, Taub E. Increased cortical representation of the fingers of the left hand in string players. Science. 1995;270(5234):305–307.",
+      "url": "https://doi.org/10.1126/science.270.5234.305",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "STERR1998",
+      "short": "Sterr et al. 1998",
+      "full": "Sterr A, Müller MM, Elbert T, Rockstroh B, Pantev C, Taub E. Perceptual correlates of changes in cortical representation of fingers in blind multifinger Braille readers. J Neurosci. 1998;18(11):4417–4423.",
+      "url": "https://doi.org/10.1523/JNEUROSCI.18-11-04417.1998",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "RAMA1992",
+      "short": "Ramachandran et al. 1992",
+      "full": "Ramachandran VS, Stewart M, Rogers-Ramachandran DC. Perceptual correlates of massive cortical reorganization. Neuroreport. 1992;3(7):583–586.",
+      "url": "https://doi.org/10.1097/00001756-199207000-00009",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "FLOR1995",
+      "short": "Flor et al. 1995",
+      "full": "Flor H, Elbert T, Knecht S, Wienbruch C, Pantev C, Birbaumer N, et al. Phantom-limb pain as a perceptual correlate of cortical reorganization following arm amputation. Nature. 1995;375(6531):482–484.",
+      "url": "https://doi.org/10.1038/375482a0",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "MAKIN2013",
+      "short": "Makin et al. 2013",
+      "full": "Makin TR, Scholz J, Filippini N, Henderson Slater D, Tracey I, Johansen-Berg H. Phantom pain is associated with preserved structure and function in the former hand area. Nat Commun. 2013;4:1570.",
+      "url": "https://doi.org/10.1038/ncomms2571",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "SCHONE2025",
+      "short": "Schone et al. 2025",
+      "full": "Schone HR, Maimon-Mor RO, Kollamkulam M, Szymanska MA, Gerrand C, Woollard A, Kang NV, Baker CI, Makin TR. Stable cortical body maps before and after arm amputation. Nat Neurosci. 2025;28(10):2015–2021.",
+      "url": "https://doi.org/10.1038/s41593-025-02037-7",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "MANCINI2014",
+      "short": "Mancini et al. 2014",
+      "full": "Mancini F, Bauleo A, Cole J, Lui F, Porro CA, Haggard P, Iannetti GD. Whole-body mapping of spatial acuity for pain and touch. Ann Neurol. 2014;75(6):917–924.",
+      "url": "https://doi.org/10.1002/ana.24179",
+      "how_read": "Full text read. Thresholds appear only in figures."
+    },
+    {
+      "key": "FLESHER2016",
+      "short": "Flesher et al. 2016",
+      "full": "Flesher SN, Collinger JL, Foldes ST, Weiss JM, Downey JE, Tyler-Kabara EC, et al. Intracortical microstimulation of human somatosensory cortex. Sci Transl Med. 2016;8(361):361ra141.",
+      "url": "https://doi.org/10.1126/scitranslmed.aaf8083",
+      "how_read": "Abstract read; details checked in the first author’s dissertation and in Flesher et al. 2021."
+    },
+    {
+      "key": "FLESHER2021",
+      "short": "Flesher et al. 2021",
+      "full": "Flesher SN, Downey JE, Weiss JM, Hughes CL, Herrera AJ, Tyler-Kabara EC, Boninger ML, Collinger JL, Gaunt RA. A brain-computer interface that evokes tactile sensations improves robotic arm control. Science. 2021;372(6544):831–836.",
+      "url": "https://doi.org/10.1126/science.abd0380",
+      "how_read": "Full text read (author manuscript)."
+    },
+    {
+      "key": "ARMENTA2018",
+      "short": "Armenta Salas et al. 2018",
+      "full": "Armenta Salas M, Bashford L, Kellis S, Jafari M, Jo H, Kramer D, et al. Proprioceptive and cutaneous sensations in humans elicited by intracortical microstimulation. eLife. 2018;7:e32904.",
+      "url": "https://doi.org/10.7554/eLife.32904",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "HOCHBERG2006",
+      "short": "Hochberg et al. 2006",
+      "full": "Hochberg LR, Serruya MD, Friehs GM, Mukand JA, Saleh M, Caplan AH, et al. Neuronal ensemble control of prosthetic devices by a human with tetraplegia. Nature. 2006;442(7099):164–171.",
+      "url": "https://doi.org/10.1038/nature04970",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "WILLETT2021",
+      "short": "Willett et al. 2021",
+      "full": "Willett FR, Avansino DT, Hochberg LR, Henderson JM, Shenoy KV. High-performance brain-to-text communication via handwriting. Nature. 2021;593(7858):249–254.",
+      "url": "https://doi.org/10.1038/s41586-021-03506-2",
+      "how_read": "Full text read (accepted manuscript)."
+    },
+    {
+      "key": "WILLETT2023",
+      "short": "Willett et al. 2023",
+      "full": "Willett FR, Kunz EM, Fan C, Avansino DT, Wilson GH, Choi EY, et al. A high-performance speech neuroprosthesis. Nature. 2023;620(7976):1031–1036.",
+      "url": "https://doi.org/10.1038/s41586-023-06377-x",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "METZGER2023",
+      "short": "Metzger et al. 2023",
+      "full": "Metzger SL, Littlejohn KT, Silva AB, Moses DA, Seaton MP, Wang R, et al. A high-performance neuroprosthesis for speech decoding and avatar control. Nature. 2023;620(7976):1037–1046. Author correction: Nature. 2024;631(8021):E13.",
+      "url": "https://doi.org/10.1038/s41586-023-06443-4",
+      "how_read": "Full text read (author manuscript). The correction changed the mapping of electrodes to anatomy, not the decoding results."
+    },
+    {
+      "key": "LUI2026",
+      "short": "Lui et al., StatPearls",
+      "full": "Lui F, Khan Suheb MZ, Patti L. Ischemic stroke. In: StatPearls. Treasure Island (FL): StatPearls Publishing; updated 17 June 2026. NBK499997.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK499997/",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "MARGETIS2025",
+      "short": "Margetis & Sánchez-Manso, StatPearls",
+      "full": "Margetis K, Sánchez-Manso JC. Neuroanatomy, middle cerebral artery. In: StatPearls. Treasure Island (FL): StatPearls Publishing; updated 13 February 2025. NBK526002.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK526002/",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "ARBOIX2009",
+      "short": "Arboix et al. 2009",
+      "full": "Arboix A, García-Eroles L, Sellarés N, Raga A, Oliveres M, Massons J. Infarction in the territory of the anterior cerebral artery: clinical study of 51 patients. BMC Neurol. 2009;9:30.",
+      "url": "https://doi.org/10.1186/1471-2377-9-30",
+      "how_read": "Full text read."
+    },
+    {
+      "key": "MSD",
+      "short": "MSD Manual",
+      "full": "Alexandrov AV, Krishnaiah B. Selected stroke syndromes (table). In: Overview of stroke. MSD Manual Professional Edition. Rahway (NJ): Merck & Co., Inc. Full review June 2025, last updated January 2026.",
+      "url": "https://www.msdmanuals.com/professional/multimedia/table/selected-stroke-syndromes",
+      "how_read": "Table read."
+    },
+    {
+      "key": "EADIE2010",
+      "short": "Eadie 2010",
+      "full": "Eadie M. Louis François Bravais and Jacksonian epilepsy. Epilepsia. 2010;51(1):1–6.",
+      "url": "https://doi.org/10.1111/j.1528-1167.2009.02328.x",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "YORK2006",
+      "short": "York & Steinberg 2007",
+      "full": "York GK, Steinberg DA. An introduction to the life and work of John Hughlings Jackson, with a catalogue raisonné of his writings. Med Hist Suppl. 2007;(26). Introduction, pp. 3–34. Catalogue, pp. 36–139. Copyright 2006.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2640105/",
+      "how_read": "Introduction and catalogue read in part. The link opens the introduction. The catalogue is PMC2640106. Source for the dates of Jackson’s papers."
+    },
+    {
+      "key": "YORK2011",
+      "short": "York & Steinberg 2011",
+      "full": "York GK, Steinberg DA. Hughlings Jackson’s neurological ideas. Brain. 2011;134(10):3106–3113.",
+      "url": "https://doi.org/10.1093/brain/awr219",
+      "how_read": "Abstract only."
+    },
+    {
+      "key": "FEINDELCE",
+      "short": "Feindel, Canadian Encyclopedia",
+      "full": "Feindel W. Wilder Penfield. The Canadian Encyclopedia. Historica Canada. Published online 3 March 2008, last edited 20 December 2022. Updated by Poulin J.",
+      "url": "https://www.thecanadianencyclopedia.ca/en/article/wilder-penfield",
+      "how_read": "Page read. Cited in About."
+    },
+    {
+      "key": "NEUROBIO",
+      "short": "The Neuro, McGill",
+      "full": "Wilder Graves Penfield. The Neuro (Montreal Neurological Institute-Hospital), McGill University. Web page, undated.",
+      "url": "https://www.mcgill.ca/neuro/about/wilder-graves-penfield",
+      "how_read": "Page read. Cited in About."
+    },
+    {
+      "key": "MCGILL200",
+      "short": "McGill 200",
+      "full": "Wilder Penfield, Professor of Neurology and Neurosurgery. McGill University bicentennial history pages. Web page, undated.",
+      "url": "https://200.mcgill.ca/history/wilder-penfield-professor-of-neurology-and-neurosurgery",
+      "how_read": "Page read. Cited in About."
+    },
+    {
+      "key": "FOTEDAR2024",
+      "short": "Fotedar et al. 2024",
+      "full": "Fotedar N, Acar A, Hakami S, Praditukrit K, Morris A, dela Vega M, et al. Semiology and neurophysiology of clonic seizures: a report of 39 patients. Neurol Clin Pract. 2024;14(2):e200252.",
+      "url": "https://doi.org/10.1212/CPJ.0000000000200252",
+      "how_read": "Full text read."
+    }
+  ]
+}

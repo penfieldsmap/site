@@ -1,0 +1,93 @@
+# Penfield’s Map
+
+> What Wilder Penfield’s patients reported when their brains were stimulated, record by record, with case and page references, later evidence and sources. Published and maintained by Dargentic Intelligence. Not peer reviewed.
+
+Each record below is a plain page that needs no scripts.
+
+## Experience map
+- [Voices](https://penfieldsmap.com/experience/voices/): R.W., boy of 12, right side. When the surgeon probed his temporal lobe, he heard his mother telling an aunt to come up that night. A probe at the next point gave the same conversation, and he said it…
+- [Music](https://penfieldsmap.com/experience/music/): D.F., woman of 26, right side. Repeated probes at one point made her hear music that sounded as if it came from a radio. She could not name it but said it was familiar. She hummed it, and the…
+- [People and scenes](https://penfieldsmap.com/experience/people-and-scenes/): E.Wh., woman of 37, left side. When her temporal lobe was probed, she saw herself giving birth and felt she was living through it again. [Case 1, pp. 612]
+- [Sound and sight together](https://penfieldsmap.com/experience/sound-with-sight/): M.M., woman of 26, right side. When the surgeon probed her temporal lobe, she heard a mother calling her little boy, which seemed to have happened years before. She said it was somebody from the…
+- [Thoughts, dreams and flash-backs](https://penfieldsmap.com/experience/thoughts-and-dreams/): S.S., woman of 20, right side. Probes at several points gave what she called a flash-back. One reminded her of a football game, another of the time her mother went into hospital. A probe 3 cm deep…
+- [Familiar or strange](https://penfieldsmap.com/experience/familiar-or-strange/): The present moment seemed familiar (déjà vu), or strange, altered or unreal.
+- [Changed sound](https://penfieldsmap.com/experience/changed-sound/): Sounds seemed louder or clearer, fainter or more distinct, nearer or farther.
+- [Changed sight](https://penfieldsmap.com/experience/changed-sight/): Things seemed clearer or blurred, nearer or farther, larger or smaller, fatter or thinner.
+- [Fear](https://penfieldsmap.com/experience/fear/): A.Br., woman of 28, right side. A probe gave her terror for an instant, of the kind she had in her attacks. Probes at other points in the same patient gave singing. [Case 30, pp. 641–642]
+- [Loneliness, sorrow, disgust](https://penfieldsmap.com/experience/loneliness/): In 1959 Penfield offered “interpretive cortex” as a working name for parts of both temporal lobes where a gentle current sometimes gave one of two responses: a vivid return of a past experience, or a…
+- [Laughter and mirth](https://penfieldsmap.com/experience/laughter/): Stimulation has made patients laugh. In some the laughter came with a feeling of amusement.
+- [Bliss](https://penfieldsmap.com/experience/bliss/): A feeling of bliss and of mental clarity.
+- [Mood](https://penfieldsmap.com/experience/mood/): A lift of mood lasting minutes, in one study, and treatment of depression with an implanted stimulator, in two.
+- [A changed preference](https://penfieldsmap.com/experience/changed-preference/): One patient’s taste in music changed while his stimulator was running and changed back when its batteries ran down.
+- [Resolve](https://penfieldsmap.com/experience/resolve/): A feeling that a challenge was coming, with a determination to get through it.
+- [Leaving the body](https://penfieldsmap.com/experience/leaving-the-body/): A patient reported seeing herself from above.
+
+## Body map: sensory figure of 1950
+- [Genitals](https://penfieldsmap.com/body/sensory/genitals/)
+- [Toes](https://penfieldsmap.com/body/sensory/toes/)
+- [Foot](https://penfieldsmap.com/body/sensory/foot/)
+- [Leg](https://penfieldsmap.com/body/sensory/leg/)
+- [Hip](https://penfieldsmap.com/body/sensory/hip/)
+- [Trunk](https://penfieldsmap.com/body/sensory/trunk/)
+- [Neck](https://penfieldsmap.com/body/sensory/neck/)
+- [Head](https://penfieldsmap.com/body/sensory/head/)
+- [Shoulder](https://penfieldsmap.com/body/sensory/shoulder/)
+- [Arm](https://penfieldsmap.com/body/sensory/arm/)
+- [Elbow](https://penfieldsmap.com/body/sensory/elbow/)
+- [Forearm](https://penfieldsmap.com/body/sensory/forearm/)
+- [Wrist](https://penfieldsmap.com/body/sensory/wrist/)
+- [Hand](https://penfieldsmap.com/body/sensory/hand/)
+- [Little finger](https://penfieldsmap.com/body/sensory/little/)
+- [Ring finger](https://penfieldsmap.com/body/sensory/ring/)
+- [Middle finger](https://penfieldsmap.com/body/sensory/middle/)
+- [Index finger](https://penfieldsmap.com/body/sensory/index/)
+- [Thumb](https://penfieldsmap.com/body/sensory/thumb/)
+- [Eye](https://penfieldsmap.com/body/sensory/eye/)
+- [Nose](https://penfieldsmap.com/body/sensory/nose/)
+- [Face](https://penfieldsmap.com/body/sensory/face/)
+- [Upper lip](https://penfieldsmap.com/body/sensory/upper-lip/)
+- [Lips](https://penfieldsmap.com/body/sensory/lips/)
+- [Lower lip](https://penfieldsmap.com/body/sensory/lower-lip/)
+- [Teeth, gums, and jaw](https://penfieldsmap.com/body/sensory/teeth-gums-jaw/)
+- [Tongue](https://penfieldsmap.com/body/sensory/tongue/)
+- [Pharynx](https://penfieldsmap.com/body/sensory/pharynx/)
+- [Intra-abdominal](https://penfieldsmap.com/body/sensory/intra-abdominal/)
+
+## Body map: motor figure of 1950
+- [Toes](https://penfieldsmap.com/body/motor/toes/)
+- [Ankle](https://penfieldsmap.com/body/motor/ankle/)
+- [Knee](https://penfieldsmap.com/body/motor/knee/)
+- [Hip](https://penfieldsmap.com/body/motor/hip/)
+- [Trunk](https://penfieldsmap.com/body/motor/trunk/)
+- [Shoulder](https://penfieldsmap.com/body/motor/shoulder/)
+- [Elbow](https://penfieldsmap.com/body/motor/elbow/)
+- [Wrist](https://penfieldsmap.com/body/motor/wrist/)
+- [Hand](https://penfieldsmap.com/body/motor/hand/)
+- [Little finger](https://penfieldsmap.com/body/motor/little/)
+- [Ring finger](https://penfieldsmap.com/body/motor/ring/)
+- [Middle finger](https://penfieldsmap.com/body/motor/middle/)
+- [Index finger](https://penfieldsmap.com/body/motor/index/)
+- [Thumb](https://penfieldsmap.com/body/motor/thumb/)
+- [Neck](https://penfieldsmap.com/body/motor/neck/)
+- [Brow](https://penfieldsmap.com/body/motor/brow/)
+- [Eyelid and eyeball](https://penfieldsmap.com/body/motor/eyelid-eyeball/)
+- [Face](https://penfieldsmap.com/body/motor/face/)
+- [Lips](https://penfieldsmap.com/body/motor/lips/)
+- [Jaw](https://penfieldsmap.com/body/motor/jaw/)
+- [Tongue](https://penfieldsmap.com/body/motor/tongue/)
+- [Swallowing](https://penfieldsmap.com/body/motor/swallowing/)
+- [Vocalization, Salivation, Mastication](https://penfieldsmap.com/body/motor/functions/)
+
+## Body map: fMRI scheme of 2023
+- [Foot effector region](https://penfieldsmap.com/body/2023/foot/)
+- [Inter-effector region, superior](https://penfieldsmap.com/body/2023/inter-effector-superior/)
+- [Hand effector region](https://penfieldsmap.com/body/2023/hand/)
+- [Inter-effector region, middle](https://penfieldsmap.com/body/2023/inter-effector-middle/)
+- [Mouth effector region](https://penfieldsmap.com/body/2023/mouth/)
+- [Inter-effector region, inferior](https://penfieldsmap.com/body/2023/inter-effector-inferior/)
+
+## About the site
+- [About](https://penfieldsmap.com/about/)
+- [Methods and known gaps](https://penfieldsmap.com/methods/)
+- [References](https://penfieldsmap.com/references/)
+- [Index of records](https://penfieldsmap.com/records/)

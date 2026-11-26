@@ -1,0 +1,43 @@
+name: Report an error
+description: Something on the site is wrong, or says more than its source does.
+title: "Error: "
+labels: ["correction"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record
+      description: The address of the record, or its name.
+      placeholder: https://penfieldsmap.com/experience/voices/
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong
+      description: Quote the sentence on the site and say what is wrong with it.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: What the source says
+      description: The reference, the page, table or figure, and what it says there. A short quotation helps.
+    validations:
+      required: true
+  - type: dropdown
+    id: read
+    attributes:
+      label: How much of the source did you read?
+      options:
+        - The full text
+        - The abstract only
+        - An account of it in another paper
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+    validations:
+      required: false

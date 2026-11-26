@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "To cite the site or its data, use the details below. Each record page also carries its own citation line."
+title: "Penfield's Map"
+abstract: "An open reference to what electrical stimulation of the brain made patients hear, see, remember and feel: the 1963 case reports of Penfield and Perot and the 1950 sensory and motor figures of Penfield and Rasmussen, record by record, with later evidence and sources."
+type: dataset
+authors:
+  - name: "Dargentic Intelligence"
+    website: "https://www.dargentic.com"
+url: "https://penfieldsmap.com"
+repository-code: "https://github.com/penfieldsmap/site"
+license:
+  - CC-BY-4.0
+  - MIT
+version: "2026-11-26"
+date-released: "2026-11-26"
+keywords:
+  - Wilder Penfield
+  - electrical brain stimulation
+  - temporal lobe
+  - experiential responses
+  - homunculus
+  - somatotopy
+  - brain-computer interfaces

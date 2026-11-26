@@ -1,0 +1,66 @@
+name: Suggest a finding
+description: A published finding that belongs on one of the maps.
+title: "Finding: "
+labels: ["finding"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record
+      description: The record or records it belongs to, by address or name. Leave empty if it needs a new record.
+      placeholder: https://penfieldsmap.com/experience/music/
+    validations:
+      required: false
+  - type: textarea
+    id: finding
+    attributes:
+      label: The finding
+      description: One or two sentences in plain words. What was done, in how many patients, and what was found.
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: Reference
+      description: The full citation, with a DOI or a link. Say if it is a preprint.
+    validations:
+      required: true
+  - type: input
+    id: place
+    attributes:
+      label: Where in the source
+      description: Page, table, figure or section.
+    validations:
+      required: true
+  - type: dropdown
+    id: method
+    attributes:
+      label: Kind of evidence
+      options:
+        - Electrical stimulation during surgery or through implanted electrodes
+        - Deep brain stimulation through an implanted stimulator
+        - Intracortical microstimulation
+        - Recording, with or without decoding
+        - Imaging (fMRI, MEG)
+        - Clinical pattern or case report
+        - Review, critique or reanalysis
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: read
+    attributes:
+      label: How much of the source did you read?
+      options:
+        - The full text
+        - The abstract only
+        - An account of it in another paper
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Limits
+      description: Anything a reader should know before relying on it. A single case, no sham control, a side or site the paper does not state.
+    validations:
+      required: false

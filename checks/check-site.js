@@ -1,0 +1,84 @@
+// Checks the built site. Exits with an error if any check fails.
+// usage: node checks/check-site.js [site folder, default public/]
+const fs = require('fs'), path = require('path');
+const { serve, launch } = require('../build/lib');
+const root = path.resolve(process.argv[2] || path.join(__dirname, '..', 'public'));
+const PAGES = ['/', '/body/', '/body/figures/', '/about/', '/methods/', '/references/', '/records/'];
+const DESK = { viewport: { width: 1440, height: 900 } }, PHONE = { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, hasTouch: true, isMobile: true };
+const fails = []; let passed = 0;
+const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); console.log('FAIL', what); } };
+
+(async () => {
+  const srv = await serve(root), B = srv.url, browser = await launch();
+  const errs = [];
+  const hook = (p, tag) => {
+    p.on('console', m => { if (m.type() === 'error') errs.push(tag + ' console: ' + m.text()); });
+    p.on('pageerror', e => errs.push(tag + ' page error: ' + e.message));
+    p.on('response', r => { if (r.status() >= 400) errs.push(tag + ' ' + r.status() + ' ' + r.url().replace(B, '')); });
+  };
+
+  // 1. Every main page loads cleanly on a wide and a narrow screen.
+  for (const [tag, ctx] of [['desktop', DESK], ['phone', PHONE]]) {
+    const p = await (await browser.newContext(ctx)).newPage(); hook(p, tag);
+    for (const u of PAGES) {
+      await p.goto(B + u); await p.waitForTimeout(450);
+      const i = await p.evaluate(() => ({
+        over: document.documentElement.scrollWidth - document.documentElement.clientWidth, title: document.title, h1: document.querySelectorAll('h1').length,
+        stamp: (document.body.textContent.match(/updated \d{4}-\d{2}-\d{2}\. Work in progress, not peer reviewed/g) || []).length
+      }));
+      check(i.over <= 0, tag + ' ' + u + ' is wider than the screen by ' + i.over + 'px');
+      check(i.title.length > 10 && i.h1 === 1, tag + ' ' + u + ' needs a title and one main heading');
+      check(i.stamp === 1, tag + ' ' + u + ' carries the date line ' + i.stamp + ' times in its text, expected once');
+    }
+    await p.context().close();
+  }
+
+  // 2. Every record page says what the map says for that record. 3. Every internal link leads somewhere.
+  const dctx = await browser.newContext(DESK), map = await dctx.newPage(), rec = await dctx.newPage(); hook(map, 'map'); hook(rec, 'record');
+  const strip = () => { const c = document.getElementById('record').cloneNode(true); c.querySelectorAll('.rec-act, .perm, .fc, .cite').forEach(e => e.remove()); return c.textContent.replace(/\s+/g, ' ').trim(); };
+  const hrefs = new Set(), urls = []; let same = 0;
+  const collect = async pg => (await pg.evaluate(() => Array.from(document.querySelectorAll('a[href]')).map(a => a.getAttribute('href')))).forEach(h => { if (h.charAt(0) === '/') hrefs.add(h.split('#')[0]); });
+  for (const base of ['/', '/body/']) {
+    await map.goto(B + base); await map.waitForTimeout(500);
+    const list = await map.evaluate(() => window.__E ? window.__E.ENTRIES.map(e => [e.id, '/experience/' + window.__E.SLUG[e.id] + '/']) : Object.keys(window.__D.REG).map(i => [i, '/body/' + window.__D.recPath(i) + '/']));
+    for (const [id, url] of list) {
+      await map.evaluate(i => { location.hash = i; }, id); await map.waitForTimeout(35);
+      const a = await map.evaluate(strip);
+      await rec.goto(B + url); const b = await rec.evaluate(strip);
+      if (a === b && a.length > 100) { same++; } else { check(false, 'record page ' + url + ' differs from the record on the map'); }
+      urls.push(url); await collect(rec);
+    }
+  }
+  check(same === urls.length && same > 0, 'record pages matching the map: ' + same + ' of ' + urls.length);
+  await rec.goto(B + '/records/'); await collect(rec);
+  const listed = await rec.evaluate(() => Array.from(document.querySelectorAll('.idx a')).map(a => a.getAttribute('href')));
+  check(urls.every(u => listed.includes(u)), 'the index of records lists every record page');
+  const dead = []; for (const h of hrefs) { const r = await rec.request.get(B + h); if (r.status() !== 200) dead.push(h); }
+  check(dead.length === 0, 'dead internal links: ' + JSON.stringify(dead));
+
+  // 4. The record pages can be read with scripts turned off.
+  const n = await (await browser.newContext(Object.assign({ javaScriptEnabled: false }, DESK))).newPage();
+  for (const u of urls.concat(['/records/'])) {
+    await n.goto(B + u);
+    const i = await n.evaluate(() => ({ words: document.body.innerText.split(/\s+/).length, plate: !!document.querySelector('#fig1 svg path') }));
+    check(i.words > 100 && (u === '/records/' || i.plate), 'without scripts ' + u + ' shows ' + i.words + ' words, plate drawn: ' + i.plate);
+  }
+
+  // 5. A sample of record pages fits a narrow screen.
+  const m = await (await browser.newContext(PHONE)).newPage(); hook(m, 'phone record');
+  for (const u of urls.filter((_, k) => k % 6 === 0)) {
+    await m.goto(B + u); await m.waitForTimeout(250);
+    const over = await m.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    check(over <= 0, 'phone ' + u + ' is wider than the screen by ' + over + 'px');
+  }
+
+  // 6. Every address in the sitemap is a file in the build, and every record page is in the sitemap.
+  const sm = (fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8').match(/<loc>[^<]+<\/loc>/g) || []).map(l => l.slice(5, -6).replace('https://penfieldsmap.com', ''));
+  check(sm.every(u => fs.existsSync(path.join(root, u, 'index.html'))), 'every sitemap address exists in the build');
+  check(urls.every(u => sm.includes(u)), 'every record page is in the sitemap');
+
+  check(errs.length === 0, 'errors while loading pages: ' + JSON.stringify(errs.slice(0, 8)));
+  await browser.close(); srv.close();
+  console.log((fails.length ? 'FAILED ' + fails.length + ' of ' : 'passed all ') + (passed + fails.length) + ' checks: ' + PAGES.length + ' pages on two screens, ' + urls.length + ' record pages, ' + hrefs.size + ' internal links, ' + sm.length + ' sitemap addresses');
+  process.exit(fails.length ? 1 : 0);
+})();
