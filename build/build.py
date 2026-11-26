@@ -9,8 +9,8 @@ SITE=os.environ.get('OUT_DIR') or os.path.join(ROOT,'public'); PREVIEW=os.path.j
 UPDATED='2026-11-26'; DATE_LONG='26 November 2026'   # the date shown on every page; src/body.html and src/experience.html carry the same stamp
 MAIL='suggestions@penfieldsmap.com'
 REPO='https://github.com/penfieldsmap/site'
-# Off until the repository is public. On, the footer says the site is open source and every record page links to the two issue forms.
-OPEN_SOURCE=os.environ.get('OPEN_SOURCE')=='1'
+# The footer says the site is open source and every record page links to the two issue forms of the repository.
+OPEN_SOURCE=True
 def rd(f): return io.open(os.path.join(SRC,f),encoding='utf-8').read()
 def node(script,*args):
     r=subprocess.run(['node',os.path.join(HERE,script)]+list(args),capture_output=True,text=True)
