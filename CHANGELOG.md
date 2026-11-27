@@ -9,6 +9,7 @@ Corrections after an outside reading of the site against its sources. Each was c
 - Laughter: in the cingulum report (Bijanki et al. 2019) the first patient was stimulated on the left and the other two on the right. The record said left for the report as a whole.
 - Mood: the 2005 trial (Mayberg et al.) implanted both sides; the record's line on side now says so. The About page now says where the stimulation went in the single case of 2021, as the Mood record already did.
 - About, memory (Ezzyat et al. 2018): the gain of about 15% in recall was at the 18 sites in the lateral temporal cortex. At the 11 sites elsewhere stimulation did not help. The page had read as if all the stimulation went to the lateral temporal cortex.
+- Bliss: the woman of 23 in the letter of 2013 is the first of the three patients in the paper of 2019, which says so. The record had counted her as a separate, earlier case.
 - Resolve (Parvizi et al. 2013): the side is now given, right in both patients, read from the coordinates printed with the paper's Fig. 1. The paper does not state it in words.
 - Laughter: a larger series from the group that published the ten patients (Caruana et al. 2018) is added. Read in part.
 - Body records list what is specific to the label first. What applies to every label follows, folded on the map and shown in full on the record's own page.
