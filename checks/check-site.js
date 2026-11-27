@@ -77,6 +77,26 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
   check(sm.every(u => fs.existsSync(path.join(root, u, 'index.html'))), 'every sitemap address exists in the build');
   check(urls.every(u => sm.includes(u)), 'every record page is in the sitemap');
 
+  // 7. The title plate is the top of the home page on arrival, with the start of the map in view under it. Its link
+  //    goes to the map. A link that points at a record, or a return after the plate has been scrolled past, starts at
+  //    the map. With scripts turned off the plate is plain content.
+  const shown = pg => pg.evaluate(() => { const c = document.getElementById('plate'); return !!c && getComputedStyle(c).display !== 'none'; });
+  for (const [tag, ctx] of [['desktop', DESK], ['phone', PHONE]]) {
+    const tp = await (await browser.newContext(ctx)).newPage(); hook(tp, 'plate ' + tag);
+    await tp.goto(B + '/'); await tp.waitForTimeout(500);
+    const g = await tp.evaluate(() => ({ plate: document.getElementById('plate').getBoundingClientRect().bottom, lede: document.getElementById('lede').getBoundingClientRect().top, h: innerHeight, y: pageYOffset }));
+    check(await shown(tp) && g.y === 0 && g.lede < g.h - 30, tag + ': the title plate shows on arrival and the map starts on the first screen (plate ends at ' + Math.round(g.plate) + ' of ' + g.h + 'px)');
+    await tp.click('#plate-go'); await tp.waitForTimeout(1200);
+    const j = await tp.evaluate(() => ({ lede: document.getElementById('lede').getBoundingClientRect().top, head: document.querySelector('header.top').getBoundingClientRect().bottom, hash: location.hash }));
+    check(Math.abs(j.lede - j.head) < 4, tag + ': the link on the plate goes to the map (map starts ' + Math.round(j.lede - j.head) + 'px under the header)');
+    await tp.reload(); await tp.waitForTimeout(400);
+    check(!(await shown(tp)), tag + ': a return after the plate has been scrolled past starts at the map');
+    await tp.context().close();
+  }
+  const tp2 = await (await browser.newContext(DESK)).newPage(); hook(tp2, 'plate'); await tp2.goto(B + '/#music'); await tp2.waitForTimeout(400);
+  check(!(await shown(tp2)), 'a link that points at a record starts at the map');
+  await n.goto(B + '/'); check(await shown(n) && await n.evaluate(() => !!document.querySelector('#plate a[href="#map"]') && !!document.getElementById('map')), 'with scripts turned off the plate is plain content with a link to the map');
+
   check(errs.length === 0, 'errors while loading pages: ' + JSON.stringify(errs.slice(0, 8)));
   await browser.close(); srv.close();
   console.log((fails.length ? 'FAILED ' + fails.length + ' of ' : 'passed all ') + (passed + fails.length) + ' checks: ' + PAGES.length + ' pages on two screens, ' + urls.length + ' record pages, ' + hrefs.size + ' internal links, ' + sm.length + ' sitemap addresses');

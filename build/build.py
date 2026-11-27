@@ -6,7 +6,7 @@ HERE=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(HERE)
 SRC=os.path.join(ROOT,'src'); STATIC=os.path.join(SRC,'static'); WORK=os.path.join(HERE,'.work')
 SITE=os.environ.get('OUT_DIR') or os.path.join(ROOT,'public'); PREVIEW=os.path.join(ROOT,'preview')
 # ---------- settings ----------
-UPDATED='2026-11-26'; DATE_LONG='26 November 2026'   # the date shown on every page; src/body.html and src/experience.html carry the same stamp
+UPDATED='2026-11-27'; DATE_LONG='27 November 2026'   # the date shown on every page; src/body.html and src/experience.html carry the same stamp
 MAIL='suggestions@penfieldsmap.com'
 REPO='https://github.com/penfieldsmap/site'
 # The footer says the site is open source and every record page links to the two issue forms of the repository.
@@ -22,8 +22,8 @@ def wr(f,s):
 body_src=rd('body.html'); exp_src=rd('experience.html')
 STAMP='updated %s. Work in progress, not peer reviewed'%UPDATED
 assert STAMP in body_src and STAMP in exp_src, 'the date in src/body.html and src/experience.html must match UPDATED'
-FONTLINK='<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">'
-FF=''.join("@font-face{font-family:\"Libre Baskerville\";font-style:%s;font-weight:%d;font-display:swap;src:url(\"/fonts/libre-baskerville-latin-%d-%s.woff2\") format(\"woff2\")}\n"%(st,w,w,st) for w in (400,700) for st in ('normal','italic'))
+FONTLINK='<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">'
+FF=''.join("@font-face{font-family:\"Libre Baskerville\";font-style:%s;font-weight:%d;font-display:swap;src:url(\"/fonts/libre-baskerville-latin-%d-%s.woff2\") format(\"woff2\")}\n"%(st,w,w,st) for w,st in ((400,'normal'),(400,'italic'),(500,'normal'),(700,'normal'),(700,'italic')))   # 500 is the weight of the headings
 FOOT='<footer class="foot">Published and maintained by <a href="https://www.dargentic.com" rel="noopener">Dargentic Intelligence</a>. %s © 2026 Dargentic Pty Ltd. <a href="@RECS@">Index of records</a>. Corrections: <a href="mailto:%s">%s</a></footer>\n\n'%(('<a href="%s" rel="noopener">Open source</a>, not peer reviewed.'%REPO) if OPEN_SOURCE else 'Not peer reviewed.',MAIL,MAIL)
 FOOTCSS='.foot{padding:12px 16px 16px;border-top:1px solid var(--ink);font-size:11px;color:var(--ink2)}\n'
 PAGECSS='''
@@ -46,7 +46,7 @@ PAGECSS='''
 @media print{.refbar{display:none}.pg section[hidden]{display:grid}}
 @media (max-width:1020px){.pg .about>div+div>h3:first-child{margin-top:14px}}
 '''
-OGALT='A side view of the brain in the style of an anatomy plate, with the upper temporal lobe shaded, beside the title Penfield’s Map.'
+OGALT='The title Penfield’s Map beside a picture of a preserved brain seen from the side, with numbered paper tickets on it. The picture is an illustration, not an archival photograph; Wilder Penfield laid such tickets on the cortex at each point that answered his electrode.'
 def one(s,a,b):
     assert s.count(a)==1,(a[:60],s.count(a)); return s.replace(a,b)
 def head(title,desc,url,ogt,ogd):
@@ -60,7 +60,7 @@ def head(title,desc,url,ogt,ogd):
 <meta property="og:title" content="%s">
 <meta property="og:description" content="%s">
 <meta property="og:url" content="%s">
-<meta property="og:image" content="https://penfieldsmap.com/og.jpg">
+<meta property="og:image" content="https://penfieldsmap.com/og.jpg?v=2">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -68,7 +68,7 @@ def head(title,desc,url,ogt,ogd):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="%s">
 <meta name="twitter:description" content="%s">
-<meta name="twitter:image" content="https://penfieldsmap.com/og.jpg">
+<meta name="twitter:image" content="https://penfieldsmap.com/og.jpg?v=2">
 <meta name="twitter:image:alt" content="%s">
 '''%(title,desc,url,ogt,ogd,url,OGALT,ogt,ogd,OGALT)
 def css_of(s): a=s.index('<style>\n')+8; b=s.index('</style>'); return s[a:b]

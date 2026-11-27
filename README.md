@@ -39,7 +39,7 @@ Every correction and every new finding needs a source. The rules are in [CONTRIB
 | Folder | What it holds |
 |---|---|
 | `src/` | The sources. `experience-data.js` holds the experience records, case reports, later findings and references. `body.html` holds the body map: its labels, findings, coordinates and references sit in one data block near the top of its script. `experience.html`, `experience-text.js` and `experience-app.js` are the page, the About and Methods text, and the drawing code of the experience map. `static/` holds the fonts, the icon and the share image. |
-| `build/` | The build. `build.py` writes the map pages, a page for every record, the index, the sitemap and the data files. |
+| `build/` | The build. `build.py` writes the map pages, a page for every record, the index, the sitemap and the data files. `share-image.js` sets the title beside the picture in `share-brain.png` and writes the image shown when a link to the site is shared; it is run by hand and is not part of the build. |
 | `checks/` | `check-site.js` tests the built site. |
 | `data/` | The data files. Generated: edit the sources, not these. |
 | `public/` | The built site, exactly as served at penfieldsmap.com. Generated. |

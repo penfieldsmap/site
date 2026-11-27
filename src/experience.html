@@ -73,9 +73,53 @@ dl.series dd{margin:0;text-align:right;font-variant-numeric:tabular-nums lining-
 @media (max-width:1020px) and (min-width:640px) and (orientation:landscape){
   #fig1{height:calc(100vh - 78px - var(--headh));height:calc(100dvh - 78px - var(--headh))}
 }
+/* ---------- the title plate: the top of the page on arrival, with the map directly under it ---------- */
+html.plate-off .tp{display:none}
+.tp{border-bottom:1px solid var(--ink);padding:20px 20px 18px}
+.tp-in{display:flex;flex-direction:column-reverse;align-items:center;gap:14px;max-width:1120px;margin:0 auto}
+.tp-txt{text-align:center;max-width:460px}
+.tp-t{font:500 40px/1.08 var(--display);margin:0}
+.tp-rule{display:block;margin:12px auto 11px}
+.tp-l{font:400 14px/1.5 var(--display);margin:0 auto;max-width:38ch;text-wrap:balance}
+.tp-l cite{font-style:italic}
+.tp-l .nb{white-space:nowrap}
+.tp-go{display:inline-block;margin-top:15px;border:1px solid var(--ink);background:var(--ink);color:var(--plate);font:400 13.5px/1 var(--display);padding:10px 22px 11px;text-decoration:none}
+.tp-go:hover{background:var(--bg);color:var(--ink)}
+.tp-go:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+.tp-fig{margin:0}
+.tp-fig img{display:block;width:320px;height:auto;max-width:100%;margin:0 auto}
+.tp-cap{font:italic 400 11px/1.45 var(--display);color:var(--ink2);margin:6px auto 0;max-width:44ch;text-align:center;text-wrap:balance}
+#map{scroll-margin-top:var(--headh)}
+@media (min-width:700px){
+  .tp{padding:22px 24px 20px}
+  .tp-fig img{width:480px}
+  .tp-t{font-size:52px}
+  .tp-l{font-size:15px}
+}
+@media (min-width:1000px){
+  .tp-in{flex-direction:row;justify-content:center;gap:56px}
+  .tp-txt{flex:0 0 360px}
+  .tp-t{font-size:64px}
+  .tp-t span{display:block}
+  .tp-rule{margin:18px auto 15px}
+  .tp-go{margin-top:20px}
+}
+@media (min-width:1000px) and (min-height:860px){
+  .tp-fig img{width:640px}
+  .tp-txt{flex-basis:390px}
+  .tp-t{font-size:76px}
+  .tp-l{font-size:16px}
+}
+@media print{.tp-go{display:none}}
 </style>
 </head>
 <body>
+<script>
+/* The title plate is the top of this page on arrival. A link that points at a record, or a return to the page
+   after the plate has been scrolled past in the same visit, starts at the map instead. */
+(function(){var seen=false;try{seen=!!sessionStorage.getItem('pm-plate');}catch(e){}
+if(seen||location.hash.length>1){document.documentElement.className+=' plate-off';}})();
+</script>
 
 <!--@DEFS@-->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -92,11 +136,31 @@ dl.series dd{margin:0;text-align:right;font-variant-numeric:tabular-nums lining-
     <a href="@METHODS@">Methods</a>
     <a href="@REFS@">References</a>
   </nav>
-  <span class="build" data-t="updated 2026-11-26. Work in progress, not peer reviewed"></span>
+  <span class="build" data-t="updated 2026-11-27. Work in progress, not peer reviewed"></span>
 </header>
-<p class="build2">updated 2026-11-26. Work in progress, not peer reviewed</p>
+<p class="build2">updated 2026-11-27. Work in progress, not peer reviewed</p>
 
-<p class="lede" id="lede"><span>The surgeon Wilder Penfield operated on patients who were awake, stimulated the exposed brain with an electrode and recorded what they reported. On the temporal lobe, in 40 of 520 patients, the current brought voices, music and scenes that he read as a record of the patient’s own past. This map shows where, case by case, with what later work found. Devices are now being built to read the brain and write to it. <a href="@ABOUT@">About the map</a></span>
+<section class="tp" id="plate" aria-labelledby="plate-t">
+  <div class="tp-in">
+    <div class="tp-txt">
+      <p class="tp-t" id="plate-t"><span>Penfield’s</span> <span>Map</span></p>
+      <svg class="tp-rule" width="170" height="8" viewBox="0 0 210 9" aria-hidden="true" focusable="false"><path d="M0 4.5 C60 3.6 85 1 105 1 C125 1 150 3.6 210 4.5 C150 5.4 125 8 105 8 C85 8 60 5.4 0 4.5Z" fill="currentColor"/></svg>
+      <p class="tp-l">An interactive reference and research companion to Velco Dar’s <cite>NEURAL: How <span class="nb">Brain-Computer</span> Interfaces Will Redefine Commerce and Power</cite></p>
+      <a class="tp-go" id="plate-go" href="#map">Go to the map</a>
+    </div>
+    <figure class="tp-fig">
+      <picture>
+        <source media="(min-width:1000px) and (min-height:860px)" srcset="/cover/brain-640.webp 1x, /cover/brain-1280.webp 2x" width="640" height="547">
+        <source media="(min-width:700px)" srcset="/cover/brain-480.webp 1x, /cover/brain-960.webp 2x" width="480" height="410">
+        <img src="/cover/brain-320.webp" srcset="/cover/brain-320.webp 1x, /cover/brain-640.webp 2x, /cover/brain-960.webp 3x" width="320" height="273" loading="lazy" decoding="async" alt="A preserved brain seen from the side, with numbered paper tickets on it.">
+      </picture>
+      <figcaption class="tp-cap">The picture is an illustration. Penfield laid a numbered ticket on each point of the cortex that answered his electrode.</figcaption>
+    </figure>
+  </div>
+</section>
+<div id="map"></div>
+
+<p class="lede" id="lede"><span>Surgeon Wilder Penfield operated on patients who were awake, stimulated the exposed brain with an electrode and recorded what they reported. On the temporal lobe, in 40 of 520 patients, the current brought voices, music and scenes that he read as a record of the patient’s own past. This map shows where, case by case, with what later work found. Devices are now being built to read the brain and write to it. <a href="@ABOUT@">About the map</a></span>
 <span class="try">Start with a case <a data-id="voices" data-scroll="1" href="@XPRE@voices@XSUF@">Voices</a> <a data-id="music" data-scroll="1" href="@XPRE@music@XSUF@">Music</a> <a data-id="fear" data-scroll="1" href="@XPRE@fear@XSUF@">Fear</a> <a data-id="laughter" data-scroll="1" href="@XPRE@laughter@XSUF@">Laughter</a> <a data-id="oob" data-scroll="1" href="@XPRE@leaving-the-body@XSUF@">Leaving the body</a> <a class="all" href="@RECS@">All records</a></span></p>
 <noscript><p class="crumb">The map on this page is drawn by a script. Every record is also a plain page: <a href="@RECS@">index of records</a>.</p></noscript>
 

@@ -216,7 +216,7 @@ function select(id,opt){
     var d=$('duo'),y=d.getBoundingClientRect().top+window.pageYOffset-document.querySelector('header.top').offsetHeight-(isNarrow()?0:$('tools').offsetHeight);
     if(opt.scroll||window.pageYOffset>y){window.scrollTo(0,y);}
   }
-  var c=document.querySelector('#chips .on');if(c&&c.scrollIntoView&&regroup===false){try{c.scrollIntoView({block:'nearest',inline:'nearest'});}catch(x){}}
+  var c=document.querySelector('#chips .on');if(c&&regroup===false){var cb=c.parentNode,cr=c.getBoundingClientRect(),br=cb.getBoundingClientRect();if(cr.left<br.left){cb.scrollLeft-=br.left-cr.left+8;}else if(cr.right>br.right){cb.scrollLeft+=cr.right-br.right+8;}}   /* bring the chosen name into view along its row, without moving the page */
 }
 function step(d){var i=SEQ.indexOf(state.sel);i=(i+d+SEQ.length)%SEQ.length;select(SEQ[i]);}
 function setGroup(k){if(k===state.g){return;}var f=ENTRIES.filter(function(x){return x.g===k;})[0];if(f){select(f.id);}}
@@ -325,4 +325,14 @@ window.__E={ENTRIES:ENTRIES,LATER:LATER,REFS:REFS,ZONES:ZONES,GROUPS:GROUPS,SLUG
 buildKey();buildChart();buildRefs();buildText();toolh();
 select(EID[h0]?h0:'voices',{nohash:true,noscroll:true});
 toolh();
+
+/* ---------- the title plate ---------- */
+(function(){
+var tp=document.getElementById('plate'),go=document.getElementById('plate-go'),root=document.documentElement;if(!tp||/(^|\s)plate-off(\s|$)/.test(root.className)){return;}
+function past(){try{sessionStorage.setItem('pm-plate','1');}catch(x){}window.removeEventListener('scroll',watch);}
+function watch(){if(window.pageYOffset>=tp.offsetTop+tp.offsetHeight-document.querySelector('header.top').offsetHeight-4){past();}}   /* once the plate has been scrolled past, a return in this visit starts at the map */
+window.addEventListener('scroll',watch,{passive:true});
+go.addEventListener('click',function(ev){var m=document.getElementById('map');if(!m||ev.metaKey||ev.ctrlKey||ev.shiftKey){return;}ev.preventDefault();ev.stopPropagation();
+  m.scrollIntoView({block:'start',behavior:window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
+})();
 })();

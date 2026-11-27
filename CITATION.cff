@@ -11,8 +11,8 @@ repository-code: "https://github.com/penfieldsmap/site"
 license:
   - CC-BY-4.0
   - MIT
-version: "2026-11-26"
-date-released: "2026-11-26"
+version: "2026-11-27"
+date-released: "2026-11-27"
 keywords:
   - Wilder Penfield
   - electrical brain stimulation
