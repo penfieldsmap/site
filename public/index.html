@@ -56,6 +56,7 @@ button{font:inherit;color:inherit}
 
 header.top{position:sticky;top:0;z-index:7;background:var(--bg);display:flex;align-items:flex-end;justify-content:space-between;gap:2px 16px;padding:9px 16px 8px;border-bottom:3px double var(--ink)}
 header.top h1{font:500 25px/1.1 var(--display);margin:0}
+header.top h1 a{color:inherit;text-decoration:none}
 header.top h1 small{display:block;font:italic 400 12px/1.3 var(--display);text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:3px}
 .build2{display:none}
 header.top nav.menu{display:flex;align-items:flex-end;gap:2px 18px;margin:0 auto 1px 30px;flex-wrap:nowrap}
@@ -93,6 +94,7 @@ main{display:block}
 .panel>h2{margin:0;padding:7px 16px 6px;font:400 12.5px/1.45 var(--display);border-bottom:1px solid var(--rule)}
 .panel>h2 b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
 .panel>h2 span{color:var(--ink)}
+.panel>h2 .hint{font-style:italic;color:var(--ink2);margin-left:8px;white-space:nowrap}
 .pbody{display:flex;flex-wrap:wrap;gap:12px 22px;padding:12px 16px 13px}
 .svgwrap{flex:3 1 540px;max-width:780px;min-width:0;overflow-x:auto}
 .svgwrap.wide{flex-basis:100%;max-width:1010px}
@@ -475,7 +477,7 @@ if(seen||location.hash.length>1){document.documentElement.className+=' plate-off
 </defs></svg>
 
 <header class="top">
-  <h1>Penfield’s Map <small>of human experience</small></h1>
+  <h1><a href="/">Penfield’s Map</a> <small>of human experience</small></h1>
   <nav class="menu" aria-label="Site">
     <a href="/" aria-current="page">Experience<span class="mw"> map</span></a>
     <a href="/body/">Body<span class="mw"> map</span></a>
@@ -1083,6 +1085,15 @@ function plateNote(e){
 }
 
 /* ---------- selection ---------- */
+/* After a choice the page moves only if it has to: when the map is not in view, or when the start of the record has been
+   scrolled past. It then comes to rest where the opening lines sit under the header, with the map and the record in
+   view, and stays there for the choices that follow. On a narrow screen it rests with the figure under the header. */
+function glide(y){var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;try{window.scrollTo({top:y,behavior:still?'auto':'smooth'});}catch(x){window.scrollTo(0,y);}}
+function settle(){
+  var head=document.querySelector('header.top').offsetHeight,top=$('duo').getBoundingClientRect().top,y=top+window.pageYOffset-head-(isNarrow()?0:$('tools').offsetHeight);
+  if(!(window.pageYOffset>y+2)&&!(top>window.innerHeight-(isNarrow()?140:260))){return;}
+  var m=$('map');glide(isNarrow()||!m?y:Math.max(0,Math.min(y,m.getBoundingClientRect().top+window.pageYOffset-head)));
+}
 function select(id,opt){
   opt=opt||{};var e=EID[id];if(!e){return;}
   var regroup=e.g!==state.g;state.sel=id;state.g=e.g;
@@ -1090,10 +1101,7 @@ function select(id,opt){
   $('f1t').textContent=GK[e.g].l+'. Side view of one hemisphere, front to the left.';
   if($('mnow')){$('mnow').textContent=e.lab;}
   if(!opt.nohash){try{if(location.hash.slice(1)!==id){history.replaceState(null,'','#'+id);}}catch(x){}}
-  if(!opt.noscroll){
-    var d=$('duo'),y=d.getBoundingClientRect().top+window.pageYOffset-document.querySelector('header.top').offsetHeight-(isNarrow()?0:$('tools').offsetHeight);
-    if(opt.scroll||window.pageYOffset>y){window.scrollTo(0,y);}
-  }
+  if(!opt.noscroll){settle();}
   var c=document.querySelector('#chips .on');if(c&&regroup===false){var cb=c.parentNode,cr=c.getBoundingClientRect(),br=cb.getBoundingClientRect();if(cr.left<br.left){cb.scrollLeft-=br.left-cr.left+8;}else if(cr.right>br.right){cb.scrollLeft+=cr.right-br.right+8;}}   /* bring the chosen name into view along its row, without moving the page */
 }
 function step(d){var i=SEQ.indexOf(state.sel);i=(i+d+SEQ.length)%SEQ.length;select(SEQ[i]);}

@@ -56,6 +56,7 @@ button{font:inherit;color:inherit}
 
 header.top{position:sticky;top:0;z-index:7;background:var(--bg);display:flex;align-items:flex-end;justify-content:space-between;gap:2px 16px;padding:9px 16px 8px;border-bottom:3px double var(--ink)}
 header.top h1{font:500 25px/1.1 var(--display);margin:0}
+header.top h1 a{color:inherit;text-decoration:none}
 header.top h1 small{display:block;font:italic 400 12px/1.3 var(--display);text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:3px}
 .build2{display:none}
 header.top nav.menu{display:flex;align-items:flex-end;gap:2px 18px;margin:0 auto 1px 30px;flex-wrap:nowrap}
@@ -93,6 +94,7 @@ main{display:block}
 .panel>h2{margin:0;padding:7px 16px 6px;font:400 12.5px/1.45 var(--display);border-bottom:1px solid var(--rule)}
 .panel>h2 b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
 .panel>h2 span{color:var(--ink)}
+.panel>h2 .hint{font-style:italic;color:var(--ink2);margin-left:8px;white-space:nowrap}
 .pbody{display:flex;flex-wrap:wrap;gap:12px 22px;padding:12px 16px 13px}
 .svgwrap{flex:3 1 540px;max-width:780px;min-width:0;overflow-x:auto}
 .svgwrap.wide{flex-basis:100%;max-width:1010px}
@@ -367,7 +369,7 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 <body>
 
 <header class="top">
-  <h1>Penfield’s Map <small>References</small></h1>
+  <h1><a href="/">Penfield’s Map</a> <small>References</small></h1>
   <nav class="menu" aria-label="Site">
     <a href="/">Experience<span class="mw"> map</span></a>
     <a href="/body/">Body<span class="mw"> map</span></a>

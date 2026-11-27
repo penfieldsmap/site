@@ -218,7 +218,7 @@ def static(fl,slug,sub,title,desc,content):
 <body>
 
 <header class="top">
-  <h1>Penfield’s Map <small>%s</small></h1>
+  <h1><a href="@EXP@">Penfield’s Map</a> <small>%s</small></h1>
   <nav class="menu" aria-label="Site">
     <a href="@EXP@">Experience<span class="mw"> map</span></a>
     <a href="@BODY@">Body<span class="mw"> map</span></a>
@@ -295,7 +295,7 @@ RECTPL="""<!DOCTYPE html>
 <body class="rec">
 %s
 <header class="top">
-  <h1>Penfield’s Map <small>%s</small></h1>
+  <h1><a href="@EXP@">Penfield’s Map</a> <small>%s</small></h1>
   <nav class="menu" aria-label="Site">
 %s  </nav>
   <span class="build" data-t="%s"></span>

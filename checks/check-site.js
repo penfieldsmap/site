@@ -24,10 +24,12 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
       await p.goto(B + u); await p.waitForTimeout(450);
       const i = await p.evaluate(() => ({
         over: document.documentElement.scrollWidth - document.documentElement.clientWidth, title: document.title, h1: document.querySelectorAll('h1').length,
+        home: (document.querySelector('header.top h1 a') || { getAttribute: () => '' }).getAttribute('href'),
         stamp: (document.body.textContent.match(/updated \d{4}-\d{2}-\d{2}\. Work in progress, not peer reviewed/g) || []).length
       }));
       check(i.over <= 0, tag + ' ' + u + ' is wider than the screen by ' + i.over + 'px');
       check(i.title.length > 10 && i.h1 === 1, tag + ' ' + u + ' needs a title and one main heading');
+      check(i.home === '/', tag + ' ' + u + ': the title at the top left leads to the home page');
       check(i.stamp === 1, tag + ' ' + u + ' carries the date line ' + i.stamp + ' times in its text, expected once');
     }
     await p.context().close();
@@ -93,6 +95,21 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
     check(!(await shown(tp)), tag + ': a return after the plate has been scrolled past starts at the map');
     await tp.context().close();
   }
+  // 8. Choosing a case from the top of the home page brings the map into view once, with the opening lines under the
+  //    header; the next choice does not move the page. On the body map a choice at the top does not move the page.
+  const st = await (await browser.newContext(DESK)).newPage(); hook(st, 'settle');
+  await st.goto(B + '/'); await st.waitForTimeout(500);
+  await st.click('.lede .try a[data-id="music"]'); await st.waitForTimeout(1300);
+  const s1 = await st.evaluate(() => ({ y: Math.round(pageYOffset), gap: Math.round(document.getElementById('lede').getBoundingClientRect().top - document.querySelector('header.top').getBoundingClientRect().bottom), rec: document.querySelector('#record h2').textContent }));
+  check(Math.abs(s1.gap) < 4 && s1.rec === 'Music', 'a case chosen from the top brings the map into view with the opening lines under the header (gap ' + s1.gap + 'px, record ' + s1.rec + ')');
+  await st.click('.lede .try a[data-id="fear"]'); await st.waitForTimeout(900);
+  const s2 = await st.evaluate(() => ({ y: Math.round(pageYOffset), rec: document.querySelector('#record h2').textContent }));
+  check(s2.y === s1.y && s2.rec === 'Fear', 'the next choice changes the record without moving the page (' + s1.y + ' then ' + s2.y + ')');
+  await st.goto(B + '/body/'); await st.waitForTimeout(500);
+  const b0 = await st.evaluate(() => { const ids = Object.keys(window.__D.REG); location.hash = ids[5]; return Math.round(pageYOffset); }); await st.waitForTimeout(600);
+  check(b0 === 0 && await st.evaluate(() => Math.round(pageYOffset)) === 0, 'a choice at the top of the body map does not move the page');
+  await st.context().close();
+
   const tp2 = await (await browser.newContext(DESK)).newPage(); hook(tp2, 'plate'); await tp2.goto(B + '/#music'); await tp2.waitForTimeout(400);
   check(!(await shown(tp2)), 'a link that points at a record starts at the map');
   await n.goto(B + '/'); check(await shown(n) && await n.evaluate(() => !!document.querySelector('#plate a[href="#map"]') && !!document.getElementById('map')), 'with scripts turned off the plate is plain content with a link to the map');

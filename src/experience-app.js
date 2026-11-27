@@ -205,6 +205,15 @@ function plateNote(e){
 }
 
 /* ---------- selection ---------- */
+/* After a choice the page moves only if it has to: when the map is not in view, or when the start of the record has been
+   scrolled past. It then comes to rest where the opening lines sit under the header, with the map and the record in
+   view, and stays there for the choices that follow. On a narrow screen it rests with the figure under the header. */
+function glide(y){var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;try{window.scrollTo({top:y,behavior:still?'auto':'smooth'});}catch(x){window.scrollTo(0,y);}}
+function settle(){
+  var head=document.querySelector('header.top').offsetHeight,top=$('duo').getBoundingClientRect().top,y=top+window.pageYOffset-head-(isNarrow()?0:$('tools').offsetHeight);
+  if(!(window.pageYOffset>y+2)&&!(top>window.innerHeight-(isNarrow()?140:260))){return;}
+  var m=$('map');glide(isNarrow()||!m?y:Math.max(0,Math.min(y,m.getBoundingClientRect().top+window.pageYOffset-head)));
+}
 function select(id,opt){
   opt=opt||{};var e=EID[id];if(!e){return;}
   var regroup=e.g!==state.g;state.sel=id;state.g=e.g;
@@ -212,10 +221,7 @@ function select(id,opt){
   $('f1t').textContent=GK[e.g].l+'. Side view of one hemisphere, front to the left.';
   if($('mnow')){$('mnow').textContent=e.lab;}
   if(!opt.nohash){try{if(location.hash.slice(1)!==id){history.replaceState(null,'','#'+id);}}catch(x){}}
-  if(!opt.noscroll){
-    var d=$('duo'),y=d.getBoundingClientRect().top+window.pageYOffset-document.querySelector('header.top').offsetHeight-(isNarrow()?0:$('tools').offsetHeight);
-    if(opt.scroll||window.pageYOffset>y){window.scrollTo(0,y);}
-  }
+  if(!opt.noscroll){settle();}
   var c=document.querySelector('#chips .on');if(c&&regroup===false){var cb=c.parentNode,cr=c.getBoundingClientRect(),br=cb.getBoundingClientRect();if(cr.left<br.left){cb.scrollLeft-=br.left-cr.left+8;}else if(cr.right>br.right){cb.scrollLeft+=cr.right-br.right+8;}}   /* bring the chosen name into view along its row, without moving the page */
 }
 function step(d){var i=SEQ.indexOf(state.sel);i=(i+d+SEQ.length)%SEQ.length;select(SEQ[i]);}
