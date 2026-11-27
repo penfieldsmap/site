@@ -9,6 +9,8 @@ Dates are the dates shown on the site.
 - A new picture for links shared to the site. The script that composes it and the picture it starts from are in `build/`.
 - On the experience map every region that can be chosen shows from the start, as a light wash of the layer's colour, and the names on the plate read as links.
 - Choosing a record no longer makes the page jump: it moves only when the map is out of view, and then rests with the opening lines, the map and the record on screen. The title at the top left of every page leads to the home page. The body map says what to click.
+- The title plate shows every time the home page is opened. Only an address that points at a record starts at the map.
+- The note under the chart of responses by hemisphere is shorter. Its facts are unchanged.
 - The line at the top right of every page gives the date of the last update and nothing else. The footer still says the site is not peer reviewed.
 - Every page ends with a link back to its top. It leaves the address alone, so a record or a section chosen through the address stays chosen.
 - The About page names the author of the book the site accompanies. Labels in the About text and in the records no longer run into the words after them when a page is read as plain text.

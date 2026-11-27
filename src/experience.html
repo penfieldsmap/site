@@ -118,10 +118,8 @@ html.plate-off .tp{display:none}
 </head>
 <body>
 <script>
-/* The title plate is the top of this page on arrival. A link that points at a record, or a return to the page
-   after the plate has been scrolled past in the same visit, starts at the map instead. */
-(function(){var seen=false;try{seen=!!sessionStorage.getItem('pm-plate');}catch(e){}
-if(seen||location.hash.length>1){document.documentElement.className+=' plate-off';}})();
+/* The title plate is the top of this page every time it is opened. Only an address that points at a record starts at the map instead. */
+(function(){if(location.hash.length>1){document.documentElement.className+=' plate-off';}})();
 </script>
 
 <!--@DEFS@-->

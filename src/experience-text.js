@@ -11,7 +11,7 @@ var SERIES=[
   ['Patients explored outside the temporal lobe','612'],
   ['of these, with a memory-like experience','0']
 ];
-var CAP2='Each bar counts responses. A response is one point on the cortex that gave an experience, and a point stimulated more than once is counted once. Dominant means the hemisphere that carries speech. In two of the 40 patients speech was in the right hemisphere, so non-dominant does not always mean right. The 40 patients were 18 male and 22 female, and their average age at operation was 25.';
+var CAP2='Bars count responses. A response is a point on the cortex that gave an experience, counted once however often it was stimulated. Dominant is the hemisphere that carries speech, which was the right in two of the 40 patients. The patients were 18 male and 22 female, average age 25 at operation.';
 function REC(id,label){return ' <a class="lk" href="'+EXPURL+'#'+id+'">Record: '+label+'</a>';}
 var ABOUT_A='<h2>About this map</h2>'+
 '<h3>Wilder Penfield</h3>'+

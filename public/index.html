@@ -459,10 +459,8 @@ html.plate-off .tp{display:none}
 </head>
 <body>
 <script>
-/* The title plate is the top of this page on arrival. A link that points at a record, or a return to the page
-   after the plate has been scrolled past in the same visit, starts at the map instead. */
-(function(){var seen=false;try{seen=!!sessionStorage.getItem('pm-plate');}catch(e){}
-if(seen||location.hash.length>1){document.documentElement.className+=' plate-off';}})();
+/* The title plate is the top of this page every time it is opened. Only an address that points at a record starts at the map instead. */
+(function(){if(location.hash.length>1){document.documentElement.className+=' plate-off';}})();
 </script>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -839,7 +837,7 @@ var SERIES=[
   ['Patients explored outside the temporal lobe','612'],
   ['of these, with a memory-like experience','0']
 ];
-var CAP2='Each bar counts responses. A response is one point on the cortex that gave an experience, and a point stimulated more than once is counted once. Dominant means the hemisphere that carries speech. In two of the 40 patients speech was in the right hemisphere, so non-dominant does not always mean right. The 40 patients were 18 male and 22 female, and their average age at operation was 25.';
+var CAP2='Bars count responses. A response is a point on the cortex that gave an experience, counted once however often it was stimulated. Dominant is the hemisphere that carries speech, which was the right in two of the 40 patients. The patients were 18 male and 22 female, average age 25 at operation.';
 function REC(id,label){return ' <a class="lk" href="'+EXPURL+'#'+id+'">Record: '+label+'</a>';}
 var ABOUT_A='<h2>About this map</h2>'+
 '<h3>Wilder Penfield</h3>'+
@@ -1222,9 +1220,6 @@ toolh();
 /* ---------- the title plate ---------- */
 (function(){
 var tp=document.getElementById('plate'),go=document.getElementById('plate-go'),root=document.documentElement;if(!tp||/(^|\s)plate-off(\s|$)/.test(root.className)){return;}
-function past(){try{sessionStorage.setItem('pm-plate','1');}catch(x){}window.removeEventListener('scroll',watch);}
-function watch(){if(window.pageYOffset>=tp.offsetTop+tp.offsetHeight-document.querySelector('header.top').offsetHeight-4){past();}}   /* once the plate has been scrolled past, a return in this visit starts at the map */
-window.addEventListener('scroll',watch,{passive:true});
 go.addEventListener('click',function(ev){var m=document.getElementById('map');if(!m||ev.metaKey||ev.ctrlKey||ev.shiftKey){return;}ev.preventDefault();ev.stopPropagation();
   m.scrollIntoView({block:'start',behavior:window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
 })();

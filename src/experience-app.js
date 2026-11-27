@@ -335,9 +335,6 @@ toolh();
 /* ---------- the title plate ---------- */
 (function(){
 var tp=document.getElementById('plate'),go=document.getElementById('plate-go'),root=document.documentElement;if(!tp||/(^|\s)plate-off(\s|$)/.test(root.className)){return;}
-function past(){try{sessionStorage.setItem('pm-plate','1');}catch(x){}window.removeEventListener('scroll',watch);}
-function watch(){if(window.pageYOffset>=tp.offsetTop+tp.offsetHeight-document.querySelector('header.top').offsetHeight-4){past();}}   /* once the plate has been scrolled past, a return in this visit starts at the map */
-window.addEventListener('scroll',watch,{passive:true});
 go.addEventListener('click',function(ev){var m=document.getElementById('map');if(!m||ev.metaKey||ev.ctrlKey||ev.shiftKey){return;}ev.preventDefault();ev.stopPropagation();
   m.scrollIntoView({block:'start',behavior:window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
 })();

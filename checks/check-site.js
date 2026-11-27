@@ -80,7 +80,7 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
   check(urls.every(u => sm.includes(u)), 'every record page is in the sitemap');
 
   // 7. The title plate is the top of the home page on arrival, with the start of the map in view under it. Its link
-  //    goes to the map. A link that points at a record, or a return after the plate has been scrolled past, starts at
+  //    goes to the map. The plate shows every time the page is opened; only a link that points at a record starts at
   //    the map. With scripts turned off the plate is plain content.
   const shown = pg => pg.evaluate(() => { const c = document.getElementById('plate'); return !!c && getComputedStyle(c).display !== 'none'; });
   for (const [tag, ctx] of [['desktop', DESK], ['phone', PHONE]]) {
@@ -92,7 +92,7 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
     const j = await tp.evaluate(() => ({ lede: document.getElementById('lede').getBoundingClientRect().top, head: document.querySelector('header.top').getBoundingClientRect().bottom, hash: location.hash }));
     check(Math.abs(j.lede - j.head) < 4, tag + ': the link on the plate goes to the map (map starts ' + Math.round(j.lede - j.head) + 'px under the header)');
     await tp.reload(); await tp.waitForTimeout(400);
-    check(!(await shown(tp)), tag + ': a return after the plate has been scrolled past starts at the map');
+    check(await shown(tp), tag + ': the plate is still there when the page is loaded again after it has been scrolled past');
     await tp.context().close();
   }
   // 8. Choosing a case from the top of the home page brings the map into view once, with the opening lines under the
