@@ -155,6 +155,26 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
   await old.goto(B + '/body/figures/#p3'); await old.waitForTimeout(900); check(new URL(old.url()).pathname === '/body/fig-3/', 'the old address with the anchor of Fig. 3 leads to Fig. 3 (' + old.url().replace(B, '') + ')');
   await old.context().close();
 
+  // 11. "Experience map" in the menu goes straight to the map, as "Body map" does. The title at the top left is the way
+  //     to the home page with its title plate.
+  for (const [tag, ctx] of [['desktop', DESK], ['phone', PHONE]]) {
+    const m = await (await browser.newContext(ctx)).newPage(); hook(m, 'menu ' + tag);
+    const gap = () => m.evaluate(() => Math.round(document.getElementById('lede').getBoundingClientRect().top - document.querySelector('header.top').getBoundingClientRect().bottom));
+    const under = g => g >= -4 && g < 60;   // the opening lines start just under the header (the phone shows the date line between them)
+    for (const u of PAGES.concat([urls[0].replace(B, '')])) {
+      await m.goto(B + u); await m.waitForTimeout(300);
+      const h = await m.evaluate(() => (document.querySelector('header.top nav.menu a') || { getAttribute: () => '' }).getAttribute('href'));
+      check(h === '/#map', tag + ' ' + u + ' the menu link to the experience map points at the map (' + h + ')');
+    }
+    await m.goto(B + '/about/'); await m.waitForTimeout(300); await m.click('header.top nav.menu a'); await m.waitForTimeout(900);
+    const g1 = await gap(); check(new URL(m.url()).pathname === '/' && !(await shown(m)) && under(g1), tag + ': "Experience map" from another page opens at the map, without the title plate (plate shown ' + (await shown(m)) + ', opening lines ' + g1 + 'px under the header)');
+    await m.click('header.top h1 a'); await m.waitForTimeout(900);
+    check(await shown(m) && await m.evaluate(() => pageYOffset === 0), tag + ': the title at the top left opens the home page with its title plate');
+    await m.click('header.top nav.menu a'); await m.waitForTimeout(900);
+    const g2 = await gap(); check(under(g2), tag + ': "Experience map" on the home page moves down to the map (opening lines ' + g2 + 'px under the header)');
+    await m.context().close();
+  }
+
   check(errs.length === 0, 'errors while loading pages: ' + JSON.stringify(errs.slice(0, 8)));
   await browser.close(); srv.close();
   console.log((fails.length ? 'FAILED ' + fails.length + ' of ' : 'passed all ') + (passed + fails.length) + ' checks: ' + PAGES.length + ' pages on two screens, ' + urls.length + ' record pages, ' + hrefs.size + ' internal links, ' + sm.length + ' sitemap addresses');

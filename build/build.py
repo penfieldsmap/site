@@ -157,7 +157,7 @@ ABOUT='''<p class="jump">On this page: <a href="#penfield">Wilder Penfield</a> <
 <section class="doc about" id="penfield">
   <div><h2>About</h2>'''+bio+'''</div>
   <div><h3>The two maps</h3>
-    <p>The <a href="@EXP@">experience map</a> covers what his patients heard, saw, remembered and felt when the temporal lobe was stimulated, with later work on feeling from other parts of the brain.</p>
+    <p>The <a href="@EXP@#map">experience map</a> covers what his patients heard, saw, remembered and felt when the temporal lobe was stimulated, with later work on feeling from other parts of the brain.</p>
     <p>The <a href="@BODY@">body map</a> covers the strip of cortex for touch and movement, the figure often called the homunculus.</p>
     <p>How the maps were made and checked is under <a href="@METHODS@">Methods</a>. The sources are under <a href="@REFS@">References</a>. Every record also has a page of its own: <a href="@RECS@">index of records</a>.</p>
     <p>The site is a research companion to <i>NEURAL</i>, a book by Velco Dar on brain-computer interfaces forthcoming from Fast Company Press in 2027.</p>
@@ -219,7 +219,7 @@ def static(fl,slug,sub,title,desc,content):
 <header class="top">
   <h1><a href="@EXP@">Penfield’s Map</a> <small>%s</small></h1>
   <nav class="menu" aria-label="Site">
-    <a href="@EXP@">Experience<span class="mw"> map</span></a>
+    <a href="@EXP@#map">Experience<span class="mw"> map</span></a>
     <a href="@BODY@">Body<span class="mw"> map</span></a>
     <span class="sep" aria-hidden="true"></span>
 %s  </nav>
@@ -348,7 +348,7 @@ def recpage(fl,kind,r,depth,urls):
         desc=clip('%s on Penfield’s body map, %s. %s'%(r['title'],FAM[r['fam']][0],r['first'])); where=FAM[r['fam']][1]; citename='%s, %s'%(r['title'],FAM[r['fam']][0])
     canon='https://penfieldsmap.com'+r['url']
     hd=head(esc(title),esc(desc),canon,esc(title),esc(desc)) if fl=='site' else '<title>%s</title>\n%s\n'%(esc(title),FONTLINK)
-    nav='    <a href="@EXP@"%s>Experience<span class="mw"> map</span></a>\n    <a href="@BODY@"%s>Body<span class="mw"> map</span></a>\n    <span class="sep" aria-hidden="true"></span>\n    <a href="@ABOUT@">About</a>\n    <a href="@METHODS@">Methods</a>\n    <a href="@REFS@">References</a>\n'%((' aria-current="page"','') if kind=='exp' else ('',' aria-current="page"'))
+    nav='    <a href="@EXP@#map"%s>Experience<span class="mw"> map</span></a>\n    <a href="@BODY@"%s>Body<span class="mw"> map</span></a>\n    <span class="sep" aria-hidden="true"></span>\n    <a href="@ABOUT@">About</a>\n    <a href="@METHODS@">Methods</a>\n    <a href="@REFS@">References</a>\n'%((' aria-current="page"','') if kind=='exp' else ('',' aria-current="page"'))
     forms='<p><a href="%s/issues/new?template=report-an-error.yml&amp;record=%s" rel="noopener">Report an error</a> or <a href="%s/issues/new?template=suggest-a-finding.yml&amp;record=%s" rel="noopener">suggest a finding</a> on GitHub.</p>'%(REPO,quote(canon,safe=''),REPO,quote(canon,safe='')) if OPEN_SOURCE else ''
     cite='<div class="sect cite"><h3>Cite or correct this record</h3><p>Dargentic Intelligence. “%s.” Penfield’s Map, updated %s. %s</p><p>Corrections and suggestions, with a source: <a href="mailto:%s?subject=%s">%s</a></p>%s</div>'%(esc(citename),DATE_LONG,canon,MAIL,esc(citename).replace(' ','%20').replace(',','%2C'),MAIL,forms)
     svgd=svgcls(r['svg'],'pl-d'); svgm=svgcls(r['svgm'],'pl-m'+(' fitm' if 'fitm' in r['wrapm'] else ''))

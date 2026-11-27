@@ -9,7 +9,7 @@ Dates are the dates shown on the site.
 - A new picture for links shared to the site. The script that composes it and the picture it starts from are in `build/`.
 - On the experience map every region that can be chosen shows from the start, as a light wash of the layer's colour, and the names on the plate read as links.
 - Choosing a record no longer makes the page jump: it moves only when the map is out of view, and then rests with the opening lines, the map and the record on screen. The title at the top left of every page leads to the home page. The body map says what to click.
-- The title plate shows every time the home page is opened. Only an address that points at a record starts at the map.
+- The title plate shows every time the home page is opened. An address that points at a record starts at the map, and so does "Experience map" in the menu, as "Body map" does. The title at the top left opens the home page with its plate.
 - The note under the chart of responses by hemisphere is shorter. Its facts are unchanged.
 - The line at the top right of every page gives the date of the last update and nothing else. The footer still says the site is not peer reviewed.
 - The three figures of the body map each have a page: Fig. 1 at `/body/`, Fig. 2 at `/body/fig-2/`, Fig. 3 at `/body/fig-3/`. A toggle at the left of the tool bar switches between them and sits in the same place on all three. The old address `/body/figures/` leads to Fig. 2, or to Fig. 3 when it carried that figure's anchor.
