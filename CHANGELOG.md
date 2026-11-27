@@ -12,7 +12,7 @@ Dates are the dates shown on the site.
 - The title plate shows every time the home page is opened. Only an address that points at a record starts at the map.
 - The note under the chart of responses by hemisphere is shorter. Its facts are unchanged.
 - The line at the top right of every page gives the date of the last update and nothing else. The footer still says the site is not peer reviewed.
-- Every page ends with a link back to its top. It leaves the address alone, so a record or a section chosen through the address stays chosen.
+- Every page ends with a link back to its top, in a dark bar above the footer. It leaves the address alone, so a record or a section chosen through the address stays chosen.
 - The About page names the author of the book the site accompanies. Labels in the About text and in the records no longer run into the words after them when a page is read as plain text.
 
 ## 2026-11-26
