@@ -611,9 +611,9 @@
       "plate_label": "Laughter",
       "term_in_1963_paper": "",
       "note": "Stimulation has made patients laugh. In some the laughter came with a feeling of amusement.",
-      "count": "A series of ten patients, a report of three, and a single case. All had epilepsy.",
+      "count": "A series of ten patients, a report of three, and a single case. A later and larger series from the group that published the ten produced laughter 25 times; the number of patients was not found in the parts read. All had epilepsy.",
       "site": "The front of the cingulate cortex on the inner face of the hemisphere, the cingulum bundle that runs beneath the cingulate cortex, and the front of the supplementary motor area. The cingulum bundle is not drawn on the plate.",
-      "side": "In the cingulum report, left in the first patient and right in the other two. Left in the supplementary motor report. The cingulate series was read as an abstract, which gives no side.",
+      "side": "In the cingulum report, left in the first patient and right in the other two. Left in the supplementary motor report. The cingulate series of ten was read as an abstract, which gives no side. In the larger cingulate series, 12 times on the left and 13 on the right.",
       "plate_zones": [
         {
           "id": "pacc",
@@ -705,7 +705,7 @@
       "note": "A feeling that a challenge was coming, with a determination to get through it.",
       "count": "Two patients.",
       "site": "The anterior midcingulate cortex, on the inner face of the hemisphere.",
-      "side": "The paper does not state a side in words.",
+      "side": "Right in both patients, read from the coordinates given with the paper’s Fig. 1. The paper does not state a side in words.",
       "plate_zones": [
         {
           "id": "amcc",
@@ -948,6 +948,16 @@
       "text": "In 10 epilepsy patients, stimulating the pregenual anterior cingulate cortex, the part in front of the corpus callosum, made them laugh. In half of them the laughter came with a feeling of amusement. In the other half amusement was not evident. The ten are the patients who laughed, out of a larger group that was stimulated.",
       "references": [
         "caruana2015"
+      ]
+    },
+    {
+      "records": [
+        "laughter"
+      ],
+      "method": "STIM",
+      "text": "In a series of 329 epilepsy patients published in 2018, stimulation at 1,789 sites along the whole length of the cingulate cortex produced laughter or smiling 25 times, 12 on the left and 13 on the right. The sites lay at the top of the pregenual part of the anterior cingulate, where it borders the midcingulate. In most cases the patient also felt mirth.",
+      "references": [
+        "caruana2018"
       ]
     },
     {

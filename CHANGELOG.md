@@ -9,6 +9,9 @@ Corrections after an outside reading of the site against its sources. Each was c
 - Laughter: in the cingulum report (Bijanki et al. 2019) the first patient was stimulated on the left and the other two on the right. The record said left for the report as a whole.
 - Mood: the 2005 trial (Mayberg et al.) implanted both sides; the record's line on side now says so. The About page now says where the stimulation went in the single case of 2021, as the Mood record already did.
 - About, memory (Ezzyat et al. 2018): the gain of about 15% in recall was at the 18 sites in the lateral temporal cortex. At the 11 sites elsewhere stimulation did not help. The page had read as if all the stimulation went to the lateral temporal cortex.
+- Resolve (Parvizi et al. 2013): the side is now given, right in both patients, read from the coordinates printed with the paper's Fig. 1. The paper does not state it in words.
+- Laughter: a larger series from the group that published the ten patients (Caruana et al. 2018) is added. Read in part.
+- Body records list what is specific to the label first. What applies to every label follows, folded on the map and shown in full on the record's own page.
 - Body map, motor labels (Roux et al. 2020): 608 sites were stimulated in the precentral gyrus and 1,937 nearby; 248 gave a movement, 245 of them in the precentral gyrus. The entry had set two of these counts against each other as if they disagreed.
 
 ## 2026-11-27

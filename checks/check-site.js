@@ -195,6 +195,17 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
     check(t.read && t.old === 0 && (u !== '/references/' || /^\d+,\d+$/.test(t.refs)) && (u !== '/records/' || t.idx === urls.length), u + ' uses the shared layout of the text pages (' + JSON.stringify(t) + ')'); }
   await o.context().close();
 
+  // 13. In a body record, findings specific to the label come before those that apply to every label, which are folded
+  //     on the map when there is something specific above them and shown in full on the record's own page.
+  const sp = await (await browser.newContext(DESK)).newPage(); hook(sp, 'specific first');
+  await sp.goto(B + '/body/#mot-hand'); await sp.waitForTimeout(700);
+  const so = await sp.evaluate(() => { const sec = document.querySelector('#record .sect'), kids = Array.from(sec.children).filter(e => e.classList.contains('row') || e.tagName === 'DETAILS');
+    const d = sec.querySelector('details.strip'); return { firstScope: (sec.querySelector('.row .sc') || {}).textContent, lastIsFold: !!kids.length && kids[kids.length - 1].tagName === 'DETAILS', open: d ? d.open : null, inside: d ? Array.from(d.querySelectorAll('.sc')).every(x => /^Applies to: all /.test(x.textContent)) : false, outside: Array.from(sec.querySelectorAll(':scope > .row .sc')).every(x => !/^Applies to: all /.test(x.textContent)) }; });
+  check(so.lastIsFold && so.open === false && so.inside && so.outside && !/^Applies to: all /.test(so.firstScope), 'body map: a record lists what is specific to the label first and folds what applies to every label (' + JSON.stringify(so) + ')');
+  await sp.goto(B + '/body/motor/hand/'); await sp.waitForTimeout(400);
+  check(await sp.evaluate(() => { const d = document.querySelector('details.strip'); return !!d && d.open && d.getBoundingClientRect().height > 60; }), 'record page: the findings that apply to every label are shown in full');
+  await sp.context().close();
+
   check(errs.length === 0, 'errors while loading pages: ' + JSON.stringify(errs.slice(0, 8)));
   await browser.close(); srv.close();
   console.log((fails.length ? 'FAILED ' + fails.length + ' of ' : 'passed all ') + (passed + fails.length) + ' checks: ' + PAGES.length + ' pages on two screens, ' + urls.length + ' record pages, ' + hrefs.size + ' internal links, ' + sm.length + ' sitemap addresses');

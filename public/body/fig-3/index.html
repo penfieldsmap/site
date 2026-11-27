@@ -284,6 +284,13 @@ details.fold>summary .fc{flex:0 0 auto;padding-right:12px;font-size:10.5px;font-
 details.fold>summary .fc::after{content:"+";display:inline-block;width:1.4em;text-align:right;font:normal 700 13px/1 var(--display);color:var(--ink)}
 details.fold[open]>summary .fc::after{content:"\2212"}
 details.fold>summary:hover h3{text-decoration:underline;text-underline-offset:2px}
+details.strip{margin-top:4px}
+details.strip>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:10px;padding:8px 12px 6px;border-top:1px solid var(--rule);font-size:11.5px;font-style:italic;color:var(--ink2)}
+details.strip>summary::-webkit-details-marker{display:none}
+details.strip>summary .fc{margin-left:auto;font-size:10.5px;white-space:nowrap}
+details.strip>summary .fc::after{content:"+";display:inline-block;width:1.4em;text-align:right;font:normal 700 13px/1 var(--display);color:var(--ink)}
+details.strip[open]>summary .fc::after{content:"\2212"}
+details.strip>summary:hover span:first-child{text-decoration:underline;text-underline-offset:2px}
 /* further figures of the body map, on their own page */
 .crumb{margin:0;padding:8px 16px;font-size:11.5px;font-style:italic;color:var(--ink2);border-bottom:1px solid var(--ink)}
 .crumb a{margin-right:14px;font-style:normal;white-space:nowrap}
@@ -1373,12 +1380,20 @@ function renderRecord(id){
     var sec=H('div',{class:'sect'});sec.appendChild(H('h3',null,s[1]));
     plain.push('');plain.push(s[1].toUpperCase());
     if(!rows.length){sec.appendChild(H('div',{class:'none'},'No entry.'));plain.push('No entry.');}
-    rows.forEach(function(a){
+    var put=function(a,into){
       var refs=a.r.map(function(k){if(used.indexOf(k)<0){used.push(k);}return REFS[k].s;}).join('; ');
       var body=H('div',null,[a.t+' ',H('span',{class:'r'},'['+refs+']'),' ',H('span',{class:'sc'},'Applies to: '+a.sl)]);
-      sec.appendChild(H('div',{class:'row'},[H('div',{class:'m'},a.m),body]));
+      into.appendChild(H('div',{class:'row'},[H('div',{class:'m'},a.m),body]));
       plain.push('- ('+a.m+') '+a.t+' ['+refs+'] Applies to: '+a.sl+'.');
-    });
+    };
+    /* what is specific to this label comes first; what applies to every label follows, folded when there is something specific above it */
+    var own=rows.filter(function(a){return !/^all /.test(a.sl);}),wide=rows.filter(function(a){return /^all /.test(a.sl);});
+    own.forEach(function(a){put(a,sec);});
+    if(wide.length&&own.length){
+      var wd=H('details',{class:'strip'});
+      wd.appendChild(H('summary',null,[H('span',null,'Not specific to this label'),' ',H('span',{class:'fc'},wide.length+(wide.length===1?' finding':' findings'))]));
+      wide.forEach(function(a){put(a,wd);});sec.appendChild(wd);
+    }else{wide.forEach(function(a){put(a,sec);});}
     box.appendChild(sec);
   });
   var cs=RC[id]||[];
@@ -1435,7 +1450,7 @@ function foldRecord(box){
     sec.parentNode.replaceChild(d,sec);
   });
 }
-window.addEventListener('beforeprint',function(){Array.prototype.forEach.call(document.querySelectorAll('details.fold'),function(d){d.setAttribute('open','');});});
+window.addEventListener('beforeprint',function(){Array.prototype.forEach.call(document.querySelectorAll('details.fold,details.strip'),function(d){d.setAttribute('open','');});});
 
 /* ---------- selection ---------- */
 function syncButtons(){
