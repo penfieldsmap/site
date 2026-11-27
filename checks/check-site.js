@@ -114,6 +114,23 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
   check(!(await shown(tp2)), 'a link that points at a record starts at the map');
   await n.goto(B + '/'); check(await shown(n) && await n.evaluate(() => !!document.querySelector('#plate a[href="#map"]') && !!document.getElementById('map')), 'with scripts turned off the plate is plain content with a link to the map');
 
+  // 9. Every page ends with a link back to its top. It returns to the top and leaves the address alone, so a record or a
+  //    section chosen through the address stays chosen. With scripts turned off it is still a link to the top.
+  for (const [tag, ctx] of [['desktop', DESK], ['phone', PHONE]]) {
+    const t = await (await browser.newContext(Object.assign({ reducedMotion: 'reduce' }, ctx))).newPage(); hook(t, 'top ' + tag);
+    for (const u of PAGES.concat([urls[0].replace(B, ''), '/#music', '/references/#body'])) {
+      await t.goto(B + u); await t.waitForTimeout(350);
+      await t.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight)); await t.waitForTimeout(150);
+      const was = await t.evaluate(() => ({ y: Math.round(pageYOffset), n: document.querySelectorAll('.foot a.totop').length, href: location.href }));
+      if (was.n === 1) { await t.click('.foot a.totop'); await t.waitForTimeout(250); }
+      const now = await t.evaluate(() => ({ y: Math.round(pageYOffset), href: location.href, body: (document.getElementById('body') || {}).hidden }));
+      check(was.n === 1 && was.y > 0 && now.y === 0 && now.href === was.href, tag + ' ' + u + ' the link at the foot returns to the top and keeps the address (links ' + was.n + ', from ' + was.y + ' to ' + now.y + ', ' + now.href.replace(B, '') + ')');
+      if (u === '/references/#body') check(now.body === false, tag + ' ' + u + ' the section chosen through the address is still shown after going back to the top');
+    }
+    await t.context().close();
+  }
+  await n.goto(B + '/about/'); check(await n.evaluate(() => { const a = document.querySelector('.foot a.totop'); return !!a && a.getAttribute('href') === '#'; }), 'with scripts turned off the link at the foot still leads to the top of the page');
+
   check(errs.length === 0, 'errors while loading pages: ' + JSON.stringify(errs.slice(0, 8)));
   await browser.close(); srv.close();
   console.log((fails.length ? 'FAILED ' + fails.length + ' of ' : 'passed all ') + (passed + fails.length) + ' checks: ' + PAGES.length + ' pages on two screens, ' + urls.length + ' record pages, ' + hrefs.size + ' internal links, ' + sm.length + ' sitemap addresses');

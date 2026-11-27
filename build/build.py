@@ -24,8 +24,11 @@ STAMP='updated %s. Work in progress, not peer reviewed'%UPDATED
 assert STAMP in body_src and STAMP in exp_src, 'the date in src/body.html and src/experience.html must match UPDATED'
 FONTLINK='<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">'
 FF=''.join("@font-face{font-family:\"Libre Baskerville\";font-style:%s;font-weight:%d;font-display:swap;src:url(\"/fonts/libre-baskerville-latin-%d-%s.woff2\") format(\"woff2\")}\n"%(st,w,w,st) for w,st in ((400,'normal'),(400,'italic'),(500,'normal'),(700,'normal'),(700,'italic')))   # 500 is the weight of the headings
-FOOT='<footer class="foot">Published and maintained by <a href="https://www.dargentic.com" rel="noopener">Dargentic Intelligence</a>. %s © 2026 Dargentic Pty Ltd. <a href="@RECS@">Index of records</a>. Corrections: <a href="mailto:%s">%s</a></footer>\n\n'%(('<a href="%s" rel="noopener">Open source</a>, not peer reviewed.'%REPO) if OPEN_SOURCE else 'Not peer reviewed.',MAIL,MAIL)
-FOOTCSS='.foot{padding:12px 16px 16px;border-top:1px solid var(--ink);font-size:11px;color:var(--ink2)}\n'
+# Every page ends with a link back to its top. The address is left alone: a hash chooses a record or a section on these pages.
+TOPJS="<script>(function(){var a=document.querySelector('.foot .totop');if(!a){return;}a.addEventListener('click',function(e){e.preventDefault();var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;try{window.scrollTo({top:0,behavior:still?'auto':'smooth'});}catch(x){window.scrollTo(0,0);}var h=document.querySelector('header.top h1 a');if(h){try{h.focus({preventScroll:true});}catch(x){}}});})();</script>"
+FOOT='<footer class="foot"><span>Published and maintained by <a href="https://www.dargentic.com" rel="noopener">Dargentic Intelligence</a>. %s © 2026 Dargentic Pty Ltd. <a href="@RECS@">Index of records</a>. Corrections: <a href="mailto:%s">%s</a></span> <a class="totop" href="#">Back to top</a></footer>\n'+TOPJS+'\n\n'
+FOOT=FOOT%(('<a href="%s" rel="noopener">Open source</a>, not peer reviewed.'%REPO) if OPEN_SOURCE else 'Not peer reviewed.',MAIL,MAIL)
+FOOTCSS='.foot{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 28px;padding:12px 16px 16px;border-top:1px solid var(--ink);font-size:11px;color:var(--ink2)}\n.foot .totop{font-size:12.5px;white-space:nowrap;padding:4px 0}\n@media (max-width:1020px){.foot{row-gap:0;padding-bottom:6px}.foot .totop{padding:12px 16px 12px 0}}\n'
 PAGECSS='''
 /* ---------- standalone pages ---------- */
 .pg{min-height:60vh}
