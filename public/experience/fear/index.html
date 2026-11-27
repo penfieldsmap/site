@@ -358,37 +358,41 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 .sul .ctxb{stroke:var(--plate);stroke-opacity:.82}
 .sul .ctxe{stroke-dasharray:3 3;stroke-opacity:.55;stroke-width:1}
 .zn{cursor:pointer;outline:none}
-.zn .zf{fill:transparent;stroke:none}
+/* every region that can be chosen shows from the start: a light wash of the layer's colour with a fine outline,
+   stronger under the pointer, full when chosen */
+.zn .zf{fill:var(--gc);fill-opacity:.17;stroke:none}
 .zn .zt{fill:none;stroke:none;pointer-events:none}
-.zn .zo{fill:none;stroke:none;pointer-events:none}
-.zn.on .zf{fill:var(--gc)}
+.zn .zo{fill:none;stroke:var(--gc);stroke-opacity:.9;stroke-width:1;pointer-events:none}
+.zn:hover .zf,.zn:focus-visible .zf{fill-opacity:.38}
+.zn.on .zf{fill-opacity:1}
 .zn.on .zt{fill:url(#tx-on)}
 .zn.ol.on .zo{stroke:var(--ink);stroke-width:1.2}
-.zn:hover .zo{stroke:var(--ink2);stroke-width:1;stroke-dasharray:2 2}
+.zn:hover .zo{stroke:var(--ink);stroke-opacity:1;stroke-width:1.1}
 .zn .ze{fill:none;stroke:var(--ink);stroke-dasharray:3 2.6;stroke-linecap:butt}
 .zn .zb{fill:none;stroke:var(--plate);stroke-linecap:butt}
-.zn .zf.ln{fill:none;stroke:transparent;stroke-linecap:butt}
+.zn .zf.ln{fill:none;stroke:var(--gc);stroke-opacity:.24;stroke-linecap:butt}
+.zn:hover .zf.ln,.zn:focus-visible .zf.ln{stroke-opacity:.5}
 .zn .zt.ln{fill:none;stroke:none;stroke-linecap:butt}
 .zn .zh{fill:none;stroke:transparent;pointer-events:stroke}
 .zn circle.zh{fill:transparent;stroke:none;pointer-events:all}
 .zn .zc{fill:var(--plate);stroke:var(--ink);stroke-width:1.1;stroke-dasharray:3 2.6}
-.zn.on .zf.ln{stroke:var(--gc)}
+.zn.on .zf.ln{stroke-opacity:1}
 .zn.on .zt.ln{stroke:url(#tx-on)}
 .zn.on .ze,.zn.on .zc{stroke-dasharray:none}
-.zn.on2 .zf{fill:var(--gc);fill-opacity:.38}
-.zn.on2 .zf.ln{fill:none;stroke:var(--gc);stroke-opacity:.38}
+.zn.on2 .zf{fill-opacity:.42}
+.zn.on2 .zf.ln{stroke-opacity:.42}
 .hes{fill:var(--ink);stroke:none}
 .anat.lbl text{pointer-events:none}
 .bodylink{cursor:pointer}
 .bodylink .blk{font-size:10.5px;font-style:italic;fill:var(--link);text-decoration:underline}
 .bodylink .ptr2{stroke:var(--link);stroke-width:.7;fill:none}
 .elab{cursor:pointer;outline:none}
-.elab .lab{font-size:13.5px;fill:var(--ink);paint-order:stroke;stroke:var(--plate);stroke-width:4px;stroke-linejoin:round}
+.elab .lab{font-size:13.5px;fill:var(--link);text-decoration:underline;paint-order:stroke;stroke:var(--plate);stroke-width:4px;stroke-linejoin:round}
 .elab .lead{stroke:var(--ink);stroke-width:.7;fill:none}
 .elab .dot{fill:var(--ink)}
-.elab.on .lab{font-weight:700}
+.elab.on .lab{font-weight:700;fill:var(--ink);text-decoration:none}
 .elab.on .lead{stroke-width:1.5}
-.elab:hover .lab,.elab:focus-visible .lab{text-decoration:underline}
+.elab:hover .lab,.elab:focus-visible .lab{fill:var(--ink)}
 #fig1.fitm .labs,#fig1.fitm .anat.lbl,#fig1.fitm .bodylink{display:none}
 .chips{display:none}
 .who{font-weight:400;font-style:italic}
