@@ -177,7 +177,9 @@ table.dt tbody tr.on td{background:var(--ink);color:var(--plate)}
 .abl2 li{margin:0 0 5px}
 .about a{overflow-wrap:anywhere}
 .foot{font-size:11px;color:var(--ink2)}
-.foot span{display:block;padding:12px 16px 16px}
+.foot .ft{padding:12px 16px 16px}
+.foot p{margin:0}
+.foot p+p{margin-top:5px}
 .foot .totop{display:block;padding:9px 16px;background:var(--ink);color:var(--bg);font-size:12.5px;text-decoration:none}
 .foot .totop:hover{text-decoration:underline;text-underline-offset:3px}
 .foot .totop:focus-visible{outline:2px solid var(--bg);outline-offset:-5px}
@@ -443,7 +445,7 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 </section>
 </main>
 
-<footer class="foot"><a class="totop" href="#">Back to top</a> <span>Published and maintained by <a href="https://www.dargentic.com" rel="noopener">Dargentic Intelligence</a>. <a href="https://github.com/penfieldsmap/site" rel="noopener">Open source</a>, not peer reviewed. © 2026 Dargentic Pty Ltd. <a href="/records/">Index of records</a>. Corrections: <a href="mailto:suggestions@penfieldsmap.com">suggestions@penfieldsmap.com</a></span></footer>
+<footer class="foot"><a class="totop" href="#">Back to top</a> <div class="ft"><p>An interactive reference and research companion to Velco Dar’s <a href="https://neuralthebook.com/" rel="noopener"><cite>NEURAL: How Brain-Computer Interfaces Will Redefine Commerce and Power</cite></a>.</p> <p>Published and maintained by <a href="https://www.dargentic.com" rel="noopener">Dargentic Intelligence</a>. <a href="https://github.com/penfieldsmap/site" rel="noopener">Open source</a>, not peer reviewed. © 2026 Dargentic Pty Ltd. <a href="/records/">Index of records</a>. Corrections: <a href="mailto:suggestions@penfieldsmap.com">suggestions@penfieldsmap.com</a></p></div></footer>
 <script>(function(){var a=document.querySelector('.foot .totop');if(!a){return;}a.addEventListener('click',function(e){e.preventDefault();var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;try{window.scrollTo({top:0,behavior:still?'auto':'smooth'});}catch(x){window.scrollTo(0,0);}var h=document.querySelector('header.top h1 a');if(h){try{h.focus({preventScroll:true});}catch(x){}}});})();</script>
 
 </body>
