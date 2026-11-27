@@ -613,7 +613,7 @@
       "note": "Stimulation has made patients laugh. In some the laughter came with a feeling of amusement.",
       "count": "A series of ten patients, a report of three, and a single case. All had epilepsy.",
       "site": "The front of the cingulate cortex on the inner face of the hemisphere, the cingulum bundle that runs beneath the cingulate cortex, and the front of the supplementary motor area. The cingulum bundle is not drawn on the plate.",
-      "side": "Left in the cingulum and supplementary motor reports. The cingulate series was read as an abstract, which gives no side.",
+      "side": "In the cingulum report, left in the first patient and right in the other two. Left in the supplementary motor report. The cingulate series was read as an abstract, which gives no side.",
       "plate_zones": [
         {
           "id": "pacc",
@@ -659,7 +659,7 @@
       "note": "A lift of mood lasting minutes, in one study, and treatment of depression with an implanted stimulator, in two.",
       "count": "One study of 25 patients who had electrodes in place for epilepsy, one open trial in six patients, and one single case.",
       "site": "The lateral orbitofrontal cortex. The white matter beside the subgenual cingulate. The ventral capsule and ventral striatum, which are not drawn on the plate.",
-      "side": "One side in the orbitofrontal study. Right in the single case.",
+      "side": "One side in the orbitofrontal study. Both sides in the subgenual cingulate trial. Right in the single case.",
       "plate_zones": [
         {
           "id": "lofc",
@@ -955,7 +955,7 @@
         "laughter"
       ],
       "method": "STIM",
-      "text": "In a woman of 23 with epilepsy, stimulating the cingulum bundle on the left produced smiling, laughter and a calm, happy mood. Her surgeons then used it to keep her calm through brain surgery done while she was awake. Two further patients showed the same smiling and lift of mood. Grey matter nearby gave nothing in the first patient.",
+      "text": "In a woman of 23 with epilepsy, stimulating the cingulum bundle on the left produced smiling, laughter and a calm, happy mood. Her surgeons then used it to keep her calm through brain surgery done while she was awake. Two further patients, stimulated in the cingulum bundle on the right, showed the same smiling and lift of mood. Grey matter nearby gave nothing in the first patient.",
       "references": [
         "bijanki2019"
       ]

@@ -510,9 +510,9 @@ html.plate-off .tp{display:none}
     <a href="/methods/">Methods</a>
     <a href="/references/">References</a>
   </nav>
-  <span class="build" data-t="updated 2026-11-27"></span>
+  <span class="build" data-t="updated 2026-11-28"></span>
 </header>
-<p class="build2">updated 2026-11-27</p>
+<p class="build2">updated 2026-11-28</p>
 
 <section class="tp" id="plate" aria-labelledby="plate-t">
   <div class="tp-in">
@@ -728,7 +728,7 @@ var ENTRIES=[
   note:'Stimulation has made patients laugh. In some the laughter came with a feeling of amusement.',
   count:'A series of ten patients, a report of three, and a single case. All had epilepsy.',
   where:'The front of the cingulate cortex on the inner face of the hemisphere, the cingulum bundle that runs beneath the cingulate cortex, and the front of the supplementary motor area. The cingulum bundle is not drawn on the plate.',
-  side:'Left in the cingulum and supplementary motor reports. The cingulate series was read as an abstract, which gives no side.',
+  side:'In the cingulum report, left in the first patient and right in the other two. Left in the supplementary motor report. The cingulate series was read as an abstract, which gives no side.',
   z:['pacc','sma'],z2:[],cases:[]},
  {id:'bliss',g:'L',l:'Bliss',lab:'Bliss',
   note:'A feeling of bliss and of mental clarity.',
@@ -740,7 +740,7 @@ var ENTRIES=[
   note:'A lift of mood lasting minutes, in one study, and treatment of depression with an implanted stimulator, in two.',
   count:'One study of 25 patients who had electrodes in place for epilepsy, one open trial in six patients, and one single case.',
   where:'The lateral orbitofrontal cortex. The white matter beside the subgenual cingulate. The ventral capsule and ventral striatum, which are not drawn on the plate.',
-  side:'One side in the orbitofrontal study. Right in the single case.',
+  side:'One side in the orbitofrontal study. Both sides in the subgenual cingulate trial. Right in the single case.',
   z:['lofc','scc'],z2:[],cases:[]},
  {id:'wanting',g:'L',l:'A changed preference',lab:'Preference',
   note:'One patient’s taste in music changed while his stimulator was running and changed back when its batteries ran down.',
@@ -784,7 +784,7 @@ var LATER=[
  {to:['fear'],m:'STIM',r:['lanteaume2007'],t:'In eight epilepsy patients, about half of the brief stimulations of the amygdala changed how the patient felt. On the right the feeling was always unpleasant: fear, anxiety or sadness. On the left it was unpleasant about half the time and happy the rest. Five of the eight had an electrode on the right and five on the left.'},
  {to:['fear'],m:'STIM',r:['inman2020'],t:'In nine epilepsy patients, stimulating the amygdala reliably changed sweating and heart rate, and seven of the nine felt no emotion. One man felt fear that grew to terror as the voltage on his right amygdala was raised.'},
  {to:['laughter'],m:'STIM',r:['caruana2015'],t:'In 10 epilepsy patients, stimulating the pregenual anterior cingulate cortex, the part in front of the corpus callosum, made them laugh. In half of them the laughter came with a feeling of amusement. In the other half amusement was not evident. The ten are the patients who laughed, out of a larger group that was stimulated.'},
- {to:['laughter'],m:'STIM',r:['bijanki2019'],t:'In a woman of 23 with epilepsy, stimulating the cingulum bundle on the left produced smiling, laughter and a calm, happy mood. Her surgeons then used it to keep her calm through brain surgery done while she was awake. Two further patients showed the same smiling and lift of mood. Grey matter nearby gave nothing in the first patient.'},
+ {to:['laughter'],m:'STIM',r:['bijanki2019'],t:'In a woman of 23 with epilepsy, stimulating the cingulum bundle on the left produced smiling, laughter and a calm, happy mood. Her surgeons then used it to keep her calm through brain surgery done while she was awake. Two further patients, stimulated in the cingulum bundle on the right, showed the same smiling and lift of mood. Grey matter nearby gave nothing in the first patient.'},
  {to:['laughter'],m:'STIM',r:['fried1998'],t:'In one patient, stimulation of a small area at the front of the supplementary motor area, on the left, produced laughter.'},
  {to:['bliss'],m:'STIM',r:['bartolomei2019'],t:'In three epilepsy patients whose seizures began with a feeling of bliss, a few seconds of stimulation of the upper front part of the insula brought on the same state. The site was on the right in two and on the left in one. Stimulation of other sites did not do it.'},
  {to:['bliss'],m:'STIM',r:['nencha2022'],t:'A man of 51 who did not have such seizures reported bliss and mental clarity when the same part of the left insula was stimulated. Five other patients tested in similar conditions did not.'},
@@ -884,8 +884,8 @@ var ABOUT_B='<h3>What later work changed</h3>'+
 '<h3>Significance to brain-computer interfaces</h3>'+
 '<dl class="abl">'+
 '<dt>Reading</dt> <dd>A song has been rebuilt from recordings made over the convolution where Penfield’s patients heard music. Twenty-nine patients listened to the song while their brain activity was recorded. Nothing was stimulated, and what was read out was a song being heard, not one imagined.'+REC('music','Music')+'</dd>'+
-'<dt>Memory</dt> <dd>In 25 epilepsy patients a system watched brain activity while they learned lists of words, and gave a half-second burst of stimulation to the lateral temporal cortex when it predicted that a word would be forgotten. Words stimulated in this way were about 15% more likely to be recalled. The authors call it a proof of concept.</dd>'+
-'<dt>Mood</dt> <dd>One woman with severe depression was given a device that answered a signal in her amygdala with six seconds of stimulation. Her depression score fell by more than half in 12 days. In a study of 25 epilepsy patients, 100 to 200 seconds of stimulation of the lateral orbitofrontal cortex lifted mood in those with moderate to severe symptoms of depression.'+REC('mood','Mood')+'</dd>'+
+'<dt>Memory</dt> <dd>In 25 epilepsy patients a system watched brain activity while they learned lists of words, and gave a half-second burst of stimulation when it predicted that a word would be forgotten. At the 18 sites in the lateral temporal cortex, words stimulated in this way were about 15% more likely to be recalled. At the 11 sites elsewhere, stimulation did not help. The authors call it a proof of concept.</dd>'+
+'<dt>Mood</dt> <dd>One woman with severe depression was given a device that answered a signal in her amygdala with six seconds of stimulation to the right ventral capsule and ventral striatum. Her depression score fell by more than half in 12 days. In a study of 25 epilepsy patients, 100 to 200 seconds of stimulation of the lateral orbitofrontal cortex lifted mood in those with moderate to severe symptoms of depression.'+REC('mood','Mood')+'</dd>'+
 '<dt>Preference</dt> <dd>One man’s taste in music changed while a stimulator in his nucleus accumbens was running, and changed back when its batteries ran down.'+REC('wanting','A changed preference')+'</dd>'+
 '<dt>Limits</dt> <dd>Nearly every finding on the experience map comes from people with epilepsy, or with another illness that was the reason for the electrodes. Several rest on one patient. Most stimulations produce no experience. In nine patients whose amygdala was stimulated, the body answered reliably and seven of them felt no emotion.'+REC('fear','Fear')+'</dd>'+
 '</dl>'+

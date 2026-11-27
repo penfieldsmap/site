@@ -6,7 +6,7 @@ HERE=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(HERE)
 SRC=os.path.join(ROOT,'src'); STATIC=os.path.join(SRC,'static'); WORK=os.path.join(HERE,'.work')
 SITE=os.environ.get('OUT_DIR') or os.path.join(ROOT,'public'); PREVIEW=os.path.join(ROOT,'preview')
 # ---------- settings ----------
-UPDATED='2026-11-27'; DATE_LONG='27 November 2026'   # the date shown on every page; src/body.html and src/experience.html carry the same stamp
+UPDATED='2026-11-28'; DATE_LONG='28 November 2026'   # the date shown on every page; src/body.html and src/experience.html carry the same stamp
 MAIL='suggestions@penfieldsmap.com'
 REPO='https://github.com/penfieldsmap/site'
 # The footer says the site is open source and every record page links to the two issue forms of the repository.
