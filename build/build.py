@@ -60,15 +60,15 @@ def head(title,desc,url,ogt,ogd):
 <meta property="og:title" content="%s">
 <meta property="og:description" content="%s">
 <meta property="og:url" content="%s">
-<meta property="og:image" content="https://penfieldsmap.com/og.png">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image" content="https://penfieldsmap.com/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="%s">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="%s">
 <meta name="twitter:description" content="%s">
-<meta name="twitter:image" content="https://penfieldsmap.com/og.png">
+<meta name="twitter:image" content="https://penfieldsmap.com/og.jpg">
 <meta name="twitter:image:alt" content="%s">
 '''%(title,desc,url,ogt,ogd,url,OGALT,ogt,ogd,OGALT)
 def css_of(s): a=s.index('<style>\n')+8; b=s.index('</style>'); return s[a:b]
