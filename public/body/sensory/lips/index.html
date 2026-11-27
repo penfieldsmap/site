@@ -285,6 +285,8 @@ details.fold>summary:hover h3{text-decoration:underline;text-underline-offset:2p
 .crumb a{margin-right:14px;font-style:normal;white-space:nowrap}
 .morefigs{list-style:none;margin:0;padding:0;flex:1 1 100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 36px;max-width:1010px}
 .morefigs li{font-size:11.5px;color:var(--ink2)}
+.figlinks{flex:0 0 auto;margin:0;padding:9px 2px 0;display:flex;flex-wrap:wrap;gap:3px 28px;font-size:12.5px}
+.figlinks a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
 .morefigs a{display:block;font-size:12.5px;margin-bottom:2px}
 .morefigs a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
 body.figs #duo,body.figs .tools .grp:not(.g-len),body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
@@ -312,6 +314,8 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 @media (max-width:1020px){
   .duo{display:block}
   .morefigs{grid-template-columns:minmax(0,1fr)}
+  .figlinks{padding:9px 12px;gap:6px 22px;background:var(--bg);border-top:1px solid var(--ink)}
+  .figlinks.out{border-top:0;border-bottom:1px solid var(--rule)}
   body.figs #key{grid-template-columns:minmax(0,1fr)}
   body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
   .lede{padding:10px 12px;font-size:13px;line-height:1.55}
@@ -351,6 +355,7 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   #p1{border-bottom:0;border-right:1px solid var(--ink)}
   #fig1{height:calc(100vh - 39px - var(--headh));height:calc(100dvh - 39px - var(--headh))}
+  .figlinks{display:none}
 }
 
 /* ---------- record pages ---------- */

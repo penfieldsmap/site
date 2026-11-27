@@ -285,6 +285,8 @@ details.fold>summary:hover h3{text-decoration:underline;text-underline-offset:2p
 .crumb a{margin-right:14px;font-style:normal;white-space:nowrap}
 .morefigs{list-style:none;margin:0;padding:0;flex:1 1 100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 36px;max-width:1010px}
 .morefigs li{font-size:11.5px;color:var(--ink2)}
+.figlinks{flex:0 0 auto;margin:0;padding:9px 2px 0;display:flex;flex-wrap:wrap;gap:3px 28px;font-size:12.5px}
+.figlinks a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
 .morefigs a{display:block;font-size:12.5px;margin-bottom:2px}
 .morefigs a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
 body.figs #duo,body.figs .tools .grp:not(.g-len),body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
@@ -312,6 +314,8 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 @media (max-width:1020px){
   .duo{display:block}
   .morefigs{grid-template-columns:minmax(0,1fr)}
+  .figlinks{padding:9px 12px;gap:6px 22px;background:var(--bg);border-top:1px solid var(--ink)}
+  .figlinks.out{border-top:0;border-bottom:1px solid var(--rule)}
   body.figs #key{grid-template-columns:minmax(0,1fr)}
   body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
   .lede{padding:10px 12px;font-size:13px;line-height:1.55}
@@ -351,6 +355,7 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   #p1{border-bottom:0;border-right:1px solid var(--ink)}
   #fig1{height:calc(100vh - 39px - var(--headh));height:calc(100dvh - 39px - var(--headh))}
+  .figlinks{display:none}
 }
 </style>
 </head>
@@ -429,6 +434,7 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
         </div>
         <div class="svgwrap" id="fig1"></div>
         <button type="button" class="zoomb" id="m-zoom">Show labels</button>
+        <p class="figlinks" id="figlinks"><a href="/body/figures/#p2"><b>Fig. 2.</b> Label sequences compared</a> <a href="/body/figures/#p3"><b>Fig. 3.</b> Measured positions</a></p>
       </div>
     </section>
     <aside class="record" id="record" aria-live="polite"></aside>
@@ -1565,7 +1571,11 @@ window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if(
 function toolh(){var st=document.documentElement.style;st.setProperty('--toolh',$('tools').offsetHeight+'px');st.setProperty('--headh',document.querySelector('header.top').offsetHeight+'px');}
 window.addEventListener('resize',toolh);
 document.querySelector('nav.menu').addEventListener('click',function(ev){var a=ev.target.closest?ev.target.closest('a'):null;if(!a){return;}var h=a.getAttribute('href')||'';if(h.charAt(0)==='#'&&h.length>1){ev.preventDefault();var el=$(h.slice(1));if(el){el.scrollIntoView({block:'start'});}}});
-function relayout(){toolh();if(paneMode()!==PMODE){buildSection();mark();}centre();}
+/* The links to Figs 2 and 3 sit under the plate. On a narrow upright screen the plate stays pinned, so they go just below it and scroll away with the text. */
+function placeFigs(){var fl=$('figlinks'),p1=$('p1');if(!fl||!p1){return;}var out=isNarrow();
+  if(out){if(fl.parentNode!==p1.parentNode){p1.parentNode.insertBefore(fl,p1.nextSibling);}}else{var pb=p1.querySelector('.pbody');if(fl.parentNode!==pb){pb.appendChild(fl);}}
+  if(fl.classList){fl.classList.toggle('out',out);}}
+function relayout(){placeFigs();toolh();if(paneMode()!==PMODE){buildSection();mark();}centre();}
 window.addEventListener('resize',relayout);
 if(MQ){if(MQ.addEventListener){MQ.addEventListener('change',relayout);}else if(MQ.addListener){MQ.addListener(relayout);}}
 
@@ -1596,7 +1606,7 @@ if(MQ){if(MQ.addEventListener){MQ.addEventListener('change',relayout);}else if(M
 
 /* ---------- start ---------- */
 window.__D={ANN:ANN,REFS:REFS,COORDS:COORDS,REG:REG,SEQ:SEQ,RC:RC,TOT:TOT,recPath:recPath};
-buildKey();buildSection();buildCompare();buildCoords();toolh();
+buildKey();buildSection();buildCompare();buildCoords();placeFigs();toolh();
 var h0='';try{h0=location.hash.slice(1);}catch(e){}
 if(FIGS){syncButtons();$('status').textContent='Point at a cell or data point for a readout. Select one to open its record on the body map.';}
 else{select(REG[h0]?h0:'sen-thumb',{nohash:true});syncButtons();centre();}
