@@ -20,7 +20,7 @@ def node(script,*args):
 def wr(f,s):
     os.makedirs(os.path.dirname(f),exist_ok=True); io.open(f,'w',encoding='utf-8').write(s)
 body_src=rd('body.html'); exp_src=rd('experience.html')
-STAMP='updated %s. Work in progress, not peer reviewed'%UPDATED
+STAMP='updated %s'%UPDATED
 assert STAMP in body_src and STAMP in exp_src, 'the date in src/body.html and src/experience.html must match UPDATED'
 FONTLINK='<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">'
 FF=''.join("@font-face{font-family:\"Libre Baskerville\";font-style:%s;font-weight:%d;font-display:swap;src:url(\"/fonts/libre-baskerville-latin-%d-%s.woff2\") format(\"woff2\")}\n"%(st,w,w,st) for w,st in ((400,'normal'),(400,'italic'),(500,'normal'),(700,'normal'),(700,'italic')))   # 500 is the weight of the headings

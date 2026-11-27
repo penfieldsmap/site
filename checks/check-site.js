@@ -25,7 +25,7 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
       const i = await p.evaluate(() => ({
         over: document.documentElement.scrollWidth - document.documentElement.clientWidth, title: document.title, h1: document.querySelectorAll('h1').length,
         home: (document.querySelector('header.top h1 a') || { getAttribute: () => '' }).getAttribute('href'),
-        stamp: (document.body.textContent.match(/updated \d{4}-\d{2}-\d{2}\. Work in progress, not peer reviewed/g) || []).length
+        stamp: (document.body.textContent.match(/updated \d{4}-\d{2}-\d{2}/g) || []).length
       }));
       check(i.over <= 0, tag + ' ' + u + ' is wider than the screen by ' + i.over + 'px');
       check(i.title.length > 10 && i.h1 === 1, tag + ' ' + u + ' needs a title and one main heading');
