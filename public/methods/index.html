@@ -74,6 +74,10 @@ header.top .build::before{content:attr(data-t)}
 .seg2 button{border:1px solid var(--ink);background:var(--plate);padding:3px 10px;font-size:11.5px;cursor:pointer;margin-left:-1px}
 .seg2 button:first-child{margin-left:0}
 .seg2 button[aria-pressed="true"]{background:var(--ink);color:var(--plate)}
+.seg2 a{border:1px solid var(--ink);background:var(--plate);padding:3px 11px;font-size:11.5px;line-height:1.5;margin-left:-1px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.seg2 a:first-child{margin-left:0}
+.seg2 a:hover{text-decoration:underline;text-underline-offset:2px}
+.seg2 a[aria-current="page"]{background:var(--ink);color:var(--plate)}
 .tools input[type=search]{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);width:140px;border-radius:0;background:var(--plate);color:var(--ink);-webkit-appearance:none;appearance:none}
 #found{font-size:11.5px;display:flex;flex-wrap:wrap;gap:2px 10px}
 .tools select{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);border-radius:0;background:var(--plate);color:var(--ink);max-width:230px}
@@ -283,13 +287,7 @@ details.fold>summary:hover h3{text-decoration:underline;text-underline-offset:2p
 /* further figures of the body map, on their own page */
 .crumb{margin:0;padding:8px 16px;font-size:11.5px;font-style:italic;color:var(--ink2);border-bottom:1px solid var(--ink)}
 .crumb a{margin-right:14px;font-style:normal;white-space:nowrap}
-.morefigs{list-style:none;margin:0;padding:0;flex:1 1 100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 36px;max-width:1010px}
-.morefigs li{font-size:11.5px;color:var(--ink2)}
-.figlinks{flex:0 0 auto;margin:0;padding:9px 2px 0;display:flex;flex-wrap:wrap;gap:3px 28px;font-size:12.5px}
-.figlinks a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
-.morefigs a{display:block;font-size:12.5px;margin-bottom:2px}
-.morefigs a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
-body.figs #duo,body.figs .tools .grp:not(.g-len),body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
+body.figs #duo,body.figs .tools .grp:not(.g-len):not(.g-fig),body.fig3 .tools .g-len,body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
 body.figs main{display:flex;flex-direction:column}
 body.figs #p1k{order:3}
 body.figs #key{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
@@ -313,9 +311,6 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 .lede a{font-style:normal;font-size:12px;white-space:nowrap}
 @media (max-width:1020px){
   .duo{display:block}
-  .morefigs{grid-template-columns:minmax(0,1fr)}
-  .figlinks{padding:9px 12px;gap:6px 22px;background:var(--bg);border-top:1px solid var(--ink)}
-  .figlinks.out{border-top:0;border-bottom:1px solid var(--rule)}
   body.figs #key{grid-template-columns:minmax(0,1fr)}
   body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
   .lede{padding:10px 12px;font-size:13px;line-height:1.55}
@@ -335,6 +330,7 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   #p1 .pbody{display:block;padding:0}
   .mbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 8px;background:var(--bar);border-bottom:1px solid var(--ink)}
   .mbar .seg2 button{padding:5px 11px;font-size:12px}
+  .g-fig .seg2 a{padding:6px 16px;font-size:12px}
   .mnow{flex:1 1 auto;min-width:0;text-align:center;font-weight:700;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   #fig1{height:44vh;height:44dvh;overflow:hidden;background:var(--plate)}
   #fig1 svg{width:100%;height:100%;min-width:0;border:0;outline:0}
@@ -355,7 +351,6 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   #p1{border-bottom:0;border-right:1px solid var(--ink)}
   #fig1{height:calc(100vh - 39px - var(--headh));height:calc(100dvh - 39px - var(--headh))}
-  .figlinks{display:none}
 }
 
 /* ---------- standalone pages ---------- */
@@ -412,9 +407,9 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
       <li><b>Scope.</b> The body map takes the labels of the sensory and motor figures in Penfield and Rasmussen (1950, Figs 17 and 22) and attaches later human evidence to each label. It does not reproduce the 1950 artwork. The labels are those of the two figures, not of the book’s sequence charts (Figs 7 and 18), which use different wording. Supplementary motor and second sensory maps are out of scope.</li>
       <li><b>Sequences.</b> Both sequences were read from a 1951 photographic reproduction of the two plates (Stuart et al. 1951). Every label that has a block line was matched against the list in Wright (1956). Wright groups the labels by body region, so his list confirms the labels and not their order along the strip. The motor order also matches Graziano (2016, fig. 2), Murphy et al. (2018, table 3) and the reproduction in Gordon et al. (2023, fig. 4a). The sensory order rests on the reproduction. The order Trunk, Neck, Head, Shoulder also matches the book’s sensory sequence chart (Fig. 7). Lettering follows the plates. The plates inside the 1950 book were not viewed. Label check code A means read from the reproduction and matched in Wright’s list. Code B means position confirmed, lettering read from the reproduction only.</li>
       <li><b>Length.</b> Every body label on the 1950 plates except Gen. has a block line along the cortex. The legend of Fig. 17 says the length of these lines shows comparative extent more accurately than the drawing. Wright (1956) measured every line in millimetres on the printed figures. His values sum to 103.2 mm for the sensory figure and 101.6 mm for the motor figure. With the block-line setting, segments are drawn edge to edge in proportion to his values. On the plates the lines are separated by short gaps, which are not drawn. Wright does not describe how he measured. The two figures are separate drawings and need not share a scale. The genital label and the three function brackets have no line. The Equal setting gives every label the same length.</li>
-      <li><b>Section drawing.</b> Fig. 1 is an original schematic of a coronal section through the thalamus and is not to scale. The 1950 figures are likewise laid on a cross section of the hemisphere. The convexity that carries the strip is drawn enlarged to make room for the labels. The strip does not lie in one coronal plane. In the postcentral stimulation table of <a href="/body/figures/#p3">Fig. 3</a>, y runs from −43 mm for the leg to −9 mm for the teeth. Which labels fall on the medial surface and at the lateral sulcus follows the plates as read from the reproduction: Toes and Foot (sensory) or Toes and Ankle (motor) on the medial surface, and the last label at the mouth of the lateral sulcus.</li>
+      <li><b>Section drawing.</b> Fig. 1 is an original schematic of a coronal section through the thalamus and is not to scale. The 1950 figures are likewise laid on a cross section of the hemisphere. The convexity that carries the strip is drawn enlarged to make room for the labels. The strip does not lie in one coronal plane. In the postcentral stimulation table of <a href="/body/fig-3/">Fig. 3</a>, y runs from −43 mm for the leg to −9 mm for the teeth. Which labels fall on the medial surface and at the lateral sulcus follows the plates as read from the reproduction: Toes and Foot (sensory) or Toes and Ankle (motor) on the medial surface, and the last label at the mouth of the lateral sulcus.</li>
       <li><b>Names.</b> The motor figure lies on the precentral gyrus, which is often called M1. Primary motor cortex (area 4) lies mostly in the anterior bank of the central sulcus and widens onto the gyral surface near the midline. Much of the exposed crown of the precentral gyrus is premotor cortex (area 6). The body map therefore names the figures and the gyri and does not label the motor strip M1.</li>
-      <li><b>Coordinates.</b> <a href="/body/figures/#p3">Fig. 3</a> plots every barycentre in Table 3 of Roux et al. 2018 and in Tables 3 and 4 of Roux et al. 2020. The barycentre and SD rows of each table were transcribed by at least three independent routes that agreed on every value. For 2020 the accepted manuscript was used, and its abstract matches the published one. The version of record was not reached. Inter-effector positions are averages across the seven participants in Supplementary Table 1 of Gordon et al. 2023. Of the published genital foci only the two group foci of Knop et al. 2022 are plotted. Two points shown in an earlier build were removed: Kell et al. 2005 report Talairach coordinates, and the Georgiadis et al. 2010 coordinates could be checked only in a review. The MNI foci of Luijten et al. 2020 and the barycentres of Kovalchuk et al. 2026 are not plotted.</li>
+      <li><b>Coordinates.</b> <a href="/body/fig-3/">Fig. 3</a> plots every barycentre in Table 3 of Roux et al. 2018 and in Tables 3 and 4 of Roux et al. 2020. The barycentre and SD rows of each table were transcribed by at least three independent routes that agreed on every value. For 2020 the accepted manuscript was used, and its abstract matches the published one. The version of record was not reached. Inter-effector positions are averages across the seven participants in Supplementary Table 1 of Gordon et al. 2023. Of the published genital foci only the two group foci of Knop et al. 2022 are plotted. Two points shown in an earlier build were removed: Kell et al. 2005 report Talairach coordinates, and the Georgiadis et al. 2010 coordinates could be checked only in a review. The MNI foci of Luijten et al. 2020 and the barycentres of Kovalchuk et al. 2026 are not plotted.</li>
       <li><b>Findings.</b> Most findings paraphrase a statement in the cited source. A few report what a source does not mention, or a value read from a figure or table, and say so. Each finding carries a method code and the labels it applies to. Many findings apply to a group of labels. Where a finding reports what Penfield found on the authority of a later paper, it says so.</li>
       <li><b>Source check.</b> On 25 November 2026 every finding, coordinate, label and reference was rechecked against its source, or against the fullest version of the source that could be reached. The note after each reference says how much of the source was read. Findings were reworded, coordinate rows were added and two plotted points were removed as a result. The corrected text was then checked a second time, against the notes of the first check and, where those were silent, against the sources. The About section and the anatomy of the Fig. 1 drawing were added afterwards, written from the sources named there and checked once more. The page has not been peer reviewed.</li>
       <li><b>Known gaps.</b> Read only as abstracts: Sun et al. 2021, Yousry et al. 1997, Ramachandran et al. 1992, Geyer et al. 1999, Grefkes et al. 2001, Disbrow et al. 2003, Eadie 2010, York and Steinberg 2011 and Pogliano 2012. Flesher et al. 2016 was read as an abstract and through the first author’s dissertation. The percentages that Roux et al. attribute to Penfield (25%, 20% and 13%) were not checked in Penfield’s books. Tactile thresholds from Mancini et al. 2014 were read from a bar chart and are approximate. Accounts of Penfield’s evidence for the genital field conflict and could not be settled from the passages of the 1950 book that were read.</li>

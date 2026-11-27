@@ -74,6 +74,10 @@ header.top .build::before{content:attr(data-t)}
 .seg2 button{border:1px solid var(--ink);background:var(--plate);padding:3px 10px;font-size:11.5px;cursor:pointer;margin-left:-1px}
 .seg2 button:first-child{margin-left:0}
 .seg2 button[aria-pressed="true"]{background:var(--ink);color:var(--plate)}
+.seg2 a{border:1px solid var(--ink);background:var(--plate);padding:3px 11px;font-size:11.5px;line-height:1.5;margin-left:-1px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.seg2 a:first-child{margin-left:0}
+.seg2 a:hover{text-decoration:underline;text-underline-offset:2px}
+.seg2 a[aria-current="page"]{background:var(--ink);color:var(--plate)}
 .tools input[type=search]{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);width:140px;border-radius:0;background:var(--plate);color:var(--ink);-webkit-appearance:none;appearance:none}
 #found{font-size:11.5px;display:flex;flex-wrap:wrap;gap:2px 10px}
 .tools select{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);border-radius:0;background:var(--plate);color:var(--ink);max-width:230px}
@@ -283,13 +287,7 @@ details.fold>summary:hover h3{text-decoration:underline;text-underline-offset:2p
 /* further figures of the body map, on their own page */
 .crumb{margin:0;padding:8px 16px;font-size:11.5px;font-style:italic;color:var(--ink2);border-bottom:1px solid var(--ink)}
 .crumb a{margin-right:14px;font-style:normal;white-space:nowrap}
-.morefigs{list-style:none;margin:0;padding:0;flex:1 1 100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 36px;max-width:1010px}
-.morefigs li{font-size:11.5px;color:var(--ink2)}
-.figlinks{flex:0 0 auto;margin:0;padding:9px 2px 0;display:flex;flex-wrap:wrap;gap:3px 28px;font-size:12.5px}
-.figlinks a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
-.morefigs a{display:block;font-size:12.5px;margin-bottom:2px}
-.morefigs a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
-body.figs #duo,body.figs .tools .grp:not(.g-len),body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
+body.figs #duo,body.figs .tools .grp:not(.g-len):not(.g-fig),body.fig3 .tools .g-len,body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
 body.figs main{display:flex;flex-direction:column}
 body.figs #p1k{order:3}
 body.figs #key{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
@@ -313,9 +311,6 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 .lede a{font-style:normal;font-size:12px;white-space:nowrap}
 @media (max-width:1020px){
   .duo{display:block}
-  .morefigs{grid-template-columns:minmax(0,1fr)}
-  .figlinks{padding:9px 12px;gap:6px 22px;background:var(--bg);border-top:1px solid var(--ink)}
-  .figlinks.out{border-top:0;border-bottom:1px solid var(--rule)}
   body.figs #key{grid-template-columns:minmax(0,1fr)}
   body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
   .lede{padding:10px 12px;font-size:13px;line-height:1.55}
@@ -335,6 +330,7 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   #p1 .pbody{display:block;padding:0}
   .mbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 8px;background:var(--bar);border-bottom:1px solid var(--ink)}
   .mbar .seg2 button{padding:5px 11px;font-size:12px}
+  .g-fig .seg2 a{padding:6px 16px;font-size:12px}
   .mnow{flex:1 1 auto;min-width:0;text-align:center;font-weight:700;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   #fig1{height:44vh;height:44dvh;overflow:hidden;background:var(--plate)}
   #fig1 svg{width:100%;height:100%;min-width:0;border:0;outline:0}
@@ -355,7 +351,6 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   #p1{border-bottom:0;border-right:1px solid var(--ink)}
   #fig1{height:calc(100vh - 39px - var(--headh));height:calc(100dvh - 39px - var(--headh))}
-  .figlinks{display:none}
 }
 
 /* ---------- standalone pages ---------- */

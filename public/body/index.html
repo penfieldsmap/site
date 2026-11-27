@@ -74,6 +74,10 @@ header.top .build::before{content:attr(data-t)}
 .seg2 button{border:1px solid var(--ink);background:var(--plate);padding:3px 10px;font-size:11.5px;cursor:pointer;margin-left:-1px}
 .seg2 button:first-child{margin-left:0}
 .seg2 button[aria-pressed="true"]{background:var(--ink);color:var(--plate)}
+.seg2 a{border:1px solid var(--ink);background:var(--plate);padding:3px 11px;font-size:11.5px;line-height:1.5;margin-left:-1px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.seg2 a:first-child{margin-left:0}
+.seg2 a:hover{text-decoration:underline;text-underline-offset:2px}
+.seg2 a[aria-current="page"]{background:var(--ink);color:var(--plate)}
 .tools input[type=search]{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);width:140px;border-radius:0;background:var(--plate);color:var(--ink);-webkit-appearance:none;appearance:none}
 #found{font-size:11.5px;display:flex;flex-wrap:wrap;gap:2px 10px}
 .tools select{font:11.5px var(--body);padding:3px 6px;border:1px solid var(--ink);border-radius:0;background:var(--plate);color:var(--ink);max-width:230px}
@@ -283,13 +287,7 @@ details.fold>summary:hover h3{text-decoration:underline;text-underline-offset:2p
 /* further figures of the body map, on their own page */
 .crumb{margin:0;padding:8px 16px;font-size:11.5px;font-style:italic;color:var(--ink2);border-bottom:1px solid var(--ink)}
 .crumb a{margin-right:14px;font-style:normal;white-space:nowrap}
-.morefigs{list-style:none;margin:0;padding:0;flex:1 1 100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 36px;max-width:1010px}
-.morefigs li{font-size:11.5px;color:var(--ink2)}
-.figlinks{flex:0 0 auto;margin:0;padding:9px 2px 0;display:flex;flex-wrap:wrap;gap:3px 28px;font-size:12.5px}
-.figlinks a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
-.morefigs a{display:block;font-size:12.5px;margin-bottom:2px}
-.morefigs a b{font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.84em;margin-right:4px}
-body.figs #duo,body.figs .tools .grp:not(.g-len),body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
+body.figs #duo,body.figs .tools .grp:not(.g-len):not(.g-fig),body.fig3 .tools .g-len,body.figs #p1k .cap,body.figs #key>div:nth-child(3){display:none}
 body.figs main{display:flex;flex-direction:column}
 body.figs #p1k{order:3}
 body.figs #key{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
@@ -313,9 +311,6 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 .lede a{font-style:normal;font-size:12px;white-space:nowrap}
 @media (max-width:1020px){
   .duo{display:block}
-  .morefigs{grid-template-columns:minmax(0,1fr)}
-  .figlinks{padding:9px 12px;gap:6px 22px;background:var(--bg);border-top:1px solid var(--ink)}
-  .figlinks.out{border-top:0;border-bottom:1px solid var(--rule)}
   body.figs #key{grid-template-columns:minmax(0,1fr)}
   body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
   .lede{padding:10px 12px;font-size:13px;line-height:1.55}
@@ -335,6 +330,7 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   #p1 .pbody{display:block;padding:0}
   .mbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:5px 8px;background:var(--bar);border-bottom:1px solid var(--ink)}
   .mbar .seg2 button{padding:5px 11px;font-size:12px}
+  .g-fig .seg2 a{padding:6px 16px;font-size:12px}
   .mnow{flex:1 1 auto;min-width:0;text-align:center;font-weight:700;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   #fig1{height:44vh;height:44dvh;overflow:hidden;background:var(--plate)}
   #fig1 svg{width:100%;height:100%;min-width:0;border:0;outline:0}
@@ -355,7 +351,6 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   #p1{border-bottom:0;border-right:1px solid var(--ink)}
   #fig1{height:calc(100vh - 39px - var(--headh));height:calc(100dvh - 39px - var(--headh))}
-  .figlinks{display:none}
 }
 </style>
 </head>
@@ -391,8 +386,15 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 <noscript><p class="crumb">The map on this page is drawn by a script. Every record is also a plain page: <a href="/records/">index of records</a>.</p></noscript>
 
 <div class="tools" id="tools">
+  <nav class="grp g-fig" aria-label="Figures of the body map">
+    <span class="seg2">
+      <a href="/body/" data-fig="1" aria-current="page" title="Fig. 1. The sensory and motor figures of 1950">Fig. 1</a>
+      <a href="/body/fig-2/" data-fig="2" title="Fig. 2. Label sequences compared">Fig. 2</a>
+      <a href="/body/fig-3/" data-fig="3" title="Fig. 3. Measured positions">Fig. 3</a>
+    </span>
+  </nav>
   <span class="grp g-strip">
-    <span class="lbl" id="lblstrip">Figure</span>
+    <span class="lbl" id="lblstrip">1950 figure</span>
     <span class="seg2" role="group" aria-labelledby="lblstrip">
       <button type="button" id="btn-sen" aria-pressed="true">Sensory</button>
       <button type="button" id="btn-mot" aria-pressed="false">Motor</button>
@@ -434,7 +436,6 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
         </div>
         <div class="svgwrap" id="fig1"></div>
         <button type="button" class="zoomb" id="m-zoom">Show labels</button>
-        <p class="figlinks" id="figlinks"><a href="/body/figures/#p2"><b>Fig. 2.</b> Label sequences compared</a> <a href="/body/figures/#p3"><b>Fig. 3.</b> Measured positions</a></p>
       </div>
     </section>
     <aside class="record" id="record" aria-live="polite"></aside>
@@ -444,15 +445,6 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
       <div class="pbody">
         <div class="side" id="key"></div>
         <p class="cap">Select a segment or its label. Left and right arrow keys step along the strip. Lettering and order follow the 1950 plates. With the block-line setting, each segment has the relative length of its block line on the plate, as measured by Wright (1956). Arcs inside the strip show order relative to the labels and carry no distance. Dashed arcs mark positions reported by later studies. The head-rotation arc marks only the focus medial to the hand area. Its extent along the strip is not given by the source, and a second focus lateral to the hand area is not drawn. Solid arcs are the three function brackets of the motor figure.<span class="narrow"> On a phone, drag the figure to move around it.</span> The method codes in the records are explained under <a href="/methods/#codes-body">Methods</a>.</p>
-      </div>
-    </section>
-    <section class="panel" id="more">
-      <h2><b>Figs 2 and 3.</b> <span>Two further figures of the body map, on their own page</span></h2>
-      <div class="pbody">
-        <ul class="morefigs">
-          <li><a href="/body/figures/#p2"><b>Fig. 2.</b> Label sequences compared</a> The two 1950 figures side by side, with the 2023 fMRI scheme of effector and inter-effector regions on the precentral gyrus.</li>
-          <li><a href="/body/figures/#p3"><b>Fig. 3.</b> Measured positions</a> Positions from direct electrical stimulation in awake surgery and from group fMRI, in MNI space, with the table of values.</li>
-        </ul>
       </div>
     </section>
 </main>
@@ -482,7 +474,7 @@ function H(tag,attrs,kids){
 }
 function $(id){return document.getElementById(id);}
 /* The figures page shows Figs 2 and 3 only. A label or point chosen there opens its record on the body map. */
-var FIGS=document.body.classList.contains('figs'),BODYURL='/body/',FIGSURL='/body/figures/',BPRE='/body/',XSUF='/';
+var FIGS=document.body.classList.contains('figs'),BODYURL='/body/',FIG2URL='/body/fig-2/',BPRE='/body/',XSUF='/';
 /* Permanent addresses of the record pages, under /body/. They are printed elsewhere: never change the scheme. */
 var GSLUG={'foot':'foot','ie-sup':'inter-effector-superior','hand':'hand','ie-mid':'inter-effector-middle','mouth':'mouth','ie-inf':'inter-effector-inferior'};
 function recPath(id){var m=/^(sen|mot|g)-(.+)$/.exec(id);if(!m){return '';}return (m[1]==='sen'?'sensory/':m[1]==='mot'?'motor/':'2023/')+(m[1]==='g'?(GSLUG[m[2]]||m[2]):m[2]);}
@@ -1323,7 +1315,7 @@ function renderRecord(id){
     left.appendChild(kv('Neighbours',nbk));
     left.appendChild(kv('Division',DIV[r.div].name));
   }else if(r.strip==='G'){
-    left.appendChild(kv('Figure',['Precentral gyrus. fMRI scheme of 2023 (Gordon et al.), column C of ',H('a',{href:FIGSURL+'#p2'},'Fig. 2')]));
+    left.appendChild(kv('Figure',['Precentral gyrus. fMRI scheme of 2023 (Gordon et al.), column C of ',H('a',{href:FIG2URL},'Fig. 2')]));
     left.appendChild(kv('Position',(r.i+1)+' of 6 from the medial end'));
     left.appendChild(kv('Type',r.kind==='eff'?'Effector region':'Inter-effector region, part of the somato-cognitive action network'));
     var mem=[],j;for(j=r.m0;j<=r.m1;j++){if(mem.length){mem.push(', ');}mem.push(nb(SEQ.M[j]));}
@@ -1571,11 +1563,7 @@ window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if(
 function toolh(){var st=document.documentElement.style;st.setProperty('--toolh',$('tools').offsetHeight+'px');st.setProperty('--headh',document.querySelector('header.top').offsetHeight+'px');}
 window.addEventListener('resize',toolh);
 document.querySelector('nav.menu').addEventListener('click',function(ev){var a=ev.target.closest?ev.target.closest('a'):null;if(!a){return;}var h=a.getAttribute('href')||'';if(h.charAt(0)==='#'&&h.length>1){ev.preventDefault();var el=$(h.slice(1));if(el){el.scrollIntoView({block:'start'});}}});
-/* The links to Figs 2 and 3 sit under the plate. On a narrow upright screen the plate stays pinned, so they go just below it and scroll away with the text. */
-function placeFigs(){var fl=$('figlinks'),p1=$('p1');if(!fl||!p1){return;}var out=isNarrow();
-  if(out){if(fl.parentNode!==p1.parentNode){p1.parentNode.insertBefore(fl,p1.nextSibling);}}else{var pb=p1.querySelector('.pbody');if(fl.parentNode!==pb){pb.appendChild(fl);}}
-  if(fl.classList){fl.classList.toggle('out',out);}}
-function relayout(){placeFigs();toolh();if(paneMode()!==PMODE){buildSection();mark();}centre();}
+function relayout(){toolh();if(paneMode()!==PMODE){buildSection();mark();}centre();}
 window.addEventListener('resize',relayout);
 if(MQ){if(MQ.addEventListener){MQ.addEventListener('change',relayout);}else if(MQ.addListener){MQ.addListener(relayout);}}
 
@@ -1606,7 +1594,7 @@ if(MQ){if(MQ.addEventListener){MQ.addEventListener('change',relayout);}else if(M
 
 /* ---------- start ---------- */
 window.__D={ANN:ANN,REFS:REFS,COORDS:COORDS,REG:REG,SEQ:SEQ,RC:RC,TOT:TOT,recPath:recPath};
-buildKey();buildSection();buildCompare();buildCoords();placeFigs();toolh();
+buildKey();buildSection();buildCompare();buildCoords();toolh();
 var h0='';try{h0=location.hash.slice(1);}catch(e){}
 if(FIGS){syncButtons();$('status').textContent='Point at a cell or data point for a readout. Select one to open its record on the body map.';}
 else{select(REG[h0]?h0:'sen-thumb',{nohash:true});syncButtons();centre();}

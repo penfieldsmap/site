@@ -83,10 +83,10 @@ def assemble_exp(body_final):
     s=one(s,'/*@DATA@*/',rd('experience-data.js')); s=one(s,'/*@TEXT@*/',rd('experience-text.js')); s=one(s,'/*@APP@*/',rd('experience-app.js'))
     return s
 def links(s,fl,depth):
-    if fl=='site': m={'EXP':'/','BODY':'/body/','FIGS':'/body/figures/','ABOUT':'/about/','METHODS':'/methods/','REFS':'/references/','RECS':'/records/','XPRE':'/experience/','BPRE':'/body/','XSUF':'/'}
+    if fl=='site': m={'EXP':'/','BODY':'/body/','FIGTWO':'/body/fig-2/','FIGTHREE':'/body/fig-3/','ABOUT':'/about/','METHODS':'/methods/','REFS':'/references/','RECS':'/records/','XPRE':'/experience/','BPRE':'/body/','XSUF':'/'}
     else:
         pre='../'*depth
-        m={'EXP':pre+'index.html','BODY':pre+'body/index.html','FIGS':pre+'body/figures/index.html','ABOUT':pre+'about/index.html','METHODS':pre+'methods/index.html','REFS':pre+'references/index.html','RECS':pre+'records/index.html','XPRE':pre+'experience/','BPRE':pre+'body/','XSUF':'/index.html'}
+        m={'EXP':pre+'index.html','BODY':pre+'body/index.html','FIGTWO':pre+'body/fig-2/index.html','FIGTHREE':pre+'body/fig-3/index.html','ABOUT':pre+'about/index.html','METHODS':pre+'methods/index.html','REFS':pre+'references/index.html','RECS':pre+'records/index.html','XPRE':pre+'experience/','BPRE':pre+'body/','XSUF':'/index.html'}
     for k,v in m.items(): s=s.replace('@'+k+'@',v)
     assert not re.search(r'@[A-Z_]+@',s), re.search(r'@[A-Z_]+@',s)
     return s
@@ -96,31 +96,25 @@ def cut(s):
     a=s.index('<section class="doc about" id="about">')
     b=s.index('<footer class="foot">') if '<footer class="foot">' in s else s.index('<div id="status"')
     return s[:a]+s[b:]
-MORE='''    <section class="panel" id="more">
-      <h2><b>Figs 2 and 3.</b> <span>Two further figures of the body map, on their own page</span></h2>
-      <div class="pbody">
-        <ul class="morefigs">
-          <li><a href="@FIGS@#p2"><b>Fig. 2.</b> Label sequences compared</a> The two 1950 figures side by side, with the 2023 fMRI scheme of effector and inter-effector regions on the precentral gyrus.</li>
-          <li><a href="@FIGS@#p3"><b>Fig. 3.</b> Measured positions</a> Positions from direct electrical stimulation in awake surgery and from group fMRI, in MNI space, with the table of values.</li>
-        </ul>
-      </div>
-    </section>
-'''
-T_FIGS='Penfield’s body map: label sequences and measured positions'
-D_FIGS='Two further figures of the body map. The label sequences of the two 1950 figures compared with the 2023 fMRI scheme, and positions measured by stimulation and fMRI in MNI space.'
+# The body map has three figures, each on its own page, with one toggle in the tool bar that sits in the same place on all three.
+FIGPAGE={2:('fig-2','Penfield’s body map: label sequences compared','Fig. 2 of the body map. The label sequences of the two 1950 figures side by side, with the 2023 fMRI scheme of effector and inter-effector regions on the precentral gyrus.'),
+         3:('fig-3','Penfield’s body map: measured positions','Fig. 3 of the body map. Positions from direct electrical stimulation in awake surgery and from group fMRI, in MNI space, with the table of values.')}
 def mapv(s):
     a=s.index('    <section class="panel" id="p2">'); b=s.index('</main>'); assert a<b
-    return s[:a]+MORE+s[b:]
-def figv(s,fl):
-    s=one(s,'<body>','<body class="figs">')
-    s=one(s,'<p class="build2">%s</p>\n'%STAMP,'<p class="build2">%s</p>\n'%STAMP+'<p class="crumb"><a href="@BODY@">← Body map</a> Figs 2 and 3 of the body map. Select a label or a point to open its record.</p>\n')
-    s=one(s,'<h2><b>Fig. 1.</b> <span>Key and notes</span></h2>','<h2><b>Key.</b> <span>Colours and encoding in Figs 2 and 3</span></h2>')
-    s=one(s,'The map on this page is drawn by a script.','The figures on this page are drawn by a script.')
+    return one(s[:a]+s[b:],'data-fig="1"','data-fig="1" aria-current="page"')
+def figv(s,fl,n):
+    a2=s.index('    <section class="panel" id="p2">'); a3=s.index('    <section class="panel" id="p3">'); b=s.index('</main>'); assert a2<a3<b
+    s=s[:a3]+s[b:] if n==2 else s[:a2]+s[a3:]
+    slug,title,desc=FIGPAGE[n]
+    s=one(s,'<body>','<body class="figs fig%d">'%n)
+    s=one(s,'data-fig="%d"'%n,'data-fig="%d" aria-current="page"'%n)
+    s=one(s,'<h2><b>Fig. 1.</b> <span>Key and notes</span></h2>','<h2><b>Key.</b> <span>Colours and encoding</span></h2>')
+    s=one(s,'The map on this page is drawn by a script.','The figure on this page is drawn by a script.')
     if fl=='site':
-        s=site_head(s,head(T_FIGS,D_FIGS,'https://penfieldsmap.com/body/figures/','Penfield’s Map: the body map, Figs 2 and 3',D_FIGS))
+        s=site_head(s,head(title,desc,'https://penfieldsmap.com/body/%s/'%slug,'Penfield’s Map: the body map, Fig. %d'%n,desc))
         s=one(s,'<style>\n','<style>\n'+FF)
     else:
-        s=one(s,'<title>Penfield’s Map: body map</title>','<title>Penfield’s Map: body map, Figs 2 and 3</title>')
+        s=one(s,'<title>Penfield’s Map: body map</title>','<title>Penfield’s Map: body map, Fig. %d</title>'%n)
     return s
 T_EXP='Penfield’s Map: what stimulating the brain made patients hear, see and feel'
 D_EXP='An interactive reference to what Wilder Penfield’s patients reported when their temporal lobes were stimulated: voices, music, scenes, memories, fear. Case by case from the 1963 summary, with later evidence and sources.'
@@ -142,11 +136,13 @@ de=one(de,'<div id="status" role="status">',FOOT+'<div id="status" role="status"
 assert 'fonts.googleapis' not in de and '@FONTLINK@' not in de
 full['site']={'exp':de,'body':db}
 # the figures page for the live site: same source, its own head
-fd=figv(body_src,'site')
-fd=one(fd,'<div id="status" role="status">',FOOT+'<div id="status" role="status">')
-fd=one(fd,'.narrow{display:none}\n.docfull',FOOTCSS+'.narrow{display:none}\n.docfull')
-assert 'fonts.googleapis' not in fd
-figsite=cut(fd)
+figsite={}
+for n in (2,3):
+    fd=figv(body_src,'site',n)
+    fd=one(fd,'<div id="status" role="status">',FOOT+'<div id="status" role="status">')
+    fd=one(fd,'.narrow{display:none}\n.docfull',FOOTCSS+'.narrow{display:none}\n.docfull')
+    assert 'fonts.googleapis' not in fd
+    figsite[n]=cut(fd)
 FULL=os.path.join(WORK,'full'); shutil.rmtree(FULL,ignore_errors=True)
 wr(FULL+'/index.html',de); wr(FULL+'/body/index.html',db)
 node('capture.js',FULL,os.path.join(WORK,'frag.json'))
@@ -243,7 +239,7 @@ for fl in ('site','preview'):
     o=out[fl]
     for d in ('about','methods','references','body','experience','records'): shutil.rmtree(o+'/'+d,ignore_errors=True)
     wr(o+'/index.html',links(cut(full[fl]['exp']),fl,0)); wr(o+'/body/index.html',links(mapv(cut(full[fl]['body'])),fl,1))
-    wr(o+'/body/figures/index.html',links(figsite if fl=='site' else figv(cut(full['preview']['body']),'preview'),fl,2))
+    for n in (2,3): wr(o+'/body/%s/index.html'%FIGPAGE[n][0],links(figsite[n] if fl=='site' else figv(cut(full['preview']['body']),'preview',n),fl,2))
     for slug,sub,title,desc,content in PAGES: wr(o+'/%s/index.html'%slug,links(static(fl,slug,sub,title,desc,content),fl,1))
 # Files served as they are: the fonts and their licence, the icon, the share image, and the search console ownership file, which must stay on the site.
 shutil.copytree(STATIC,SITE,dirs_exist_ok=True)
@@ -383,12 +379,15 @@ for fl in ('site','preview'):
     for i,r in R['body']['rec'].items(): wr(o+r['url']+'index.html',recpage(fl,'body',r,3,BU))
     pg=static(fl,'records','Index of records','Index of records: Penfield’s Map','Every record on the experience map and the body map, each with a page and a fixed address of its own.',idx(fl))
     wr(o+'/records/index.html',links(one(pg,PAGECSS,PAGECSS+RECCSS),fl,1))
+    # the old address of Figs 2 and 3 leads to Fig. 2, or to Fig. 3 when it carried that figure's anchor
+    f2,f3=('/body/fig-2/','/body/fig-3/') if fl=='site' else ('../fig-2/index.html','../fig-3/index.html')
+    wr(o+'/body/figures/index.html','<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8"><title>Figs 2 and 3 of the body map: Penfield’s Map</title><link rel="icon" href="data:,"><meta name="robots" content="noindex"><script>if(location.hash==="#p3"){location.replace("%s");}</script><meta http-equiv="refresh" content="0; url=%s"></head><body><p><a href="%s">Fig. 2</a> <a href="%s">Fig. 3</a></p></body></html>\n'%(f3,f2,f2,f3))
     # a bare address such as /experience/ leads to the index
     for d in ('experience','body/sensory','body/motor','body/2023'):
         to='/records/' if fl=='site' else '../'*(d.count('/')+1)+'records/index.html'
         wr(o+'/'+d+'/index.html','<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8"><title>Index of records: Penfield’s Map</title><link rel="icon" href="data:,"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=%s"></head><body><p><a href="%s">Index of records</a></p></body></html>\n'%(to,to))
 recurls=['records/']+[v['url'].lstrip('/') for v in R['exp']['rec'].values()]+[v['url'].lstrip('/') for v in R['body']['rec'].values()]
-open(SITE+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('  <url><loc>https://penfieldsmap.com/%s</loc><lastmod>%s</lastmod></url>\n'%(u,UPDATED) for u in ['','body/','body/figures/','about/','methods/','references/']+recurls)+'</urlset>\n')
+open(SITE+'/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('  <url><loc>https://penfieldsmap.com/%s</loc><lastmod>%s</lastmod></url>\n'%(u,UPDATED) for u in ['','body/','body/fig-2/','body/fig-3/','about/','methods/','references/']+recurls)+'</urlset>\n')
 # a plain index for programs that read sites on a person's behalf
 L=['# Penfield’s Map','','> What Wilder Penfield’s patients reported when their brains were stimulated, record by record, with case and page references, later evidence and sources. Published and maintained by Dargentic Intelligence. Not peer reviewed.','','Each record below is a plain page that needs no scripts.','','## Experience map']
 for i in R['exp']['order']:
@@ -415,6 +414,6 @@ for dp,dn,fn in os.walk(SITE):
         w=[m.group(0) for b in block for m in b.finditer(x)]; t=re.findall(r'@[A-Z_]+@',x)
         if w or t: bad+=1; print('PROBLEM',os.path.join(dp,f),w[:3],t[:3])
 print('site: %d text files, %.1f MB, files with blocked words or loose tokens: %d (blocklist patterns: %d)'%(n,size/1e6,bad,len(block)))
-for n in ('index.html','body/index.html','body/figures/index.html','records/index.html','experience/voices/index.html','body/sensory/thumb/index.html'):
+for n in ('index.html','body/index.html','body/fig-2/index.html','body/fig-3/index.html','records/index.html','experience/voices/index.html','body/sensory/thumb/index.html'):
     print('%-36s %7d bytes'%(n,os.path.getsize(SITE+'/'+n)))
 if bad: sys.exit('the build wrote pages that fail the checks above')

@@ -12,7 +12,7 @@ Dates are the dates shown on the site.
 - The title plate shows every time the home page is opened. Only an address that points at a record starts at the map.
 - The note under the chart of responses by hemisphere is shorter. Its facts are unchanged.
 - The line at the top right of every page gives the date of the last update and nothing else. The footer still says the site is not peer reviewed.
-- On the body map, links to Figs 2 and 3 sit directly under the plate of Fig. 1.
+- The three figures of the body map each have a page: Fig. 1 at `/body/`, Fig. 2 at `/body/fig-2/`, Fig. 3 at `/body/fig-3/`. A toggle at the left of the tool bar switches between them and sits in the same place on all three. The old address `/body/figures/` leads to Fig. 2, or to Fig. 3 when it carried that figure's anchor.
 - The footer of every page names the book the site accompanies and links to the book's site.
 - Every page ends with a link back to its top, in a dark bar above the footer. It leaves the address alone, so a record or a section chosen through the address stays chosen.
 - The About page names the author of the book the site accompanies. Labels in the About text and in the records no longer run into the words after them when a page is read as plain text.

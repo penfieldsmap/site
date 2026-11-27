@@ -3,7 +3,7 @@
 const fs = require('fs'), path = require('path');
 const { serve, launch } = require('../build/lib');
 const root = path.resolve(process.argv[2] || path.join(__dirname, '..', 'public'));
-const PAGES = ['/', '/body/', '/body/figures/', '/about/', '/methods/', '/references/', '/records/'];
+const PAGES = ['/', '/body/', '/body/fig-2/', '/body/fig-3/', '/about/', '/methods/', '/references/', '/records/'];
 const DESK = { viewport: { width: 1440, height: 900 } }, PHONE = { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, hasTouch: true, isMobile: true };
 const fails = []; let passed = 0;
 const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); console.log('FAIL', what); } };
@@ -130,6 +130,30 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
     await t.context().close();
   }
   await n.goto(B + '/about/'); check(await n.evaluate(() => { const a = document.querySelector('.foot a.totop'); return !!a && a.getAttribute('href') === '#'; }), 'with scripts turned off the link at the foot still leads to the top of the page');
+
+  // 10. The body map has three figures, each on its own page, and one toggle that sits in the same place on all three.
+  //     The page that is open is the one marked. The old address of Figs 2 and 3 still leads to them.
+  for (const [tag, ctx] of [['desktop', DESK], ['phone', PHONE]]) {
+    const f = await (await browser.newContext(ctx)).newPage(); hook(f, 'figures ' + tag); const at = [];
+    for (const [u, n, own] of [['/body/', '1', 'fig1'], ['/body/fig-2/', '2', 'fig2'], ['/body/fig-3/', '3', 'fig3']]) {
+      await f.goto(B + u); await f.waitForTimeout(450);
+      const i = await f.evaluate(own => { const a = Array.from(document.querySelectorAll('#tools .g-fig a')), r = a.length ? a[0].getBoundingClientRect() : { left: -1, top: -1 };
+        const drawn = id => { const e = document.getElementById(id); return !!e && !!e.querySelector('svg') && e.getBoundingClientRect().height > 100; };
+        return { hrefs: a.map(x => x.getAttribute('href')).join(' '), cur: a.filter(x => x.getAttribute('aria-current') === 'page').map(x => x.getAttribute('data-fig')).join(','), x: Math.round(r.left), y: Math.round(r.top), own: drawn(own), others: ['fig1', 'fig2', 'fig3'].filter(k => k !== own && drawn(k)).join(',') }; }, own);
+      at.push(i.x + ',' + i.y);
+      check(i.hrefs === '/body/ /body/fig-2/ /body/fig-3/' && i.cur === n && i.own && i.others === '', tag + ' ' + u + ' shows its own figure only and marks it on the toggle (links ' + i.hrefs + ', marked ' + i.cur + ', drawn ' + i.own + ', others ' + i.others + ')');
+    }
+    check(at[0] === at[1] && at[1] === at[2], tag + ': the figure toggle sits in the same place on the three pages (' + at.join(' | ') + ')');
+    await f.goto(B + '/body/'); await f.waitForTimeout(350); await f.click('#tools .g-fig a[data-fig="3"]'); await f.waitForTimeout(600);
+    check(new URL(f.url()).pathname === '/body/fig-3/', tag + ': the toggle on the body map opens Fig. 3 (' + f.url().replace(B, '') + ')');
+    await f.click('#tools .g-fig a[data-fig="1"]'); await f.waitForTimeout(600);
+    check(new URL(f.url()).pathname === '/body/', tag + ': the toggle on Fig. 3 goes back to Fig. 1 (' + f.url().replace(B, '') + ')');
+    await f.context().close();
+  }
+  const old = await (await browser.newContext(DESK)).newPage();
+  await old.goto(B + '/body/figures/'); await old.waitForTimeout(900); check(new URL(old.url()).pathname === '/body/fig-2/', 'the old address of the figures leads to Fig. 2 (' + old.url().replace(B, '') + ')');
+  await old.goto(B + '/body/figures/#p3'); await old.waitForTimeout(900); check(new URL(old.url()).pathname === '/body/fig-3/', 'the old address with the anchor of Fig. 3 leads to Fig. 3 (' + old.url().replace(B, '') + ')');
+  await old.context().close();
 
   check(errs.length === 0, 'errors while loading pages: ' + JSON.stringify(errs.slice(0, 8)));
   await browser.close(); srv.close();
