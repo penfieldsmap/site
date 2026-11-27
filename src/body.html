@@ -122,7 +122,7 @@ table.dt tbody tr.on td{background:var(--ink);color:var(--plate)}
 .pics figure{margin:0}
 .sect h3{margin:0;padding:6px 14px 4px;font:500 10.5px/1.5 var(--display);text-transform:uppercase;letter-spacing:.09em;border-bottom:1px solid var(--ink)}
 .row{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px;padding:6px 14px 7px;border-bottom:1px solid var(--hair)}
-.row .m{font-size:9.5px;line-height:1.95;color:var(--ink2);letter-spacing:.05em}
+.row .m{font-size:10px;line-height:1.85;color:var(--ink2);letter-spacing:.05em}
 .row .r{color:var(--ink2);font-size:11px}
 .row .sc{display:block;color:var(--ink2);font-size:10.5px;margin-top:1px;font-style:italic}
 .none{padding:6px 14px 7px;color:var(--ink2);font-size:11.5px;border-bottom:1px solid var(--hair);font-style:italic}
@@ -280,18 +280,20 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 .lede{margin:0;padding:13px 16px;font:400 14px/1.6 var(--display);color:var(--ink);background:var(--plate);border-bottom:1px solid var(--ink)}
 .lede span{display:block;max-width:106ch}
 .lede a{font-style:normal;font-size:12px;white-space:nowrap}
+#map{scroll-margin-top:var(--headh)}
 @media (max-width:1020px){
   .duo{display:block}
   body.figs #key{grid-template-columns:minmax(0,1fr)}
   body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
   .lede{padding:10px 12px;font-size:13px;line-height:1.55}
+  .lede .try{display:none}
   details.fold>summary h3{padding-top:9px;padding-bottom:7px}
   .g-strip{display:none}
   header.top{padding:7px 12px 0;flex-wrap:wrap}
   header.top nav.menu{flex:1 1 100%;margin:5px -12px 0;padding:0 12px;gap:2px 8px;justify-content:space-between;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--rule)}
   header.top nav.menu::-webkit-scrollbar{display:none}
-  nav.menu a{font-size:9.5px;letter-spacing:.05em;line-height:2.6;padding:0}
-  nav.menu .sep{margin:0 0 8px}
+  nav.menu a{font-size:10px;letter-spacing:.04em;line-height:3.4;padding:0}
+  nav.menu .sep{margin:0 0 11px}
   .mw{display:none}
   header.top h1{font-size:20px}
   header.top h1 small{font-size:10.5px;margin-top:2px}
@@ -313,10 +315,23 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   #about,#methods,#refs{scroll-margin-top:var(--headh)}
   header.top .build{display:none}
   .tools{position:static}
+  .tools .seg2 button{padding:6px 10px}
+  .tools input[type=search],.tools select{font-size:16px;padding:5px 8px}
+  .tools input[type=search]{width:170px}
+  .plain{padding:6px 12px}
   .tools .right{margin-left:0}
   .narrow{display:inline}
   #status{display:none}
   body{padding-bottom:0}
+}
+@media (max-width:560px){
+  .tools{gap:6px 8px}
+  .tools .g-len .lbl{display:none}
+  .g-fig .seg2 a{padding:6px 10px}
+  .tools .g-len .seg2 button{padding:6px 8px}
+}
+@media (max-width:374px){
+  nav.menu a{font-size:9.5px;letter-spacing:.03em}
 }
 @media (max-width:1020px) and (min-width:640px) and (orientation:landscape){
   .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
@@ -354,6 +369,10 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   <span class="build" data-t="updated 2026-11-27"></span>
 </header>
 <p class="build2">updated 2026-11-27</p>
+<div id="map"></div>
+
+<p class="lede" id="lede"><span>Penfield stimulated the strip of cortex for touch and movement, on either side of the central sulcus. The parts of the body answered in a regular order along it, from the lower limb near the midline to the face, tongue and throat at the side. His 1950 book with Theodore Rasmussen showed that order as two figures, one for sensation and one for movement, often called the homunculus. This map shows every label on them, with what later work found. <a href="@ABOUT@#body">About the map</a></span>
+<span class="try">Start with a label <a data-id="sen-thumb" href="@BODY@#sen-thumb">Thumb</a> <a data-id="sen-hand" href="@BODY@#sen-hand">Hand</a> <a data-id="sen-lips" href="@BODY@#sen-lips">Lips</a> <a data-id="sen-tongue" href="@BODY@#sen-tongue">Tongue</a> <a data-id="sen-foot" href="@BODY@#sen-foot">Foot</a> <a class="all" href="@RECS@">All records</a></span></p>
 <noscript><p class="crumb">The map on this page is drawn by a script. Every record is also a plain page: <a href="@RECS@">index of records</a>.</p></noscript>
 
 <div class="tools" id="tools">
@@ -1511,7 +1530,7 @@ function glide(y){var still=window.matchMedia&&matchMedia('(prefers-reduced-moti
 function settle(){
   var head=document.querySelector('header.top').offsetHeight,top=$('duo').getBoundingClientRect().top,y=top+window.pageYOffset-head-(isNarrow()?0:$('tools').offsetHeight);
   if(!(window.pageYOffset>y+2)&&!(top>window.innerHeight-(isNarrow()?140:260))){return;}
-  glide(Math.max(0,y));
+  var m=$('map');glide(isNarrow()||!m?Math.max(0,y):Math.max(0,Math.min(y,m.getBoundingClientRect().top+window.pageYOffset-head)));
 }
 function select(id,opt){
   opt=opt||{};var r=REG[id];if(!r){return;}
@@ -1563,7 +1582,7 @@ document.addEventListener('click',function(ev){
     e=t.closest('[data-id]');if(e){location.href=BODYURL+'#'+e.getAttribute('data-id');return;}
   }
   e=t.closest('[data-cid]');if(e){pickCoord(e.getAttribute('data-cid'));return;}
-  e=t.closest('[data-id]');if(e){select(e.getAttribute('data-id'),{scroll:e.getAttribute('data-src')!=='f1'&&e.getAttribute('data-src')!=='rec'});return;}
+  e=t.closest('[data-id]');if(e){if(e.tagName==='A'){if(ev.metaKey||ev.ctrlKey||ev.shiftKey){return;}ev.preventDefault();}select(e.getAttribute('data-id'),{scroll:e.getAttribute('data-src')!=='f1'&&e.getAttribute('data-src')!=='rec'});return;}
   e=t.closest('[data-part]');
   if(e){
     var part=e.getAttribute('data-part'),strip=(REG[state.sel]&&(REG[state.sel].strip==='S'||REG[state.sel].strip==='M'))?REG[state.sel].strip:state.strip,hit=null;
@@ -1623,7 +1642,15 @@ document.addEventListener('mouseover',function(ev){
 });
 $('find').addEventListener('input',applyFind);
 window.addEventListener('hashchange',function(){var h=location.hash.slice(1);if(!FIGS&&REG[h]&&h!==state.sel){select(h,{nohash:true});}});
-function toolh(){var st=document.documentElement.style;st.setProperty('--toolh',$('tools').offsetHeight+'px');st.setProperty('--headh',document.querySelector('header.top').offsetHeight+'px');}
+function toolh(){var st=document.documentElement.style;st.setProperty('--toolh',$('tools').offsetHeight+'px');st.setProperty('--headh',document.querySelector('header.top').offsetHeight+'px');fitPlate();}
+/* While the opening lines are still on screen the pinned plate starts lower, so it is made shorter by the same amount and never runs off the bottom. */
+function fitPlate(){
+  var st=document.documentElement.style;
+  if(FIGS||isNarrow()){st.removeProperty('--p1h');return;}
+  var stick=document.querySelector('header.top').offsetHeight+$('tools').offsetHeight,top=Math.max(stick,$('duo').getBoundingClientRect().top);
+  st.setProperty('--p1h',Math.max(260,window.innerHeight-top-26)+'px');
+}
+var FITQ=false;window.addEventListener('scroll',function(){if(FITQ){return;}FITQ=true;(window.requestAnimationFrame||setTimeout)(function(){FITQ=false;fitPlate();});},{passive:true});
 window.addEventListener('resize',toolh);
 document.querySelector('nav.menu').addEventListener('click',function(ev){var a=ev.target.closest?ev.target.closest('a'):null;if(!a){return;}var h=a.getAttribute('href')||'';if(h.charAt(0)==='#'&&h.length>1){ev.preventDefault();var el=$(h.slice(1));if(el){el.scrollIntoView({block:'start'});}}});
 function relayout(){toolh();if(paneMode()!==PMODE){buildSection();mark();}centre();}
@@ -1658,6 +1685,7 @@ if(MQ){if(MQ.addEventListener){MQ.addEventListener('change',relayout);}else if(M
 /* ---------- start ---------- */
 window.__D={ANN:ANN,REFS:REFS,COORDS:COORDS,REG:REG,SEQ:SEQ,RC:RC,TOT:TOT,recPath:recPath};
 buildKey();buildSection();buildCompare();buildCoords();toolh();
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(toolh);}
 var h0='';try{h0=location.hash.slice(1);}catch(e){}
 if(FIGS){syncButtons();$('status').textContent='Point at a cell or data point for a readout. Select one to open its record on the body map.';}
 else{select(REG[h0]?h0:'sen-thumb',{nohash:true});syncButtons();centre();}

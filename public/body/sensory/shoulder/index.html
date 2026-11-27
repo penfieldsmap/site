@@ -143,7 +143,7 @@ table.dt tbody tr.on td{background:var(--ink);color:var(--plate)}
 .pics figure{margin:0}
 .sect h3{margin:0;padding:6px 14px 4px;font:500 10.5px/1.5 var(--display);text-transform:uppercase;letter-spacing:.09em;border-bottom:1px solid var(--ink)}
 .row{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px;padding:6px 14px 7px;border-bottom:1px solid var(--hair)}
-.row .m{font-size:9.5px;line-height:1.95;color:var(--ink2);letter-spacing:.05em}
+.row .m{font-size:10px;line-height:1.85;color:var(--ink2);letter-spacing:.05em}
 .row .r{color:var(--ink2);font-size:11px}
 .row .sc{display:block;color:var(--ink2);font-size:10.5px;margin-top:1px;font-style:italic}
 .none{padding:6px 14px 7px;color:var(--ink2);font-size:11.5px;border-bottom:1px solid var(--hair);font-style:italic}
@@ -309,18 +309,20 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 .lede{margin:0;padding:13px 16px;font:400 14px/1.6 var(--display);color:var(--ink);background:var(--plate);border-bottom:1px solid var(--ink)}
 .lede span{display:block;max-width:106ch}
 .lede a{font-style:normal;font-size:12px;white-space:nowrap}
+#map{scroll-margin-top:var(--headh)}
 @media (max-width:1020px){
   .duo{display:block}
   body.figs #key{grid-template-columns:minmax(0,1fr)}
   body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
   .lede{padding:10px 12px;font-size:13px;line-height:1.55}
+  .lede .try{display:none}
   details.fold>summary h3{padding-top:9px;padding-bottom:7px}
   .g-strip{display:none}
   header.top{padding:7px 12px 0;flex-wrap:wrap}
   header.top nav.menu{flex:1 1 100%;margin:5px -12px 0;padding:0 12px;gap:2px 8px;justify-content:space-between;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--rule)}
   header.top nav.menu::-webkit-scrollbar{display:none}
-  nav.menu a{font-size:9.5px;letter-spacing:.05em;line-height:2.6;padding:0}
-  nav.menu .sep{margin:0 0 8px}
+  nav.menu a{font-size:10px;letter-spacing:.04em;line-height:3.4;padding:0}
+  nav.menu .sep{margin:0 0 11px}
   .mw{display:none}
   header.top h1{font-size:20px}
   header.top h1 small{font-size:10.5px;margin-top:2px}
@@ -342,10 +344,23 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   #about,#methods,#refs{scroll-margin-top:var(--headh)}
   header.top .build{display:none}
   .tools{position:static}
+  .tools .seg2 button{padding:6px 10px}
+  .tools input[type=search],.tools select{font-size:16px;padding:5px 8px}
+  .tools input[type=search]{width:170px}
+  .plain{padding:6px 12px}
   .tools .right{margin-left:0}
   .narrow{display:inline}
   #status{display:none}
   body{padding-bottom:0}
+}
+@media (max-width:560px){
+  .tools{gap:6px 8px}
+  .tools .g-len .lbl{display:none}
+  .g-fig .seg2 a{padding:6px 10px}
+  .tools .g-len .seg2 button{padding:6px 8px}
+}
+@media (max-width:374px){
+  nav.menu a{font-size:9.5px;letter-spacing:.03em}
 }
 @media (max-width:1020px) and (min-width:640px) and (orientation:landscape){
   .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
@@ -363,10 +378,11 @@ body.rec .crumb{display:flex;flex-wrap:wrap;gap:2px 16px;align-items:baseline}
 body.rec .crumb a{margin-right:0}
 body.rec .cite p{margin:0;padding:8px 14px 0;font-size:11.5px;color:var(--ink2);overflow-wrap:anywhere}
 body.rec .cite p:last-child{padding-bottom:14px}
-.idx{columns:3 250px;column-gap:36px;margin:0;padding:0;list-style:none;font-size:12px}
-.idx li{break-inside:avoid;padding:2px 0 5px}
-.idx li span{display:block;color:var(--ink2);font-size:11px}
-.idxh{font:700 11px/1.4 var(--display);text-transform:uppercase;letter-spacing:.09em;margin:18px 0 6px}
+.box .idx{columns:3 240px;column-gap:40px;margin:0;padding:0;list-style:none;font-size:13.5px;line-height:1.5}
+.box .idx li{break-inside:avoid;margin:0;padding:0 0 12px}
+.idx li span{display:block;color:var(--ink2);font-size:12px;margin-top:1px}
+.box .idx.names{columns:4 170px}
+.box .idx.names li{padding-bottom:7px}
 @media (max-width:1020px){
   body.rec{--headh:77px}
   body.rec #fig1 svg.pl-d{display:none}

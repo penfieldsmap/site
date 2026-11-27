@@ -175,6 +175,26 @@ const check = (ok, what) => { if (ok) { passed++; } else { fails.push(what); con
     await m.context().close();
   }
 
+  // 12. Both maps open the same way: opening lines and a start row above the tool bar, with the whole plate on the first
+  //     screen. The text pages share one layout: a title, sections in boxes, and on About the two maps as pictures.
+  const o = await (await browser.newContext(DESK)).newPage(); hook(o, 'openings');
+  for (const u of ['/#map', '/body/']) {
+    await o.goto(B + u); await o.waitForTimeout(600);
+    const i = await o.evaluate(() => { const l = document.getElementById('lede'), t = document.getElementById('tools'), p = document.getElementById('p1').getBoundingClientRect(), h = document.querySelector('header.top').getBoundingClientRect();
+      return { lede: !!l && l.textContent.length > 200, gap: Math.round(l.getBoundingClientRect().top - h.bottom), order: l.getBoundingClientRect().bottom <= t.getBoundingClientRect().top + 1, starts: l.querySelectorAll('.try a[data-id]').length, fits: p.bottom <= innerHeight + 1 && p.height > 300 }; });
+    check(i.lede && Math.abs(i.gap) < 4 && i.order && i.starts >= 5 && i.fits, 'desktop ' + u + ' opens on its opening lines, start row and tool bar, with the whole plate on screen (' + JSON.stringify(i) + ')');
+  }
+  await o.goto(B + '/body/'); await o.waitForTimeout(500); await o.click('.lede .try a[data-id="sen-tongue"]'); await o.waitForTimeout(700);
+  const bt = await o.evaluate(() => ({ rec: document.querySelector('#record h2').textContent, y: Math.round(pageYOffset), on: document.querySelector('.lede .try a.on').textContent }));
+  check(bt.rec === 'Tongue' && bt.y === 0 && bt.on === 'Tongue', 'the start row on the body map opens a record without moving the page (' + JSON.stringify(bt) + ')');
+  await o.goto(B + '/about/'); await o.waitForTimeout(500); await o.evaluate(() => window.scrollTo(0, 500)); await o.waitForTimeout(700);
+  const ab = await o.evaluate(() => ({ cards: Array.from(document.querySelectorAll('.mapcard')).map(c => c.querySelector('h3 a').getAttribute('href') + ' ' + (c.querySelector('img').naturalWidth > 0)).join(' | '), boxes: document.querySelectorAll('main.read .box').length, old: document.querySelectorAll('main .doc').length }));
+  check(ab.cards === '/#map true | /body/ true' && ab.boxes >= 8 && ab.old === 0, 'About shows the two maps as pictures that lead to them, and its sections in boxes (' + JSON.stringify(ab) + ')');
+  for (const u of ['/methods/', '/references/', '/records/']) { await o.goto(B + u); await o.waitForTimeout(350);
+    const t = await o.evaluate(() => ({ read: !!document.querySelector('main.read .phead h2'), old: document.querySelectorAll('main .doc').length, refs: Array.from(document.querySelectorAll('.reflist')).map(l => l.children.length).join(','), idx: document.querySelectorAll('.idx a').length }));
+    check(t.read && t.old === 0 && (u !== '/references/' || /^\d+,\d+$/.test(t.refs)) && (u !== '/records/' || t.idx === urls.length), u + ' uses the shared layout of the text pages (' + JSON.stringify(t) + ')'); }
+  await o.context().close();
+
   check(errs.length === 0, 'errors while loading pages: ' + JSON.stringify(errs.slice(0, 8)));
   await browser.close(); srv.close();
   console.log((fails.length ? 'FAILED ' + fails.length + ' of ' : 'passed all ') + (passed + fails.length) + ' checks: ' + PAGES.length + ' pages on two screens, ' + urls.length + ' record pages, ' + hrefs.size + ' internal links, ' + sm.length + ' sitemap addresses');

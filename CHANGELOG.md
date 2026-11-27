@@ -4,6 +4,9 @@ Dates are the dates shown on the site.
 
 ## 2026-11-27
 
+- The body map opens the way the experience map does: opening lines and a row of labels to start with, above the tool bar, with the whole plate on the first screen. The figure pages carry the same opening.
+- About, Methods, References and the index of records share one layout: a title and a line on what the page holds, then each section in a box of its own, in larger type. About shows the two maps as small pictures side by side. The references are set in two columns on a wide screen and one on a phone, with the authors in bold and the note on how much was read on a line of its own.
+- On phones the menu is easier to tap, and the body map's controls take one row less.
 - A title plate at the top of the home page: the title, a line naming the book the site accompanies, and a picture of a brain with numbered tickets, with the map directly under it. A link that points at a record starts at the map.
 - Headings are set in the medium weight of Libre Baskerville.
 - A new picture for links shared to the site. The script that composes it and the picture it starts from are in `build/`.

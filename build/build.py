@@ -34,20 +34,75 @@ PAGECSS='''
 .pg{min-height:60vh}
 .pg .doc:first-child{border-top:0}
 .pg [id]{scroll-margin-top:96px}
-.pg .about>div+div>h3:first-child{margin-top:24px}
 .pg .lk{color:var(--link)}
-.jump{margin:0;padding:12px 16px 0;font-size:11.5px;font-style:italic;color:var(--ink2)}
-.jump a{margin-right:16px;white-space:nowrap}
-.reflist{list-style:none;padding:0;margin:0;font-size:11.5px;max-width:118ch}
-.reflist li{padding:3px 0 3px 2em;text-indent:-2em}
-.reflist .rn{color:var(--ink2);font-style:italic}
-.reflist a{overflow-wrap:anywhere}
-.refbar{position:static}
-.refbar+.doc,.refbar+[hidden]+.doc{border-top:0}
-@media (max-width:1020px){.refbar .lbl{display:none}.refbar .seg2{display:flex;flex:1 1 auto}.refbar .grp{flex:1 1 auto;display:flex}.refbar .seg2 button{flex:1 1 50%;padding:6px 8px;font-size:12px}}
 .pg [hidden]{display:none}
-@media print{.refbar{display:none}.pg section[hidden]{display:grid}}
-@media (max-width:1020px){.pg .about>div+div>h3:first-child{margin-top:14px}}
+/* About, Methods and References are pages to read: one width, larger type, each section in a box of its own */
+.read{max-width:1160px;margin:0 auto;padding:36px 28px 64px;font-size:14px;line-height:1.65}
+.phead{margin:0 0 30px}
+.phead h2{font:500 34px/1.1 var(--display);margin:0 0 12px}
+.pintro{margin:0;max-width:60ch;font-size:16px;line-height:1.55;color:var(--ink2)}
+.jump{margin:18px 0 0;padding:0;font-size:12.5px;font-style:italic;color:var(--ink2)}
+.jump a{margin-left:14px;font-style:normal;white-space:nowrap}
+.gh{font:500 22px/1.2 var(--display);margin:48px 0 18px;padding-top:18px;border-top:3px double var(--ink)}
+.gh small{font:italic 400 13px/1 var(--display);color:var(--ink2);margin-left:10px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.cols.c-lead{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+.cols.c-wide{grid-template-columns:minmax(0,2.1fr) minmax(0,1fr)}
+.col{display:grid;gap:20px;min-width:0}
+.box{background:var(--plate);border:1px solid var(--ink);padding:20px 24px 14px;min-width:0}
+.box h3{font:700 11px/1.5 var(--display);text-transform:uppercase;letter-spacing:.1em;margin:0 0 13px;padding-bottom:7px;border-bottom:1px solid var(--ink)}
+.box p{margin:0 0 11px;max-width:none}
+.box .src{font-size:12px;font-style:italic;color:var(--ink2);margin-top:14px}
+.box ul,.box ol{margin:0 0 8px;padding-left:20px;max-width:none}
+.box li{margin:0 0 9px}
+.box ol li b{font-weight:400;font-style:italic}
+.box a{overflow-wrap:anywhere}
+.box dl{margin:0 0 8px;display:grid;grid-template-columns:minmax(72px,auto) minmax(0,1fr);gap:10px 18px}
+.box dt{font-style:italic;color:var(--ink2)}
+.box dd{margin:0}
+.box.codes dl{grid-template-columns:50px minmax(0,1fr);gap:7px 12px;font-size:13px;line-height:1.5}
+.box.codes dt{font:400 10.5px/1.85 var(--body);letter-spacing:.06em;color:var(--ink)}
+.portrait{float:right;width:190px;margin:2px 0 12px 24px}
+.portrait img{display:block;width:100%;height:auto;border:1px solid var(--ink)}
+.portrait figcaption{font-size:11px;line-height:1.4;font-style:italic;color:var(--ink2);margin-top:6px}
+.box.bio::after{content:"";display:block;clear:both}
+.maps{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.mapcard{position:relative;display:flex;flex-direction:column;background:var(--plate);border:1px solid var(--ink)}
+.mc-fig{display:flex;align-items:center;justify-content:center;aspect-ratio:5/4;padding:16px;border-bottom:1px solid var(--ink)}
+.mc-fig img{display:block;max-width:100%;max-height:100%;width:auto;height:auto}
+.mapcard h3{font:500 19px/1.25 var(--display);margin:16px 24px 6px}
+.mapcard h3 a{color:var(--ink);text-decoration:none}
+.mapcard h3 a::after{content:"";position:absolute;left:0;top:0;right:0;bottom:0}
+.mapcard:hover h3 a{text-decoration:underline;text-underline-offset:3px}
+.mapcard p{margin:0 24px 20px;color:var(--ink2)}
+.refbar{display:flex;align-items:center;gap:10px;margin:0}
+.refbar .lbl{font-size:12.5px;font-style:italic;color:var(--ink2)}
+.refbar .seg2 button{padding:5px 14px;font-size:12.5px}
+.refsec .gh{margin-top:26px}
+.reflist{list-style:none;margin:0;padding:0;font-size:13.5px;line-height:1.6;column-count:2;column-gap:56px;column-rule:1px solid var(--rule)}
+.reflist li{padding:12px 0 13px;border-bottom:1px solid var(--rule);break-inside:avoid}
+.reflist .au{font-weight:700}
+.reflist a{overflow-wrap:anywhere}
+.reflist .rn{display:block;margin-top:3px;font-size:12px;font-style:italic;color:var(--ink2)}
+@media (max-width:1020px){
+  .read{padding:22px 16px 44px}
+  .phead{margin-bottom:22px}
+  .phead h2{font-size:28px}
+  .pintro{font-size:15px}
+  .jump a{display:inline-block;margin:0 0 4px 12px}
+  .gh{font-size:20px;margin:36px 0 14px;padding-top:14px}
+  .cols,.cols.c-lead,.cols.c-wide,.maps{grid-template-columns:minmax(0,1fr);gap:14px}
+  .col{gap:14px}
+  .box{padding:16px 16px 10px}
+  .portrait{float:none;width:150px;margin:0 0 12px}
+  .mapcard h3{margin:14px 16px 6px}
+  .mapcard p{margin:0 16px 16px}
+  .reflist{column-count:1}
+  .refbar .lbl{display:none}
+  .refbar .seg2{display:flex;flex:1 1 auto}
+  .refbar .seg2 button{flex:1 1 50%;padding:8px 8px}
+}
+@media print{.refbar{display:none}.pg section[hidden]{display:block}}
 '''
 OGALT='The title Penfield’s Map beside a picture of a preserved brain seen from the side, with numbered paper tickets on it. The picture is an illustration, not an archival photograph; Wilder Penfield laid such tickets on the cortex at each point that answered his electrode.'
 def one(s,a,b):
@@ -153,39 +208,57 @@ bio=one(a[:a.index(k)],'<h2>About this map</h2>',''); body_figs=a[a.index(k):]
 k='<h3>What the temporal lobe gave</h3>'; a=F['exp']['aA']; assert a.count(k)==1
 exp_left=a[a.index(k):]
 assert bio.count('<p')==3 and 'The responses on the experience map were recorded' in bio
-ABOUT='''<p class="jump">On this page: <a href="#penfield">Wilder Penfield</a> <a href="#experience">The experience map</a> <a href="#body">The body map</a></p>
-<section class="doc about" id="penfield">
-  <div><h2>About</h2>'''+bio+'''</div>
-  <div><h3>The two maps</h3>
-    <p>The <a href="@EXP@#map">experience map</a> covers what his patients heard, saw, remembered and felt when the temporal lobe was stimulated, with later work on feeling from other parts of the brain.</p>
-    <p>The <a href="@BODY@">body map</a> covers the strip of cortex for touch and movement, the figure often called the homunculus.</p>
-    <p>How the maps were made and checked is under <a href="@METHODS@">Methods</a>. The sources are under <a href="@REFS@">References</a>. Every record also has a page of its own: <a href="@RECS@">index of records</a>.</p>
-    <p>The site is a research companion to <i>NEURAL</i>, a book by Velco Dar on brain-computer interfaces forthcoming from Fast Company Press in 2027.</p>
-  </div>
-</section>
-<section class="doc about" id="experience">
-  <div><h2>The experience map</h2>'''+exp_left+'''</div>
-  <div>'''+F['exp']['aB']+'''</div>
-</section>
-<section class="doc about" id="body">
-  <div><h2>The body map</h2>'''+body_figs+'''</div>
-  <div>'''+F['body']['aB']+'''</div>
-</section>'''
-METHODS='''<p class="jump">On this page: <a href="#experience">The experience map</a> <a href="#body">The body map</a></p>
-<section class="doc" id="experience">
-  <div><h2>Methods and limitations: the experience map</h2>'''+F['exp']['meth']+'''</div>
-  <div id="codes-experience"><h2>Method codes: the experience map</h2>'''+F['exp']['codes']+'''</div>
-</section>
-<section class="doc" id="body">
-  <div><h2>Methods and limitations: the body map</h2>'''+F['body']['meth']+'''</div>
-  <div id="codes-body"><h2>Method codes: the body map</h2>'''+F['body']['codes']+'''</div>
-</section>'''
-REFS='''<div class="tools refbar"><span class="grp"><span class="lbl" id="lblref">References for</span> <span class="seg2" role="group" aria-labelledby="lblref"><button type="button" data-l="experience" aria-pressed="true">Experience map, %d</button> <button type="button" data-l="body" aria-pressed="false">Body map, %d</button></span></span></div>
-<section class="doc" id="experience"><div class="docfull"><h2>References: the experience map</h2><ul class="reflist">%s</ul></div></section>
-<section class="doc" id="body"><div class="docfull"><h2>References: the body map</h2><ul class="reflist">%s</ul></div></section>'''%(F['exp']['nrefs'],F['body']['nrefs'],F['exp']['refs'],F['body']['refs'])
-PAGES=[('about','About','About Penfield’s Map','Who Wilder Penfield was, what his two maps of the brain show, what later work changed, and why they matter for brain-computer interfaces.',ABOUT),
-       ('methods','Methods','Methods: Penfield’s Map','How the experience map and the body map were compiled and checked, their limits, known gaps and method codes.',METHODS),
-       ('references','References','References: Penfield’s Map','Every source cited on the experience map and the body map, with a note on how much of each was read.',REFS)]
+def parts(html):
+    # a captured text block, cut into its sections; each starts at an h3
+    html=re.sub(r'<h2>.*?</h2>','',html,flags=re.S).strip()
+    return [x.strip() for x in re.split(r'(?=<h3>)',html) if x.strip()]
+def box(part,extra='',cls=''): return '<section class="box%s">%s%s</section>'%(cls,extra,part)
+def col(*boxes): return '<div class="col">'+'\n'.join(boxes)+'</div>'
+# A portrait of Penfield is shown when the files are there: src/static/about/penfield.jpg and penfield.txt (one line: its caption and credit).
+PORT_IMG=os.path.join(STATIC,'about','penfield.jpg'); PORT_TXT=os.path.join(STATIC,'about','penfield.txt')
+PORTRAIT=('<figure class="portrait"><img src="/about/penfield.jpg" alt="Wilder Penfield" loading="lazy" decoding="async"><figcaption>%s</figcaption></figure>'%io.open(PORT_TXT,encoding='utf-8').read().strip()) if os.path.exists(PORT_IMG) and os.path.exists(PORT_TXT) else ''
+D_ABOUT='Who Wilder Penfield was, what his two maps of the brain show, what later work changed, and why they matter for brain-computer interfaces.'
+D_METH='How the experience map and the body map were compiled and checked, their limits, known gaps and method codes.'
+D_REFS='Every source cited on the experience map and the body map, with a note on how much of each was read.'
+(bio_box,)=parts(bio); xl=parts(exp_left); xr=parts(F['exp']['aB']); (bl,)=parts(body_figs); br=parts(F['body']['aB'])
+assert len(xl)==2 and len(xr)==2 and len(br)==2
+def mapcard(href,img,w,h,name,text):
+    return ('<article class="mapcard"><a class="mc-fig" href="%s" tabindex="-1" aria-hidden="true"><img src="/about/%s-520.webp" srcset="/about/%s-520.webp 1x, /about/%s-1040.webp 2x" width="%d" height="%d" alt="" loading="lazy" decoding="async"></a>'
+            '<h3><a href="%s">%s</a></h3><p>%s</p></article>')%(href,img,img,img,w,h,href,name,text)
+ABOUT=('<header class="phead"><h2>About</h2><p class="pintro">'+D_ABOUT+'</p>\n'
+ '<p class="jump">On this page <a href="#penfield">Wilder Penfield</a> <a href="#maps">The two maps</a> <a href="#experience">The experience map</a> <a href="#body">The body map</a></p></header>\n'
+ '<div class="cols c-lead" id="penfield">\n'+box(bio_box,PORTRAIT,' bio')+'\n'
+ '<section class="box"><h3>This site</h3>\n'
+ '    <p>How the maps were made and checked is under <a href="@METHODS@">Methods</a>. The sources are under <a href="@REFS@">References</a>. Every record also has a page of its own: <a href="@RECS@">index of records</a>.</p>\n'
+ '    <p>The site is a research companion to <i>NEURAL</i>, a book by Velco Dar on brain-computer interfaces forthcoming from Fast Company Press in 2027.</p>\n'
+ '</section>\n</div>\n'
+ '<h2 class="gh" id="maps">The two maps</h2>\n<div class="maps">\n'
+ +mapcard('@EXP@#map','map-experience',520,333,'The experience map','What his patients heard, saw, remembered and felt when the temporal lobe was stimulated, with later work on feeling from other parts of the brain.')+'\n'
+ +mapcard('@BODY@','map-body',520,408,'The body map','The strip of cortex for touch and movement, the figure often called the homunculus.')+'\n</div>\n'
+ '<h2 class="gh" id="experience">The experience map</h2>\n<div class="cols">\n'+col(box(xl[0]),box(xl[1]))+'\n'+col(box(xr[0]),box(xr[1]))+'\n</div>\n'
+ '<h2 class="gh" id="body">The body map</h2>\n<div class="cols">\n'+col(box(bl),box(br[1]))+'\n'+col(box(br[0]))+'\n</div>')
+METHODS=('<header class="phead"><h2>Methods</h2><p class="pintro">'+D_METH+'</p>\n'
+ '<p class="jump">On this page <a href="#experience">The experience map</a> <a href="#body">The body map</a></p></header>\n'
+ '<h2 class="gh" id="experience">The experience map</h2>\n<div class="cols c-wide">\n'
+ '<section class="box"><h3>Methods and limitations</h3>'+F['exp']['meth']+'</section>\n'
+ '<section class="box codes" id="codes-experience"><h3>Method codes</h3>'+F['exp']['codes']+'</section>\n</div>\n'
+ '<h2 class="gh" id="body">The body map</h2>\n<div class="cols c-wide">\n'
+ '<section class="box"><h3>Methods and limitations</h3>'+F['body']['meth']+'</section>\n'
+ '<section class="box codes" id="codes-body"><h3>Method codes</h3>'+F['body']['codes']+'</section>\n</div>')
+def reflist(html):
+    # each entry: its authors set apart; the note on how much was read keeps its own style
+    out=[]
+    for li in re.findall(r'<li>(.*?)</li>',html,flags=re.S):
+        m=re.match(r'(.+?\.)\s',li); assert m and len(m.group(1))<=170 and not re.search(r'\d',m.group(1)), li[:80]
+        out.append('<li><b class="au">%s</b> %s</li>'%(m.group(1),li[m.end():]))
+    assert len(out)==html.count('<li>'); return ''.join(out)
+REFS=('<header class="phead"><h2>References</h2><p class="pintro">'+D_REFS+'</p></header>\n'
+ '<div class="refbar"><span class="lbl" id="lblref">References for</span> <span class="seg2" role="group" aria-labelledby="lblref"><button type="button" data-l="experience" aria-pressed="true">Experience map, %d</button> <button type="button" data-l="body" aria-pressed="false">Body map, %d</button></span></div>\n'
+ '<section class="refsec" id="experience"><h2 class="gh">The experience map <small>%d sources</small></h2><ol class="reflist">%s</ol></section>\n'
+ '<section class="refsec" id="body"><h2 class="gh">The body map <small>%d sources</small></h2><ol class="reflist">%s</ol></section>')%(F['exp']['nrefs'],F['body']['nrefs'],F['exp']['nrefs'],reflist(F['exp']['refs']),F['body']['nrefs'],reflist(F['body']['refs']))
+PAGES=[('about','About','About Penfield’s Map',D_ABOUT,ABOUT),
+       ('methods','Methods','Methods: Penfield’s Map',D_METH,METHODS),
+       ('references','References','References: Penfield’s Map',D_REFS,REFS)]
 # The references page shows one list at a time. Without scripts both lists stay visible.
 REFJS='''<script>
 (function(){
@@ -227,13 +300,13 @@ def static(fl,slug,sub,title,desc,content):
 </header>
 <p class="build2">%s</p>
 
-<main class="pg">
+<main class="pg%s">
 %s
 </main>
 
 %s</body>
 </html>
-'''%(hd,css_of(full[fl]['body']),PAGECSS,sub,nav,STAMP,STAMP,content,(FOOT if fl=='site' else '')+EXTRA.get(slug,''))
+'''%(hd,css_of(full[fl]['body']),PAGECSS,sub,nav,STAMP,STAMP,' read' if slug in ('about','methods','references','records') else '',content,(FOOT if fl=='site' else '')+EXTRA.get(slug,''))
 out={'site':SITE,'preview':PREVIEW}
 for fl in ('site','preview'):
     o=out[fl]
@@ -259,10 +332,11 @@ body.rec .crumb{display:flex;flex-wrap:wrap;gap:2px 16px;align-items:baseline}
 body.rec .crumb a{margin-right:0}
 body.rec .cite p{margin:0;padding:8px 14px 0;font-size:11.5px;color:var(--ink2);overflow-wrap:anywhere}
 body.rec .cite p:last-child{padding-bottom:14px}
-.idx{columns:3 250px;column-gap:36px;margin:0;padding:0;list-style:none;font-size:12px}
-.idx li{break-inside:avoid;padding:2px 0 5px}
-.idx li span{display:block;color:var(--ink2);font-size:11px}
-.idxh{font:700 11px/1.4 var(--display);text-transform:uppercase;letter-spacing:.09em;margin:18px 0 6px}
+.box .idx{columns:3 240px;column-gap:40px;margin:0;padding:0;list-style:none;font-size:13.5px;line-height:1.5}
+.box .idx li{break-inside:avoid;margin:0;padding:0 0 12px}
+.idx li span{display:block;color:var(--ink2);font-size:12px;margin-top:1px}
+.box .idx.names{columns:4 170px}
+.box .idx.names li{padding-bottom:7px}
 @media (max-width:1020px){
   body.rec{--headh:77px}
   body.rec #fig1 svg.pl-d{display:none}
@@ -359,20 +433,21 @@ def recpage(fl,kind,r,depth,urls):
 XU={k:v['url'] for k,v in R['exp']['rec'].items()}; BU={k:v['url'] for k,v in R['body']['rec'].items()}
 GL={g['k']:g['l'] for g in json.loads(subprocess.run(['node','-e',"const s=require('fs').readFileSync(process.argv[1],'utf8');console.log(JSON.stringify(new Function(s+';return GROUPS.map(g=>({k:g.k,l:g.l}))')()))",os.path.join(SRC,'experience-data.js')],capture_output=True,text=True).stdout)}
 def idx(fl):
-    h='<section class="doc"><div class="docfull"><h2>Index of records</h2><p style="max-width:84ch;margin:0 0 4px">Every record on the two maps has a page of its own, readable without scripts and with a fixed address. The maps open the same records: <a href="@EXP@">experience map</a>, <a href="@BODY@">body map</a>.</p>'
+    h='<header class="phead"><h2>Index of records</h2><p class="pintro">Every record on the two maps has a page of its own, readable without scripts and with a fixed address. The maps open the same records: <a href="@EXP@#map">experience map</a>, <a href="@BODY@">body map</a>.</p></header><h2 class="gh">Experience map</h2><div class="col">'
     for k in ('R','I','L'):
-        h+='<h3 class="idxh">Experience map: %s</h3><ul class="idx">'%esc(GL[k])
+        h+='<section class="box"><h3>%s</h3><ul class="idx">'%esc(GL[k])
         for i in R['exp']['order']:
             r=R['exp']['rec'][i]
             if r['g']==k: h+='<li><a href="%s">%s</a> <span>%s</span></li>'%(r['url'],esc(r['title']),esc(clip(r['first'],110)))
-        h+='</ul>'
-    for fam,lab in (('sen','Body map: sensory figure of 1950, postcentral gyrus'),('mot','Body map: motor figure of 1950, precentral gyrus'),('g','Body map: fMRI scheme of 2023, precentral gyrus')):
-        h+='<h3 class="idxh">%s</h3><ul class="idx">'%lab
+        h+='</ul></section>'
+    h+='</div><h2 class="gh">Body map</h2><div class="col">'
+    for fam,lab in (('sen','Sensory figure of 1950, postcentral gyrus'),('mot','Motor figure of 1950, precentral gyrus'),('g','fMRI scheme of 2023, precentral gyrus')):
+        h+='<section class="box"><h3>%s</h3><ul class="idx names">'%lab
         for i in R['body']['ids']:
             r=R['body']['rec'][i]
             if r['fam']==fam: h+='<li><a href="%s">%s</a></li>'%(r['url'],esc(r['title']))
-        h+='</ul>'
-    return rel(h+'</div></section>',fl,1)
+        h+='</ul></section>'
+    return rel(h+'</div>',fl,1)
 for fl in ('site','preview'):
     o=out[fl]
     for i,r in R['exp']['rec'].items(): wr(o+r['url']+'index.html',recpage(fl,'exp',r,2,XU))

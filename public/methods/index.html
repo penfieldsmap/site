@@ -143,7 +143,7 @@ table.dt tbody tr.on td{background:var(--ink);color:var(--plate)}
 .pics figure{margin:0}
 .sect h3{margin:0;padding:6px 14px 4px;font:500 10.5px/1.5 var(--display);text-transform:uppercase;letter-spacing:.09em;border-bottom:1px solid var(--ink)}
 .row{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px;padding:6px 14px 7px;border-bottom:1px solid var(--hair)}
-.row .m{font-size:9.5px;line-height:1.95;color:var(--ink2);letter-spacing:.05em}
+.row .m{font-size:10px;line-height:1.85;color:var(--ink2);letter-spacing:.05em}
 .row .r{color:var(--ink2);font-size:11px}
 .row .sc{display:block;color:var(--ink2);font-size:10.5px;margin-top:1px;font-style:italic}
 .none{padding:6px 14px 7px;color:var(--ink2);font-size:11.5px;border-bottom:1px solid var(--hair);font-style:italic}
@@ -309,18 +309,20 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 .lede{margin:0;padding:13px 16px;font:400 14px/1.6 var(--display);color:var(--ink);background:var(--plate);border-bottom:1px solid var(--ink)}
 .lede span{display:block;max-width:106ch}
 .lede a{font-style:normal;font-size:12px;white-space:nowrap}
+#map{scroll-margin-top:var(--headh)}
 @media (max-width:1020px){
   .duo{display:block}
   body.figs #key{grid-template-columns:minmax(0,1fr)}
   body.figs .panel{scroll-margin-top:calc(var(--headh) + 2px)}
   .lede{padding:10px 12px;font-size:13px;line-height:1.55}
+  .lede .try{display:none}
   details.fold>summary h3{padding-top:9px;padding-bottom:7px}
   .g-strip{display:none}
   header.top{padding:7px 12px 0;flex-wrap:wrap}
   header.top nav.menu{flex:1 1 100%;margin:5px -12px 0;padding:0 12px;gap:2px 8px;justify-content:space-between;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--rule)}
   header.top nav.menu::-webkit-scrollbar{display:none}
-  nav.menu a{font-size:9.5px;letter-spacing:.05em;line-height:2.6;padding:0}
-  nav.menu .sep{margin:0 0 8px}
+  nav.menu a{font-size:10px;letter-spacing:.04em;line-height:3.4;padding:0}
+  nav.menu .sep{margin:0 0 11px}
   .mw{display:none}
   header.top h1{font-size:20px}
   header.top h1 small{font-size:10.5px;margin-top:2px}
@@ -342,10 +344,23 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
   #about,#methods,#refs{scroll-margin-top:var(--headh)}
   header.top .build{display:none}
   .tools{position:static}
+  .tools .seg2 button{padding:6px 10px}
+  .tools input[type=search],.tools select{font-size:16px;padding:5px 8px}
+  .tools input[type=search]{width:170px}
+  .plain{padding:6px 12px}
   .tools .right{margin-left:0}
   .narrow{display:inline}
   #status{display:none}
   body{padding-bottom:0}
+}
+@media (max-width:560px){
+  .tools{gap:6px 8px}
+  .tools .g-len .lbl{display:none}
+  .g-fig .seg2 a{padding:6px 10px}
+  .tools .g-len .seg2 button{padding:6px 8px}
+}
+@media (max-width:374px){
+  nav.menu a{font-size:9.5px;letter-spacing:.03em}
 }
 @media (max-width:1020px) and (min-width:640px) and (orientation:landscape){
   .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
@@ -357,20 +372,75 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 .pg{min-height:60vh}
 .pg .doc:first-child{border-top:0}
 .pg [id]{scroll-margin-top:96px}
-.pg .about>div+div>h3:first-child{margin-top:24px}
 .pg .lk{color:var(--link)}
-.jump{margin:0;padding:12px 16px 0;font-size:11.5px;font-style:italic;color:var(--ink2)}
-.jump a{margin-right:16px;white-space:nowrap}
-.reflist{list-style:none;padding:0;margin:0;font-size:11.5px;max-width:118ch}
-.reflist li{padding:3px 0 3px 2em;text-indent:-2em}
-.reflist .rn{color:var(--ink2);font-style:italic}
-.reflist a{overflow-wrap:anywhere}
-.refbar{position:static}
-.refbar+.doc,.refbar+[hidden]+.doc{border-top:0}
-@media (max-width:1020px){.refbar .lbl{display:none}.refbar .seg2{display:flex;flex:1 1 auto}.refbar .grp{flex:1 1 auto;display:flex}.refbar .seg2 button{flex:1 1 50%;padding:6px 8px;font-size:12px}}
 .pg [hidden]{display:none}
-@media print{.refbar{display:none}.pg section[hidden]{display:grid}}
-@media (max-width:1020px){.pg .about>div+div>h3:first-child{margin-top:14px}}
+/* About, Methods and References are pages to read: one width, larger type, each section in a box of its own */
+.read{max-width:1160px;margin:0 auto;padding:36px 28px 64px;font-size:14px;line-height:1.65}
+.phead{margin:0 0 30px}
+.phead h2{font:500 34px/1.1 var(--display);margin:0 0 12px}
+.pintro{margin:0;max-width:60ch;font-size:16px;line-height:1.55;color:var(--ink2)}
+.jump{margin:18px 0 0;padding:0;font-size:12.5px;font-style:italic;color:var(--ink2)}
+.jump a{margin-left:14px;font-style:normal;white-space:nowrap}
+.gh{font:500 22px/1.2 var(--display);margin:48px 0 18px;padding-top:18px;border-top:3px double var(--ink)}
+.gh small{font:italic 400 13px/1 var(--display);color:var(--ink2);margin-left:10px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.cols.c-lead{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+.cols.c-wide{grid-template-columns:minmax(0,2.1fr) minmax(0,1fr)}
+.col{display:grid;gap:20px;min-width:0}
+.box{background:var(--plate);border:1px solid var(--ink);padding:20px 24px 14px;min-width:0}
+.box h3{font:700 11px/1.5 var(--display);text-transform:uppercase;letter-spacing:.1em;margin:0 0 13px;padding-bottom:7px;border-bottom:1px solid var(--ink)}
+.box p{margin:0 0 11px;max-width:none}
+.box .src{font-size:12px;font-style:italic;color:var(--ink2);margin-top:14px}
+.box ul,.box ol{margin:0 0 8px;padding-left:20px;max-width:none}
+.box li{margin:0 0 9px}
+.box ol li b{font-weight:400;font-style:italic}
+.box a{overflow-wrap:anywhere}
+.box dl{margin:0 0 8px;display:grid;grid-template-columns:minmax(72px,auto) minmax(0,1fr);gap:10px 18px}
+.box dt{font-style:italic;color:var(--ink2)}
+.box dd{margin:0}
+.box.codes dl{grid-template-columns:50px minmax(0,1fr);gap:7px 12px;font-size:13px;line-height:1.5}
+.box.codes dt{font:400 10.5px/1.85 var(--body);letter-spacing:.06em;color:var(--ink)}
+.portrait{float:right;width:190px;margin:2px 0 12px 24px}
+.portrait img{display:block;width:100%;height:auto;border:1px solid var(--ink)}
+.portrait figcaption{font-size:11px;line-height:1.4;font-style:italic;color:var(--ink2);margin-top:6px}
+.box.bio::after{content:"";display:block;clear:both}
+.maps{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.mapcard{position:relative;display:flex;flex-direction:column;background:var(--plate);border:1px solid var(--ink)}
+.mc-fig{display:flex;align-items:center;justify-content:center;aspect-ratio:5/4;padding:16px;border-bottom:1px solid var(--ink)}
+.mc-fig img{display:block;max-width:100%;max-height:100%;width:auto;height:auto}
+.mapcard h3{font:500 19px/1.25 var(--display);margin:16px 24px 6px}
+.mapcard h3 a{color:var(--ink);text-decoration:none}
+.mapcard h3 a::after{content:"";position:absolute;left:0;top:0;right:0;bottom:0}
+.mapcard:hover h3 a{text-decoration:underline;text-underline-offset:3px}
+.mapcard p{margin:0 24px 20px;color:var(--ink2)}
+.refbar{display:flex;align-items:center;gap:10px;margin:0}
+.refbar .lbl{font-size:12.5px;font-style:italic;color:var(--ink2)}
+.refbar .seg2 button{padding:5px 14px;font-size:12.5px}
+.refsec .gh{margin-top:26px}
+.reflist{list-style:none;margin:0;padding:0;font-size:13.5px;line-height:1.6;column-count:2;column-gap:56px;column-rule:1px solid var(--rule)}
+.reflist li{padding:12px 0 13px;border-bottom:1px solid var(--rule);break-inside:avoid}
+.reflist .au{font-weight:700}
+.reflist a{overflow-wrap:anywhere}
+.reflist .rn{display:block;margin-top:3px;font-size:12px;font-style:italic;color:var(--ink2)}
+@media (max-width:1020px){
+  .read{padding:22px 16px 44px}
+  .phead{margin-bottom:22px}
+  .phead h2{font-size:28px}
+  .pintro{font-size:15px}
+  .jump a{display:inline-block;margin:0 0 4px 12px}
+  .gh{font-size:20px;margin:36px 0 14px;padding-top:14px}
+  .cols,.cols.c-lead,.cols.c-wide,.maps{grid-template-columns:minmax(0,1fr);gap:14px}
+  .col{gap:14px}
+  .box{padding:16px 16px 10px}
+  .portrait{float:none;width:150px;margin:0 0 12px}
+  .mapcard h3{margin:14px 16px 6px}
+  .mapcard p{margin:0 16px 16px}
+  .reflist{column-count:1}
+  .refbar .lbl{display:none}
+  .refbar .seg2{display:flex;flex:1 1 auto}
+  .refbar .seg2 button{flex:1 1 50%;padding:8px 8px}
+}
+@media print{.refbar{display:none}.pg section[hidden]{display:block}}
 </style>
 </head>
 <body>
@@ -389,21 +459,24 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
 </header>
 <p class="build2">updated 2026-11-27</p>
 
-<main class="pg">
-<p class="jump">On this page: <a href="#experience">The experience map</a> <a href="#body">The body map</a></p>
-<section class="doc" id="experience">
-  <div><h2>Methods and limitations: the experience map</h2><ol><li><b>Scope.</b> The experience map shows what Penfield and Perot (1963) report from electrical stimulation of the temporal lobe: memory-like experiences, and altered interpretation of the present. A third layer adds feelings reported by later groups, mostly from other parts of the brain. It does not reproduce the 1963 figures.</li><li><b>Counts.</b> Counts of memory-like experiences are from Table V and section 7 of the 1963 paper. The figures for the series as a whole are from its sections 3 and 5. A count is a number of stimulation points unless it says patients. The count of music points by side was made for this site from the legend of Fig. 9 and the case reports, and is not in the paper.</li><li><b>Cases.</b> The case notes paraphrase the case reports in section 5 of the 1963 paper and carry its case numbers and page numbers. Each case is filed under the kind of response that the legends of Figs 9 to 12 give it. Patients’ words are not quoted at length. Some titles of pieces of music are given, as the paper prints them.</li><li><b>Plate.</b> Fig. 1 is an original schematic and is not to scale. Shading shows the convolution or surface that a source names. The numbered points of Figs 9 to 12 of the 1963 paper are not transferred to it. Structures on the inner face of the hemisphere or inside it are projected onto the side view in broken outline, and their positions are approximate.</li><li><b>The present, altered.</b> The interpretive illusions are described in the 1963 paper only in summary, in its Table II and Fig. 1, with reference to Mullan and Penfield (1959), which was not reached. The 1963 paper gives that study as 214 patients, 70 of them with illusions. A lecture Penfield gave in 1957, before the study was published, gives 217 and 38.</li><li><b>Later work.</b> Each later finding paraphrases its source, and the note after each reference says how much of the source was read. Nearly all the patients had epilepsy, and the electrodes were placed to find where their seizures began. Several findings rest on one patient. They are listed to show what has been reported, not how often it happens.</li><li><b>Sides.</b> Dominant means the hemisphere that carries speech. The plate shows one hemisphere and stands for either. The side for each finding is in its record.</li><li><b>Source check.</b> On 26 November 2026 every statement taken from the 1963 paper was checked against its pages in two separate passes, apart from the reading that wrote the page, and the corrections were applied. Each later source was read once for this site. The site has not been peer reviewed.</li><li><b>Known gaps.</b> Not reached: Mullan and Penfield 1959, Penfield 1938, Halgren et al. 1978 and the 2013 letter of Picard et al. Read as abstracts only: Gloor et al. 1982, Bancaud et al. 1994, Bartolomei et al. 2004, Meletti et al. 2006 and Caruana et al. 2015. Of Fried et al. 1998 only the opening paragraph and the figure legend were read. The count of three music sites in Wang et al. 2024 is from the preprint. The 1963 paper says that 31 of the 46 voice responses were recognised by the patient, but the legend of its Fig. 9 marks 17 voice responses as familiar, and the map leaves the figure out.</li><li><b>Use.</b> Check a finding against its source before citing it.</li></ol></div>
-  <div id="codes-experience"><h2>Method codes: the experience map</h2><dl>
+<main class="pg read">
+<header class="phead"><h2>Methods</h2><p class="pintro">How the experience map and the body map were compiled and checked, their limits, known gaps and method codes.</p>
+<p class="jump">On this page <a href="#experience">The experience map</a> <a href="#body">The body map</a></p></header>
+<h2 class="gh" id="experience">The experience map</h2>
+<div class="cols c-wide">
+<section class="box"><h3>Methods and limitations</h3><ol><li><b>Scope.</b> The experience map shows what Penfield and Perot (1963) report from electrical stimulation of the temporal lobe: memory-like experiences, and altered interpretation of the present. A third layer adds feelings reported by later groups, mostly from other parts of the brain. It does not reproduce the 1963 figures.</li><li><b>Counts.</b> Counts of memory-like experiences are from Table V and section 7 of the 1963 paper. The figures for the series as a whole are from its sections 3 and 5. A count is a number of stimulation points unless it says patients. The count of music points by side was made for this site from the legend of Fig. 9 and the case reports, and is not in the paper.</li><li><b>Cases.</b> The case notes paraphrase the case reports in section 5 of the 1963 paper and carry its case numbers and page numbers. Each case is filed under the kind of response that the legends of Figs 9 to 12 give it. Patients’ words are not quoted at length. Some titles of pieces of music are given, as the paper prints them.</li><li><b>Plate.</b> Fig. 1 is an original schematic and is not to scale. Shading shows the convolution or surface that a source names. The numbered points of Figs 9 to 12 of the 1963 paper are not transferred to it. Structures on the inner face of the hemisphere or inside it are projected onto the side view in broken outline, and their positions are approximate.</li><li><b>The present, altered.</b> The interpretive illusions are described in the 1963 paper only in summary, in its Table II and Fig. 1, with reference to Mullan and Penfield (1959), which was not reached. The 1963 paper gives that study as 214 patients, 70 of them with illusions. A lecture Penfield gave in 1957, before the study was published, gives 217 and 38.</li><li><b>Later work.</b> Each later finding paraphrases its source, and the note after each reference says how much of the source was read. Nearly all the patients had epilepsy, and the electrodes were placed to find where their seizures began. Several findings rest on one patient. They are listed to show what has been reported, not how often it happens.</li><li><b>Sides.</b> Dominant means the hemisphere that carries speech. The plate shows one hemisphere and stands for either. The side for each finding is in its record.</li><li><b>Source check.</b> On 26 November 2026 every statement taken from the 1963 paper was checked against its pages in two separate passes, apart from the reading that wrote the page, and the corrections were applied. Each later source was read once for this site. The site has not been peer reviewed.</li><li><b>Known gaps.</b> Not reached: Mullan and Penfield 1959, Penfield 1938, Halgren et al. 1978 and the 2013 letter of Picard et al. Read as abstracts only: Gloor et al. 1982, Bancaud et al. 1994, Bartolomei et al. 2004, Meletti et al. 2006 and Caruana et al. 2015. Of Fried et al. 1998 only the opening paragraph and the figure legend were read. The count of three music sites in Wang et al. 2024 is from the preprint. The 1963 paper says that 31 of the 46 voice responses were recognised by the patient, but the legend of its Fig. 9 marks 17 voice responses as familiar, and the map leaves the figure out.</li><li><b>Use.</b> Check a finding against its source before citing it.</li></ol></section>
+<section class="box codes" id="codes-experience"><h3>Method codes</h3><dl>
       <dt>STIM</dt><dd>Electrical stimulation through electrodes placed to study a patient’s epilepsy</dd>
       <dt>DBS</dt><dd>Deep brain stimulation through an implanted stimulator</dd>
       <dt>REC</dt><dd>Recording from implanted electrodes, with decoding</dd>
       <dt>REV</dt><dd>Review of published cases</dd>
       <dt>CRIT</dt><dd>Critique or reanalysis</dd>
       <dt>HIST</dt><dd>Penfield’s own earlier papers</dd>
-    </dl></div>
-</section>
-<section class="doc" id="body">
-  <div><h2>Methods and limitations: the body map</h2><ol>
+    </dl></section>
+</div>
+<h2 class="gh" id="body">The body map</h2>
+<div class="cols c-wide">
+<section class="box"><h3>Methods and limitations</h3><ol>
       <li><b>Scope.</b> The body map takes the labels of the sensory and motor figures in Penfield and Rasmussen (1950, Figs 17 and 22) and attaches later human evidence to each label. It does not reproduce the 1950 artwork. The labels are those of the two figures, not of the book’s sequence charts (Figs 7 and 18), which use different wording. Supplementary motor and second sensory maps are out of scope.</li>
       <li><b>Sequences.</b> Both sequences were read from a 1951 photographic reproduction of the two plates (Stuart et al. 1951). Every label that has a block line was matched against the list in Wright (1956). Wright groups the labels by body region, so his list confirms the labels and not their order along the strip. The motor order also matches Graziano (2016, fig. 2), Murphy et al. (2018, table 3) and the reproduction in Gordon et al. (2023, fig. 4a). The sensory order rests on the reproduction. The order Trunk, Neck, Head, Shoulder also matches the book’s sensory sequence chart (Fig. 7). Lettering follows the plates. The plates inside the 1950 book were not viewed. Label check code A means read from the reproduction and matched in Wright’s list. Code B means position confirmed, lettering read from the reproduction only.</li>
       <li><b>Length.</b> Every body label on the 1950 plates except Gen. has a block line along the cortex. The legend of Fig. 17 says the length of these lines shows comparative extent more accurately than the drawing. Wright (1956) measured every line in millimetres on the printed figures. His values sum to 103.2 mm for the sensory figure and 101.6 mm for the motor figure. With the block-line setting, segments are drawn edge to edge in proportion to his values. On the plates the lines are separated by short gaps, which are not drawn. Wright does not describe how he measured. The two figures are separate drawings and need not share a scale. The genital label and the three function brackets have no line. The Equal setting gives every label the same length.</li>
@@ -415,8 +488,8 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
       <li><b>Known gaps.</b> Read only as abstracts: Sun et al. 2021, Yousry et al. 1997, Ramachandran et al. 1992, Geyer et al. 1999, Grefkes et al. 2001, Disbrow et al. 2003, Eadie 2010, York and Steinberg 2011 and Pogliano 2012. Flesher et al. 2016 was read as an abstract and through the first author’s dissertation. The percentages that Roux et al. attribute to Penfield (25%, 20% and 13%) were not checked in Penfield’s books. Tactile thresholds from Mancini et al. 2014 were read from a bar chart and are approximate. Accounts of Penfield’s evidence for the genital field conflict and could not be settled from the passages of the 1950 book that were read.</li>
       <li><b>Colour and hatching.</b> Each body division has a colour and a hatching pattern. The eight colours were checked by computation: every pair stays distinguishable under simulated red-green colour-vision deficiency. The hatching carries the same grouping without colour. Individual labels are identified by their lettering, never by colour.</li>
       <li><b>Use.</b> Check a finding against its source before citing it.</li>
-    </ol></div>
-  <div id="codes-body"><h2>Method codes: the body map</h2><dl>
+    </ol></section>
+<section class="box codes" id="codes-body"><h3>Method codes</h3><dl>
       <dt>DES</dt> <dd>Direct electrical stimulation of the cortical surface in awake surgery</dd>
       <dt>SEEG</dt> <dd>Stimulation through depth electrodes</dd>
       <dt>fMRI</dt> <dd>Functional magnetic resonance imaging, with structural MRI where stated</dd>
@@ -427,8 +500,8 @@ body.figs .panel{scroll-margin-top:calc(var(--headh) + var(--toolh) + 2px)}
       <dt>ANAT</dt> <dd>Cytoarchitectonic or anatomical study</dd>
       <dt>CLIN</dt> <dd>Clinical pattern, from case series and reference texts</dd>
       <dt>HIST</dt> <dd>Historical record or reanalysis of the original data</dd>
-    </dl></div>
-</section>
+    </dl></section>
+</div>
 </main>
 
 <footer class="foot"><a class="totop" href="#">Back to top</a> <div class="ft"><p>An interactive reference and research companion to Velco Dar’s <a href="https://neuralthebook.com/" rel="noopener"><cite>NEURAL: How Brain-Computer Interfaces Will Redefine Commerce and Power</cite></a>.</p> <p>Published and maintained by <a href="https://www.dargentic.com" rel="noopener">Dargentic Intelligence</a>. <a href="https://github.com/penfieldsmap/site" rel="noopener">Open source</a>, not peer reviewed. © 2026 Dargentic Pty Ltd. <a href="/records/">Index of records</a>. Corrections: <a href="mailto:suggestions@penfieldsmap.com">suggestions@penfieldsmap.com</a></p></div></footer>
