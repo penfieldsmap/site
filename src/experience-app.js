@@ -271,7 +271,7 @@ function buildRefs(){
 function buildText(){
   if($('about-a')){$('about-a').innerHTML=ABOUT_A;$('about-b').innerHTML=ABOUT_B;}
   var ol=$('methlist');if(ol){ol.innerHTML='';METHODS.forEach(function(m){H('li',null,'<b>'+esc(m[0])+'.</b> '+esc(m[1]),ol);});}
-  var s=$('series'),h='<h3>The 1963 series</h3><dl class="series">';SERIES.forEach(function(r){h+='<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>';});s.innerHTML=h+'</dl>';
+  var s=$('series'),h='<h3>The 1963 series</h3><dl class="series">';SERIES.forEach(function(r){h+='<dt>'+esc(r[0])+'</dt> <dd>'+esc(r[1])+'</dd>';});s.innerHTML=h+'</dl>';
   $('cap2').textContent=CAP2;
 }
 

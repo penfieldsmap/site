@@ -161,7 +161,7 @@ ABOUT='''<p class="jump">On this page: <a href="#penfield">Wilder Penfield</a> <
     <p>The <a href="@EXP@">experience map</a> covers what his patients heard, saw, remembered and felt when the temporal lobe was stimulated, with later work on feeling from other parts of the brain.</p>
     <p>The <a href="@BODY@">body map</a> covers the strip of cortex for touch and movement, the figure often called the homunculus.</p>
     <p>How the maps were made and checked is under <a href="@METHODS@">Methods</a>. The sources are under <a href="@REFS@">References</a>. Every record also has a page of its own: <a href="@RECS@">index of records</a>.</p>
-    <p>The site is a research companion to <i>NEURAL</i>, a book on brain-computer interfaces forthcoming from Fast Company Press in 2027.</p>
+    <p>The site is a research companion to <i>NEURAL</i>, a book by Velco Dar on brain-computer interfaces forthcoming from Fast Company Press in 2027.</p>
   </div>
 </section>
 <section class="doc about" id="experience">
